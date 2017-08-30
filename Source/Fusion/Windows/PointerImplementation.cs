@@ -102,7 +102,7 @@ namespace Outracks.Fusion.Windows
 		public static Point<Points> ToPoint(MouseEventArgs args, IInputElement element, Space space)
 		{
 			var p = space == Space.Local ? args.GetPosition(element) : args.GetPosition(null);
-			return Point.Create<Points>(p.X, p.Y);
+			return p.ToFusion();
 		}
 	}
 }

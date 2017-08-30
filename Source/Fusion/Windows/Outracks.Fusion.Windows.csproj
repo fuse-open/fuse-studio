@@ -44,8 +44,20 @@
     <Reference Include="Ookii.Dialogs.Wpf">
       <HintPath>..\..\..\packages\Ookii.Dialogs.1.0\lib\net35\Ookii.Dialogs.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\OpenTK.3.0.0-pre\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX, Version=3.1.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SharpDX.3.1.1\lib\net45\SharpDX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D9, Version=3.1.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SharpDX.Direct3D9.3.1.1\lib\net45\SharpDX.Direct3D9.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics, Version=3.1.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SharpDX.Mathematics.3.1.1\lib\net45\SharpDX.Mathematics.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Outracks.Simulator.Common.Uno">
       <HintPath>..\..\..\Source\Simulator\Common\bin\Outracks.Simulator.Common.Uno.dll</HintPath>
@@ -84,6 +96,7 @@
     <Compile Include="Controls\LayoutTrackerImplementation.cs" />
     <Compile Include="Controls\LogViewImplementation.cs" />
     <Compile Include="Controls\ShapeControl.cs" />
+    <Compile Include="Controls\WindowFromControl.cs" />
     <Compile Include="CursorsImplementation.cs" />
     <Compile Include="ContextMenuImplementation.cs" />
     <Compile Include="DocumentAppHandler.cs" />
@@ -127,7 +140,6 @@
     <Compile Include="Transformation.cs" />
     <Compile Include="VerticalSynchronization.cs" />
     <Compile Include="WinApi.cs" />
-    <Compile Include="WindowFromControl.cs" />
     <Compile Include="WindowImplementation.cs" />
     <Compile Include="WindowPlacement.cs" />
     <Compile Include="WindowsTrayApplication.cs" />
@@ -170,6 +182,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

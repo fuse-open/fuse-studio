@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using OpenGL;
-using OpenTK.Graphics.OpenGL;
+using OpenTK.Graphics.ES20;
 using Uno;
-using GL = OpenTK.Graphics.OpenGL.GL;
+using GL = OpenTK.Graphics.ES20.GL;
 
 namespace Outracks.UnoHost.Windows
 {
@@ -20,11 +20,6 @@ namespace Outracks.UnoHost.Windows
 		readonly LinkedList<RenderbufferDisposable> _renderbuffers = new LinkedList<RenderbufferDisposable>();
 		readonly LinkedList<ShaderDisposable> _shaders = new LinkedList<ShaderDisposable>();
 		readonly LinkedList<ProgramDisposable> _programs = new LinkedList<ProgramDisposable>();
-
-		public OpenTKGL()
-		{
-			GL.Enable(EnableCap.VertexProgramPointSize);
-		}
 
 		public GLError GetError()
 		{
@@ -71,7 +66,7 @@ namespace Outracks.UnoHost.Windows
 		public void ClearDepth(float depth)
 		{
 			// Note: Must cast to double, else OpenTK will call glClearDepthf which is not available on ATI drivers
-			GL.ClearDepth((double)depth);
+			GL.ClearDepth(depth);
 		}
 
 		public void ColorMask(bool red, bool green, bool blue, bool alpha)
@@ -114,23 +109,26 @@ namespace Outracks.UnoHost.Windows
 
 		public void TexImage2D(GLTextureTarget target, int level, GLPixelFormat internalFormat, int width, int height, int border, GLPixelFormat format, GLPixelType type, IntPtr data)
 		{
-			GL.TexImage2D((TextureTarget)target, level,
-					(PixelInternalFormat)internalFormat, width, height, border,
+			GL.TexImage2D((TextureTarget2d)target, level,
+					(TextureComponentCount)internalFormat, width, height, border,
 					(PixelFormat)format, (PixelType)type,
 					data);
 		}
 
 		public void TexSubImage2D(GLTextureTarget target, int level, int xoffset, int yoffset, int width, int height, GLPixelFormat format, GLPixelType type, IntPtr data)
 		{
+
+#pragma warning disable CS0618 // Type or member is obsolete
 			GL.TexSubImage2D((TextureTarget)target, level,
 				xoffset, yoffset, width, height,
 				(PixelFormat)format, (PixelType)type,
 				data);
+#pragma warning restore CS0618 // Type or member is obsolete
 		}
 
 		public void GenerateMipmap(GLTextureTarget target)
 		{
-			GL.GenerateMipmap((GenerateMipmapTarget)target);
+			GL.GenerateMipmap((TextureTarget)target);
 		}
 
 		public void PixelStore(GLPixelStoreParameter pname, int param)
@@ -159,7 +157,7 @@ namespace Outracks.UnoHost.Windows
 
 		public void RenderbufferStorage(GLRenderbufferTarget target, GLRenderbufferStorage internalFormat, int width, int height)
 		{
-			GL.RenderbufferStorage((RenderbufferTarget)target, (RenderbufferStorage)internalFormat, width, height);
+			GL.RenderbufferStorage((RenderbufferTarget)target, (RenderbufferInternalFormat)internalFormat, width, height);
 		}
 
 		public GLFramebufferHandle CreateFramebuffer()
@@ -185,16 +183,12 @@ namespace Outracks.UnoHost.Windows
 
 		public void FramebufferTexture2D(GLFramebufferTarget target, GLFramebufferAttachment attachment, GLTextureTarget textarget, GLTextureHandle texture, int level)
 		{
-			GL.FramebufferTexture2D((FramebufferTarget)target,
-				(FramebufferAttachment)attachment,
-				(TextureTarget)textarget, (int) texture, level);
+			GL.FramebufferTexture2D((FramebufferTarget)target, (All)attachment, (TextureTarget2d)textarget, (int)texture, level);
 		}
 
 		public void FramebufferRenderbuffer(GLFramebufferTarget target, GLFramebufferAttachment attachment, GLRenderbufferTarget renderbuffertarget, GLRenderbufferHandle renderbuffer)
 		{
-			GL.FramebufferRenderbuffer((FramebufferTarget)target,
-				(FramebufferAttachment)attachment,
-				(RenderbufferTarget)renderbuffertarget, (int) renderbuffer);
+			GL.FramebufferRenderbuffer((FramebufferTarget)target, (All)attachment, (RenderbufferTarget)renderbuffertarget, (int)renderbuffer);
 		}
 
 		public void UseProgram(GLProgramHandle program)
@@ -395,7 +389,7 @@ namespace Outracks.UnoHost.Windows
 
 		public void DrawElements(GLPrimitiveType mode, int count, GLIndexType type, int offset)
 		{
-			GL.DrawElements((PrimitiveType)mode, count, (DrawElementsType)type, offset);
+			GL.DrawElements((BeginMode)mode, count, (DrawElementsType)type, offset);
 		}
 
 		public GLBufferHandle CreateBuffer()
@@ -494,7 +488,7 @@ namespace Outracks.UnoHost.Windows
 
 		public void PointSize(float size)
 		{
-			GL.PointSize(size);
+			//GL.PointSize(size);
 		}
 
 		public void PolygonOffset(float factor, float units)
@@ -521,7 +515,7 @@ namespace Outracks.UnoHost.Windows
 
 		public void ShaderSource(GLShaderHandle shader, string source)
 		{
-			GL.ShaderSource((int) shader, "#version 120\n" + source);
+			GL.ShaderSource((int)shader, source);
 		}
 
 		public void ReadPixels(int x, int y, int width, int height, GLPixelFormat format, GLPixelType type, byte[] buffer)
@@ -596,7 +590,13 @@ namespace Outracks.UnoHost.Windows
 
 		public string GetString(GLStringName name)
 		{
-			return GL.GetString((StringName)name);
+			var value = GL.GetString((StringName) name);
+			
+			// WORKAROUND FOR https://github.com/fusetools/uno/blob/932073241cd1f807d1c93a5cda6313cafde79928/src/runtime/Uno.Runtime.Core/Uno/ApplicationContext.cs#L652
+			if (name == GLStringName.Version && value.Contains("ANGLE"))
+				return "2.1";
+			
+			return value;
 		}
 
 		public GLRenderbufferHandle GetRenderbufferBinding()

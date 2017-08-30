@@ -115,7 +115,6 @@ namespace Outracks.Fusion.Windows
 							observer.OnNext(pattern.EventArgs))));
 		}
 
-
 		public static IObservable<Optional<FrameworkElement>> GetNativeControlWhileMounted(this IControl self)
 		{
 			return Fusion.Application.MainThread

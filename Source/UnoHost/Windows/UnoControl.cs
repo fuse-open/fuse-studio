@@ -1,17 +1,21 @@
 using System;
 using System.Diagnostics;
+using System.Reactive;
 using System.Reactive.Subjects;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenGL;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Platform;
+using Outracks.UnoHost.Windows.Protocol;
 using Uno;
 using Uno.Diagnostics;
 using Uno.Runtime.Implementation;
 using Uno.Runtime.Implementation.Internal;
 using ApplicationContext = Uno.ApplicationContext;
+using MouseEventArgs = Outracks.UnoHost.Windows.Protocol.MouseEventArgs;
 
 namespace Outracks.UnoHost.Windows
 {
@@ -46,7 +50,7 @@ namespace Outracks.UnoHost.Windows
 
 			// set up an OpenTK context
 			Toolkit.Init(new ToolkitOptions { Backend = PlatformBackend.PreferNative });
-			var windowInfo = Utilities.CreateWindowsWindowInfo(Handle);
+			var windowInfo = Utilities.CreateAngleWindowInfo(Utilities.CreateWindowsWindowInfo(Handle)); // .CreateWindowsWindowInfo(Handle)
 			_glContext = ContextFactory.CreateContext(windowInfo);
 			_glContext.SwapInterval = 0;
 
@@ -90,8 +94,7 @@ namespace Outracks.UnoHost.Windows
 					gl.GetString(GLStringName.Vendor),
 					gl.GetString(GLStringName.Renderer)));
 
-
-			// Hook up size / dpi changed
+			_form.Closed += (s, a) => Bootstrapper.OnAppTerminating(_unoWindow);
 
 			_form.DpiChanged += (s, a) =>
 			{
@@ -104,9 +107,6 @@ namespace Outracks.UnoHost.Windows
 				_unoWindow.ChangeSize(Size.ToPixelSize(), _form.Density);
 				PerformRepaint();
 			};
-
-			_form.Closed += (s, a) => Bootstrapper.OnAppTerminating(_unoWindow);
-
 
 			// Hook up mouse events
 
@@ -170,7 +170,22 @@ namespace Outracks.UnoHost.Windows
 
 			_unoWindow.ChangeSize(_form.Size.ToPixelSize(), _form.Density);
 		}
-	
+
+		public void OnMouseEvent(MouseEventArgs args)
+		{
+			switch (args.EventType)
+			{
+				case MouseEventType.MouseDown:
+					Bootstrapper.OnMouseDown(_unoWindow, (int)args.Position.X, (int)args.Position.Y, Uno.Platform.MouseButton.Left);
+					break;
+				case MouseEventType.MouseUp:
+					Bootstrapper.OnMouseUp(_unoWindow, (int)args.Position.X, (int)args.Position.Y, Uno.Platform.MouseButton.Left);
+					break;
+				case MouseEventType.MouseMove:
+					Bootstrapper.OnMouseMove(_unoWindow, (int) args.Position.X, (int) args.Position.Y);
+					break;
+			}
+		}
 
 		protected override CreateParams CreateParams
 		{
@@ -200,6 +215,55 @@ namespace Outracks.UnoHost.Windows
 		 * however the performance isn't as good as current approach. 
 		 */
 		bool _isInFuselibs = false; 
+
+		public void SetBackingSurface(TextureWithSize texture)
+		{
+			_unoWindow.ChangeSize(texture.Size, texture.Dpi);
+
+			var display = Egl.GetCurrentDisplay();
+			var emptyAttribs = new[]
+			{
+				Egl.EGL_RED_SIZE, 8,
+				Egl.EGL_GREEN_SIZE, 8,
+				Egl.EGL_BLUE_SIZE, 8,
+				Egl.EGL_ALPHA_SIZE, 8,
+				Egl.EGL_NONE
+			};
+
+			var configs = new IntPtr[1];
+			int numConfigs = 0;
+			var foundConfig = Egl.ChooseConfig(display, emptyAttribs, configs, 1, ref numConfigs);
+			if (!foundConfig)
+				return;
+
+			var pbufferAttribs = new[]
+			{
+				Egl.EGL_WIDTH, (int)texture.Size.Width,
+				Egl.EGL_HEIGHT, (int)texture.Size.Height,
+				Egl.EGL_TEXTURETARGET, Egl.EGL_TEXTURE_2D,
+				Egl.EGL_TEXTURE_FORMAT, Egl.EGL_TEXTURE_RGBA,
+				Egl.EGL_NONE
+			};
+
+			var surface = Egl.CreatePbufferFromClientBuffer(display, Egl.EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE, texture.D3DTextureHandle, configs[0], pbufferAttribs);
+
+			var tex = GL.CreateTexture();
+			GL.BindTexture(GLTextureTarget.Texture2D, tex);			
+
+			Egl.BindTexImage(display, surface, Egl.EGL_BACK_BUFFER);
+
+			GL.TexParameter(GLTextureTarget.Texture2D, GLTextureParameterName.MinFilter, GLTextureParameterValue.Nearest);
+			GL.TexParameter(GLTextureTarget.Texture2D, GLTextureParameterName.MagFilter, GLTextureParameterValue.Nearest);
+			GL.BindTexture(GLTextureTarget.Texture2D, GLTextureHandle.Zero);
+
+			var framebuf = GL.CreateFramebuffer();
+			GL.BindFramebuffer(GLFramebufferTarget.Framebuffer, framebuf);
+			GL.FramebufferTexture2D(GLFramebufferTarget.Framebuffer, GLFramebufferAttachment.ColorAttachment0, GLTextureTarget.Texture2D, tex, 0);			
+			
+			_unoGraphics.ChangeBackbuffer(framebuf);
+			PerformRepaint();
+		}
+
 		public void PerformRepaint()
 		{
 			if (_isInFuselibs)
@@ -219,7 +283,6 @@ namespace Outracks.UnoHost.Windows
 
 				GL.ClearDepth(1);
 				GL.Clear(GLClearBufferMask.ColorBufferBit | GLClearBufferMask.DepthBufferBit);
-
 				_log.TrySomethingBlocking(Bootstrapper.OnDraw);
 
 				_glContext.SwapBuffers();

@@ -9,17 +9,10 @@ namespace Outracks.UnoHost.Windows
 
 		public static GraphicsContext CreateContext(IWindowInfo window)
 		{
-			var color = new ColorFormat(8, 8, 8, 8);
-			var accum = ColorFormat.Empty;
-			var depth = 24;
-			var stencil = 8;
-			var samples = 1;
-
 			Exception innerException = null;
 			try
 			{
-				var mode = new GraphicsMode(color, depth, stencil, samples, accum);
-				var result = new GraphicsContext(mode, window, 2, 0, GraphicsContextFlags.Default);
+				var result = new GraphicsContext(new GraphicsMode(32, 24), window, 2, 0, GraphicsContextFlags.Angle);
 
 				result.MakeCurrent(window);
 				result.LoadAll();

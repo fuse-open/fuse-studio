@@ -2,12 +2,27 @@ using System;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Windows;
+using System.Windows.Interop;
 
 namespace Outracks.Fusion.Windows
 {
 	public static class WindowFromControl
 	{
-		public static IObservable<Optional<T>> GetWindow<T>(this FrameworkElement dummyElement) 
+		public static IObservable<Optional<IntPtr>> GetWindowHandle(this IObservable<System.Windows.Window> window)
+		{
+			return window.Select(currentWindow =>
+					Fusion.Application.MainThread.InvokeAsync(() =>
+					{
+						var hwndSource = (HwndSource)PresentationSource.FromVisual(currentWindow);
+						if (hwndSource == null)
+							return Optional.None();
+
+						return Optional.Some(hwndSource.Handle);
+					}))
+				.Switch();
+		}
+
+		public static IObservable<Optional<T>> GetWindow<T>(this FrameworkElement dummyElement)
 			where T : System.Windows.Window
 		{
 			// TODO: this might be expensive
