@@ -12,7 +12,7 @@ namespace Outracks.UnoHost.Windows
 			Exception innerException = null;
 			try
 			{
-				var result = new GraphicsContext(new GraphicsMode(32, 24), window, 2, 0, GraphicsContextFlags.Angle);
+				var result = new GraphicsContext(new GraphicsMode(32, 24), window, 2, 0, GraphicsContextFlags.AngleD3D9);
 
 				result.MakeCurrent(window);
 				result.LoadAll();

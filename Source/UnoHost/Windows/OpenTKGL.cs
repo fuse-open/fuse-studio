@@ -65,7 +65,6 @@ namespace Outracks.UnoHost.Windows
 
 		public void ClearDepth(float depth)
 		{
-			// Note: Must cast to double, else OpenTK will call glClearDepthf which is not available on ATI drivers
 			GL.ClearDepth(depth);
 		}
 
