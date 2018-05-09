@@ -218,9 +218,6 @@
     <Compile Include="Tests\TryCatch.cs" />
     <Compile Include="Tests\Using_.cs" />
     <Compile Include="Tests\Using_Static.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Core\Outracks.Common.Core.csproj">

@@ -113,9 +113,6 @@
     <Compile Include="AppDelegate.designer.cs">
       <DependentUpon>AppDelegate.cs</DependentUpon>
     </Compile>
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="ShellOSX.cs" />
     <Compile Include="ToolTipImplementation.cs" />
     <Compile Include="WindowImplementation.cs" />

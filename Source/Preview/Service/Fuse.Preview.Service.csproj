@@ -235,9 +235,6 @@
     <Compile Include="RunFailed.cs" />
     <Compile Include="SimulatorBuild.cs" />
     <Compile Include="SimulatorHost.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="SocketServer.cs" />
     <Compile Include="SourceToSourceReference.cs" />
     <Compile Include="Started.cs" />

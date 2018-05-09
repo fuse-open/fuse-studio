@@ -60,9 +60,6 @@
     <Compile Include="TextPosition.cs" />
     <Compile Include="TextRegion.cs" />
     <Compile Include="TextScanner.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Math\Outracks.Common.Math.csproj">

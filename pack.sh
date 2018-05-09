@@ -8,6 +8,8 @@ else
     VERSION=$(cat VERSION.txt)"-local"
 fi
 
+Tools/update-assembly-info.sh $VERSION
+
 DST="`pwd -P`/Release"
 rm -rf "$DST"
 
@@ -194,3 +196,6 @@ if [ "$DO_ZIP" = "1" ]; then
     echo -e "\nRESULT: $ZIP"
 
 fi
+
+rm -f Source/GlobalAssemblyInfo.Override.cs
+

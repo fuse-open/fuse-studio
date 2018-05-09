@@ -118,9 +118,6 @@
     <Compile Include="UXNinja\ElementContext.cs" />
     <Compile Include="UXNinja\NRefactoryExtensions.cs" />
     <Compile Include="UXNinja\SourceEntityFactoryUX.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\3rdparty\NRefactory\ICSharpCode.NRefactory.Xml\ICSharpCode.NRefactory.Xml.csproj">
