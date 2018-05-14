@@ -25,7 +25,7 @@
 	</UsingTask>
 
 	<PropertyGroup>
-		<SourcePath>$(MSBuildProjectDirectory)\Source\</SourcePath>
+		<SourcePath>$(MSBuildProjectDirectory)\..\..\Release\</SourcePath>
 		<InstallerProjectPath>$(MSBuildProjectDirectory)\Fuse.Installer.Product\</InstallerProjectPath>
 		<ReleaseConfiguration Condition="'$(ReleaseConfiguration)' == ''">Release</ReleaseConfiguration>
 	</PropertyGroup>
@@ -50,11 +50,11 @@
 	</Target>
 
 	<Target Name="SeparatePackages">
-		<Exec Command="robocopy $(SourcePath)/Fuse/Packages $(SourcePath)/Packages /move /e /log:movePackages.log" IgnoreExitCode="true" />
+		<!--<Exec Command="robocopy $(SourcePath)/Fuse/Packages $(SourcePath)/Packages /move /e /log:movePackages.log" IgnoreExitCode="true" />-->
 	</Target>
 
 	<Target Name="HarvestFuse">
-		<Exec Command="$(WixInstallPath)\heat.exe dir &quot;$(SourcePath)Fuse&quot; -t &quot;$(InstallerProjectPath)FuseDataFilter.xslt&quot; -var var.FUSE_SOURCE_PATH -dr INSTALLFOLDER -cg FuseData -ag -scom -sreg -nologo -ke -sfrad -srd -o &quot;$(InstallerProjectPath)FuseData.wxs&quot;" />
+		<Exec Command="$(WixInstallPath)\heat.exe dir &quot;$(SourcePath).&quot; -t &quot;$(InstallerProjectPath)FuseDataFilter.xslt&quot; -var var.FUSE_SOURCE_PATH -dr INSTALLFOLDER -cg FuseData -ag -scom -sreg -nologo -ke -sfrad -srd -o &quot;$(InstallerProjectPath)FuseData.wxs&quot;" />
 	</Target>
 
 	<Target Name="HarvestPackages">

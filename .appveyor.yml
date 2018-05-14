@@ -1,15 +1,19 @@
-version: 1.0.{build}
+version: '{build}'
+image: Visual Studio 2017
 
+clone_depth: 1
+
+platform: Any CPU
 configuration: Release
 
-image: Visual Studio 2017
-platform: Any CPU
+before_build:
+  - if defined APPVEYOR_REPO_TAG_NAME set VERSION_TAG=%APPVEYOR_REPO_TAG_NAME:~1%
+  - if not defined APPVEYOR_REPO_TAG_NAME set VERSION_TAG=%APPVEYOR_REPO_BRANCH%
+  - bash update-assembly-info.sh
 
 build:
   project: Fuse-Win32.sln
   verbosity: normal
-
-clone_depth: 1
 
 test:
   assemblies:
@@ -23,3 +27,17 @@ test:
       - Source\Preview\Tests\bin\$(configuration)\Fuse.Preview.Tests.dll
       - Source\Simulator\Tests\bin\$(configuration)\Outracks.Simulator.Tests.dll
       - Source\UnoHost\Tests\bin\$(configuration)\Outracks.UnoHost.Common.Tests.dll
+
+after_build:
+  - bash build-windows-installer.sh 
+
+artifacts:
+  - path: Installer\Windows\BuildOutput\Release\FuseSetup.exe
+    name: Fuse-$(VERSION_TAG)-Win32
+
+deploy:
+  - provider: GitHub
+    auth_token:
+      secure: XSoc3Kto6ZdFfpL4d0Kxmiins6AttcF2oysozoZwmkz9SAGtpnCeCjxpKwxpsua/ # TODO: This is Lorents' personal token
+    on:
+      appveyor_repo_tag: true 

@@ -12,15 +12,10 @@
     <Name>Fuse.Installer.Product</Name>
 	<SuppressIces>ICE38;ICE64;ICE91</SuppressIces>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  <PropertyGroup>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;FUSE_SOURCE_PATH=$(SolutionDir)\Source\Fuse;PACKAGES_SOURCE_PATH=$(SolutionDir)\Source\Packages;</DefineConstants> 
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;FUSE_SOURCE_PATH=$(SolutionDir)\Source\Fuse;PACKAGES_SOURCE_PATH=$(SolutionDir)\Source\Packages;</DefineConstants>
+    <DefineConstants>Debug;FUSE_SOURCE_PATH=$(SolutionDir)\..\..\Release;PACKAGES_SOURCE_PATH=$(SolutionDir)\..\..\Release\Packages;</DefineConstants> 
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FuseData.wxs" />
