@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.AutoTextBoxSymbol" Width="149" Height="28" AutoTextBox="Auto text box">
+	<string ux:Property="AutoTextBox" />
+	<Text Color="0, 0, 0, 1" FontSize="20" Value="{Property AutoTextBox}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="99.32886%" Height="100%" Alignment="BottomLeft" Offset="0.5033557%, 0" Margin="0">
+		<!-- AutoTextBox -->
+	</Text>
+</Panel>

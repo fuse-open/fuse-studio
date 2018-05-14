@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.Star" Width="158" Height="135">
+	<Panel Width="99.92113%" Height="99.83093%" Alignment="TopLeft" Offset="0.03943617%, 0%" Margin="0">
+		<!-- Star -->
+		<Path Data="M 0.5 0.75 L 0.2061073738538 0.9045084971875 L 0.2622358709262 0.5772542485937 L 0.02447174185242 0.3454915028125 L 0.3530536869269 0.2977457514063 L 0.5 0 L 0.6469463130731 0.2977457514063 L 0.9755282581476 0.3454915028125 L 0.7377641290738 0.5772542485937 L 0.7938926261462 0.9045084971875 L 0.5 0.75" StretchMode="Fill" Width="105.1462%" Height="110.5573%" Alignment="TopLeft" Offset="-2.573111%, 0%" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9707752, 0.9072384, 0.1094621, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

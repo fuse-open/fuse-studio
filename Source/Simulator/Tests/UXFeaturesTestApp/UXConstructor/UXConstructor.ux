@@ -1,0 +1,9 @@
+<App>
+	<UXValueTestClass ux:AutoBind="false" String1="Foobar" Int1="1231" Float1="0.0"/>
+	<UXValueTestClass ux:AutoBind="false" String1="Foo" Int1="-1203231" Float1="-223004.23"/>
+	<UXValueTestClass ux:AutoBind="false" String1="Bar" Int1="1231" Float1="0.23"/>
+	<UXValueTestClass ux:AutoBind="false" String1="Fooobetibaaaarbar" Int1="1" Float1="204423.231123"/>
+
+
+	<UXValueTestClass2 ux:AutoBind="false" ux:Value="1231"/>
+</App>

@@ -1,0 +1,11 @@
+<App>
+	<JavaScript>
+		var FileSystem = require("FuseJS/FileSystem");
+		var fileName = "output1";
+		var path = FileSystem.dataDirectory + "/" + fileName;
+		FileSystem.writeTextToFile(path, "")
+			.then(function() {
+				console.log("Wrote to " + path);
+			})
+	</JavaScript>
+</App>

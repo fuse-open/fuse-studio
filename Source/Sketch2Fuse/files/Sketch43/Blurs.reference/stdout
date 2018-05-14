@@ -1,0 +1,13 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>Blurs.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+WARNING: Skipping Gaussian blur on Rectangle. Not supported in UX
+INFO: Wrote 'Sketch.GaussianBlurRectangle' to '<path removed>Sketch.GaussianBlurRectangle.ux'
+WARNING: Skipping Motion blur on Rectangle 2. Not supported in UX
+INFO: Wrote 'Sketch.MotionBlurRectangle' to '<path removed>Sketch.MotionBlurRectangle.ux'
+WARNING: Skipping Zoom blur on Rectangle 2. Not supported in UX
+INFO: Wrote 'Sketch.ZoomBlurRectangle' to '<path removed>Sketch.ZoomBlurRectangle.ux'
+WARNING: Skipping Background blur on BackgrBlurOval. Not supported in UX
+INFO: Wrote 'Sketch.BackgroundBlurOval' to '<path removed>Sketch.BackgroundBlurOval.ux'
+INFO: Wrote 'Sketch.NoBlurRectangle' to '<path removed>Sketch.NoBlurRectangle.ux'
+INFO: Wrote 'Sketch.DisabledBlurRectangle' to '<path removed>Sketch.DisabledBlurRectangle.ux'
+

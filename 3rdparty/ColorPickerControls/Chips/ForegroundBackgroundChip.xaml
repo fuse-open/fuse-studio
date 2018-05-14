@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="ColorPickerControls.Chips.ForegroundBackgroundChip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  Width="auto" Height="auto"
+            xmlns:my="clr-namespace:ColorPickerControls.Chips"  >
+    <UserControl.Resources>
+        <DrawingBrush x:Key="SwitchBrush" Viewbox="0,0,11.381,12.011" ViewboxUnits="Absolute"  Stretch="Uniform">
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="#FF231F20" Geometry="M3.45,5.3119929 L-3.0517605E-06,2.6559988 3.45,4.6386617E-06 z"/>
+                    <DrawingGroup>
+                        <DrawingGroup.Transform>
+                            <MatrixTransform Matrix="1,0,0,1,6.069,8.561"/>
+                        </DrawingGroup.Transform>
+                        <GeometryDrawing Brush="#FF231F20" Geometry="M5.3120054,0 L2.6560036,3.4499878 1.8798841E-06,0 z"/>
+                    </DrawingGroup>
+                    <DrawingGroup>
+                        <DrawingGroup.Transform>
+                            <MatrixTransform Matrix="1,0,0,1,2.009,2.1"/>
+                        </DrawingGroup.Transform>
+                        <GeometryDrawing Geometry="M6.5110028,6.5119882 C6.5110028,3.1890015 3.8230035,0.50001216 0.50000435,0.50001216">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="#FF231F20" DashCap="Flat" EndLineCap="Flat" LineJoin="Miter" MiterLimit="10" StartLineCap="Flat" Thickness="1"/>
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+
+    </UserControl.Resources>
+    <Grid>
+        <my:ColorChip HorizontalAlignment="Left" Margin="16,36,0,0" x:Name="backChip" VerticalAlignment="Top" Height="30" Width="30" Color="White" />
+        <my:ColorChip HorizontalAlignment="Left" Margin="0,21,0,0" x:Name="foreChip" VerticalAlignment="Top" Height="30" Width="30" Color="Black"  />
+        <Rectangle Height="11" HorizontalAlignment="Left" Margin="5,4,0,0" Name="rBackgroundDefault" Stroke="Black" VerticalAlignment="Top" Width="11" MouseDown="rBackgroundDefault_MouseDown" Fill="White" />
+        <Rectangle Height="11" HorizontalAlignment="Left" Name="rForegroundDefault" Stroke="Black" VerticalAlignment="Top" Width="11" Fill="Black" MouseDown="rForegroundDefault_MouseDown" />
+        <Rectangle Height="15" HorizontalAlignment="Left" Margin="30,0,0,0" Name="rSwitch" Stroke="{x:Null}" VerticalAlignment="Top" 
+                   Width="16" Fill="{StaticResource SwitchBrush}" MouseDown="rSwitch_MouseDown" />
+    </Grid>
+</UserControl>

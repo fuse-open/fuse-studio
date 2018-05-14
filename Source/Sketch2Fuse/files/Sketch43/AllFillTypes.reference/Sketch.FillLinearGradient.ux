@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.FillLinearGradient" Width="251" Height="136">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<LinearGradient StartPoint="0.5, 0" EndPoint="0.5, 1">
+				<GradientStop Color="1, 0.04598721, 0.04598721, 1" Offset="0" />
+				<GradientStop Color="0.847, 0.847, 0.847, 1" Offset="1" />
+			</LinearGradient>
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+</Panel>

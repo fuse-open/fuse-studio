@@ -1,0 +1,7 @@
+<Panel ux:Class="Sketch.RichTextSymbol" Width="173" Height="35" RichText="Title
+With some more text underneath">
+	<string ux:Property="RichText" />
+	<Text Color="0.739875, 0.06114692, 0.8790008, 1" FontSize="18" Value="{Property RichText}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="101.7341%" Height="100%" Alignment="BottomLeft" Offset="-0.867052%, 0" Margin="0">
+		<!-- RichText -->
+	</Text>
+</Panel>

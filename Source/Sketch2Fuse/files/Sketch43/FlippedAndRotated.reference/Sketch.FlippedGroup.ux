@@ -1,0 +1,36 @@
+<Panel ux:Class="Sketch.FlippedGroup" Width="136" Height="144">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group 2 -->
+		<Panel Width="68.33353%" Height="68.36752%" Alignment="TopLeft" Offset="15.62787%, 12.9503%" Margin="0">
+			<!-- Path 2 -->
+			<Path Data="M 0 0.4099908741023 L 0.4460510276996 0 L 0.5489891135303 0.4739118358926 L 1 0.4099908741023 L 0.8870160985247 0.8577947069793 L 0.3051994451683 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="2" Alignment="Center">
+					<SolidColor Color="0.2886557, 0.5645519, 0.8862387, 1" />
+				</Stroke>
+			</Path>
+			<Rotation Degrees="45" />
+		</Panel>
+		<Panel Width="55.88235%" Height="49.30556%" Alignment="TopLeft" Offset="19.85294%, 50.69444%" Margin="0">
+			<!-- Triangle 2 -->
+			<Path Data="M 0.5 0 L 1 1 L 0 1 L 0.5 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="2" Alignment="Center">
+					<SolidColor Color="0.961711, 0.6503673, 0.1385423, 1" />
+				</Stroke>
+			</Path>
+			<Rotation DegreesX="-180" />
+		</Panel>
+		<Panel Width="68.33353%" Height="68.36752%" Alignment="TopLeft" Offset="15.62787%, 12.9503%" Margin="0">
+			<!-- Path 2 -->
+			<Path Data="M 0 0.4099908741023 L 0.4460510276996 0 L 0.5489891135303 0.4739118358926 L 1 0.4099908741023 L 0.8870160985247 0.8577947069793 L 0.3051994451683 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="2" Alignment="Center">
+					<SolidColor Color="0.8162038, 0.007513228, 0.106696, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Rotation DegreesX="-180" />
+		<Rotation DegreesY="-180" />
+	</Panel>
+</Panel>

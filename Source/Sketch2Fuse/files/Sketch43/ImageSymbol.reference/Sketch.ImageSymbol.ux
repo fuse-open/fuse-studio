@@ -1,0 +1,5 @@
+<Panel ux:Class="Sketch.ImageSymbol" Width="128" Height="128">
+	<Image File="images/13992fa7f2f88277da1c09fabe8ca9f43e23684f.png" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- grim-icon -->
+	</Image>
+</Panel>

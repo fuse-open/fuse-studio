@@ -1,0 +1,13 @@
+<Panel ux:Class="Sketch.RotatedRectangle" Width="142" Height="142">
+	<Panel Width="70.42254%" Height="70.42254%" Alignment="TopLeft" Offset="14.78873%, 14.78873%" Margin="0">
+		<!-- Rectangle -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.847, 0.847, 0.847, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="45" />
+	</Panel>
+</Panel>

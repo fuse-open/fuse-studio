@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.PathWithOneRoundedCorner" Width="151" Height="125">
+	<Panel Width="99.5825%" Height="99.67525%" Alignment="TopLeft" Offset="0.1810844%, 0.2091309%" Margin="0">
+		<!-- PathWithOneRoundedCorner -->
+		<Path Data="M 0.307341747329 0.2146683394167 L 0 0.4871469797668 L 0.307341747329 0.5662789655272 L 0.1536708736645 0.9312141138042 L 0.4591811956545 1 L 0.9307797148846 0.8936232853863 L 0.5408549724783 0.8009473147414 L 0.8332595627864 0.4871469797668 C 1.090195981989 0.3005409658025 1.050190378837 0.1552252946458 0.7132427533316 0.0511999662968 C 0.3762951278261 -0.05282536205225 0.2409947924919 0.001664095654393 0.307341747329 0.2146683394167" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="0%, 5.702862E-15%" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.739875, 0.06114692, 0.8790008, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

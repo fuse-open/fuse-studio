@@ -1,0 +1,35 @@
+<Panel ux:Class="Sketch.Rectangles" Width="306" Height="212">
+	<Panel Width="90.52287%" Height="79.71698%" Alignment="TopLeft" Offset="9.477124%, 20.28302%" Margin="0" Opacity="0.5">
+		<!-- Group_50 -->
+		<Panel Width="74.00722%" Height="89.94083%" Alignment="TopLeft" Offset="25.99278%, 10.05917%" Margin="0" Opacity="0.5">
+			<!-- Green_50 -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.2557843, 0.4596164, 0.01991642, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+		<Panel Width="53.4296%" Height="83.43195%" Alignment="TopLeft" Margin="0">
+			<!-- Blue_100 -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.2886557, 0.5645519, 0.8862387, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+	</Panel>
+	<Panel Width="73.85621%" Height="68.39622%" Alignment="TopLeft" Margin="0">
+		<!-- Red_100 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="1, 0, 0, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+</Panel>

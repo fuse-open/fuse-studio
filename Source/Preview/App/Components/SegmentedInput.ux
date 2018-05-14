@@ -1,0 +1,95 @@
+<StackPanel ux:Class="SegmentedInput" HitTestMode="LocalBounds" ItemSpacing="10">
+    <string ux:Property="Label" />
+    <string ux:Property="Code" />
+
+    <JavaScript>
+        var Observable = require("FuseJS/Observable");
+
+        var editMode = Observable(false);
+        function enterEditMode() {
+            editMode.value = true;
+        };
+        function exitEditMode() {
+            editMode.value = false;
+        };
+
+        var codeLength = 5;
+        var code = this.Code;
+        var splitCode = code.map(function(item) {
+            var entered = item.split("");
+            while (entered.length < codeLength) {
+                entered.push("");
+            }
+            return entered;
+        }).expand();
+
+        var symbols = splitCode.map(function(item, index) {
+            var obj = {symbol: item.toUpperCase(), selected: false};
+            if (index == code.value.length) {
+                obj.selected = true;
+            }
+            return obj;
+        });
+
+        module.exports = {
+            code: code,
+            codeLength: codeLength,
+            symbols: symbols,
+            editMode: editMode,
+            enterEditMode: enterEditMode,
+            exitEditMode: exitEditMode
+        };
+    </JavaScript>
+
+    <Rectangle ux:Class="SymbolBox">
+        <string ux:Property="Symbol" />
+        <WhileTrue Value="{editMode}">
+            <Change backgroundRect.Margin="8,0" Delay="0.2" DelayBack="0" />
+            <Change backgroundRect.CornerRadius="1" Delay="0.2" DelayBack="0" />
+            <Change backgroundRect.Opacity="1" Delay="0.2" DelayBack="0" />
+            <Change label.Opacity="1" Delay="0.2" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+        </WhileTrue>
+
+        <WhileTrue Value="{selected} && {editMode}">
+            <Change backgroundRect.Color="Highlight" Delay="0.2" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+        </WhileTrue>
+
+        <Text ux:Name="label" Alignment="Center" Value="{ReadProperty Symbol}" FontSize="32" Color="Highlight" Opacity="0" />
+        <Rectangle ux:Name="backgroundRect" Color="#979797" Height="1" Alignment="Bottom" Opacity="0">
+            <LayoutAnimation>
+                <Move X="1" Y="1" RelativeTo="PositionChange" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+                <Resize X="1" Y="1" RelativeTo="SizeChange" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+            </LayoutAnimation>
+        </Rectangle>
+    </Rectangle>
+
+    <Clicked>
+        <GiveFocus Target="codeInput" />
+    </Clicked>
+
+    <TextInput ux:Name="codeInput" AutoCorrectHint="Disabled" Value="{code}" MaxLength="{codeLength}"
+        Layer="Background" Visibility="Hidden" HitTestMode="None"
+        Focus.Gained="{enterEditMode}" Focus.Lost="{exitEditMode}"/>
+
+    <Panel Height="24">
+        <Text Value="{ReadProperty Label}" FontSize="20" Color="HintGrey" Alignment="TopLeft" TransformOrigin="TopLeft" ux:Name="descriptor">
+            <Translation ux:Name="labelTrans" Y="2.2" RelativeTo="ParentSize" />
+            <Translation ux:Name="labelTransX" X="0.05" RelativeTo="ParentSize" />
+            <WhileTrue Value="{editMode}">
+                <Change labelTrans.Y="0" Delay="0.2" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+                <Change labelTransX.X="0" Delay="0.2" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+                <Change descriptor.Color="FocusedText" Delay="0.2" Duration="0.42" Easing="ExponentialOut" EasingBack="ExponentialIn" />
+                <Change boxStroke.Color="#97979700" Delay="0.2" Duration="0.2" DurationBack="0.2"  />
+            </WhileTrue>
+        </Text>
+    </Panel>
+
+    <Rectangle  Height="60" Padding="10,0" CornerRadius="4">
+        <Stroke Width="1" Color="HintGrey" ux:Name="boxStroke"/>
+        <Grid ColumnCount="{codeLength}" Height="40">
+            <Each Items="{symbols}">
+                <SymbolBox Symbol="{symbol}" />
+            </Each>
+        </Grid>
+    </Rectangle>
+</StackPanel>

@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.NestedSymbol" Width="240" Height="206">
+	<Sketch.MySymbol Width="68.75%" Height="79.12621%" Alignment="TopLeft" Offset="17.91667%, 12.13592%" Margin="0">
+		<!-- MySymbol -->
+	</Sketch.MySymbol>
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle -->
+		<Rectangle CornerRadius="50" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="1, 0.9599364, 0.4568931, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+</Panel>

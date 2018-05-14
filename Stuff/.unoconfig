@@ -1,0 +1,13 @@
+require bin/.unoconfig
+Packages.InstallDirectory: lib
+Packages.SourcePaths += [
+	../Source
+	../Source/Simulator
+	../Source/UnoHost
+	../Source/Preview
+]
+Packages.LockFiles += [
+    uno.packages
+    fuselibs.packages
+    premiumlibs.packages
+]

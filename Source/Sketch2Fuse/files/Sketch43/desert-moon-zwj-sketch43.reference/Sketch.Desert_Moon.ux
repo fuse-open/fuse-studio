@@ -1,0 +1,224 @@
+<Panel ux:Class="Sketch.Desert_Moon" Width="191" Height="500">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Desert Moon -->
+		<Panel Width="92.1466%" Height="35.2%" Alignment="TopLeft" Offset="3.664922%, 1.4%" Margin="0">
+			<!-- Moon -->
+			<Panel Width="27.84091%" Height="27.84091%" Alignment="TopLeft" Offset="36.36364%, 36.36364%" Margin="0">
+				<!-- 4 -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<Shadow Angle="180" Distance="0" Color="0.282353, 0.7843137, 0.8392157, 1" Size="20" Mode="PerPixel" />
+					<!-- Inner shadow not supported in UX -->
+					<SolidColor Color="0.8156863, 0.9921569, 1, 1" />
+				</Path>
+			</Panel>
+		</Panel>
+		<Panel Width="82.72251%" Height="30.6%" Alignment="TopLeft" Offset="7.329843%, 5.8%" Margin="0">
+			<!-- Stars Large -->
+			<Panel Width="1.898734%" Height="1.960784%" Alignment="TopLeft" Offset="0%, 71.89542%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="2.531646%" Height="2.614379%" Alignment="TopLeft" Offset="97.46835%, 63.39869%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.898734%" Height="1.960784%" Alignment="TopLeft" Offset="78.48101%, 98.03922%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="2.531646%" Height="2.614379%" Alignment="TopLeft" Offset="20.25316%, 88.23529%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="2.531646%" Height="2.614379%" Alignment="TopLeft" Offset="34.81013%, 83.66013%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="2.531646%" Height="2.614379%" Alignment="TopLeft" Offset="17.72152%, 13.0719%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="2.531646%" Height="2.614379%" Alignment="TopLeft" Offset="63.29114%, 0%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+		</Panel>
+		<Panel Width="90.57591%" Height="34.4%" Alignment="TopLeft" Offset="2.879581%, 4.7%" Margin="0" Opacity="0.3">
+			<!-- Stars Small -->
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="0.5780347%, 69.76744%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="98.84393%, 38.37209%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="0%, -5.684342E-12%" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="80.34682%, 22.67442%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="74.56647%, 10.46512%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="59.53757%, 19.76744%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="68.78613%, 33.72093%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="71.09827%, 73.25581%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="90.17341%, 85.46512%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="56.6474%, 98.83721%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="19.07514%, 84.30232%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="45.66474%, 74.4186%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="-1.421085E-12%, 0%" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="11.56069%, 45.93023%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="22.54335%, 21.51163%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Panel Width="1.156069%" Height="1.162791%" Alignment="TopLeft" Offset="41.6185%, 0%" Margin="0">
+				<!-- star -->
+				<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="1" />
+				</Path>
+			</Panel>
+			<Rotation Degrees="-270" />
+		</Panel>
+		<Panel Width="100%" Height="59.8%" Alignment="TopLeft" Offset="0%, 40.2%" Margin="0">
+			<!-- Desert -->
+			<Panel Width="32.98429%" Height="14.71572%" Alignment="TopLeft" Offset="-16.23037%, 57.52509%" Margin="0">
+				<!-- Shadow Mask Bottom -->
+				<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<LinearGradient StartPoint="0.5, 0" EndPoint="0.5, 1">
+						<GradientStop Color="0.2117647, 0.5568628, 0.6431373, 1" Offset="0" />
+						<GradientStop Color="0.08235294, 0.3921569, 0.4941176, 1" Offset="1" />
+					</LinearGradient>
+				</Rectangle>
+			</Panel>
+			<Panel Width="20.94241%" Height="12.70903%" Alignment="TopLeft" Offset="86.38744%, 19.73244%" Margin="0">
+				<!-- Shadow Mask Top -->
+				<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<LinearGradient StartPoint="0.5, 0" EndPoint="0.5, 1">
+						<GradientStop Color="0.2117647, 0.5568628, 0.6431373, 1" Offset="0" />
+						<GradientStop Color="0.08235294, 0.3921569, 0.4941176, 1" Offset="1" />
+					</LinearGradient>
+				</Rectangle>
+			</Panel>
+			<Panel Width="47.64398%" Height="12.70903%" Alignment="TopLeft" Offset="62.30367%, 12.70903%" Margin="0">
+				<!-- Shadow Mask Top -->
+				<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<LinearGradient StartPoint="0.5, 0" EndPoint="0.5, 1">
+						<GradientStop Color="0.2117647, 0.5568628, 0.6431373, 1" Offset="0" />
+						<GradientStop Color="0.08235294, 0.3921569, 0.4941176, 1" Offset="1" />
+					</LinearGradient>
+				</Rectangle>
+			</Panel>
+			<Panel Width="20.74214%" Height="9.374535%" Alignment="TopLeft" Offset="80.89111%, 27.82638%" Margin="0" Opacity="0.8270172">
+				<!-- Sand Dune Detail -->
+				<Path Data="M 0 0.1917724489961 C 0.3049075945899 0.4102837902731 0.8860853196085 1.069486207115 0.9591877509813 0.9940153413375 C 1 0.9518808225544 1 0.9207999102795 1 0.1917724492867 C 1 -0.2397155614388 0.6791642855389 0.1917724489961 0 0.1917724489961" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="7.174032E-14%, 0%" Margin="0">
+					<!-- Path -->
+					<LinearGradient StartPoint="0.3240517, 1.155005" EndPoint="0.1891075, -0.4699041">
+						<GradientStop Color="0.09019608, 0.4, 0.4980392, 1" Offset="0" />
+						<GradientStop Color="0.03137255, 0.2862745, 0.3647059, 1" Offset="1" />
+					</LinearGradient>
+				</Path>
+			</Panel>
+		</Panel>
+		<Panel Width="99.47644%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- bg -->
+			<Rectangle CornerRadius="100" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<LinearGradient StartPoint="0.5, 0" EndPoint="0.5, 0.4295463">
+					<GradientStop Color="0.02745098, 0.1411765, 0.3215686, 1" Offset="0" />
+					<GradientStop Color="0.2352941, 0.7137255, 0.7490196, 1" Offset="1" />
+				</LinearGradient>
+			</Rectangle>
+		</Panel>
+	</Panel>
+</Panel>

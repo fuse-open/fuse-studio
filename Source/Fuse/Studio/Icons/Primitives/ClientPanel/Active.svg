@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ClientPanel/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="1" width="10" height="12"></rect>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(6.000000, 1.000000)">
+                <path d="M9.46999979,12.7780435 C9.46999979,13.7297309 8.69418647,14.5 7.7392479,14.5 L2.23075189,14.5 C1.27581332,14.5 0.5,13.7297309 0.5,12.7780435 L0.5,1.22195652 C0.5,0.270269095 1.27581332,-0.5 2.23075189,-0.5 L7.7392479,-0.5 C8.69418647,-0.5 9.46999979,0.270269095 9.46999979,1.22195652 L9.46999979,12.7780435 Z" stroke="#C7C7C7"></path>
+                <g>
+                    <use fill-opacity="0.249320652" fill="#6DC0D2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#6DC0D2" stroke-width="1" x="0.5" y="1.5" width="9" height="11"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

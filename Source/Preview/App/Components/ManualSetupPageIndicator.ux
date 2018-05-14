@@ -1,0 +1,15 @@
+<Grid Columns="8,32,8" Rows="16" ux:Class="ManualSetupPageIndicator" Alignment="BottomCenter" Margin="0,32" Progress="0">
+	<float ux:Property="Progress"/>
+
+	<Circle Height="100%" Color="Highlight"/>
+
+	<Rectangle LayoutRole="Inert" Alignment="Left" Height="1" Width="{Property Progress} * 100%" Color="Highlight"/>
+	<Rectangle Alignment="Left" Height="1" Width="100%" Color="LightGrey"/>
+
+	<Circle ux:Name="lastCircle" Height="100%" StrokeColor="LightGrey" StrokeWidth="1"/>
+
+	<WhileTrue Value="{Property Progress} > 0.9">
+		<Change lastCircle.StrokeColor="0" Duration="0.2"/>
+		<Change lastCircle.Color="Highlight" Duration="0.2"/>
+	</WhileTrue>
+</Grid>

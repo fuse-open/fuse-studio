@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.NonAsciiSymbol" Width="199" Height="21" NonAscii="ÆØÅ ◊∑ÄÖ∏ŒˆÜ˜‡˘∫É°∆">
+	<string ux:Property="NonAscii" />
+	<Text Color="0, 0, 0, 1" FontSize="18" Value="{Property NonAscii}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="99.49749%" Height="100%" Alignment="BottomLeft" Offset="0.2512563%, 0" Margin="0">
+		<!-- NonAscii -->
+	</Text>
+</Panel>

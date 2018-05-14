@@ -1,0 +1,32 @@
+<Panel ux:Class="Sketch.FlippedVerticallyPolygon" Width="79" Height="99">
+	<Panel Width="99.34294%" Height="99.5873%" Alignment="TopLeft" Offset="0.627997%, 0%" Margin="0">
+		<!-- Polygon -->
+		<Path Data="M 0.6180339887499 0 L 1 1 L 0.2360679774998 1 L 0 0.3819660112501 L 0.6180339887499 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="2" Alignment="Center">
+				<SolidColor Color="0.8162038, 0.007513228, 0.106696, 1" />
+			</Stroke>
+		</Path>
+		<Rotation DegreesX="-180" />
+		<Rotation DegreesY="-180" />
+	</Panel>
+	<Panel Width="99.34294%" Height="99.5873%" Alignment="TopLeft" Offset="0.627997%, 0%" Margin="0">
+		<!-- Polygon -->
+		<Path Data="M 0.6180339887499 0 L 1 1 L 0.2360679774998 1 L 0 0.3819660112501 L 0.6180339887499 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="2" Alignment="Center">
+				<SolidColor Color="0.961711, 0.6503673, 0.1385423, 1" />
+			</Stroke>
+		</Path>
+		<Rotation DegreesY="-180" />
+	</Panel>
+	<Panel Width="99.34294%" Height="99.5873%" Alignment="TopLeft" Offset="0.627997%, 0%" Margin="0">
+		<!-- Polygon -->
+		<Path Data="M 0.6180339887499 0 L 1 1 L 0.2360679774998 1 L 0 0.3819660112501 L 0.6180339887499 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="2" Alignment="Center">
+				<SolidColor Color="1, 0.9262327, 0, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

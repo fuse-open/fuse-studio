@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateManifest Name="UX File" Priority="100">
+	<Description>A simple .ux file.</Description>
+	<FileExt>.ux</FileExt>
+	<Alias>ux</Alias>
+</TemplateManifest>

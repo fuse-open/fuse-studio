@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="ColorPicker.ColorModels.Lab.LabDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              Width="94" Height="90">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Width" Value="40" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="{x:Type RadioButton}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Height" Value="16"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="44" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="28" />
+        </Grid.RowDefinitions>
+        <!--Row 1-->
+        <RadioButton Name="rL"  IsChecked="False" Checked="rL_Checked">L:</RadioButton>
+        <TextBox Grid.Column="1"  Height="23" HorizontalAlignment="Left"  Name="txtL" PreviewTextInput="txtR_PreviewTextInput" TextChanged="TextChanged" />
+        <TextBlock  Grid.Row="0" Grid.Column="2" ></TextBlock>
+        <!--Row 2-->
+        <RadioButton Grid.Row="1" Name="rA" Checked="rA_Checked">a:</RadioButton>
+        <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left"  Name="txtA" TextChanged="TextChanged" />
+        <TextBlock  Grid.Row="1" Grid.Column="2" ></TextBlock>
+        <!--Row 3-->
+        <RadioButton Grid.Row="2" Name="rB" Checked="rB_Checked">b:</RadioButton>
+        <TextBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left"  Name="txtB" TextChanged="TextChanged" />
+        <TextBlock  Grid.Row="2" Grid.Column="2" ></TextBlock>
+    </Grid>
+</UserControl>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55C9979B-C90E-426F-8C75-DCCE6F193D23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.Fusion.Windows</RootNamespace>
+    <AssemblyName>Outracks.Fusion.Windows</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AvalonEdit.5.0.4\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Ookii.Dialogs.Wpf">
+      <HintPath>..\..\..\packages\Ookii.Dialogs.1.0\lib\net35\Ookii.Dialogs.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="Outracks.Simulator.Common.Uno">
+      <HintPath>..\..\..\Source\Simulator\Common\bin\Outracks.Simulator.Common.Uno.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.0.0-preview00001\lib\net45\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.4.0.0-preview00001\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="BalloonNotifier.cs" />
+    <Compile Include="Controls\CircleImplementation.cs" />
+    <Compile Include="Controls\LayoutTrackerImplementation.cs" />
+    <Compile Include="Controls\LogViewImplementation.cs" />
+    <Compile Include="Controls\ShapeControl.cs" />
+    <Compile Include="CursorsImplementation.cs" />
+    <Compile Include="ContextMenuImplementation.cs" />
+    <Compile Include="DocumentAppHandler.cs" />
+    <Compile Include="DataBinding.cs" />
+    <Compile Include="DpiAwareForm.cs" />
+    <Compile Include="DpiAwareness.cs" />
+    <Compile Include="DpiAwareWindow.cs" />
+    <Compile Include="KeyboardImplementation.cs" />
+    <Compile Include="DraggingImplementation.cs" />
+    <Compile Include="PermissionWin.cs" />
+    <Compile Include="Resources\NativeResources.cs" />
+    <Compile Include="ScrollingImplementation.cs" />
+    <Compile Include="Controls\ColorPickerImplementation.cs" />
+    <Compile Include="Dispatcher.cs" />
+    <Compile Include="Controls\SliderImplementation.cs" />
+    <Compile Include="Controls\DropDownImplementation.cs" />
+    <Compile Include="EffectsImplementation.cs" />
+    <Compile Include="Controls\ButtonImplementation.cs" />
+    <Compile Include="Controls\ImageImplementation.cs" />
+    <Compile Include="Controls\LabelImplementation.cs" />
+    <Compile Include="Controls\LineImplementation.cs" />
+    <Compile Include="Controls\ClippingImplementation.cs" />
+    <Compile Include="PointerImplementation.cs" />
+    <Compile Include="OverlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\RectangleImplementation.cs" />
+    <Compile Include="Controls\TextBoxImplementation.cs" />
+    <Compile Include="CustomTitlebar.cs" />
+    <Compile Include="Marshalling.cs" />
+    <Compile Include="OverlayImplementation.cs" />
+    <Compile Include="OverlayWindow.xaml.cs">
+      <DependentUpon>OverlayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FancyWindow.xaml.cs">
+      <DependentUpon>FancyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WebViewImplementation.cs" />
+    <Compile Include="ShellWin.cs" />
+    <Compile Include="ToolTipImplementation.cs" />
+    <Compile Include="Transformation.cs" />
+    <Compile Include="VerticalSynchronization.cs" />
+    <Compile Include="WinApi.cs" />
+    <Compile Include="WindowFromControl.cs" />
+    <Compile Include="WindowImplementation.cs" />
+    <Compile Include="WindowPlacement.cs" />
+    <Compile Include="WindowsTrayApplication.cs" />
+    <Compile Include="WindowWithOverlays.cs" />
+    <Compile Include="WinFormMenuBuilder.cs" />
+    <Compile Include="WinFormMenuShortcutExtensions.cs" />
+    <Compile Include="FileDialogs.cs" />
+    <Compile Include="FilterString.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
+      <Link>Properties/SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="WindowsMenuBuilder.cs" />
+    <Compile Include="WpfCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\3rdparty\ColorPickerControls\ColorPickerControls.csproj">
+      <Project>{02E6C16F-757F-44AC-BE66-C0D79C0EBE0B}</Project>
+      <Name>ColorPickerControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\ColorPicker\ColorPicker.csproj">
+      <Project>{059DC6C7-59C6-4ADF-8960-976A02E7498E}</Project>
+      <Name>ColorPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Math\Outracks.Common.Math.csproj">
+      <Project>{3C1C1047-8830-498E-882A-503C0956CBE3}</Project>
+      <Name>Outracks.Common.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Core\Outracks.Common.Core.csproj">
+      <Project>{196B010D-AD36-4947-95AA-14FC4A27BD18}</Project>
+      <Name>Outracks.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Outracks.Fusion.Core.csproj">
+      <Project>{8DFB02E0-ACBF-4432-8DD9-56712E206968}</Project>
+      <Name>Outracks.Fusion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Simulator\Common\Outracks.Simulator.Common.csproj">
+      <Project>{3335bb78-0b8a-4d2f-919f-2e6f08883d51}</Project>
+      <Name>Outracks.Simulator.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="OverlayWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FancyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StyleResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\grab.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\grabbing.cur" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="$(SolutionDir)\Fuse.targets" />
+</Project>

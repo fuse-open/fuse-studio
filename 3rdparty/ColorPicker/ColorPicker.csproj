@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{059DC6C7-59C6-4ADF-8960-976A02E7498E}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColorPicker</RootNamespace>
+    <AssemblyName>ColorPicker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlphaDisplay.xaml.cs">
+      <DependentUpon>AlphaDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorDisplay.xaml.cs">
+      <DependentUpon>ColorDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorModels\CMYK\Black.cs" />
+    <Compile Include="ColorModels\CMYK\CMYKDisplay.xaml.cs">
+      <DependentUpon>CMYKDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorModels\CMYK\CMYKModel.cs" />
+    <Compile Include="ColorModels\CMYK\Cyan.cs" />
+    <Compile Include="ColorModels\CMYK\Magenta.cs" />
+    <Compile Include="ColorModels\CMYK\Yellow.cs" />
+    <Compile Include="ColorModels\CMY\CMYDisplay.xaml.cs">
+      <DependentUpon>CMYDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorModels\CMY\CMYModel.cs" />
+    <Compile Include="ColorModels\CMY\Cyan.cs" />
+    <Compile Include="ColorModels\CMY\Magenta.cs" />
+    <Compile Include="ColorModels\HSB\Yellow.cs" />
+    <Compile Include="ColorModels\ColorComponent.cs" />
+    <Compile Include="ColorModels\NormalComponent.cs" />
+    <Compile Include="ColorModels\ColorModel.cs" />
+    <Compile Include="ColorModels\HSB\Brightness.cs" />
+    <Compile Include="ColorModels\HSB\HsbDisplay.xaml.cs">
+      <DependentUpon>HsbDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorModels\HSB\HSBModel.cs" />
+    <Compile Include="ColorModels\HSB\Hue.cs" />
+    <Compile Include="ColorModels\HSB\Saturation.cs" />
+    <Compile Include="ColorModels\Lab\A.cs" />
+    <Compile Include="ColorModels\Lab\B.cs" />
+    <Compile Include="ColorModels\Lab\LabDisplay.xaml.cs">
+      <DependentUpon>LabDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorModels\Lab\LabModel.cs" />
+    <Compile Include="ColorModels\Lab\Lightness.cs" />
+    <Compile Include="ColorModels\RGB\Blue.cs" />
+    <Compile Include="ColorModels\RGB\Green.cs" />
+    <Compile Include="ColorModels\RGB\Red.cs" />
+    <Compile Include="ColorModels\RGB\RgbDisplay.xaml.cs">
+      <DependentUpon>RgbDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorModels\RGB\RGBModel.cs" />
+    <Compile Include="ColorSelector.xaml.cs">
+      <DependentUpon>ColorSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventArgs.cs" />
+    <Compile Include="ExtensionMethods\ByteExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\ColorExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\DoubleExtensionMethods.cs" />
+    <Compile Include="HexDisplay.xaml.cs">
+      <DependentUpon>HexDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewCurrent.xaml.cs">
+      <DependentUpon>NewCurrent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AlphaDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckerBoardBrush.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorModels\CMYK\CMYKDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorModels\CMY\CMYDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorModels\HSB\HsbDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorModels\Lab\LabDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorModels\RGB\RgbDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ColorSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HexDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewCurrent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SliderResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

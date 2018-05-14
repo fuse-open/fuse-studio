@@ -1,0 +1,14 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>DefaultText.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+INFO: Wrote 'Sketch.TextSymbol' to '<path removed>Sketch.TextSymbol.ux'
+INFO: Wrote 'Sketch.TextStyleSymbol' to '<path removed>Sketch.TextStyleSymbol.ux'
+WARNING: UX Builder: Multiple text styles on the same text element not supported in UX. Found 3 text styles on RichText, using just one of them.
+INFO: Wrote 'Sketch.RichTextSymbol' to '<path removed>Sketch.RichTextSymbol.ux'
+INFO: Wrote 'Sketch.TextOnAPath' to '<path removed>Sketch.TextOnAPath.ux'
+INFO: Wrote 'Sketch.TextInACircle' to '<path removed>Sketch.TextInACircle.ux'
+INFO: Wrote 'Sketch.NonAsciiSymbol' to '<path removed>Sketch.NonAsciiSymbol.ux'
+INFO: Wrote 'Sketch.AutoTextBoxSymbol' to '<path removed>Sketch.AutoTextBoxSymbol.ux'
+INFO: Wrote 'Sketch.FixedTextBoxSymbol' to '<path removed>Sketch.FixedTextBoxSymbol.ux'
+INFO: Wrote 'Sketch.AutoTextBoxInGroup' to '<path removed>Sketch.AutoTextBoxInGroup.ux'
+INFO: Wrote 'Sketch.FixedTextBoxInGroup' to '<path removed>Sketch.FixedTextBoxInGroup.ux'
+

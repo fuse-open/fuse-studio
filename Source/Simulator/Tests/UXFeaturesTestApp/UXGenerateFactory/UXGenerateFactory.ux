@@ -1,0 +1,5 @@
+<App>
+	<GenerateFactoryTest ux:AutoBind="false">
+		<TestClass ux:Generate="Factory" ux:Binding="Factory" Foo="testtest"/>
+	</GenerateFactoryTest>
+</App>

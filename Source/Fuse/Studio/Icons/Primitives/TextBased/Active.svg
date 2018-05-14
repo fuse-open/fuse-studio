@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>TextBased/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="-2.5e-15" y="0" width="21" height="16" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="21" height="16" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g stroke="#E0E0E0" stroke-dasharray="2,1" stroke-width="2">
+                    <use mask="url(#mask-2)" xlink:href="#path-1"></use>
+                </g>
+                <path d="M10.8427734,12 L9.92236328,9.37841797 L6.27880859,9.37841797 L5.35839844,12 L4.15869141,12 L7.53564453,2.84033203 L8.66552734,2.84033203 L12.0424805,12 L10.8427734,12 Z M8.08154297,4.23046875 L6.61523438,8.40722656 L9.5859375,8.40722656 L8.11962891,4.23046875 L8.08154297,4.23046875 Z" fill="#6DC0D2"></path>
+                <path d="M16.7373047,12 L16.1000977,10.1850586 L13.5776367,10.1850586 L12.9404297,12 L12.1098633,12 L14.4477539,5.65869141 L15.2299805,5.65869141 L17.5678711,12 L16.7373047,12 Z M14.8256836,6.62109375 L13.8105469,9.51269531 L15.8671875,9.51269531 L14.8520508,6.62109375 L14.8256836,6.62109375 Z" fill="#6DC0D2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<Panel ux:Class="MainView">
+	<Resources/>
+	<Fuse.Simulator.SimulatorJS ux:Global="SimulatorAPI" />
+	<Router BackButtonAction="None" ux:Name="router" />
+
+	<JavaScript>
+		module.exports = {
+			onBackButton: function() {
+				router.goBack();
+			}
+		};
+	</JavaScript>
+
+	<OnBackButton Handler="{onBackButton}" />
+	<Navigator DefaultPath="setupPage" Reuse="None">
+		<SetupPage ux:Template="setupPage" router="router"/>
+		<AppViewPage ux:Template="appViewPage" router="router" />
+		<ErrorPage ux:Template="errorPage" router="router" />
+	</Navigator>
+</Panel>
+

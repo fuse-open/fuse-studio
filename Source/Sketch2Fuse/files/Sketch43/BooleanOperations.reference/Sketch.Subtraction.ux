@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.Subtraction" Width="100" Height="100">
+	<Panel>
+		<!-- Subtraction -->
+		<!-- Combined shapes are not supported in UX -->
+	</Panel>
+</Panel>

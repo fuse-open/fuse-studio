@@ -1,0 +1,10 @@
+<App>
+	<BindingTestClass1 ux:AutoBind="false">
+
+		<object ux:Binding="P1"/>
+		<BindingTestClass2 ux:Binding="P2"/>
+		<BindingTestClass2 ux:Binding="P3"/>
+		<BindingTestClass2 ux:Binding="P4"/>
+
+	</BindingTestClass1>
+</App>

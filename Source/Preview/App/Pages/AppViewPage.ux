@@ -1,0 +1,141 @@
+<Page ux:Class="AppViewPage">
+	<JavaScript>
+		var ShakeRecognizer = require("ShakeRecognizer");
+		var simulatorAPI = require('SimulatorAPI');
+		var Observable = require('FuseJS/Observable');
+		var rx = require('rx.all');
+		var Lifecycle = require("FuseJS/Lifecycle");
+
+		var simulatorId = this.Parameter.map(function(param) {
+			return param.simulatorId;
+		});
+
+		var errorMessage = new Observable();
+		simulatorHost.onError(
+			function(type, error) {
+				if(type == 0)
+					errorMessage.value = error;
+				else if(type == 1)
+					gotoFatalErrorPage(error);
+			});
+
+		ShakeRecognizer.start();
+
+		Lifecycle.on("enteringInteractive", function() {
+			ShakeRecognizer.start();
+		});
+
+		Lifecycle.on("enteringBackground", function() {
+			ShakeRecognizer.stop();
+		});
+
+		var showDevMenu = ShakeRecognizer.shaked
+			.filter(function(shaked) {
+				return shaked;
+			});
+		showDevMenu.value = false;
+
+		function closeDevMenu() {
+			showDevMenu.value = false;
+		}
+
+		function goHome() {
+			router.goto("setupPage");
+		}
+
+		function emulateBackButton() {
+			simulatorHost.emulateBackbutton();
+		}
+
+		function requestSensor() {
+			simulatorAPI.requestScreenOrientation("Sensor");
+		}
+
+		function gotoFatalErrorPage(message) {
+			router.goto("errorPage", { errorMessage: message, simulatorId: simulatorId.value });
+		}
+
+		function restart() {
+			simulatorAPI.restartProjectRuntime(simulatorId.value)
+				.then(function(newSimId) {
+					router.goto("appViewPage", { simulatorId: newSimId });
+				})
+				.catch(function(error) {
+					router.goto("setupPage");
+				});
+		};
+
+		var hasError = errorMessage.map(function(m) 
+		{
+			return true;
+		});
+
+		module.disposed.push(function() {
+			ShakeRecognizer.stop();
+		});
+		module.exports = {
+			id: simulatorId,
+			showDevMenu: showDevMenu,
+			closeDevMenu: closeDevMenu,
+			goHome: goHome,
+			emulateBackButton: emulateBackButton,
+			hasError: hasError,
+			requestSensor: requestSensor,
+			restart: restart
+		};
+	</JavaScript>
+	<Activated Handler="{requestSensor}" />
+	<Router ux:Dependency="router" />
+
+	<Container ux:Class="Notification" HitTestMode="None" Subtree="subtree" NotDone="True">
+		<string ux:Property="Text" />
+		<bool ux:Property="NotDone" />
+		<Rectangle ux:Name="rect" Opacity="0" ux:Binding="Children" Color="#eee" Padding="24">
+			<Activated>
+				<Change rect.Opacity="1" Duration="0.5" DelayBack="2.0" />
+			</Activated>
+			<Activated>
+				<Set this.NotDone="False" Delay="3" />
+			</Activated>
+			<Grid Columns="auto,1*" CellSpacing="12">
+				<Panel ux:Name="subtree" />
+				<Text Value="{Property Text}" Alignment="VerticalCenter" TextWrapping="Wrap" />
+			</Grid>
+		</Rectangle>
+	</Container>
+
+	<Panel>
+		<WhileTrue Value="{showDevMenu}">
+			<Vibrate Duration=".4" />
+			<ClientPanel Color="#111b">
+				<Panel>
+					<Rectangle Color="#fff" CornerRadius="4" Alignment="VerticalCenter" Margin="28">
+						<Shadow Size="5" />
+							<!--<Text TextColor="HighlightText" Value="Dev Menu" Dock="Top" />-->
+						<StackPanel Margin="16" ItemSpacing="16">
+							<Text TextAlignment="Center" FontSize="24">Preview Menu</Text>
+							<BasicButton Text="Home" Clicked="{goHome}" />
+							<BasicButton Text="Emulate back" Dock="Bottom" Clicked="{emulateBackButton}" />
+							<BasicButton Text="Restart" Dock="Bottom" Clicked="{restart}" />
+							<BasicButton Text="Close" Dock="Bottom" Clicked="{closeDevMenu}" />
+						</StackPanel>
+					</Rectangle>
+				</Panel>
+				<Panel HitTestMode="LocalBounds" Clicked="{closeDevMenu}" />
+			</ClientPanel>
+		</WhileTrue>
+		<ClientPanel>
+			<StackPanel Alignment="Bottom">
+				<Notification Text="Shake to open 'Preview Menu'">
+					<ShakeIcon Width="28" Height="41" />
+				</Notification>
+				<WhileTrue Value="{hasError}">
+					<Notification NotDone="{hasError}" Text="An error occured, see 'Fuse Studio' for info.">
+						<AlertCircle Width="22" Height="22" />
+					</Notification>
+				</WhileTrue>
+			</StackPanel>
+		</ClientPanel>
+		<Fuse.Simulator.SimulatorViewHost ux:Name="simulatorHost" SimulatorId="{id}" />
+	</Panel>
+</Page>

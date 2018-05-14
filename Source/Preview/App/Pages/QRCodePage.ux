@@ -1,0 +1,78 @@
+<Page ux:Class="QRCodePage">
+	<Qreader ux:Global="QReader" />
+	<Router ux:Dependency="router" />
+	
+	<JavaScript>
+		var Observable = require('FuseJS/Observable');
+		var simulatorAPI = require('SimulatorAPI');
+		var qreader = require('QReader');
+		var environment = require('FuseJS/Environment');
+
+		var ipAddress = new Observable("");
+		var errorMessage = new Observable("");
+		var hasConnected = new Observable(false);
+
+		function scanQrCode () {
+			if(!environment.mobile)
+			{
+				errorMessage.value = 'Unsupported platform';
+				return;
+			}
+			errorMessage.value = "";
+			qreader.scan().then(function (res) {
+				var lines = res.split('\n');
+				var addresses = lines.slice(0,lines.length-1);
+				var code = lines[lines.length-1].split("Code:")[1];
+				isBusy.activate();
+				simulatorAPI
+					.connectToProxy(addresses)
+					.then(function(proxy) {
+						proxy.connectToHost(code.toUpperCase())
+							.then(function(simulator) {
+								isBusy.deactivate();
+								router.goto("appViewPage", { simulatorId: simulator.id });
+							})
+							.catch(function(error) {
+								errorMessage.value = error;
+							});
+					})
+					.catch(function(error) {
+						if(hasConnected.value) return;
+
+						errorMessage.value = error + "\nMake sure the IP address is correct and try again"
+						isBusy.deactivate();
+					});
+			});
+		}
+
+		module.exports = {
+			scanQrCode: scanQrCode,
+			errorMessage: errorMessage,
+			reset : function(){
+				errorMessage.value = ''
+			}
+		};
+	</JavaScript>
+	<PageContent Title="Scan QR code" SubTitle="Ensure camera permissions are granted.">
+		<Busy ux:Name="isBusy" IsActive="false" />
+		<WhileString Value="{errorMessage}" Test="IsNotEmpty">
+			<ErrorView Message="{errorMessage}" Margin="0,16,0,0" Dock="Bottom"/>
+			<BasicButton Text="Scan QR code" Clicked="{scanQrCode}">
+				<QRCodeIcon />
+			</BasicButton>
+		</WhileString>
+
+		<WhileString Value="{errorMessage}" Test="IsEmpty">
+			<WhileBusy>
+				<MyLoadingIndicator ux:Name="loadingPanel" ThemeColor="Highlight" Margin="16" />
+				<!-- <Change loadingPanel.Opacity="1" Duration=".4" /> -->
+			</WhileBusy>
+		</WhileString>
+	</PageContent>
+	<Deactivated>
+		<Callback Handler="{reset}"/>
+	</Deactivated>
+	<Activated>
+		<Callback Handler="{scanQrCode}"/>
+	</Activated>
+</Page>

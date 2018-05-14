@@ -1,0 +1,19 @@
+<Panel ux:Class="Sketch.ScissoredRectangle" Width="150" Height="150">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle -->
+		<Path Data="M 0 0 L 0 1" StretchMode="Fill" Width="0.6666667%" Height="100%" Alignment="TopLeft" Offset="100%, 0%" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9707752, 0.9072384, 0.1094621, 1" />
+			<Stroke Width="4" Alignment="Center">
+				<SolidColor Color="0.8162038, 0.007513228, 0.106696, 1" />
+			</Stroke>
+		</Path>
+		<Path Data="M 0 1 L 0 0" StretchMode="Fill" Width="0.6666667%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9707752, 0.9072384, 0.1094621, 1" />
+			<Stroke Width="4" Alignment="Center">
+				<SolidColor Color="0.8162038, 0.007513228, 0.106696, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<?if $(var.Platform) = x64 ?>
+  <?define IsWin64 = "yes" ?>
+<?else ?>
+  <?define IsWin64 = "no" ?>
+<?endif?>
+
+<?define vcredist_2010_x64_Url = http://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe ?>
+<?define vcredist_2010_x86_Url = http://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe ?>
+
+<?define vcredist_2012_x64_Url = http://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe ?>
+<?define vcredist_2012_x86_Url = http://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe ?>
+
+<?define vcredist_2013_x64_Url = http://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x64.exe ?>
+<?define vcredist_2013_x86_Url = http://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x86.exe ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+    
+    <util:RegistrySearch Variable="vcredist_2010_x64" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0\VC\VCRedist\x64" Value="Installed" Win64="$(var.IsWin64)" />
+    <util:RegistrySearch Variable="vcredist_2010_x86" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0\VC\VCRedist\x86" Value="Installed" Win64="$(var.IsWin64)" />
+    
+    <util:RegistrySearch Variable="vcredist_2012_x64" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\11.0\VC\Runtimes\x64" Value="Installed" Win64="$(var.IsWin64)" />
+    <util:RegistrySearch Variable="vcredist_2012_x86" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\11.0\VC\Runtimes\x86" Value="Installed" Win64="$(var.IsWin64)" />
+    
+    <util:RegistrySearch Variable="vcredist_2013_x64" Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{050d4fc8-5d48-4b8f-8972-47c82c46020f}" Value="Installed" Win64="$(var.IsWin64)" />
+    <util:RegistrySearch Variable="vcredist_2013_x86" Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{f65db027-aff3-4070-886a-0d87064aabb1}" Value="Installed" Win64="$(var.IsWin64)" />
+    
+    <PackageGroup Id="vcredist2010">
+      
+      <ExePackage Id="vcredist_2010_x64"
+                  Cache="no"
+                  Compressed="no"
+                  PerMachine="yes"
+                  Permanent="yes"
+                  Vital="yes"
+                  Name="..\..\Dependencies\vcredist_2010_x64.exe"
+                  DownloadUrl="$(var.vcredist_2010_x64_Url)"
+                  InstallCommand="/q"
+                  InstallCondition="VersionNT64"
+                  DetectCondition="vcredist_2010_x64 AND (vcredist_2010_x64 &gt;= 1)">
+        <ExitCode Value="3010" Behavior="scheduleReboot" />
+        <ExitCode Value="5100" Behavior="success" />
+        <RemotePayload Description="Microsoft Visual C++ 2010 x64 Redistributable Setup"
+                       ProductName="Microsoft Visual C++ 2010 x64 Redistributable Setup"
+                       Version="10.0.30319.1"
+                       Size="5718872"
+                       Hash="15d032d669078aa6f0f7fd1cbf4115a070bd034d" />
+      </ExePackage>
+
+      <ExePackage Id="vcredist_2010_x86"
+                  Cache="no"
+                  Compressed="no"
+                  PerMachine="yes"
+                  Permanent="yes"
+                  Vital="yes"
+                  Name="..\..\Dependencies\vcredist_2010_x86.exe"
+                  DownloadUrl="$(var.vcredist_2010_x86_Url)"
+                  InstallCommand="/q"
+                  DetectCondition="vcredist_2010_x86 AND (vcredist_2010_x86 &gt;= 1)">
+        <ExitCode Value="3010" Behavior="scheduleReboot" />
+        <ExitCode Value="5100" Behavior="success" />
+        <RemotePayload Description="Microsoft Visual C++ 2010 x86 Redistributable Setup"
+                       ProductName="Microsoft Visual C++ 2010 x86 Redistributable Setup"
+                       Version="10.0.40219.325"
+                       Size="8990552"
+                       Hash="28c54491be70c38c97849c3d8cfbfdd0d3c515cb" />
+      </ExePackage>
+    
+    </PackageGroup>
+    
+    <PackageGroup Id="vcredist2012">
+      
+      <ExePackage Id="vcredist_2012_x64"
+                Cache="no"
+                Compressed="no"
+                PerMachine="yes"
+                Permanent="yes"
+                Vital="yes"
+                Name="..\..\Dependencies\vcredist_2012_x64.exe"
+                DownloadUrl="$(var.vcredist_2012_x64_Url)"
+                InstallCommand="/q"
+                InstallCondition="VersionNT64"
+                DetectCondition="vcredist_2012_x64 AND (vcredist_2012_x64 &gt;= 1)">
+      <ExitCode Value="3010" Behavior="scheduleReboot" />
+      <ExitCode Value="5100" Behavior="success" />
+      <RemotePayload Description="Microsoft Visual C++ 2012 Redistributable (x64)"
+                     ProductName="Microsoft Visual C++ 2012 Redistributable (x64)"
+                     Version="11.0.61030.0"
+                     Size="7186992"
+                     Hash="1a5d93dddbc431ab27b1da711cd3370891542797" />
+    </ExePackage>
+
+      <ExePackage Id="vcredist_2012_x86"
+                Cache="no"
+                Compressed="no"
+                PerMachine="yes"
+                Permanent="yes"
+                Vital="yes"
+                Name="..\..\Dependencies\vcredist_2012_x86.exe"
+                DownloadUrl="$(var.vcredist_2012_x86_Url)"
+                InstallCommand="/q"
+                DetectCondition="vcredist_2012_x86 AND (vcredist_2012_x86 &gt;= 1)">
+      <ExitCode Value="3010" Behavior="scheduleReboot" />
+      <ExitCode Value="5100" Behavior="success" />
+      <RemotePayload Description="Microsoft Visual C++ 2012 Redistributable (x86)"
+                     ProductName="Microsoft Visual C++ 2012 Redistributable (x86)"
+                     Version="11.0.61030.0"
+                     Size="6554576"
+                     Hash="96b377a27ac5445328cbaae210fc4f0aaa750d3f" />
+    </ExePackage>
+    
+    </PackageGroup>
+  
+    <PackageGroup Id="vcredist2013">
+    
+      <ExePackage Id="vcredist_2013_x64"
+                  Cache="no"
+                  Compressed="no"
+                  PerMachine="yes"
+                  Permanent="yes"
+                  Vital="yes"
+                  Name="..\..\Dependencies\vcredist_2013_x64.exe"
+                  DownloadUrl="$(var.vcredist_2013_x64_Url)"
+                  InstallCommand="/q"
+                  InstallCondition="VersionNT64"
+                  DetectCondition="vcredist_2013_x64 AND (vcredist_2013_x64 &gt;= 1)">
+        <ExitCode Value="3010" Behavior="scheduleReboot" />
+        <ExitCode Value="5100" Behavior="success" />
+        <RemotePayload Description="Microsoft Visual C++ 2013 Redistributable (x64)"
+                       ProductName="Microsoft Visual C++ 2013 Redistributable (x64)"
+                       Version="12.0.30501.0"
+                       Size="7194312"
+                       Hash="8bf41ba9eef02d30635a10433817dbb6886da5a2" />
+      </ExePackage>
+    
+      <ExePackage Id="vcredist_2013_x86"
+                  Cache="no"
+                  Compressed="no"
+                  PerMachine="yes"
+                  Permanent="yes"
+                  Vital="yes"
+                  Name="..\..\Dependencies\vcredist_2013_x86.exe"
+                  DownloadUrl="$(var.vcredist_2013_x86_Url)"
+                  InstallCommand="/q"
+                  DetectCondition="vcredist_2013_x86 AND (vcredist_2013_x86 &gt;= 1)">
+        <ExitCode Value="3010" Behavior="scheduleReboot" />
+        <ExitCode Value="5100" Behavior="success" />
+        <RemotePayload Description="Microsoft Visual C++ 2013 Redistributable (x86)"
+                       ProductName="Microsoft Visual C++ 2013 Redistributable (x86)"
+                       Version="12.0.30501.0"
+                       Size="6503984"
+                       Hash="df7f0a73bfa077e483e51bfb97f5e2eceedfb6a3" />
+      </ExePackage>
+    
+    </PackageGroup>
+  </Fragment>
+</Wix>

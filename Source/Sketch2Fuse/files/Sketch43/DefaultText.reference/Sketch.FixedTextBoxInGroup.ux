@@ -1,0 +1,39 @@
+<Panel ux:Class="Sketch.FixedTextBoxInGroup" Width="198" Height="88" FixedTextBox="Fixed text box">
+	<string ux:Property="FixedTextBox" />
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group 4 -->
+		<Text Color="0, 0, 0, 1" FontSize="20" Value="{Property FixedTextBox}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="52.0202%" Height="63.63636%" Alignment="TopLeft" Offset="47.9798%, 36.36364%" Margin="0">
+			<!-- FixedTextBox -->
+		</Text>
+		<Panel Width="32.82828%" Height="37.5%" Alignment="TopLeft" Offset="66.66666%, 0%" Margin="0">
+			<!-- Rectangle 5 -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.847, 0.847, 0.847, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+		<Panel Width="32.82828%" Height="36.36364%" Alignment="TopLeft" Offset="8.585858%, 22.72727%" Margin="0">
+			<!-- Rectangle 4 -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.847, 0.847, 0.847, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+		<Panel Width="27.27273%" Height="37.5%" Alignment="TopLeft" Margin="0">
+			<!-- Rectangle 3 -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.847, 0.847, 0.847, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+	</Panel>
+</Panel>

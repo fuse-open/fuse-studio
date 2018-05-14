@@ -1,0 +1,92 @@
+{
+  "RootNamespace":"Fuse.Preview",
+  "Name": "FusePreview",
+  "Title": "Fuse Preview",
+  "Version": "1.0.9",
+  "VersionCode": 10,
+  "Description": "Fuse Preview is a development tool for creating mobile user experiences. It lets you iterate on your designs while previewing the changes in real-time on one or more mobile devices.\n\nNote: A computer running _Fuse Studio_ (https://www.fusetools.com/) is required in order to utilize this app. Fuse Preview is merely the client for previewing the work you perform on your development computer.",
+  "Publisher": "Fusetools AS",
+  "Android": {
+    "Package": "com.fusetools.fusepreview",
+    "Icons": {
+      "MDPI": "AppStoreAssets/Android/App Icon/ic_launcher_MDPI.png",
+      "HDPI": "AppStoreAssets/Android/App Icon/ic_launcher_HDPI.png",
+      "XHDPI": "AppStoreAssets/Android/App Icon/ic_launcher_XHDPI.png",
+      "XXHDPI": "AppStoreAssets/Android/App Icon/ic_launcher_XXHDPI.png",
+      "XXXHDPI": "AppStoreAssets/Android/App Icon/ic_launcher_XXXHDPI.png"
+    },
+    "Key": {
+      "Alias": "application",
+      "AliasPassword": "********",
+      "Store": "release.keystore",
+      "StorePassword": "********"
+    },
+    "Geo": {
+      "ApiKey": "********"
+    }
+  },
+  "iOS": {
+    "BundleIdentifier": "com.fusetools.fusepreview",
+    "BundleVersion": 13,
+    "Icons": {
+      "iPhone_20_2x": "AppStoreAssets/iOS/Icon-20@2x.png",
+      "iPhone_20_3x": "AppStoreAssets/iOS/Icon-20@3x.png",
+      "iPhone_29_2x": "AppStoreAssets/iOS/Icon-29@2x.png",
+      "iPhone_29_3x": "AppStoreAssets/iOS/Icon-29@3x.png",
+      "iPhone_40_2x": "AppStoreAssets/iOS/Icon-40@2x.png",
+      "iPhone_40_3x": "AppStoreAssets/iOS/Icon-40@3x.png",
+      "iPhone_60_2x": "AppStoreAssets/iOS/Icon-60@2x.png",
+      "iPhone_60_3x": "AppStoreAssets/iOS/Icon-60@3x.png",
+      "iPad_20_1x": "AppStoreAssets/iOS/Icon-20@2x.png",
+      "iPad_20_2x": "AppStoreAssets/iOS/Icon-20@2x.png",
+      "iPad_29_1x": "AppStoreAssets/iOS/Icon-29.png",
+      "iPad_29_2x": "AppStoreAssets/iOS/Icon-29@2x.png",
+      "iPad_40_1x": "AppStoreAssets/iOS/Icon-40.png",
+      "iPad_40_2x": "AppStoreAssets/iOS/Icon-40@2x.png",
+      "iPad_76_1x": "AppStoreAssets/iOS/Icon-76.png",
+      "iPad_76_2x": "AppStoreAssets/iOS/Icon-76@2x.png",
+      "iPad_83.5_2x": "AppStoreAssets/iOS/Icon-83.5@2x.png",
+      "iOS-Marketing_1024_1x": "AppStoreAssets/iOS/iTunesArtwork@2x.png"
+    }
+  },
+  "Packages": [
+    "Fuse",
+    "FuseJS",
+    "Fuse.Vibration",
+    "Fuse.Charting",
+    "Fuse.UXKits.Alive",
+    "Fuse.Controls.CameraView",
+    "Fuse.WebSockets",
+    "Fuse.Share",
+    "Fuse.Launcher",
+    "Fuse.Maps",
+    "Fuse.Camera",
+    "Fuse.Audio",
+    "Fuse.CameraRoll",
+    "Fuse.LocalNotifications",
+    "Fuse.GeoLocation",
+    "Fuse.Alerts"
+  ],
+  "Projects": [
+    "../Core/Fuse.Preview.Core.unoproj",
+    "Fuse.Simulator/Fuse.Simulator.unoproj",
+    "QrReader/fuse-qreader.unoproj"
+  ],
+  "Includes": [
+    "*",
+    "Projects.js:Bundle",
+    "ProxyState.js:Bundle",
+
+    "ForeignAccelerometer/AccelerometerModule.uno",
+    "ForeignAccelerometer/Accelerometer_Android.uno",
+    "ForeignAccelerometer/Accelerometer_iOS.uno",
+    "ForeignAccelerometer/Accelerometer.uno",
+    "ForeignAccelerometer/AccelerometerImpl.java:Java:Android",
+    "ForeignAccelerometer/AccelerometerImpl.hh:CHeader:iOS",
+    "ForeignAccelerometer/AccelerometerImpl.mm:CSource:iOS",
+    "rx.all.js:Bundle",
+    "FuseRX.js:Bundle",
+    "ShakeRecognizer.js:Bundle"
+  ]
+}
+

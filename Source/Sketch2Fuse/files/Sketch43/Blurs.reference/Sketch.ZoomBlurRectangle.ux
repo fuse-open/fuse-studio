@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.ZoomBlurRectangle" Width="100" Height="100">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.961711, 0.6503673, 0.1385423, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.8162038, 0.007513228, 0.106696, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+</Panel>

@@ -1,0 +1,48 @@
+{
+	"Copyright": "Copyright (c) Fusetools AS 2015",
+	"Title": "Fuse Preview Core",
+	"Description": "Fuse Preview Core for Fuse Preview",
+	"Publisher": "Fusetools AS",
+	"Version": "0.1.0",
+	"Internal": true,
+	"InternalsVisibleTo": [ ],
+	"Packages": [
+		"Uno.Threading",
+		"Fuse.Controls",
+		"Fuse.Controls.Native",
+		"Fuse.Controls.Panels",
+		"Fuse.Controls.ScrollView",
+		"Fuse.Controls.Primitives",
+		"Fuse.Elements",
+		"Fuse.Reactive",
+		"Fuse.Triggers",
+		"Fuse.Animations",
+		"Fuse.Common",
+		"Fuse.Marshal",
+		"Fuse.Reactive.Bindings",
+		"Fuse.Reactive.Expressions",
+		"Fuse.Scripting.JavaScript",
+		"Fuse.Nodes",
+		"Uno.Collections",
+		"Uno.Net.Sockets",
+		"Fuse.Gestures",
+		"Fuse.Android",
+		"Fuse.iOS",
+		"Fuse.Desktop",
+		"Fuse.Designer",
+		"Fuse.Drawing"
+	],
+	"Projects": [
+		"../../Simulator/Common/Outracks.Simulator.Common.Uno.unoproj",
+	],
+	"Includes": [
+		"fight.png:File",
+		"*.uno:SourceFile",
+		"*.ux:UXFile",
+		"./Dialogs/*.ux:UXFile",
+		"./Reflection/*.uno",
+		"./Reflection/*.uxl",
+	],
+}
+
+

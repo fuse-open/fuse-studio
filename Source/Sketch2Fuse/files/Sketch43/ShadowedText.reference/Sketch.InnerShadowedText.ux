@@ -1,0 +1,7 @@
+<Panel ux:Class="Sketch.InnerShadowedText" Width="479" Height="51" Text_with_inner_shad="Text_with_inner_shadow">
+	<string ux:Property="Text_with_inner_shad" />
+	<Text Color="0.8162038, 0.007513228, 0.106696, 1" FontSize="36" Value="{Property Text_with_inner_shad}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="100%" Height="100%" Alignment="BottomLeft" Margin="0">
+		<!-- Text_with_inner_shad -->
+		<!-- Inner shadow not supported in UX -->
+	</Text>
+</Panel>

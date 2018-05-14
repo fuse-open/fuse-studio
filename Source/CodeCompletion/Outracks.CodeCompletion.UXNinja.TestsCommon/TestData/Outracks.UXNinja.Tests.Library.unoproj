@@ -1,0 +1,23 @@
+{
+  "Version": "0.0.0",
+  "RootNamespace": "UXNinja.Tests.Lib",
+  "InternalsVisibleTo": [],
+  "Packages": [
+    "Uno.Collections",
+    "Uno.Geometry"
+  ],
+  "Projects": [],
+  "Includes": [
+    "App.uno:SourceFile",
+    "Attributes.uno:SourceFile",
+    "Button.uno:SourceFile",
+    "Clicked.uno:SourceFile",
+    "Element.uno:SourceFile",
+    "Node.uno:SourceFile",
+    "Orientation.uno:SourceFile",
+    "Panel.uno:SourceFile",
+    "StackPanel.uno:SourceFile",
+    "Text.uno:SourceFile",
+    "StaticClass.uno:SourceFile"
+  ]
+}

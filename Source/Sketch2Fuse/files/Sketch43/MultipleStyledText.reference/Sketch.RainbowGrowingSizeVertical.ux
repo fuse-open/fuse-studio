@@ -1,0 +1,11 @@
+<Panel ux:Class="Sketch.RainbowGrowingSizeVertical" Width="76" Height="116" RainbowGrowingSize="This
+text
+gets
+bigger
+and
+bigger">
+	<string ux:Property="RainbowGrowingSize" />
+	<Text Color="0.8162038, 0.007513228, 0.106696, 1" FontSize="10" Value="{Property RainbowGrowingSize}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="100%" Height="100%" Alignment="BottomLeft" Margin="0">
+		<!-- RainbowGrowingSize -->
+	</Text>
+</Panel>

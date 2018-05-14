@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.ReallyRectangle" Width="185" Height="158">
+	<Panel Width="99.87331%" Height="99.77749%" Alignment="TopLeft" Margin="0">
+		<!-- ReallyRectangle -->
+		<Path Data="M 0 0.2388126269885 L 0.3618181818182 0 L 0.7685412262156 0.2388126269885 L 1 0.5 L 0.7685412262156 1 L 0.3618181818182 0.420783983349 L 0 1 L 0 0.2388126269885" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="3.076515E-14%, 0%" Margin="0">
+			<!-- Path -->
+			<LinearGradient StartPoint="0, 0.2334181" EndPoint="0.5, 1">
+				<GradientStop Color="0.7662883, 1, 0.3528054, 1" Offset="0" />
+				<GradientStop Color="0.2585623, 0.5777633, 0.1297717, 1" Offset="1" />
+			</LinearGradient>
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

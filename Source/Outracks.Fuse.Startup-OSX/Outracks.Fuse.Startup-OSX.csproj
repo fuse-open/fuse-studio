@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\FuseOpen.Xamarin.Mac.3.4.0.2\build\net45\FuseOpen.Xamarin.Mac.props" Condition="Exists('..\..\packages\FuseOpen.Xamarin.Mac.3.4.0.2\build\net45\FuseOpen.Xamarin.Mac.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8A5FE86-72BC-4106-A1ED-20C483A95197}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Outracks.Fuse</RootNamespace>
+    <AssemblyName>Fuse</AssemblyName>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <SuppressXamMacUpsell>True</SuppressXamMacUpsell>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <SuppressXamMacMigration>True</SuppressXamMacMigration>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <UseRefCounting>false</UseRefCounting>
+    <Commandlineparameters>preview /Users/lorents/Fuse/Untitled196/Untitled.ux</Commandlineparameters>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <UseRefCounting>false</UseRefCounting>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LinkMode>SdkOnly</LinkMode>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <CreatePackage>true</CreatePackage>
+    <CodeSigningKey>3rd Party Mac Developer Application</CodeSigningKey>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <EnablePackageSigning>true</EnablePackageSigning>
+    <UseRefCounting>false</UseRefCounting>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IKVM.Reflection, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.Backends.CIL.1.8.0-dev-047994e\lib\net45\IKVM.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="Minimatch, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0cadeb0b849c27c0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Minimatch.1.1.0.0\lib\portable-net40+sl50+win+wp80\Minimatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Options, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mono.Options.5.3.0.1\lib\net4-client\Mono.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Common, Version=4.5.0.4, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Common.4.5.0\lib\net45\NuGet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Frameworks, Version=4.5.0.4, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Frameworks.4.5.0\lib\net45\NuGet.Frameworks.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Packaging, Version=4.5.0.4, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Packaging.4.5.0\lib\net45\NuGet.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Packaging.Core, Version=4.5.0.4, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Packaging.Core.4.5.0\lib\net45\NuGet.Packaging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Versioning, Version=4.5.0.4, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Versioning.4.5.0\lib\net45\NuGet.Versioning.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.IO.Compression" />
+    <!--<Reference Include="MonoMac, Version=0.0.0.0, Culture=neutral" />-->
+    <Reference Include="System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Reactive.4.0.0-preview00001\lib\net45\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Reactive.Windows.Threading.4.0.0-preview00001\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Uno.Build, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Build.1.8.0-dev-047994e\lib\net45\Uno.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Common, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Common.1.8.0-dev-047994e\lib\net45\Uno.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.API, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.API.1.8.0-dev-047994e\lib\net45\Uno.Compiler.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Backends.CIL, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.Backends.CIL.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Backends.CIL.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Backends.OpenGL, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.Backends.OpenGL.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Backends.OpenGL.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Backends.PInvoke, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.Backends.PInvoke.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Backends.PInvoke.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Core, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.Core.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Frontend, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Compiler.Frontend.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Frontend.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Configuration, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Configuration.1.8.0-dev-047994e\lib\net45\Uno.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.ProjectFormat, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.ProjectFormat.1.8.0-dev-047994e\lib\net45\Uno.ProjectFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Runtime.Core, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Runtime.Core.1.8.0-dev-047994e\lib\net45\Uno.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Stuff, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Stuff.1.8.0-dev-047994e\lib\net45\Uno.Stuff.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.UX.Markup.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup.AST, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.UX.Markup.AST.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.AST.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup.CodeGeneration, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.UX.Markup.CodeGeneration.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.CodeGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup.Common, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.UX.Markup.Common.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup.Reflection, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.UX.Markup.Reflection.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup.UXIL, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.UX.Markup.UXIL.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.UXIL.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xamarin.Mac, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Xamarin.Mac.3.4.0.2\lib\net45\Xamarin.Mac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entrypoint.cs" />
+    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
+      <Link>Properties/SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Fuse\Command\Outracks.Fuse.Command.csproj">
+      <Project>{8B6673C5-58B8-4E5A-8369-2E21507F4131}</Project>
+      <Name>Outracks.Fuse.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fusion\Mac\Outracks.Fusion.Mac.csproj">
+      <Project>{4b9ec6e2-aa97-48de-9891-2c1d24a4d383}</Project>
+      <Name>Outracks.Fusion.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fusion\BuildTasks\Outracks.Fusion.BuildTasks.csproj">
+      <Project>{6D982EC5-40A4-4F93-A7A1-51F23D62BDF4}</Project>
+      <Name>Outracks.Fusion.BuildTasks</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <InterfaceDefinition Include="MainMenu.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fuse_simulator.icns">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <BundleResource Include="Resources\Fuse.icns" />
+  </ItemGroup>
+  <Import Project="$(SolutionDir)\Fuse.targets" />
+  <Target Name="AfterBuild" Condition=" '$(OS)' != 'Windows_NT'">
+    <BundleApp AppName="Fuse" OutputDir="$(OutputPath)" ProjectDir="$(ProjectDir)" FinalDir="$(SolutionDir)bin/$(Configuration)" InfoFile="$(ProjectDir)/Info.plist" ResourcePrefix="$(MonoMacResourcePrefix)" MonoPath="$(MonoPath)" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\packages\FuseOpen.Xamarin.Mac.3.4.0.2\build\net45\FuseOpen.Xamarin.Mac.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\FuseOpen.Xamarin.Mac.3.4.0.2\build\net45\FuseOpen.Xamarin.Mac.props'))" />
+  </Target>
+</Project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Each/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="-2.5e-15" y="0" width="21" height="16" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="21" height="16" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <use stroke="#6DC0D2" mask="url(#mask-2)" stroke-width="2" stroke-dasharray="2,1" xlink:href="#path-1"></use>
+                <g transform="translate(4.000000, 3.000000)" stroke="#C7C7C7" stroke-linecap="round" stroke-linejoin="round">
+                    <g>
+                        <path d="M11.5863913,2.56837838 C12.4376087,3.09864865 13,4.01945946 13,5.06324324 L13,5.05945946 C13,6.70135135 11.6081522,8.02891892 9.89130435,8.02891892 L3.10869565,8.02891892"></path>
+                        <path d="M1.41553043,7.55451351 C0.563465217,7.02424324 -5.65217392e-05,6.10775676 -5.65217392e-05,5.06316216 L-5.65217392e-05,5.05964865 C-5.65217392e-05,3.41748649 1.3917913,2.08289189 3.10863913,2.08289189 L9.89124783,2.08289189"></path>
+                        <polyline points="7.91304348 3.97489189 9.89130435 2.083 7.91304348 0.191108108"></polyline>
+                        <polyline points="5.08695652 9.92083784 3.10869565 8.02894595 5.08695652 6.13705405"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

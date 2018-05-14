@@ -1,0 +1,9 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>SymbolNames.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+ERROR: The symbol name 'Symbol With Space' contains an invalid character. Please only use the letters a-z, numbers, or underscores, and don't start the name with a number.
+ERROR: The symbol name 'class' is a reserved word. Please choose another name.
+ERROR: More than one symbol named 'DuplicateName' was found! Only generating ux for one of them. Please make sure symbol names are unique.
+INFO: Wrote 'Sketch.OkSymbol' to '<path removed>Sketch.OkSymbol.ux'
+INFO: Wrote 'Sketch.DuplicateName' to '<path removed>Sketch.DuplicateName.ux'
+INFO: Wrote 'Sketch.DuplicateName' to '<path removed>Sketch.DuplicateName.ux'
+

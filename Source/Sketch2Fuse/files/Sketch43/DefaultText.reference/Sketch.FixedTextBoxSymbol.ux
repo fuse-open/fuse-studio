@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.FixedTextBoxSymbol" Width="104" Height="56" FixedTextBox="Fixed text box">
+	<string ux:Property="FixedTextBox" />
+	<Text Color="0, 0, 0, 1" FontSize="20" Value="{Property FixedTextBox}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- FixedTextBox -->
+	</Text>
+</Panel>

@@ -1,0 +1,42 @@
+<Panel ux:Class="Sketch.RectGrid" Width="121" Height="114">
+	<Panel Width="41.32232%" Height="43.85965%" Alignment="TopLeft" Margin="0">
+		<!-- UpperLeft -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="-45" Distance="7.071068" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+			<Stroke Width="2" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+	<Panel Width="41.32232%" Height="43.85965%" Alignment="TopLeft" Offset="58.67768%, 0%" Margin="0">
+		<!-- UpperRight -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="-135" Distance="7.071068" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+			<Stroke Width="2" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+	<Panel Width="41.32232%" Height="43.85965%" Alignment="TopLeft" Offset="0%, 56.14035%" Margin="0">
+		<!-- LowerLeft -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="45" Distance="7.071068" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+			<Stroke Width="2" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+	<Panel Width="41.32232%" Height="43.85965%" Alignment="TopLeft" Offset="58.67768%, 56.14035%" Margin="0">
+		<!-- LowerRight -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Shadow Angle="135" Distance="7.071068" Color="0, 0, 0, 0.5" Size="4" Mode="PerPixel" />
+			<Stroke Width="2" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+</Panel>

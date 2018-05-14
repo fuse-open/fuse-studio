@@ -1,0 +1,34 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask TaskName="Outracks.Fuse.BuildTasks.BundleApp" AssemblyFile="Source/Fusion/BuildTasks/bin/$(Configuration)/Outracks.Fuse.BuildTasks.dll" />
+
+	<PropertyGroup>
+		<ModulesPath>$(SolutionDir)Modules\</ModulesPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(Configuration)==Debug">
+		<MonoPath>$(SolutionDir)Stuff/Mono</MonoPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration)==Release">
+		<MonoPath>$(SolutionDir)bin/Release/Fuse.app/Contents/Mono</MonoPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<FuseRoot>$(SolutionDir)/bin/$(Configuration)</FuseRoot>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(OS)' == 'Unix' ">
+		<FuseRoot>$(SolutionDir)/bin/$(Configuration)/Fuse.app/Contents/MonoBundle</FuseRoot>
+	</PropertyGroup>
+
+    <ItemGroup>
+        <TemplatesFromStuff Include="$(SolutionDir)\Stuff\ProjectTemplates\**\*.*"/>
+    </ItemGroup>
+
+    <Target Name="BeforeBuild">
+        <Copy
+            SourceFiles="@(TemplatesFromStuff)"
+            DestinationFiles="@(TemplatesFromStuff->'$(SolutionDir)\Templates\%(RecursiveDir)%(Filename)%(Extension)')"
+        />        
+    </Target>
+</Project>

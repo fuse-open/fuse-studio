@@ -1,0 +1,57 @@
+<Panel ux:Class="Sketch.Spiral" Width="142" Height="142">
+	<Panel Width="70.42254%" Height="70.42254%" Alignment="TopLeft" Offset="14.78873%, 14.78873%" Margin="0" Opacity="0.6">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.2886557, 0.5645519, 0.8862387, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="75" />
+	</Panel>
+	<Panel Width="70.42254%" Height="70.42254%" Alignment="TopLeft" Offset="14.78873%, 14.78873%" Margin="0" Opacity="0.7">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.4941505, 0.8262341, 0.1298773, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="60" />
+	</Panel>
+	<Panel Width="70.42254%" Height="70.42254%" Alignment="TopLeft" Offset="14.78873%, 14.78873%" Margin="0" Opacity="0.8">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9707752, 0.9072384, 0.1094621, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="45" />
+	</Panel>
+	<Panel Width="70.42254%" Height="70.42254%" Alignment="TopLeft" Offset="14.78873%, 14.78873%" Margin="0" Opacity="0.9030797">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.961711, 0.6503673, 0.1385423, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="30" />
+	</Panel>
+	<Panel Width="70.42254%" Height="70.42254%" Alignment="TopLeft" Offset="14.78873%, 14.78873%" Margin="0">
+		<!-- Rectangle 2 -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="1, 0, 0, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="15" />
+	</Panel>
+</Panel>

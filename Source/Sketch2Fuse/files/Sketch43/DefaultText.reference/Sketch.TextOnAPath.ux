@@ -1,0 +1,18 @@
+<Panel ux:Class="Sketch.TextOnAPath" Width="324" Height="63" PathText="Some text along the line">
+	<string ux:Property="PathText" />
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group -->
+		<Text Color="0, 0, 0, 1" FontSize="18" Value="{Property PathText}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="91.66666%" Height="33.33333%" Alignment="TopLeft" Offset="4.012346%, 19.04762%" Margin="0">
+			<!-- PathText -->
+		</Text>
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Path Data="M 0 1 C 0.01494810337153 0.3333333333333 0.0795084463813 1.398210878903E-17 0.1936810290293 0 C 0.3649399030013 0 0.4920208355225 0.5917112145772 0.6804667182119 0.5917112145772 C 0.8060973066714 0.5917112145772 0.9126084006008 0.3944741430515 1 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="-4.386066E-15%, 0%" Margin="0">
+				<!-- Path -->
+				<Stroke Width="1" Alignment="Center">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

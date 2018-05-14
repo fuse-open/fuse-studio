@@ -1,0 +1,11 @@
+<Panel ux:Class="Sketch.Asymmetric" Width="201" Height="103">
+	<Panel Width="99.50249%" Height="99.46087%" Alignment="TopLeft" Offset="1.164215E-13%, 0.5391292%" Margin="0">
+		<!-- Asymmetric -->
+		<Path Data="M 0 1 C 0.2115320189033 0.2303477315743 0.37819868557 -0.09503107613177 0.5 0.02386357688175 C 0.8333333333333 0.3492422576454 1 0.6746210653515 1 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Offset="0%, 1.387173E-14%" Margin="0">
+			<!-- Path -->
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

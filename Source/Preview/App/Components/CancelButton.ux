@@ -1,0 +1,6 @@
+<Panel ux:Class="CancelButton" Margin="0,0,0,24" HitTestMode="LocalBoundsAndChildren" Alignment="Center" Clicked="{onBackButton}">
+	<Grid Columns="16,auto" CellSpacing="8">
+		<CrossIcon/>
+		<Text FontSize="16" Color="DefaultText" Value="Cancel" TextAlignment="Left"/>
+	</Grid>
+</Panel>

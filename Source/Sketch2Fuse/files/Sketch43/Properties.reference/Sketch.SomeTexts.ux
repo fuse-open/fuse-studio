@@ -1,0 +1,26 @@
+<Panel ux:Class="Sketch.SomeTexts" Width="85" Height="14" TextInGroup="Hi there" SimpleText="Head line">
+	<string ux:Property="SimpleText" />
+	<string ux:Property="TextInGroup" />
+	<Text Color="0, 0, 0, 1" FontSize="12" Value="{Property SimpleText}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Left" Width="60%" Height="100%" Alignment="BottomLeft" Offset="20%, 0" Margin="0">
+		<!-- SimpleText -->
+	</Text>
+	<Panel Width="100%" Height="450%" Alignment="TopLeft" Offset="0%, 100%" Margin="0">
+		<!-- Group -->
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Group 2 -->
+			<Text Color="0, 0, 0, 1" FontSize="12" Value="{Property TextInGroup}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Left" Width="50.58823%" Height="22.22222%" Alignment="BottomLeft" Offset="24.70588%, -31" Margin="0">
+				<!-- TextInGroup -->
+			</Text>
+			<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Rectangle -->
+				<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+					<!-- Path -->
+					<SolidColor Color="0.847, 0.847, 0.847, 1" />
+					<Stroke Width="1" Alignment="Inside">
+						<SolidColor Color="0.592, 0.592, 0.592, 1" />
+					</Stroke>
+				</Rectangle>
+			</Panel>
+		</Panel>
+	</Panel>
+</Panel>

@@ -1,0 +1,25 @@
+"Name": "sublime-plugin",
+"Version": "1.4.2",
+"Description": "Install Sublime Text 3 plugin for Fuse.",
+
+"Install": 
+{
+	#if WINDOWS
+	"Command":"install.bat"
+	#endif
+	#if OSX
+	"Command":"install.sh"
+	#endif
+},
+
+"Verify": 
+{
+	#if WINDOWS
+	"Command":"install.bat",
+	#endif
+	#if OSX
+	"Command":"install.sh",
+	#endif
+
+	"Arguments": ["-s"]
+}

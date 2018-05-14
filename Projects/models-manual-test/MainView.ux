@@ -1,0 +1,9 @@
+<App Model="App">
+    <Grid Rows="1*,auto">
+        <Text Alignment="Center" Value="{foo}" />
+
+        <Panel Height="200" Color="{color}" Clicked="{change}">
+            <Text Color="#fff" Alignment="Center">Change</Text>
+        </Panel>
+    </Grid>
+</App>

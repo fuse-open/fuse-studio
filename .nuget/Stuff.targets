@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <StuffInstallCmd Condition="'$(OS)' != 'Windows_NT'">mono $(SolutionDir)/Stuff/stuff.exe install $(SolutionDir)/Stuff</StuffInstallCmd>
+    <StuffInstallCmd Condition="'$(OS)' == 'Windows_NT'">$(SolutionDir)/Stuff/stuff.exe install $(SolutionDir)/Stuff</StuffInstallCmd>
+
+    <BuildDependsOn Condition="'$(OS)' == 'Windows_NT'">
+        StuffInstallInstantiator;
+        $(BuildDependsOn);
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <Target Name="StuffInstallInstantiator">
+      <!-- This effectively acts as a lock that makes sure that the download operation will only happen once and all
+           parallel builds will have to wait for it to complete. -->
+      <MsBuild Targets="StuffInstall" Projects="$(MSBuildThisFileFullPath)" Properties="Configuration=NOT_IMPORTANT" />
+  </Target>
+
+  <Target Name="StuffInstall">
+      <Message Text="Call 'stuff install'" />
+      <Exec Command="$(StuffInstallCmd)"
+            Condition="'$(OS)' != 'Windows_NT'" />
+
+      <Exec Command="$(StuffInstallCmd)"
+            LogStandardErrorAsError="true"
+            Condition="'$(OS)' == 'Windows_NT'" />
+  </Target>
+</Project>

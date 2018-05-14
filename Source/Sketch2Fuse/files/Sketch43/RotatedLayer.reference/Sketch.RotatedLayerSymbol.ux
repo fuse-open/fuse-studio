@@ -1,0 +1,23 @@
+<Panel ux:Class="Sketch.RotatedLayerSymbol" Width="138" Height="138">
+	<Panel Width="72.46377%" Height="72.46377%" Alignment="TopLeft" Offset="13.76812%, 13.76812%" Margin="0">
+		<!-- Rectangle -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.4941505, 0.8262341, 0.1298773, 0.4693727" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+	<Panel Width="72.46377%" Height="72.46377%" Alignment="TopLeft" Offset="13.76812%, 13.76812%" Margin="0">
+		<!-- Rectangle -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9707752, 0.9072384, 0.1094621, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Rectangle>
+		<Rotation Degrees="30" />
+	</Panel>
+</Panel>

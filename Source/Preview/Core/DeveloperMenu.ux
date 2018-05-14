@@ -1,0 +1,17 @@
+﻿<Panel ux:Class="Outracks.Simulator.DeveloperMenu" Color="#000C" Clicked="Close" >
+  <ClientPanel>
+	  <Button Alignment="TopLeft" Margin="20" Text="Go back" Clicked="GoBack" />
+    <StackPanel Alignment="Center">
+      <Text Alignment="Center" Color="White">Fuse Preview Menu</Text>
+      <Text Alignment="Center" Color="#ddd">Tap to dismiss</Text>
+    </StackPanel>
+  </ClientPanel>
+  <AddingAnimation>
+	  <Change this.Opacity="0" Easing="CubicIn" Duration="0.3" />
+    <Scale Factor="1.2" Duration="0.3" Easing="BackIn" />
+  </AddingAnimation>
+  <RemovingAnimation>
+    <Change this.Opacity="0" Easing="CubicOut" Duration="0.3" />
+    <Scale Factor="0.8" Duration="0.3" Easing="CubicOut" />
+  </RemovingAnimation>
+</Panel>

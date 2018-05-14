@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Format="1.0">
+    <BuildDir>.Build</BuildDir>
+    <CacheDir>.Cache</CacheDir>
+    <Copyright>Copyright (C) 2014</Copyright>
+    <DefaultNamespace>$(QIdentifier)</DefaultNamespace>
+    <Description></Description>
+    <Icon></Icon>
+    <Publisher>[Publisher]</Publisher>
+    <ReferenceUnoCore>True</ReferenceUnoCore>
+    <Title>$(Name)</Title>
+    <URL></URL>
+    <Version>0.0.0.0</Version>
+    <VersionCount>1</VersionCount>
+    <Android>
+        <ApplicationLabel>$(Title)</ApplicationLabel>
+        <Description>$(Description)</Description>
+        <Package>com.$(DefaultNamespace)</Package>
+        <VersionCode>$(VersionCount)</VersionCode>
+        <VersionName>$(Version)</VersionName>
+        <Icons>
+            <HDPI>$(Icon)</HDPI>
+            <LDPI>$(Icon)</LDPI>
+            <MDPI>$(Icon)</MDPI>
+            <XHDPI>$(Icon)</XHDPI>
+            <XXHDPI>$(Icon)</XXHDPI>
+            <XXXHDPI>$(Icon)</XXXHDPI>
+        </Icons>
+        <Key>
+            <Alias></Alias>
+            <AliasPassword></AliasPassword>
+            <Store></Store>
+            <StorePassword></StorePassword>
+        </Key>
+    </Android>
+    <HTML>
+        <Favicon>$(Icon)</Favicon>
+        <Title>$(Title)</Title>
+    </HTML>
+    <iOS>
+        <Icons>
+            <iPad_29_1x>$(Icon)</iPad_29_1x>
+            <iPad_29_2x>$(Icon)</iPad_29_2x>
+            <iPad_40_1x>$(Icon)</iPad_40_1x>
+            <iPad_40_2x>$(Icon)</iPad_40_2x>
+            <iPad_50_1x>$(Icon)</iPad_50_1x>
+            <iPad_50_2x>$(Icon)</iPad_50_2x>
+            <iPad_72_1x>$(Icon)</iPad_72_1x>
+            <iPad_72_2x>$(Icon)</iPad_72_2x>
+            <iPad_76_1x>$(Icon)</iPad_76_1x>
+            <iPad_76_2x>$(Icon)</iPad_76_2x>
+            <iPhone_29_1x>$(Icon)</iPhone_29_1x>
+            <iPhone_29_2x>$(Icon)</iPhone_29_2x>
+            <iPhone_40_2x>$(Icon)</iPhone_40_2x>
+            <iPhone_57_1x>$(Icon)</iPhone_57_1x>
+            <iPhone_57_2x>$(Icon)</iPhone_57_2x>
+            <iPhone_60_2x>$(Icon)</iPhone_60_2x>
+        </Icons>
+        <LaunchImages>
+            <iPad_Landscape_1x></iPad_Landscape_1x>
+            <iPad_Landscape_2x></iPad_Landscape_2x>
+            <iPad_Portrait_1x></iPad_Portrait_1x>
+            <iPad_Portrait_2x></iPad_Portrait_2x>
+            <iPhone_Portrait_2x></iPhone_Portrait_2x>
+            <iPhone_Portrait_R4></iPhone_Portrait_R4>
+        </LaunchImages>
+    </iOS>
+    <Mobile>
+        <KeepAlive>False</KeepAlive>
+        <Orientations>Auto</Orientations>
+        <RunsInBackground>True</RunsInBackground>
+        <ShowStatusbar>True</ShowStatusbar>
+    </Mobile>
+    <References>
+        <PackageReference Name="Fuse.Animations" />
+        <PackageReference Name="Fuse.Controls" />
+        <PackageReference Name="Fuse.Drawing" />
+        <PackageReference Name="Fuse.Drawing.Primitives" />
+        <PackageReference Name="Fuse.Elements" />
+        <PackageReference Name="Fuse.Triggers" />
+        <PackageReference Name="Fuse.Navigation" />
+        <PackageReference Name="Fuse.Entities" />
+        <PackageReference Name="Fuse.Shapes" />
+        <PackageReference Name="FuseCore" />
+        <PackageReference Name="Outracks.UIThemes.MobileBlue" />
+    </References>
+    <Files>
+        <UXFile Path="MyApp.ux" />
+        <SourceFile Path="MyApp.ux.uno" />
+    </Files>
+</Project>

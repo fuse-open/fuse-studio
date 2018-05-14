@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="ColorPicker.NewCurrent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <UserControl.Resources>
+        <DrawingBrush Viewport="0.0,0.0,0.1,0.4" TileMode="Tile"    x:Key="CheckerBoard"   >
+
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="White">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,10,10" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+
+                    <GeometryDrawing>
+                        <GeometryDrawing.Geometry>
+                            <GeometryGroup>
+                                <RectangleGeometry Rect="0,0,5,5" />
+                                <RectangleGeometry Rect="5,5,5,5" />
+                            </GeometryGroup>
+                        </GeometryDrawing.Geometry>
+                        <GeometryDrawing.Brush>
+                            <SolidColorBrush Color="#d7d7d7"/>
+
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+
+    </UserControl.Resources>
+    <Grid Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="35*" />
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" Name="tbNew">new</TextBlock>
+        <Rectangle Grid.Row="1" Name="rNewBG" Fill="{StaticResource CheckerBoard}" />
+        <Rectangle Grid.Row="1" Name="rNew" Fill="gray" />
+    </Grid>
+</UserControl>

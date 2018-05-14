@@ -1,0 +1,7 @@
+<Panel ux:Class="Sketch.ShadowedText" Width="320" Height="28" This_is_a_text_width="This_is_a_text_width_shadow">
+	<string ux:Property="This_is_a_text_width" />
+	<Text Color="0.8162038, 0.007513228, 0.106696, 1" FontSize="20" Value="{Property This_is_a_text_width}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="99.6875%" Height="100%" Alignment="BottomLeft" Offset="0.15625%, 0" Margin="0">
+		<!-- This_is_a_text_width -->
+		<Shadow Angle="135" Distance="14.14214" Color="0, 0, 0, 1" Size="4" Mode="PerPixel" />
+	</Text>
+</Panel>

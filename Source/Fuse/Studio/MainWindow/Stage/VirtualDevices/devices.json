@@ -1,0 +1,56 @@
+[
+	{
+		"Name" : "iPhone 6/7",
+		"Width" : 750,
+		"Height" : 1334,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch" : 326,
+		"IsDefault" : true
+	},
+	{
+		"Name" : "iPhone 6/7 Plus",
+		"Width" : 1242,
+		"Height" : 2208,
+		"PixelsPerPoint" : 3,
+		"PhysicalPixelsPerInch" : 401,
+		"PhysicalPixelsPerPixel" : 0.8695652173913
+	},
+	{
+		"Name" : "iPhone 5/5S",
+		"Width" : 640,
+		"Height" : 1136,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 326
+	},
+	{
+		"Name" : "iPad Retina",
+		"Width" : 2048,
+		"Height" : 1536,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 264,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Sony Xperia Z3",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 423.64,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Samsung Galaxy S6 Edge",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 577
+	},
+	{
+		"Name" : "Google Nexus 9",
+		"Width" : 2048,
+		"Height" : 1536,
+		"PixelsPerPoint": 1.5,
+		"PhysicalPixelsPerInch": 281,
+		"DefaultOrientation": "Landscape"
+	},
+]

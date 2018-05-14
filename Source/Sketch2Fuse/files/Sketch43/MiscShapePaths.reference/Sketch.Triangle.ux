@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.Triangle" Width="103" Height="84">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Triangle -->
+		<Path Data="M 0.5 0 L 1 1 L 0 1 L 0.5 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.2886557, 0.5645519, 0.8862387, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,23 @@
+﻿using Uno;
+using Uno.Collections;
+using Uno.Graphics;
+
+_$$include_namespace
+namespace _$namespace$_
+{
+	public class App : Application
+	{
+		public override void Draw()
+		{
+		}
+	}
+}
+include_namespace$$_
+_$$exclude_namespace
+public class App : Application
+{
+	public override void Draw()
+	{
+	}
+}
+exclude_namespace$$_

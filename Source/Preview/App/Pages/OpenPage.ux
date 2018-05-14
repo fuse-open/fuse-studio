@@ -1,0 +1,140 @@
+<Page ux:Class="OpenPage">
+	<UserEvent ux:Name="OnConnectedEvent"/>
+	<OnUserEvent ux:Class="OnConnected" EventName="OnConnectedEvent"/>
+	<JavaScript>
+		var Observable = require('FuseJS/Observable');
+		var simulatorAPI = require('SimulatorAPI');
+		var proxyState = require('ProxyState');
+		var environment = require('FuseJS/Environment')
+
+		var platformInfo = {
+			android: environment.android,
+			iOS: environment.iOS,
+			mobile: environment.mobile
+		}
+
+		var ipAddress = Observable("");
+		var errorMessage = Observable("");
+		var hasConnected = Observable(false);
+
+		function onConnect() {
+			errorMessage.value = "";
+			isBusy.activate();
+			simulatorAPI
+				.connectToProxy(ipAddress.value)
+				.then(onConnected)
+				.catch(function(error) {
+					if(hasConnected.value) return;
+
+					errorMessage.value = error + ".\nMake sure the IP address is correct and try again"
+					isBusy.deactivate();
+				});
+		}
+
+		function onConnected(proxy) {
+			if(hasConnected.value)
+			{
+				return;
+			}
+			hasConnected.value = true;
+
+			isBusy.deactivate();
+			proxyState.setProxy(proxy);
+			OnConnectedEvent.raise();
+		}
+
+
+		function clearState() {
+			errorMessage.value = "";
+			hasConnected.value = false;
+		}
+
+		module.exports = {
+			ipAddress: ipAddress,
+			onConnect: onConnect,
+			errorMessage: errorMessage,
+			isError : errorMessage.map(function(e) { return e != "" && e != null; }),
+			clearState: clearState,
+			environment: platformInfo
+		};
+	</JavaScript>
+
+	<WhileInactive> 
+		<Callback Handler="{clearState}" />
+	</WhileInactive>
+
+	<Panel ux:Class="MyLoadingIndicator" ThemeColor="#1565C0">
+		<float4 ux:Property="ThemeColor" />
+		<Circle ux:Name="rotatingStroke" Opacity="0.4" Width="50" Height="50" StartAngleDegrees="-45" EndAngleDegrees="45">
+			<Stroke Width="2" Color="{ReadProperty ThemeColor}" />
+		</Circle>
+		<Circle Color="{ReadProperty ThemeColor}" Width="20" Height="20">
+			<Timeline ux:Name="myTimeline">
+				<Scale Factor=".5" Duration=".25" Easing="CircularOut" EasingBack="CircularIn" />
+				<Scale Factor="2" Duration=".25" Delay=".25" Easing="BounceOut" EasingBack="BounceIn" />
+			</Timeline>
+		</Circle>
+		<WhileFalse>
+			<Cycle Target="myTimeline.TargetProgress" Low="0" High="1" Frequency=".5" />
+			<Spin Target="rotatingStroke" Frequency="1" />
+		</WhileFalse>
+	</Panel>
+
+	<PageContent Title="Manual connection" SubTitle="Enter the IP address of the computer running Fuse Studio">
+		<DockPanel Dock="Fill" >
+			<Panel>
+				<StackPanel Alignment="VerticalCenter">
+					<Rectangle CornerRadius="4" >
+						<Stroke Width="1" Color="HintGrey" ux:Name="boxStroke"/> 
+						<!-- Use a different InputHint on Android. iOS doesn't give the user . in Phone -->
+						<Android>
+							<TextInput ux:Name="androidInput" AutoCorrectHint="Disabled" Height="60" Value="{ipAddress}" Margin="16,0,0,0"  TextColor="Highlight" FontSize="20" PlaceholderColor="HintGrey" InputHint="Phone" PlaceholderText="eg: 127.0.0.1">
+								<WhileFocused>
+									<Change boxStroke.Color="FocusedText"/>
+								</WhileFocused>
+								<Activated>
+									<GiveFocus Target="androidInput"/>
+								</Activated>
+							</TextInput>
+						</Android>
+						<!-- Default InputHint for iOS and preview -->
+						<WhileFalse Value="{environment.android}">
+							<TextInput ux:Name="commonInput" AutoCorrectHint="Disabled" Height="60" Value="{ipAddress}" Margin="16,0,0,0" TextColor="Highlight" FontSize="20" PlaceholderColor="HintGrey" PlaceholderText="eg: 127.0.0.1">
+								<WhileFocused>
+									<Change boxStroke.Color="FocusedText"/>
+								</WhileFocused>
+								<Activated>
+									<GiveFocus Target="commonInput"/>
+								</Activated>
+							</TextInput>
+						</WhileFalse>
+					</Rectangle>
+					<Panel>
+						<Busy ux:Name="isBusy" IsActive="false" />
+						<WhileKeyboardVisible>
+							<Change hideIndicator.Value="true" />
+						</WhileKeyboardVisible>
+						<WhileFalse ux:Name="hideIndicator">
+							<WhileFalse Value="{isError}">
+								<WhileBusy>
+									<MyLoadingIndicator ux:Name="loadingPanel" ThemeColor="Highlight" Margin="16" />
+									<!-- <Change loadingPanel.Opacity="1" Duration=".4" /> -->
+								</WhileBusy>
+							</WhileFalse>
+							<!--Error box TODO: clear errors -->
+							<WhileTrue Value="{isError}">
+								<ErrorView Message="{errorMessage}" Margin="0,16,0,0" />
+							</WhileTrue>
+						</WhileFalse>
+					</Panel>
+				</StackPanel>
+			</Panel>
+			<StackPanel Dock="Bottom">
+				<BasicButton Margin="0,24" Clicked="{onConnect}" Text="Connect">
+					<ConnectIcon Width="18" />
+				</BasicButton>
+			</StackPanel>
+		</DockPanel>
+	
+	</PageContent>
+</Page>

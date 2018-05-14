@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="ColorPickerControls.Pickers.ColorPickerFullWithAlpha"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="269" d:DesignWidth="546" 
+             xmlns:my="clr-namespace:ColorPicker;assembly=ColorPicker" 
+             xmlns:my1="clr-namespace:ColorPicker.ColorModels.RGB;assembly=ColorPicker" 
+             xmlns:my2="clr-namespace:ColorPicker.ColorModels.HSB;assembly=ColorPicker" xmlns:my3="clr-namespace:ColorPicker.ColorModels.Lab;assembly=ColorPicker" xmlns:my4="clr-namespace:ColorPicker.ColorModels.CMYK;assembly=ColorPicker">
+    <Grid>
+        <my:ColorSelector Height="270" HorizontalAlignment="Left" Margin="2,1,0,0" Name="colorSelector" VerticalAlignment="Top" Width="314" />
+        <my:HexDisplay Height="25" HorizontalAlignment="Left" Margin="325,242,0,0" Name="hexDisplay" VerticalAlignment="Top" Width="79" 
+                       Color="{Binding Path=Color, ElementName=colorSelector}" AlphaByteVisibility="visible" />
+        <my1:RgbDisplay HorizontalAlignment="Left" Margin="325,157,0,0" Name="rgbDisplay" VerticalAlignment="Top"
+                        Color="{Binding Path=Color, ElementName=colorSelector}" 
+                        NormalComponent="{Binding ElementName=colorSelector, Path=NormalComponent}" />
+        <my2:HsbDisplay Height="90" HorizontalAlignment="Left" Margin="325,56,0,0" Name="hsbDisplay" VerticalAlignment="Top" Width="94" Color="{Binding Path=Color, ElementName=colorSelector}" NormalComponent="{Binding ElementName=colorSelector, Path=NormalComponent}" />
+        <my3:LabDisplay Height="90" HorizontalAlignment="Left" Margin="421,57,0,0" Name="labDisplay" VerticalAlignment="Top" Width="75" Color="{Binding Path=Color, ElementName=colorSelector}" NormalComponent="{Binding Path=NormalComponent, ElementName=colorSelector}" />
+        <my:NewCurrent HorizontalAlignment="Left" Margin="325,1,0,0" Name="newCurrent" VerticalAlignment="Top" Height="40" Width="169" 
+                       NewColor="{Binding ElementName=colorSelector, Path=Color}" 
+                       Alpha="{Binding ElementName=alphaDisplay, Path=Alpha, Mode=OneWay}" />
+        <my:AlphaDisplay HorizontalAlignment="Left" Margin="504,2,0,0" Name="alphaDisplay" VerticalAlignment="Top" Height="266"
+                         Color="{Binding Path=Color, ElementName=colorSelector}" />
+        <my4:CMYKDisplay HorizontalAlignment="Left" Margin="437,157,0,0" Name="cMYKDisplay" VerticalAlignment="Top" Color="{Binding Path=Color, ElementName=colorSelector}" />
+    </Grid>
+</UserControl>

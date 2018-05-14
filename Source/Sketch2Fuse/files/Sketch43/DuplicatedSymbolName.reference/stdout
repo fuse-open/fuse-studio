@@ -1,0 +1,6 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>DuplicatedSymbolName.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+ERROR: More than one symbol named 'DuplicatedSymbolName' was found! Only generating ux for one of them. Please make sure symbol names are unique.
+INFO: Wrote 'Sketch.DuplicatedSymbolName' to '<path removed>Sketch.DuplicatedSymbolName.ux'
+INFO: Wrote 'Sketch.DuplicatedSymbolName' to '<path removed>Sketch.DuplicatedSymbolName.ux'
+

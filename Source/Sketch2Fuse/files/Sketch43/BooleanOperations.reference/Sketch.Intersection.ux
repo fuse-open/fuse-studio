@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.Intersection" Width="50" Height="50">
+	<Panel>
+		<!-- Intersection -->
+		<!-- Combined shapes are not supported in UX -->
+	</Panel>
+</Panel>

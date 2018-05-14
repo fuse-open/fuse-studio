@@ -1,0 +1,19 @@
+<Panel ux:Class="Sketch.ScissoredTree" Width="188" Height="166">
+	<Panel Width="99.59068%" Height="99.28229%" Alignment="TopLeft" Offset="0.2244016%, 0.2211973%" Margin="0">
+		<!-- Path 3 -->
+		<Path Data="M 1 0 L 0.0805827511881 0 L 0 1" StretchMode="Fill" Width="80.3384%" Height="62.36401%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.3827645, 0.7135417, 0, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+		<Path Data="M 0.05950632625395 0.2665440010152 L 0 0.9462280312163 L 0.3769204699503 0.5657001459298 L 0.7692611839132 1 L 1 0.8087050314066 L 0.6094103027564 0.3943594949559 L 0.9703739267962 0.06579531755599 L 0.3769204699503 0" StretchMode="Fill" Width="73.87286%" Height="74.71262%" Alignment="TopLeft" Offset="26.12714%, 25.28738%" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.3827645, 0.7135417, 0, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

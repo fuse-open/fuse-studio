@@ -1,0 +1,11 @@
+<Panel ux:Class="Sketch.Mirrored" Width="199" Height="100">
+	<Panel Width="99.66041%" Height="99.79688%" Alignment="TopLeft" Margin="0">
+		<!-- Mirrored -->
+		<Path Data="M 0 1 C 0.1666666666667 0.3333333333333 0.3333333333333 2.041077998579E-17 0.5 0 C 0.6666666666667 0 0.8333333333333 0.3333333333333 1 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

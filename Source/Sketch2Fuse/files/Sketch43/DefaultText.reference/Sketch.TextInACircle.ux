@@ -1,0 +1,21 @@
+<Panel ux:Class="Sketch.TextInACircle" Width="137" Height="234" CircleText="Text around a circle æøå">
+	<string ux:Property="CircleText" />
+	<Panel Width="161.3139%" Height="45.72649%" Alignment="TopLeft" Offset="-30.6287%, 27.18042%" Margin="0">
+		<!-- Group 2 -->
+		<Text Color="0, 0, 0, 1" FontSize="18" Value="{Property CircleText}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="89.59276%" Height="19.62617%" Alignment="BottomLeft" Offset="10.181%, -86" Margin="0">
+			<!-- CircleText -->
+		</Text>
+		<Panel Width="49.77375%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Oval -->
+			<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="1" Alignment="Center">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Rotation DegreesX="-180" />
+		<Rotation DegreesY="-180" />
+		<Rotation Degrees="82" />
+	</Panel>
+</Panel>

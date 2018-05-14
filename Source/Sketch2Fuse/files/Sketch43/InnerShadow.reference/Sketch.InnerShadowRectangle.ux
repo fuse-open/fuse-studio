@@ -1,0 +1,10 @@
+<Panel ux:Class="Sketch.InnerShadowRectangle" Width="100" Height="100">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle -->
+		<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<!-- Inner shadow not supported in UX -->
+			<SolidColor Color="0.847, 0.847, 0.847, 1" />
+		</Rectangle>
+	</Panel>
+</Panel>

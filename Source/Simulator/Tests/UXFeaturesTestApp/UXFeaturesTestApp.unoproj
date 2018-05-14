@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Format="1.0">
+    <References>
+        <PackageReference Name="Fuse.Animations" />
+        <PackageReference Name="Fuse.BasicTheme" />
+        <PackageReference Name="Fuse.Controls" />
+        <PackageReference Name="Fuse.Designer" />
+        <PackageReference Name="Fuse.Drawing" />
+        <PackageReference Name="Fuse.Drawing.Primitives" />
+        <PackageReference Name="Fuse.Effects" />
+        <PackageReference Name="Fuse.Elements" />
+        <PackageReference Name="Fuse.Entities" />
+        <PackageReference Name="Fuse.Gestures" />
+        <PackageReference Name="Fuse.Navigation" />
+        <PackageReference Name="Fuse.Shapes" />
+        <PackageReference Name="Fuse.Triggers" />
+        <PackageReference Name="Fuse.Reactive" />
+        <PackageReference Name="FuseCore" />
+        <PackageReference Name="Uno.Collections" />
+        <PackageReference Name="Uno.Geometry" />
+    </References>
+    <Files>
+
+		<UXFile Name="UXBinding/UXBinding.ux"/>
+		<SourceFile Name="UXBinding/UXBinding.uno"/>
+
+		<UXFile Name="UXClass/UXClass.ux"/>
+		<SourceFile Name="UXClass/UXClass.uno"/>
+
+		<UXFile Name="UXGenerateFactory/UXGenerateFactory.ux"/>
+		<SourceFile Name="UXGenerateFactory/UXGenerateFactory.uno"/>
+
+		<UXFile Name="UXName/UXName.ux"/>
+		<SourceFile Name="UXName/UXName.uno"/>
+
+		<UXFile Name="UXGlobal/UXGlobal.ux" />
+		<SourceFile Name="UXGlobal/UXGlobal.uno"/>
+
+		<UXFile Name="UXConstructor/UXConstructor.ux"/>
+		<SourceFile Name="UXConstructor/UXConstructor.uno"/>
+
+		<UXFile Name="UXValue/UXValue.ux"/>
+		<SourceFile Name="UXValue/UXValue.uno"/>
+
+		<UXFile Name="UXResource/UXResource.ux"/>
+		<SourceFile Name="UXResource/UXResource.uno"/>
+
+    </Files>
+</Project>

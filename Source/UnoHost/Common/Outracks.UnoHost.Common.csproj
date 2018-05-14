@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2AEB321-51E5-40B8-9CF0-53C930E631F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.UnoHost</RootNamespace>
+    <AssemblyName>Outracks.UnoHost.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.0.0-preview00001\lib\net45\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Common, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Common.1.8.0-dev-047994e\lib\net45\Uno.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.API, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.API.1.8.0-dev-047994e\lib\net45\Uno.Compiler.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Runtime.Core, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Runtime.Core.1.8.0-dev-047994e\lib\net45\Uno.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Outracks.Simulator.Common.Uno">
+      <HintPath>..\..\Simulator\Common\bin\Outracks.Simulator.Common.Uno.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Plugins\FusionImplementation.cs" />
+    <Compile Include="Plugins\Plugin.cs" />
+    <Compile Include="Protocol\OpenGLVersionMessage.cs" />
+    <Compile Include="Protocol\WindowFocusMessage.cs" />
+    <Compile Include="Graphics\FramebufferHandle.cs" />
+    <Compile Include="Graphics\FramebufferInfo.cs" />
+    <Compile Include="Graphics\RenderbufferHandle.cs" />
+    <Compile Include="Graphics\TextureHandle.cs" />
+    <Compile Include="Input\Cursor.cs" />
+    <Compile Include="Input\InputState.cs" />
+    <Compile Include="Input\MouseButton.cs" />
+    <Compile Include="Input\MouseButtons.cs" />
+    <Compile Include="Input\ModifierKeys.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
+      <Link>Properties/SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="UnoHandles\GraphicsContextHandleImpl.cs" />
+    <Compile Include="UnoHandles\PlatformWindowHandleImpl.cs" />
+    <Compile Include="UnoHostControl.cs" />
+    <Compile Include="UnoHostProject.cs" />
+    <Compile Include="UnoHostProcess.cs" />
+    <Compile Include="UnoHostArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Core\Outracks.Common.Core.csproj">
+      <Project>{196B010D-AD36-4947-95AA-14FC4A27BD18}</Project>
+      <Name>Outracks.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Math\Outracks.Common.Math.csproj">
+      <Project>{3C1C1047-8830-498E-882A-503C0956CBE3}</Project>
+      <Name>Outracks.Common.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Fusion\Core\Outracks.Fusion.Core.csproj">
+      <Project>{8DFB02E0-ACBF-4432-8DD9-56712E206968}</Project>
+      <Name>Outracks.Fusion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Preview\Service\Fuse.Preview.Service.csproj">
+      <Project>{59e1073a-9b45-41f3-ab94-958a9d18fb72}</Project>
+      <Name>Fuse.Preview.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Simulator\Common\Outracks.Simulator.Common.csproj">
+      <Project>{3335BB78-0B8A-4D2F-919F-2E6F08883D51}</Project>
+      <Name>Outracks.Simulator.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Simulator\Main\Outracks.Simulator.Main.csproj">
+      <Project>{E8884270-5F2C-4076-86D0-456B831BE3E5}</Project>
+      <Name>Outracks.Simulator.Main</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="$(SolutionDir)\Fuse.targets" />
+</Project>

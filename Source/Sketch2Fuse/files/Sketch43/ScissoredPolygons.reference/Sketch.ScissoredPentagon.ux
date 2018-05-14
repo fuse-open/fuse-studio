@@ -1,0 +1,19 @@
+<Panel ux:Class="Sketch.ScissoredPentagon" Width="216" Height="205">
+	<Panel Width="99.50869%" Height="99.71655%" Alignment="TopLeft" Offset="0.2456545%, 0%" Margin="0">
+		<!-- ScissoredPentagon -->
+		<Path Data="M 0 0 L 1 1" StretchMode="Fill" Width="50%" Height="38.1966%" Alignment="TopLeft" Offset="50%, 0%" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9273586, 0.5729759, 1, 1" />
+			<Stroke Width="4" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+		<Path Data="M 1 1 L 0.2360679774998 1 L 0 0" StretchMode="Fill" Width="80.9017%" Height="61.8034%" Alignment="TopLeft" Offset="0%, 38.1966%" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.9273586, 0.5729759, 1, 1" />
+			<Stroke Width="4" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,181 @@
+<App>
+    <Text Value="milkshkk" Color="#442200" Alignment="TopCenter" Margin="0, 33, 0, 0" FontSize="79">
+        <Rotation Degrees="-173.95" />
+    </Text>
+    <Circle Color="#994400FF" Alignment="Top" Width="300" Height="300" Margin="0, -80, 0, 0" Opacity="1" />
+    <Circle Color="#442200" Alignment="Top" Margin="0, -960, 0, 0" Width="1200" Height="1200" Opacity="1" />
+    <StackPanel Width="600">
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00">
+            <Panel>
+                <Panel />
+                <Text Color="#442200" Value="banana" FontSize="89" Margin="0, -40, 0, 0" />
+                <Panel />
+                <Rotation Degrees="-62.017" />
+            </Panel>
+        </Rectangle>
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00">
+            <Text Value="     flies" FontSize="150" Color="#ffee00FC" Margin="42, 0, 0, 0" />
+        </Rectangle>
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="4" Color="#ffee00" />
+        <Rectangle Height="4" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rectangle Height="6" Color="#994400" />
+        <Rectangle Height="6" Color="#ffee00" />
+        <Rotation Degrees="9.076" />
+    </StackPanel>
+</App>

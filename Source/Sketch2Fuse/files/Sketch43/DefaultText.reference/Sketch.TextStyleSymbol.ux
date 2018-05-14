@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.TextStyleSymbol" Width="61" Height="15" TextField="Other text">
+	<string ux:Property="TextField" />
+	<Text Color="0, 0, 0, 1" FontSize="12" Value="{Property TextField}" TextTruncation="None" TextWrapping="Wrap" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- TextField -->
+	</Text>
+</Panel>

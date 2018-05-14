@@ -1,0 +1,14 @@
+<Container ux:Class="BasicButton" Subtree="grid">
+	<string ux:Property="Text" />
+	<Rectangle ux:Binding="Children" ux:Name="rect" Height="40" Width="168" Padding="0,8" CornerRadius="4" Color="HighlightBG">
+		<Grid ux:Name="grid" Columns="auto,auto" Alignment="Center" CellSpacing="8">
+			<Text Value="{Property Text}" TextAlignment="Center" Alignment="Center" TextColor="White" />
+		</Grid>
+		<Tapped>
+			<Change rect.Color="Highlight" Duration="0.1" />
+		</Tapped>
+		<WhilePressed>
+			<Change rect.Color="Highlight" DurationBack="0.1" />
+		</WhilePressed>
+	</Rectangle>
+</Container>

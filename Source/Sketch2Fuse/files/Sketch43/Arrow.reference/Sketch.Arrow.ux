@@ -1,0 +1,11 @@
+<Panel ux:Class="Sketch.Arrow" Width="128" Height="119">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Line -->
+		<Path Data="M 0.99609375 0.9957983193277 L 0.00390625 0.004201680672269" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="4" Alignment="Center">
+				<SolidColor Color="0.3143694, 0.8883757, 0.7598996, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

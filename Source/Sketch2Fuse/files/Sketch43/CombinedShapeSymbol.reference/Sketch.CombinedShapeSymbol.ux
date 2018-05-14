@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.CombinedShapeSymbol" Width="200" Height="100">
+	<Panel>
+		<!-- Combined Shape -->
+		<!-- Combined shapes are not supported in UX -->
+	</Panel>
+</Panel>

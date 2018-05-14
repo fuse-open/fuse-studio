@@ -1,0 +1,4 @@
+# Android Manager
+_Android manager is a library for installing dependencies required for building and exporting to Android_
+
+The library installs the different dependencies to a platform-specific destinations. It uses the `.sdkconfig` as mentioned in the [Android as a dependency](https://github.com/fusetools/Fuse/wiki/Android-as-a-dependency) document as its configuration. The application is structured into two parts, the `InstallCommand` which handles installation, and the `VerifyCommand` which verifies the installation. It also tries to be smart, by trying to find existing installations by looking in `%PATH%` or other well-known locations (eg. `%ANDROID_HOME%`).

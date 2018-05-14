@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.Polygon" Width="100" Height="100">
+	<Panel Width="98%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Polygon -->
+		<Path Data="M 0.5 0 L 0.9755282581476 0.3454915028125 L 0.7938926261462 0.9045084971875 L 0.2061073738538 0.9045084971875 L 0.02447174185242 0.3454915028125 L 0.5 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.961711, 0.6503673, 0.1385423, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+         xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+    <?define ProductName = "Fuse" ?>
+    <?define Manufacturer = "Fusetools" ?>
+    <?define MainExe = "Fuse Studio.exe" ?>
+    <?define VERSION="!(bind.fileVersion.FuseEXE)"?>
+
+    <?if $(var.Platform) = x64 ?>
+        <?define PLATFORM_PROGRAM_FILES_FOLDER = "ProgramFiles64Folder" ?>
+        <?define WIN64 = "yes" ?>
+    <?else ?>
+        <?define PLATFORM_PROGRAM_FILES_FOLDER = "ProgramFilesFolder" ?>
+        <?define WIN64 = "no" ?>
+    <?endif ?>
+      
+    <Product Id="*"
+           Name="Fuse"
+           Language="1033"
+           Version="$(var.VERSION)"
+           Manufacturer="$(var.Manufacturer)"
+           UpgradeCode="DA949DF4-089A-4D92-B080-695C310ECA21">
+        <Package Id="*"
+                 InstallerVersion="200"
+                 Compressed="yes"
+                 InstallScope="perMachine"
+                 Manufacturer="$(var.Manufacturer)"
+                 Description="Fuse installer"
+                 InstallPrivileges="elevated"
+        />
+
+        <MajorUpgrade AllowDowngrades="yes" />
+    
+        <MediaTemplate EmbedCab="yes" />
+    
+        <Icon Id="FuseIcon" SourceFile="$(var.FUSE_SOURCE_PATH)\$(var.MainExe)" />
+        <Property Id="ARPPRODUCTICON" Value="FuseIcon" />
+        <PropertyRef Id="WIX_ACCOUNT_USERS"/>
+
+      
+        <Feature Id="FuseFeature" Title="Fuse" Level="1">
+          <ComponentGroupRef Id="FuseDataMainExe" />
+          <ComponentGroupRef Id="FuseData" />
+          <ComponentGroupRef Id="FusePackages" />
+          <ComponentGroupRef Id="PackagesData" />
+          <ComponentGroupRef Id="ProductShortcuts" />
+          <ComponentGroupRef Id="SetFuseEnvPath" />
+        </Feature>
+
+        <Binary Id="FuseActionsBinary" SourceFile="$(var.Fuse.Installer.Actions.TargetDir)$(var.Fuse.Installer.Actions.TargetName).CA.dll" />
+        <CustomAction Id="FuseKillerPrompt" BinaryKey="FuseActionsBinary"
+                         DllEntry="TryKillDaemon" Return="check" />
+        
+        <CustomAction Id="UnoUninstall" BinaryKey="FuseActionsBinary"
+                         DllEntry="UninstallUno" Return="ignore" />
+
+        <CustomAction Id="ExecuteMainExe" Directory="INSTALLFOLDER" ExeCommand="[INSTALLFOLDER]\$(var.MainExe)" Return="asyncNoWait" />
+      
+        <CustomAction Id="FuseCleanup" 
+                      BinaryKey="FuseActionsBinary"
+                      DllEntry="FuseSquirrelCleanup"
+                      Return="ignore"/> <!-- ignore the return result, we don't care if the uninstall was successful-->
+        
+        <InstallExecuteSequence>
+            <Custom Action="FuseKillerPrompt" After="CostFinalize" />
+            <Custom Action="FuseCleanup" After='FuseKillerPrompt'/>
+            <Custom Action="UnoUninstall" Before='InstallExecute'>
+                Installed AND NOT UPGRADINGPRODUCTCODE
+            </Custom>
+            <Custom Action='ExecuteMainExe' After='InstallFinalize'>
+                NOT Installed OR UPGRADINGPRODUCTCODE
+            </Custom>
+        </InstallExecuteSequence>
+    </Product>
+
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+          <Directory Id="$(var.PLATFORM_PROGRAM_FILES_FOLDER)">
+            <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)"></Directory>
+          </Directory>
+          <Directory Id="ProgramMenuFolder">
+            <Directory Id="SHORTCUTSFOLDER" Name="$(var.ProductName)" />
+          </Directory>
+          <Directory Id="LocalAppDataFolder">
+            <Directory Id="FusetoolsAppDir" Name="Fusetools">                
+                <Directory Id="PACKAGESFOLDER" Name="Packages" />
+            </Directory>
+          </Directory>
+        </Directory>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="FuseDataMainExe" Directory="INSTALLFOLDER">
+            <Component Id="FuseDataMainExe" Guid="*" Win64="$(var.WIN64)">
+                <CreateFolder />
+                <RemoveFolder Id="RemoveAppRootDirectory" On="uninstall" />
+                <File Id="FuseEXE" Name="$(var.MainExe)" Source="$(var.FUSE_SOURCE_PATH)\$(var.MainExe)" KeyPath="yes" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    
+    <Fragment>
+        <ComponentGroup Id="FusePackages" Directory="FusetoolsAppDir">
+            <Component Id="AppFolderComp" Guid="3A997EFC-8061-46E9-8497-89F0E9BA86DD">
+                <RemoveFolder Id="RemoveFusetoolsAppDir" On="uninstall"/>
+                <CreateFolder />
+                <RemoveFolder Id="RemoveFusePackages" Directory="PACKAGESFOLDER" On="uninstall" />
+                <CreateFolder Directory="PACKAGESFOLDER" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="ProductShortcuts" Directory="SHORTCUTSFOLDER">
+          <Component Id="ProductShortcut" Guid="C50ADD47-2D27-46BA-98FC-C50F7E05B272" Win64="$(var.WIN64)">
+            <Shortcut Id="FuseStartMenuShortcut" Name="$(var.ProductName)" Description="$(var.ProductName)" Target="[INSTALLFOLDER]\$(var.MainExe)" WorkingDirectory="INSTALLFOLDER" />
+            <RegistryValue Root="HKCU" Key="Software\Fusetools\Fuse" Type="integer" Name="installed" Value="1" KeyPath="yes" />
+            <RemoveFolder Id="SHORTCUTSFOLDER" On="uninstall" />
+          </Component>
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="SetFuseEnvPath" Directory="INSTALLFOLDER">
+            <Component Id="SetFuseEnvPathCom" Guid="48B6710D-1BA8-4A0C-9449-910AA590D661" Win64="$(var.WIN64)">
+                <CreateFolder />
+                <Environment Id="SysPath" Name="PATH" Action="set" Part="last" System="yes" Permanent="no" Value="[INSTALLFOLDER]" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

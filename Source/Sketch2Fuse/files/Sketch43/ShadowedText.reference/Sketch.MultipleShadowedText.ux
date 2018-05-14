@@ -1,0 +1,8 @@
+<Panel ux:Class="Sketch.MultipleShadowedText" Width="192" Height="28" Multiple_shadows="Multiple shadows">
+	<string ux:Property="Multiple_shadows" />
+	<Text Color="0.8162038, 0.007513228, 0.106696, 1" FontSize="20" Value="{Property Multiple_shadows}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="99.47916%" Height="100%" Alignment="BottomLeft" Offset="0.2604167%, 0" Margin="0">
+		<!-- Multiple_shadows -->
+		<Shadow Angle="135" Distance="7.071068" Color="0.3143694, 0.8883757, 0.7598996, 1" Size="4" Mode="PerPixel" />
+		<Shadow Angle="45" Distance="7.071068" Color="0.961711, 0.6503673, 0.1385423, 1" Size="4" Mode="PerPixel" />
+	</Text>
+</Panel>

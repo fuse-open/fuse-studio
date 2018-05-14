@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.TransformedRectangle" Width="100" Height="100">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Offset="-2.384186E-05%, 0%" Margin="0">
+		<!-- Rectangle -->
+		<Path Data="M 1 0 L 0 0 L 0.9999997615815 1 L 2.384184654148E-07 1 L 1 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.847, 0.847, 0.847, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.Union" Width="150" Height="150">
+	<Panel>
+		<!-- Union -->
+		<!-- Combined shapes are not supported in UX -->
+	</Panel>
+</Panel>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateManifest Name="Example project" Priority="100">
+	<Description>Create a project based on a small example app</Description>
+	<Alias>example</Alias>
+</TemplateManifest>

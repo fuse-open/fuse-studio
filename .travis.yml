@@ -1,0 +1,24 @@
+os: osx
+osx_image: xcode9.2
+language: csharp
+mono: 5.4.1
+
+install:
+  # Seems to be getting some regular network issues when restoring.
+  # Therefore retrying several times to decrease chance that build fails due to this.
+  - nuget restore Fuse-OSX.sln || nuget restore Fuse-OSX.sln || nuget restore Fuse-OSX.sln || nuget restore Fuse-OSX.sln
+  - nvm install 8.11.1
+  - nvm use 8.11.1
+
+before_script:
+  - ulimit -c unlimited -S
+  - rm -rf /cores/core.*
+
+script:
+  - ./build.sh --release
+  - CONFIG=Release ./run-tests.sh
+
+after_failure:
+  - for c in $(ls /cores/core.*); do
+      lldb -c $c -o "bt all" -b;
+    done

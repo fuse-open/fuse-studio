@@ -1,0 +1,17 @@
+<App>
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName"/>
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName1"/>
+	<NameTestDummyClass ux:AutoBind="false" />
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName2"/>
+	<NameTestDummyClass ux:AutoBind="false" />
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName3"/>
+	<NameTestDummyClass ux:AutoBind="false" />
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName4"/>
+	<NameTestDummyClass ux:AutoBind="false" />
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName5"/>
+	<NameTestDummyClass ux:AutoBind="false" />
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName6"/>
+	<NameTestDummyClass ux:AutoBind="false" />
+	<NameTestDummyClass ux:AutoBind="false" ux:Name="MyName7"/>
+
+</App>

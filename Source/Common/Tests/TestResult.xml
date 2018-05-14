@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="/home/emil/Development/RealtimeStudio/Source/Outracks.Ipc.Tests/bin/Debug/Outracks.Ipc.Tests.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-10-23" time="03:34:41">
+  <environment nunit-version="2.6.0.0" clr-version="4.0.30319.17020" os-version="Unix 3.13.0.32" platform="Unix" cwd="/home/emil/Development/RealtimeStudio/Source/Outracks.Ipc.Tests" machine-name="ubuntu" user="emil" user-domain="ubuntu" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="/home/emil/Development/RealtimeStudio/Source/Outracks.Ipc.Tests/bin/Debug/Outracks.Ipc.Tests.dll" executed="True" result="Success" success="True" time="3.559" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Outracks" executed="True" result="Success" success="True" time="3.556" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Ipc" executed="True" result="Success" success="True" time="3.556" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="3.553" asserts="0">
+                <results>
+                  <test-suite type="TestFixture" name="RemoteQueueTest" executed="True" result="Success" success="True" time="0.052" asserts="0">
+                    <results>
+                      <test-case name="Outracks.Ipc.Tests.RemoteQueueTest.HostProducer" executed="True" result="Success" success="True" time="0.050" asserts="10" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="RemoteTaskTest" executed="True" result="Success" success="True" time="3.495" asserts="1">
+                    <results>
+                      <test-case name="Outracks.Ipc.Tests.RemoteTaskTest.ClientExecutesHostInvokes" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                      <test-case name="Outracks.Ipc.Tests.RemoteTaskTest.HostExecutesClientInvokes" executed="True" result="Success" success="True" time="3.487" asserts="1" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

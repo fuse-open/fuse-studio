@@ -1,0 +1,29 @@
+<Panel ux:Class="Sketch.AutoTextBoxInGroup" Width="149" Height="71" AutoTextBox="Auto text box">
+	<string ux:Property="AutoTextBox" />
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group 3 -->
+		<Text Color="0, 0, 0, 1" FontSize="20" Value="{Property AutoTextBox}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Center" Width="99.32886%" Height="39.43662%" Alignment="BottomLeft" Offset="0.3355705%, 0" Margin="0">
+			<!-- AutoTextBox -->
+		</Text>
+		<Panel Width="20.80537%" Height="43.66197%" Alignment="TopLeft" Offset="20.13423%, 16.90141%" Margin="0">
+			<!-- Rectangle 2 -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.847, 0.847, 0.847, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+		<Panel Width="20.80537%" Height="47.88733%" Alignment="TopLeft" Offset="9.395973%, 0%" Margin="0">
+			<!-- Rectangle -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.847, 0.847, 0.847, 1" />
+				<Stroke Width="1" Alignment="Inside">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+	</Panel>
+</Panel>

@@ -1,0 +1,5 @@
+*.swp
+a.out
+client
+fuse-logserver
+test-client

@@ -1,0 +1,8 @@
+<DockPanel ux:Class="PageContent" Margin="24, 24, 24, 0" >
+	<string ux:Property="Title" />
+	<string ux:Property="SubTitle" />
+	<StackPanel Dock="Top">
+		<Text Alignment="Left" Value="{ReadProperty Title}" TextColor="HighlightText" FontSize="24" />
+		<Text Value="{ReadProperty SubTitle}" TextWrapping="Wrap" TextColor="DefaultText" Margin="0, 16, 0, 0" />
+	</StackPanel>
+</DockPanel>

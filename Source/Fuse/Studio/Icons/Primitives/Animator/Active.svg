@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Animator/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g stroke="#6DC0D2">
+            <g transform="translate(0.000000, 2.000000)">
+                <rect x="6.5" y="0.5" width="14" height="11" rx="1"></rect>
+                <path d="M3.55464466,1.5 L4.46010793,10.2142857 L5.9906311,10.2142857 C6.27759916,10.2142857 6.5,9.99198411 6.5,9.71127503 L6.5,2.00301068 C6.5,1.72221449 6.27538413,1.5 5.9906311,1.5 L4.0093689,1.5 C3.8148073,1.5 3.66830282,1.5 3.55464466,1.5 Z" opacity="0.502490942" transform="translate(5.000000, 5.857143) rotate(-180.000000) translate(-5.000000, -5.857143) "></path>
+                <path d="M0.500624983,2.5 L0.508744694,9 L1.9906311,9 C2.27838725,9 2.5,8.78004723 2.5,8.50405791 L2.5,2.99594209 C2.5,2.72284122 2.27660828,2.5 2.00104344,2.5 L0.998956561,2.5 C0.715720649,2.5 0.63153948,2.5 0.500625034,2.5 Z" opacity="0.176290761" transform="translate(1.500000, 5.750000) rotate(-180.000000) translate(-1.500000, -5.750000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>App/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g stroke="#C7C7C7">
+            <g transform="translate(7.000000, 1.000000)">
+                <path d="M8.46999979,12.7780435 C8.46999979,13.7297309 7.69418647,14.5 6.7392479,14.5 L1.23075189,14.5 C0.275813319,14.5 -0.5,13.7297309 -0.5,12.7780435 L-0.5,1.22195652 C-0.5,0.270269095 0.275813319,-0.5 1.23075189,-0.5 L6.7392479,-0.5 C7.69418647,-0.5 8.46999979,0.270269095 8.46999979,1.22195652 L8.46999979,12.7780435 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

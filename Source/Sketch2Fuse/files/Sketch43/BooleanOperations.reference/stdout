@@ -1,0 +1,13 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>BooleanOperations.sketch created with Sketch 47 variant BETA build95
+WARNING: Combined shapes are not supported Union with 2 number of combined layers
+INFO: Wrote 'Sketch.Union' to '<path removed>Sketch.Union.ux'
+WARNING: Combined shapes are not supported Subtraction with 2 number of combined layers
+INFO: Wrote 'Sketch.Subtraction' to '<path removed>Sketch.Subtraction.ux'
+WARNING: Combined shapes are not supported Intersection with 2 number of combined layers
+INFO: Wrote 'Sketch.Intersection' to '<path removed>Sketch.Intersection.ux'
+WARNING: Combined shapes are not supported Difference with 2 number of combined layers
+INFO: Wrote 'Sketch.Difference' to '<path removed>Sketch.Difference.ux'
+WARNING: Combined shapes are not supported UnionDifference with 3 number of combined layers
+INFO: Wrote 'Sketch.UnionDifference' to '<path removed>Sketch.UnionDifference.ux'
+

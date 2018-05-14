@@ -1,0 +1,12 @@
+<App>
+	<UXGlobalTestClass ux:Global="Global1" StringProp="TestString1" />
+	<UXGlobalTestClass ux:Global="Global2" StringProp="TestString2" />
+	<UXGlobalTestClass ux:Global="Global3" StringProp="TestString3" />
+	<UXGlobalTestClass ux:Global="Global4" StringProp="TestString4" />
+
+	<DebugLogGlobalTestClass Prop="Global1" ux:AutoBind="false"/>
+	<DebugLogGlobalTestClass Prop="Global2" ux:AutoBind="false"/>
+	<DebugLogGlobalTestClass Prop="Global3" ux:AutoBind="false"/>
+	<DebugLogGlobalTestClass Prop="Global4" ux:AutoBind="false"/>
+
+</App>

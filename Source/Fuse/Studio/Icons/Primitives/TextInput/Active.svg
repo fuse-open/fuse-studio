@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>TextInput/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(5.000000, 0.000000)">
+                <path d="M10,16 L10.6502485,15.3497515 C10.8434109,15.1565891 11,14.7800934 11,14.5017326 L11,1.49826741 C11,1.22308192 10.84375,0.84375 10.6502485,0.650248528 L10,0" stroke="#C7C7C7" stroke-linecap="round" transform="translate(10.500000, 8.000000) scale(-1, -1) translate(-10.500000, -8.000000) "></path>
+                <path d="M9,16 L9.65024853,15.3497515 C9.84341093,15.1565891 10,14.7800934 10,14.5017326 L10,1.49826741 C10,1.22308192 9.84375,0.84375 9.65024853,0.650248528 L9,0" stroke="#C7C7C7" stroke-linecap="round" transform="translate(9.500000, 8.000000) scale(1, -1) translate(-9.500000, -8.000000) "></path>
+                <path d="M6.84277344,13 L5.92236328,10.378418 L2.27880859,10.378418 L1.35839844,13 L0.158691406,13 L3.53564453,3.84033203 L4.66552734,3.84033203 L8.04248047,13 L6.84277344,13 Z M4.08154297,5.23046875 L2.61523438,9.40722656 L5.5859375,9.40722656 L4.11962891,5.23046875 L4.08154297,5.23046875 Z" fill="#6DC0D2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

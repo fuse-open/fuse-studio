@@ -1,0 +1,3 @@
+<Panel ux:Class="Sketch.AlphaMaskedRectangle" Width="194" Height="165">
+	<!-- Masked shape group is not supported in UX -->
+</Panel>

@@ -1,0 +1,8 @@
+<App>
+	<object ux:Class="MyClass" ux:AutoBind="false">
+		<string ux:Name="MyString" ux:Value="TestValue1" ux:AutoBind="false"/>
+		<int ux:Name="MyInt" ux:Value="1245" ux:AutoBind="false"/>
+	</object>
+
+	<UXClassTest ux:AutoBind="false"/>
+</App>

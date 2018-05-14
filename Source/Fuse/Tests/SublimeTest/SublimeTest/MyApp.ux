@@ -1,0 +1,18 @@
+<App xmlns:b="Outracks.UIThemes.MobileBlue" ux:ClassName="MyApp" ClearColor="1, 1, 1, 1">
+  <Panel> 	
+    <Button ux:Name="hehe">
+    	<Rectangle CornerRadius="20">
+    		<SolidColor Opacity="0.5" Color="1,0,0,1" />
+    	</Rectangle>
+    	<Circle>
+    		<LinearGradient>
+    			<GradientStop Color="1,0,0,1"/>
+                <GradientStop Color="0,0,0,1"/>                
+    		</LinearGradient>
+    		<SolidColor>      
+            </SolidColor>
+    	</Circle>
+    	<Rectangle Margin="20" />
+    </Button>    
+  </Panel>	
+</App>

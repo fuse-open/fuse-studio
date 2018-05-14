@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateManifest Name="Empty JSON file" Priority="90">
+	<Description>Create an empty JSON file</Description>
+	<FileExt>.json</FileExt>
+	<Alias>json</Alias>
+</TemplateManifest>

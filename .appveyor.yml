@@ -1,0 +1,25 @@
+version: 1.0.{build}
+
+configuration: Release
+
+image: Visual Studio 2017
+platform: Any CPU
+
+build:
+  project: Fuse-Win32.sln
+  verbosity: normal
+
+clone_depth: 1
+
+test:
+  assemblies:
+    only:
+      - Source\CodeCompletion\Outracks.CodeCompletion.CodeNinja.Tests\bin\$(configuration)\Outracks.CodeCompletion.CodeNinja.Tests.dll
+      - Source\CodeCompletion\Outracks.CodeCompletion.UXNinja.Tests\bin\$(configuration)\Outracks.CodeCompletion.UXNinja.Tests.dll
+      - Source\Common\Tests\bin\$(configuration)\Outracks.Common.Tests.dll
+      - Source\Fuse\Tests\bin\$(configuration)\Outracks.Fuse.Protocol.Tests.dll
+      - Source\Fusion\IntegrationTests\bin\$(configuration)\Fusion-IntegrationTests.exe
+      - Source\Fusion\Tests\bin\$(configuration)\Outracks.Fusion.Tests.dll
+      - Source\Preview\Tests\bin\$(configuration)\Fuse.Preview.Tests.dll
+      - Source\Simulator\Tests\bin\$(configuration)\Outracks.Simulator.Tests.dll
+      - Source\UnoHost\Tests\bin\$(configuration)\Outracks.UnoHost.Common.Tests.dll

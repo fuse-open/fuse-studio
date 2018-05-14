@@ -1,0 +1,9 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>InnerShadow.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+WARNING: UX Builder: Inner shadows not supported. Rectangle has 1 shadow.
+INFO: Wrote 'Sketch.InnerShadowRectangle' to '<path removed>Sketch.InnerShadowRectangle.ux'
+WARNING: UX Builder: Inner shadows not supported. Rectangle 2 has 2 shadows.
+INFO: Wrote 'Sketch.TwoInnerShadows' to '<path removed>Sketch.TwoInnerShadows.ux'
+WARNING: UX Builder: Inner shadows not supported. Rectangle 3 has 1 shadow.
+INFO: Wrote 'Sketch.OuterAndInnerShadow' to '<path removed>Sketch.OuterAndInnerShadow.ux'
+

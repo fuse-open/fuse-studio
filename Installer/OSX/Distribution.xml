@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="2">
+    
+    <title>Fuse</title>
+    <organization>com.fusetools</organization>
+    <license file="license.html" />
+    <app id="com.fusetools.FuseTray"/>
+    <domains enable_localSystem="true"/>
+    <options customize="never" require-scripts="true" rootVolumeOnly="true" />
+
+    <allowed-os-versions>
+        <!-- Mountain Lion -->
+        <os-version min="10.8" />
+    </allowed-os-versions>
+
+    <script>
+        <![CDATA[
+            function check_dependencies() 
+            {
+			
+                var missing = '';
+
+                if (!system.files.fileExistsAtPath('/usr/bin/xcodebuild'))
+                    missing += "- Xcode Command Line Tools was not found.\nhttps://developer.apple.com/xcode/\n\n"; 
+
+                if (missing.length > 0)
+                {
+                    my.result.title = 'Missing Dependencies'; 
+                    my.result.message = "Unable to install Uno SDK because some required dependencies were missing:\n\n" + missing;
+                    my.result.type = 'Fatal';
+                    return false; 
+				}
+
+                return true;
+            }
+
+        ]]>
+    </script>
+	
+    <installation-check script="check_dependencies()" />
+
+    <pkg-ref id="com.fusetools.fuse"/>
+    
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.fusetools.fuse"/>
+        </line>
+    </choices-outline>
+    
+    <choice id="default"/>
+    
+    <choice id="com.fusetools.fuse" visible="false">
+        <pkg-ref id="com.fusetools.fuse"/>
+    </choice>
+
+    <pkg-ref id="com.fusetools.fuse" version="0.8" onConclusion="none">fuse.pkg</pkg-ref>
+
+</installer-gui-script>

@@ -1,0 +1,29 @@
+//----------------------------------------------------------------------------
+// The include path specified below updated whenever the Uno version specified
+// in the .unoversion file changes.
+
+include packages/FuseOpen.Uno.Tool.1.8.0-dev-047994e/tools/.unoconfig
+
+// ..right now we have a unit test that verifies this is consistent, but we
+// might want to get a script to automate this for us in the future.
+//----------------------------------------------------------------------------
+
+include Stuff/.unoconfig
+
+// Add premium libs during dev (used for the Preview App for example)
+Packages.Feeds += ["https://packages.fusetools.com/api/premium/v2"]
+
+// Fuse config
+TemplatesDirectory: Templates
+SimulatorDll: Source/Simulator/Main/obj/Fuse.Simulator.dll
+ModulesDirectory: Modules
+Mono: Stuff/Mono/bin/mono
+
+// SDK config
+if WIN32 {
+    SdkConfig: %localappdata%/Fusetools/Fuse/Android/.sdkconfig
+    include %localappdata%/Fusetools/Fuse/Android/.sdkconfig
+} else {
+    SdkConfig: "%HOME%/Library/Application Support/Fusetools/Fuse/Android/.sdkconfig"
+    include "%HOME%/Library/Application Support/Fusetools/Fuse/Android/.sdkconfig"
+}

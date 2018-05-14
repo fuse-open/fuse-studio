@@ -1,0 +1,11 @@
+<Panel ux:Class="Sketch.MirroredCurve" Width="163" Height="95">
+	<Panel Width="99.55425%" Height="98.82401%" Alignment="TopLeft" Offset="0.2396472%, 0.1644737%" Margin="0">
+		<!-- Path -->
+		<Path Data="M 0 1 C 0.137842205912 0.3333333333333 0.2914056677899 -2.073139878521E-17 0.4606903856338 0 C 0.6299751034777 1.879437914675E-17 0.8097449749331 0.3333333333333 1 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

@@ -1,0 +1,11 @@
+<Panel ux:Class="Sketch.StartWithCurve" Width="200" Height="100">
+	<Panel Width="99.16933%" Height="99.79688%" Alignment="TopLeft" Offset="0.4927825%, -1.136868E-13%" Margin="0">
+		<!-- StartWithCurve -->
+		<Path Data="M 7.277979918411E-05 1 C -0.003997489163574 0.3333333333333 0.1626570475366 7.594548942314E-16 0.5000363898996 0 L 1 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

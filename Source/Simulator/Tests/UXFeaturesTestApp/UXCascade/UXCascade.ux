@@ -1,0 +1,15 @@
+<App>
+
+	<Panel>
+		<Style>
+			<Panel Background="Red"/>
+		</Style>
+
+		<Panel>
+			<Style>
+				<Panel Background="Blue"/>
+			</Style>
+			<Panel/>
+		</Panel>
+	</Panel>
+</App>

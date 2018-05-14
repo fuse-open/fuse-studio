@@ -1,0 +1,13 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>Masks.sketch created with Sketch 48.1 variant NONAPPSTORE build97
+WARNING: Masked shapes are not supported RectangleMask
+INFO: Wrote 'Sketch.RectangleMask' to '<path removed>Sketch.RectangleMask.ux'
+WARNING: Masked shapes are not supported PentagonMask
+INFO: Wrote 'Sketch.PentagonMask' to '<path removed>Sketch.PentagonMask.ux'
+WARNING: Masked shapes are not supported StarMaskedIcon
+INFO: Wrote 'Sketch.StarMaskedIcon' to '<path removed>Sketch.StarMaskedIcon.ux'
+WARNING: Masked shapes are not supported AlphaMask
+INFO: Wrote 'Sketch.AlphaMask' to '<path removed>Sketch.AlphaMask.ux'
+WARNING: Masked shapes are not supported AlphaMaskedRectangle
+INFO: Wrote 'Sketch.AlphaMaskedRectangle' to '<path removed>Sketch.AlphaMaskedRectangle.ux'
+

@@ -1,0 +1,27 @@
+<Extensions Backend="CPlusPlus" Condition="IOS">
+	<!--<Require AppDelegate.HeaderFile.Declaration>
+	<![CDATA[
+		@interface CustomizedOrientation
+		{
+			- (void)setPrefferedOrientation:(int)orientation;
+		}
+	]]>
+	</Require AppDelegate.HeaderFile.Declaration>
+
+	<Require AppDelegate.Implements="CustomizedOrientation" />-->
+
+	<Require AppDelegate.SourceFile.ImplementationScope>
+	<![CDATA[
+		/*
+		- (void)setPrefferedOrientation:(int)orientation
+		{
+
+		}
+
+		- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation 
+		{
+			return UIInterfaceOrientationUnknown;
+		}*/
+	]]>
+	</Require>
+</Extensions>

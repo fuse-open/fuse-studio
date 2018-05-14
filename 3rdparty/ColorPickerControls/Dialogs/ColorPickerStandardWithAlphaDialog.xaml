@@ -1,0 +1,15 @@
+﻿<Window x:Class="ColorPickerControls.Dialogs.ColorPickerStandardWithAlphaDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Color Picker" Height="334" Width="480"    xmlns:Pickers="clr-namespace:ColorPickerControls.Pickers" WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
+    <Grid Background="#FFE8E8E8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="270" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Pickers:ColorPickerStandardWithAlpha HorizontalAlignment="Left" x:Name="colorPickerFull" VerticalAlignment="Top" Margin="4,0,0,0"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="142,0,0,0">
+        <Button Content="OK"  Height="23" HorizontalAlignment="Left" Margin="0,0,4,0" Name="btOk" VerticalAlignment="Top" Width="75" Click="btOk_Click" />
+        <Button Content="Cancel" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,0,0,0" Name="btCancel" VerticalAlignment="Top" Width="75" Click="btCancel_Click" /></StackPanel>
+    </Grid>
+</Window>

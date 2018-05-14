@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateManifest Name="JavaScript file" Priority="90">
+	<Description>Create a JavaScript file with an observable</Description>
+	<FileExt>.js</FileExt>
+	<Alias>js</Alias>
+</TemplateManifest>

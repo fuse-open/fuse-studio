@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Page/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(4.000000, 0.000000)">
+                <g>
+                    <path d="M12.5,1 C12.5,0.723857625 12.2761424,0.5 12,0.5 L1,0.5 C0.723857625,0.5 0.5,0.723857625 0.5,1 L0.5,15 C0.5,15.2761424 0.723857625,15.5 1,15.5 L12,15.5 C12.2761424,15.5 12.5,15.2761424 12.5,15 L12.5,1 Z" stroke="#6DC0D2"></path>
+                    <path d="M3,2 L10,2 C10.5522847,2 11,2.44771525 11,3 L11,6 C11,6.55228475 10.5522847,7 10,7 L3,7 C2.44771525,7 2,6.55228475 2,6 L2,3 C2,2.44771525 2.44771525,2 3,2 Z" fill="#E0E0E0"></path>
+                    <path d="M2.5,9.5 L10.5,9.5" stroke="#E0E0E0" stroke-linecap="round"></path>
+                    <path d="M2.5,11.5 L10.5,11.5" stroke="#E0E0E0" stroke-linecap="round"></path>
+                </g>
+                <path d="M2.5,13.5 L10.5622577,13.5" stroke="#E0E0E0" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

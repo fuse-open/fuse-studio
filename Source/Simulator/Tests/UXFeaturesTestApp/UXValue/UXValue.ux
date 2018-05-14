@@ -1,0 +1,19 @@
+<App>
+
+	<string ux:AutoBind="false" ux:Value="foobar"/>
+
+	<float ux:AutoBind="false" ux:Value="1231.123123"/>
+	<float2 ux:AutoBind="false" ux:Value="1.0,2.0"/>
+	<float3 ux:AutoBind="false" ux:Value="1.0,2.0,3.0"/>
+	<float4 ux:AutoBind="false" ux:Value="1.0,3.0,3.0,4.0"/>
+
+	<int ux:AutoBind="false" ux:Value="10"/>
+	<int2 ux:AutoBind="false" ux:Value="1,2"/>
+	<int3 ux:AutoBind="false" ux:Value="1,2,3"/>
+	<int4 ux:AutoBind="false" ux:Value="1,2,3,4"/>
+
+	<bool ux:AutoBind="false" ux:Value="true"/>
+	<bool ux:AutoBind="false" ux:Value="false"/>
+
+
+</App>

@@ -1,0 +1,49 @@
+<Panel ux:Class="ActivityIndicator">
+	<JavaScript>
+		function genPoints(samples, randomize){
+			var out = []
+			var rnd = 1.0
+			if(randomize)
+				rnd = Math.random() * samples
+
+			var offset = 2/samples
+			var increment = 3.14 * (3 - Math.sqrt(5))
+
+			for(var i = 0; i<samples;i++){
+				var y = ((i * offset) - 1) + (offset / 2)
+				var r = Math.sqrt(1 - Math.pow(y,2))
+
+				var phi = ((i + rnd) % samples) * increment
+
+				var x = Math.cos(phi) * r
+				var z = Math.sin(phi) * r
+
+				out.push({pos:[x,y,z], rot:[3.14,3.14,0]})
+			}
+				
+			return out
+		}
+		module.exports = {
+			points : genPoints(48, true)
+		}
+	</JavaScript>
+
+	<Circle ux:Class="SpinnyDisc" Color="Highlight" Width="20" Height="20"/>
+
+	<Viewport Perspective="3" PerspectiveRelativeTo="Width">
+		<Panel>
+			<Rotation ux:Name="rot"/>
+			<!--WhileVisible>
+				<Cycle Target="rot.DegreesX" Low="0" High="360" Frequency="0.1" Waveform="Sawtooth"/>
+				<Cycle Target="rot.DegreesY" Low="0" High="360" Frequency="0.12" Waveform="Sawtooth"/>
+				<Cycle Target="rot.DegreesZ" Low="0" High="360" Frequency="0.14" Waveform="Sawtooth"/>
+			</WhileVisible-->
+			<Each Items="{points}">
+				<SpinnyDisc>
+					<Translation Vector="{pos} * 90"/>
+					<Rotation EulerAngle="{rot}"/>
+				</SpinnyDisc>
+			</Each>
+		</Panel>
+	</Viewport>
+</Panel>

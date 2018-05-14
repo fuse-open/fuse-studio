@@ -1,0 +1,41 @@
+<App ClearColor="#eeeeeeff">
+	<DockPanel>
+		<StatusBarBackground DockPanel.Dock="Top" />
+		<JavaScript>
+		var Observable = require("FuseJS/Observable");
+		var textThing = Observable("1");
+
+		function doer() {
+			var n = parseInt(textThing.value);
+			textThing.value = n+1;
+		}
+
+		function debuglogger() {
+			debug_log("Hello from JS");
+		}
+
+		function thrower() {
+			throw new Error("Bye from JS")
+		}
+		module.exports = {
+			doer: doer,
+			debuglogger: debuglogger,
+			thrower: thrower,
+			textThing: textThing,
+		};
+		</JavaScript>
+		<ScrollView ClipToBounds="true">
+			<StackPanel>
+				<Text Value="{textThing}" FontSize="50" Alignment="Center" />
+				<Button Text="Increment" Clicked="{doer}" />
+				<Button Text="Log from JS" Clicked="{debuglogger}" />
+				<Button Text="Throw from JS" Clicked="{thrower}" />
+                <Each />
+                <Logger Text="Log from Uno" />
+                <Thrower Text="Throw from Uno" />
+                <PageControl />
+                <!-- <ConstructorThrower Text="Throw from Uno constructor" /> -->
+			</StackPanel>
+		</ScrollView>
+	</DockPanel>
+</App>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project="$(MSBuildProjectDirectory)\..\packages\Wix.3.11.0\build\wix.props" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.9</ProductVersion>
+    <ProjectGuid>eecf6c3b-89ea-40b6-baf5-8000cc07c8c2</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>Fuse</OutputName>
+    <OutputType>Package</OutputType>
+    <Name>Fuse.Installer.Product</Name>
+	<SuppressIces>ICE38;ICE64;ICE91</SuppressIces>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;FUSE_SOURCE_PATH=$(SolutionDir)\Source\Fuse;PACKAGES_SOURCE_PATH=$(SolutionDir)\Source\Packages;</DefineConstants> 
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;FUSE_SOURCE_PATH=$(SolutionDir)\Source\Fuse;PACKAGES_SOURCE_PATH=$(SolutionDir)\Source\Packages;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="FuseData.wxs" />
+    <Compile Include="PackagesData.wxs" />
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FuseDataFilter.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fuse.Installer.Actions\Fuse.Installer.Actions.csproj">
+      <Name>Fuse.Installer.Actions</Name>
+      <Project>{0b3842cb-f440-48be-bc26-106940cccf4e}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.Oval" Width="150" Height="75">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Oval -->
+		<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.6985475, 0.9321322, 0.8798505, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.5435073, 0.3430676, 0.1652515, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

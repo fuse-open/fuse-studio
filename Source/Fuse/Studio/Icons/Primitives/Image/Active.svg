@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Image/Active</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(1.500000, 2.000000)">
+                <g transform="translate(3.000000, 2.000000)" fill="#6DC0D2">
+                    <polygon points="10.2107515 9.00491535 7.71059039 4.67710543 6.01158942 5.4863707 3.90975249 2.50136537 0.210751525 9.00491535"></polygon>
+                    <path d="M13.5,1.50081922 C13.5,2.32987176 12.8286,3.00163845 12,3.00163845 C11.1714,3.00163845 10.5,2.32987176 10.5,1.50081922 C10.5,0.671766685 11.1714,0 12,0 C12.8286,0 13.5,0.671766685 13.5,1.50081922"></path>
+                </g>
+                <rect stroke="#6DC0D2" stroke-linejoin="round" x="0" y="0" width="18" height="11" rx="0.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

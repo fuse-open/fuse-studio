@@ -1,0 +1,3 @@
+<Panel ux:Class="Sketch.PentagonMask" Width="100" Height="100">
+	<!-- Masked shape group is not supported in UX -->
+</Panel>

@@ -1,0 +1,16 @@
+<Panel ux:Class="Sketch.GroupWithMaskSymbol" Width="148" Height="178">
+	<Panel Width="88.51351%" Height="67.97753%" Alignment="TopLeft" Offset="0%, 32.02247%" Margin="0">
+		<!-- Group -->
+		<!-- Masked shape group is not supported in UX -->
+	</Panel>
+	<Panel Width="89.18919%" Height="77.52809%" Alignment="TopLeft" Offset="10.81081%, 0%" Margin="0">
+		<!-- Oval -->
+		<Path Data="M 0.5 1 C 0.7761423749 1 1 0.7761423749 1 0.5 C 1 0.2238576251 0.7761423749 0 0.5 0 C 0.2238576251 0 0 0.2238576251 0 0.5 C 0 0.7761423749 0.2238576251 1 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="1, 0.9614078, 0.4768387, 1" />
+			<Stroke Width="1" Alignment="Center">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

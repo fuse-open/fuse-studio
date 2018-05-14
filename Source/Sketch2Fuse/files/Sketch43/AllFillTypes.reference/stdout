@@ -1,0 +1,13 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>AllFillTypes.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+ERROR: Failed to parse layer 'Rectangle 3', skipping it. The exception was :'Only linear gradients are supported'
+ERROR: Failed to parse layer 'Rectangle 4', skipping it. The exception was :'Only linear gradients are supported'
+ERROR: Failed to parse layer 'Rectangle 5', skipping it. The exception was :'Image/Pattern fill is not supported'
+ERROR: Failed to parse layer 'Rectangle 6', skipping it. The exception was :'Noise fill is not supported'
+INFO: Wrote 'Sketch.FillFlatColor' to '<path removed>Sketch.FillFlatColor.ux'
+INFO: Wrote 'Sketch.FillLinearGradient' to '<path removed>Sketch.FillLinearGradient.ux'
+WARNING: Skipping symbol 'Sketch.FillRadialGradient' which has no supported layers.
+WARNING: Skipping symbol 'Sketch.FillAngularGradient' which has no supported layers.
+WARNING: Skipping symbol 'Sketch.FillPatternFill' which has no supported layers.
+WARNING: Skipping symbol 'Sketch.FillNoiseFill' which has no supported layers.
+

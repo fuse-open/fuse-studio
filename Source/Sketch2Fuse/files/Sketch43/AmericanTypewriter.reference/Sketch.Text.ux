@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.Text" Width="136" Height="22" SomeText="This is some text">
+	<string ux:Property="SomeText" />
+	<Text Color="0, 0, 0, 1" FontSize="18" Value="{Property SomeText}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Left" Width="100%" Height="100%" Alignment="BottomLeft" Margin="0">
+		<!-- SomeText -->
+	</Text>
+</Panel>

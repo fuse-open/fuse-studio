@@ -1,0 +1,7 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>MultipleStyledText.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+WARNING: UX Builder: Multiple text styles on the same text element not supported in UX. Found 6 text styles on RainbowGrowingSize, using just one of them.
+INFO: Wrote 'Sketch.RainbowGrowingSize' to '<path removed>Sketch.RainbowGrowingSize.ux'
+WARNING: UX Builder: Multiple text styles on the same text element not supported in UX. Found 6 text styles on RainbowGrowingSize, using just one of them.
+INFO: Wrote 'Sketch.RainbowGrowingSizeVertical' to '<path removed>Sketch.RainbowGrowingSizeVertical.ux'
+

@@ -1,0 +1,16 @@
+﻿using Uno;
+using Uno.Collections;
+using Fuse;
+_$$include_namespace
+namespace _$namespace$_
+{
+	public class _$typename$_
+	{
+	}
+}
+include_namespace$$_
+_$$exclude_namespace
+public class _$typename$_
+{
+}
+exclude_namespace$$_

@@ -1,0 +1,12 @@
+<Panel ux:Class="Sketch.Trapese" Width="100" Height="100">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle -->
+		<Path Data="M 0.2637109375 0 L 0.7362890625 0 L 1 1 L 0 1 L 0.2637109375 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<SolidColor Color="0.847, 0.847, 0.847, 1" />
+			<Stroke Width="1" Alignment="Inside">
+				<SolidColor Color="0.592, 0.592, 0.592, 1" />
+			</Stroke>
+		</Path>
+	</Panel>
+</Panel>

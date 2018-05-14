@@ -1,0 +1,7 @@
+<Rectangle ux:Class="ErrorView" Color="#DB688240" CornerRadius="4" Padding="16">
+	<string ux:Property="Message" />
+	<Grid Columns="20,1*" CellSpacing="16">
+		<AlertCircle/>
+		<Text Value="{Property Message}" TextWrapping="Wrap" TextColor="FocusedText"/>
+	</Grid>
+</Rectangle>

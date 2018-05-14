@@ -1,0 +1,22 @@
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+
+# 4 space indentation
+[*.py]
+indent_style = space
+indent_size = 4
+
+
+
+[*.cs]
+indent_style = tab
+indent_size = 4
+insert_final_newline = true
+csharp_new_line_before_open_brace = accessors,control_blocks,events,indexers,local_functions,methods,properties,types
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true

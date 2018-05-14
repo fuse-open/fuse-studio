@@ -1,0 +1,11 @@
+<App>
+	<Panel>
+		<UXResourceTestClass2 ux:Key="testResource"/>
+
+		<Panel>
+			<UXResourceTestClass ux:AutoBind="false" ux:Name="testObject"/>
+			<ResourceBinding Target="testObject.Res" Key="testResource"/>
+		</Panel>
+	</Panel>
+
+</App>

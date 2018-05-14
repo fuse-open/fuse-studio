@@ -1,0 +1,33 @@
+<Panel ux:Class="Sketch.VerticalFlip" Width="200" Height="200">
+	<Panel Width="50%" Height="49.5%" Alignment="TopLeft" Offset="49%, 0%" Margin="0">
+		<!-- Triangle -->
+		<Path Data="M 0.5 0 L 1 1 L 0 1 L 0.5 0" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Path -->
+			<Stroke Width="2" Alignment="Center">
+				<SolidColor Color="0.8162038, 0.007513228, 0.106696, 1" />
+			</Stroke>
+		</Path>
+		<Rotation DegreesX="-180" />
+	</Panel>
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Group -->
+		<Panel Width="1%" Height="100%" Alignment="TopLeft" Offset="49.5%, 0%" Margin="0">
+			<!-- Line -->
+			<Path Data="M 0.5 0 L 0.5 1" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="1" Alignment="Center">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+		<Panel Width="100%" Height="1%" Alignment="TopLeft" Offset="0%, 49.5%" Margin="0">
+			<!-- Line -->
+			<Path Data="M 1 0.5 L 0 0.5" StretchMode="Fill" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<Stroke Width="1" Alignment="Center">
+					<SolidColor Color="0.592, 0.592, 0.592, 1" />
+				</Stroke>
+			</Path>
+		</Panel>
+	</Panel>
+</Panel>

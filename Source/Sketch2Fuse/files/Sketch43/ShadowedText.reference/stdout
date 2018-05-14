@@ -1,0 +1,9 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>ShadowedText.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+INFO: Wrote 'Sketch.ShadowedText' to '<path removed>Sketch.ShadowedText.ux'
+WARNING: UX Builder: Borders on Sketch texts not supported in UX (Sketch object: Multiple_shadows).
+WARNING: UX Builder: Fills on Sketch texts not supported in UX (Sketch object: Multiple_shadows). Using text style color instead.
+INFO: Wrote 'Sketch.MultipleShadowedText' to '<path removed>Sketch.MultipleShadowedText.ux'
+WARNING: UX Builder: Inner shadows not supported. Text_with_inner_shad has 1 shadow.
+INFO: Wrote 'Sketch.InnerShadowedText' to '<path removed>Sketch.InnerShadowedText.ux'
+

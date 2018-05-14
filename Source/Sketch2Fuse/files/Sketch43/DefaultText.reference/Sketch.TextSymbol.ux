@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.TextSymbol" Width="80" Height="17" TextContent="The content">
+	<string ux:Property="TextContent" />
+	<Text Color="0.739875, 0.06114692, 0.8790008, 1" FontSize="12" Value="{Property TextContent}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Left" Width="81.25%" Height="82.35294%" Alignment="BottomLeft" Offset="0%, -1" Margin="0">
+		<!-- TextContent -->
+	</Text>
+</Panel>

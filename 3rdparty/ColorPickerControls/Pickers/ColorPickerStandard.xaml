@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ColorPickerControls.Pickers.ColorPickerStandard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            Height="271" Width="414" xmlns:my="clr-namespace:ColorPicker;assembly=ColorPicker" xmlns:my1="clr-namespace:ColorPicker.ColorModels.RGB;assembly=ColorPicker"   xmlns:my3="clr-namespace:ColorPicker.ColorModels.HSB;assembly=ColorPicker" xmlns:my4="clr-namespace:ColorPicker.ColorModels.Lab;assembly=ColorPicker" xmlns:my5="clr-namespace:ColorPicker.ColorModels.CMYK;assembly=ColorPicker">
+    <Grid  >
+        <my:ColorSelector Height="270" HorizontalAlignment="Left" Margin="0,0,0,0" Name="colorSelector" VerticalAlignment="Top" Width="314" />
+        <my1:RgbDisplay Color="{Binding ElementName=colorSelector, Path=Color, Mode=TwoWay}" Height="84" HorizontalAlignment="Left" Margin="318,157,0,0" Name="rgbDisplay" NormalComponent="{Binding ElementName=colorSelector, Path=NormalComponent, Mode=TwoWay}" VerticalAlignment="Top" Width="90" />
+        <my3:HsbDisplay Color="{Binding Path=Color, ElementName=colorSelector}" Height="86" HorizontalAlignment="Left" Margin="317,71,0,0" Name="hsbDisplay1" 
+                        NormalComponent="{Binding ElementName=colorSelector, Path=NormalComponent, Mode=TwoWay}" VerticalAlignment="Top" Width="94" />
+        <my:HexDisplay  Height="25" HorizontalAlignment="Left" Margin="336,239,0,0" Color="{Binding Path=Color, ElementName=colorSelector}"
+                       Name="hexDisplay1" VerticalAlignment="Top" Width="67" />
+        <my:NewCurrent HorizontalAlignment="Left" Margin="320,0,0,0" Name="newCurrent" VerticalAlignment="Top" Height="65" Width="89" 
+                       NewColor="{Binding ElementName=colorSelector, Path=Color}" />
+    </Grid>
+</UserControl>

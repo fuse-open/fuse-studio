@@ -1,0 +1,15 @@
+<Panel ux:Class="Sketch.Rectangle" Width="147" Height="107">
+	<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- Rectangle -->
+		<Panel Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+			<!-- Rectangle -->
+			<Rectangle Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+				<!-- Path -->
+				<SolidColor Color="0.7510098, 0.5846576, 0.4370815, 1" />
+				<Stroke Width="3" Alignment="Inside">
+					<SolidColor Color="0.5435073, 0.3430676, 0.1652515, 1" />
+				</Stroke>
+			</Rectangle>
+		</Panel>
+	</Panel>
+</Panel>

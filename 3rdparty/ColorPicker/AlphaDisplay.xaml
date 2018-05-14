@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ColorPicker.AlphaDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+           >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SliderResources.xaml"/>
+                <ResourceDictionary Source="CheckerBoardBrush.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid  Width="48">
+     
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="0,0,0,0" Name="txtAlpha" VerticalAlignment="Top" Width="28" 
+                 Grid.Row="1"
+                 Text="{Binding ElementName=sAlpha, Path=Value, StringFormat=\{0:N0\}}" />
+
+        <Rectangle Fill="{Binding Source={StaticResource CheckerBoard}}"  Width="24"  Margin="2,4,2,4"  HorizontalAlignment="Left" ></Rectangle>
+        <Border  BorderBrush="Gray" BorderThickness="2"   Grid.Column="0"   Margin="0,4,0,4"  SnapsToDevicePixels="True" Width="28" HorizontalAlignment="Left"  VerticalAlignment="Stretch"  >
+
+
+
+
+            <Image   Name="imgTransparency" Stretch="Fill" MouseDown="imgTransparency_MouseDown" MouseMove="imgTransparency_MouseMove" />
+        </Border>
+        <Slider   HorizontalAlignment="Left" Margin="18,0,0,0" Name="sAlpha" VerticalAlignment="Stretch"   Orientation="Vertical"  Width="28"
+                 Style="{DynamicResource SliderStyle}"
+                Maximum="100" Minimum="0" IsSnapToTickEnabled="True" Value="100" ValueChanged="sAlpha_ValueChanged" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateManifest Name="Empty Uno class" Priority="90">
+	<Description>Create an empty Uno Class</Description>
+	<FileExt>.uno</FileExt>
+	<Alias>uno</Alias>
+</TemplateManifest>

@@ -1,0 +1,6 @@
+<Panel ux:Class="Sketch.ColoredText" Width="401" Height="41" TextField="Orange is the new black">
+	<string ux:Property="TextField" />
+	<Text Color="0.961711, 0.6503673, 0.1385423, 1" FontSize="36" Value="{Property TextField}" TextTruncation="None" TextWrapping="Wrap" TextAlignment="Left" Width="100%" Height="100%" Alignment="TopLeft" Margin="0">
+		<!-- TextField -->
+	</Text>
+</Panel>

@@ -1,0 +1,14 @@
+INFO: You are running Sketch2Fuse compatible with Sketch format version 93
+INFO: Converting <path removed>desert-moon-zwj-sketch43.sketch created with Sketch 48.2 variant NONAPPSTORE build97
+ERROR: Failed to parse layer 'bg', skipping it. The exception was :'Noise fill is not supported'
+ERROR: Failed to parse layer 'Sand Dune Detail', skipping it. The exception was :'Noise fill is not supported'
+ERROR: Failed to parse layer 'Sand Dune', skipping it. The exception was :'Noise fill is not supported'
+ERROR: Failed to parse layer '1', skipping it. The exception was :'Only linear gradients are supported'
+ERROR: Failed to parse layer '2', skipping it. The exception was :'Only linear gradients are supported'
+ERROR: Failed to parse layer '3', skipping it. The exception was :'Only linear gradients are supported'
+WARNING: Skipping Gaussian blur on Shadow Mask Top. Not supported in UX
+WARNING: Skipping Gaussian blur on Shadow Mask Top. Not supported in UX
+WARNING: Skipping Gaussian blur on Shadow Mask Bottom. Not supported in UX
+WARNING: UX Builder: Inner shadows not supported. 4 has 1 shadow.
+INFO: Wrote 'Sketch.Desert_Moon' to '<path removed>Sketch.Desert_Moon.ux'
+
