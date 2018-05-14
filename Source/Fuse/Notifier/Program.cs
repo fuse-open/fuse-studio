@@ -43,7 +43,7 @@ namespace Outracks.Fuse.Notifier
 							: "Outracks.Fuse.Notifier.Resources.Fuse.ico")),
 				menu:
 					Menu.Item(
-						"Fuse v. " + fuse.Version.ToString(3) + " (build " + fuse.Version.Revision + ")",
+						"Fuse v. " + fuse.Version,
 						command: Command.Disabled)
 					+ Menu.Separator
 					+ Menu.Item(

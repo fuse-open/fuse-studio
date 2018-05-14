@@ -7,7 +7,7 @@ namespace Outracks.Fuse.Designer
 {
 	public class About {
 
-		public About(Version version, Debug debug)
+		public About(string version, Debug debug)
 		{
 			var showAboutDialog = new BehaviorSubject<bool>(false);
 

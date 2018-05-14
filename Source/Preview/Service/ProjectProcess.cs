@@ -5,6 +5,7 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Reflection;
 using Outracks;
+using Outracks.Fuse;
 using Outracks.Fuse.Analytics;
 using Outracks.IO;
 using Outracks.Simulator.Protocol;
@@ -65,7 +66,7 @@ namespace Fuse.Preview
 
 			var input = ReadInput(inputPipe);
 
-			var output = Run(input, new Version());
+			var output = Run(input, SystemInfoFactory.GetBuildVersion(typeof(FuseApi).Assembly));
 
 			using (output.WriteOutput(outputPipe))
 			using (input.Connect())
@@ -88,7 +89,7 @@ namespace Fuse.Preview
 				messages.Subscribe(message => message.WriteTo(writer)));
 		}
 
-		public static IObservable<IBinaryMessage> Run(IObservable<IBinaryMessage> input, Version version)
+		public static IObservable<IBinaryMessage> Run(IObservable<IBinaryMessage> input, string version)
 		{
 			var builder = new Builder(new UnoBuild(version));
 			var reifier = new Reifier(builder);

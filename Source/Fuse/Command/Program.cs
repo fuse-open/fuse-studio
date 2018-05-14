@@ -118,9 +118,9 @@ namespace Outracks.Fuse
 			}
 		}
 
-		static void WriteVersion(this TextWriter writer, Version version)
+		static void WriteVersion(this TextWriter writer, string version)
 		{
-			writer.WriteLine("Fuse version " + version.ToString(3) + " (build " + version.Revision + ")");
+			writer.WriteLine("Fuse version " + version);
 			writer.WriteLine("Copyright (C) 2017 Fusetools");
 		}
 

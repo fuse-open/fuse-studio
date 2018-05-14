@@ -24,7 +24,7 @@ namespace Outracks.Fuse
 				outWriter: ColoredTextWriter.Out);
 		}
 
-		readonly Version _fuseVersion;
+		readonly string _fuseVersion;
 		readonly IFileSystem _fs;
 		readonly IReport _log;
 		readonly IFuseLauncher _launchFuse;
@@ -33,7 +33,7 @@ namespace Outracks.Fuse
 		readonly AbsoluteFilePath _versionFile;
 
 		public DashboardCommand(
-			Version fuseVersion,
+			string fuseVersion,
 			IFileSystem fs,
 			IReport log,
 			IFuseLauncher launchFuse, 
@@ -80,20 +80,20 @@ namespace Outracks.Fuse
 			}			
 		}
 
-		bool ShouldKillFuse(Version version)
+		bool ShouldKillFuse(string version)
 		{
 			if (Platform.OperatingSystem != OS.Mac)
 				return false;
 
-			var currentInstalledVersion = GetCurrentInstalledVersion().Or(new Version());
+			var currentInstalledVersion = GetCurrentInstalledVersion().Or("0.0.0-dev");
 			return currentInstalledVersion != version;
 		}
 
-		Optional<Version> GetCurrentInstalledVersion()
+		Optional<string> GetCurrentInstalledVersion()
 		{
 			try
 			{
-				return Version.Parse(_fs.ReadAllText(_versionFile, 5));
+				return _fs.ReadAllText(_versionFile, 5);
 			}
 			catch (Exception e)
 			{
@@ -102,11 +102,11 @@ namespace Outracks.Fuse
 			}					
 		}
 
-		bool TryWriteCurrentVersion(Version version)
+		bool TryWriteCurrentVersion(string version)
 		{
 			try
 			{
-				_fs.ReplaceText(_versionFile, version.ToString(4), 5);
+				_fs.ReplaceText(_versionFile, version, 5);
 				return true;
 			}
 			catch (Exception e)
