@@ -2,7 +2,7 @@
 
 Fuse Studio is a visual desktop tool suite for working with the Fuse framework.
  
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![macOS build status](https://ci.appveyor.com/api/projects/status/ndiqmhoq0pe2wegr/branch/master?svg=true)](https://ci.appveyor.com/project/fusetools/fuse/branch/master) [![Windows build Status](https://travis-ci.com/fuse-open/Fuse.svg?token=zU95QVEAHkpfx1sjApYo&branch=master)](https://travis-ci.com/fuse-open/Fuse)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Windows build status](https://ci.appveyor.com/api/projects/status/ndiqmhoq0pe2wegr/branch/master?svg=true)](https://ci.appveyor.com/project/fusetools/fuse/branch/master) [![macOS build Status](https://travis-ci.org/fuse-open/fuse-studio.svg)](https://travis-ci.org/fuse-open/fuse-studio)
 
 For download links and docs click [here](http://fuse-open.github.io/).
 
