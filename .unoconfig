@@ -10,9 +10,6 @@ include packages/FuseOpen.Uno.Tool.1.9.0-rc1/tools/.unoconfig
 
 include Stuff/.unoconfig
 
-// Add premium libs during dev (used for the Preview App for example)
-Packages.Feeds += ["https://packages.fusetools.com/api/premium/v2"]
-
 // Fuse config
 TemplatesDirectory: Templates
 SimulatorDll: Source/Simulator/Main/obj/Fuse.Simulator.dll
