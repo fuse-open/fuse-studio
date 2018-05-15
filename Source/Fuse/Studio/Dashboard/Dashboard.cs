@@ -22,7 +22,7 @@ namespace Outracks.Fuse.Dashboard
 					Style = WindowStyle.Fat,
 					Title = Observable.Return("Fuse"),
 					Size = Optional.Some(Property.Constant(Optional.Some(new Size<Points>(970, 608)))),
-					Content = Control.Lazy(() => CreateContent(createProject, window,fuse.Version)),
+					Content = Control.Lazy(() => CreateContent(createProject, window, fuse.Version)),
 					Foreground = Theme.DefaultText,
 					Background = Theme.PanelBackground,
 					Border = Separator.MediumStroke,
@@ -36,7 +36,7 @@ namespace Outracks.Fuse.Dashboard
 			_isVisible.OnNext(true);
 		}
 
-		IControl CreateContent(CreateProject createProject, IDialog<object> dialog,  Version fuseVersion)
+		IControl CreateContent(CreateProject createProject, IDialog<object> dialog,  string fuseVersion)
 		{
 			var projectList = new ProjectList(new Shell(), createProject, dialog);
 			var openProjectFromDialog =
@@ -116,10 +116,10 @@ namespace Outracks.Fuse.Dashboard
 					left: new Points(16));
 		}
 
-		private static IControl CreateDashTopBar(Version fuseVersion)
+		private static IControl CreateDashTopBar(string fuseVersion)
 		{
 
-			var versionStr = "V" + fuseVersion.ToString(2);
+			var versionStr = "V" + fuseVersion;
 
 			return
 				Layout.Dock()
@@ -135,7 +135,7 @@ namespace Outracks.Fuse.Dashboard
 										versionStr,
 										color: Theme.DescriptorText,
 										font: Theme.DefaultFont)
-									.SetToolTip("Version " + fuseVersion.ToString(4)),
+									.SetToolTip("Version " + fuseVersion),
 								Label.Create(
 										"Fuse Studio",
 										color: Theme.DefaultText,

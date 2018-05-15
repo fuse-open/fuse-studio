@@ -103,9 +103,6 @@
     </None>
     <InterfaceDefinition Include="MainMenu.xib" />
     <None Include="packages.config" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Math\Outracks.Common.Math.csproj">

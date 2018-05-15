@@ -105,9 +105,6 @@
     <Compile Include="Units\Points.cs" />
     <Compile Include="Units\TextureSpaceUnits.cs" />
     <Compile Include="Vector.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

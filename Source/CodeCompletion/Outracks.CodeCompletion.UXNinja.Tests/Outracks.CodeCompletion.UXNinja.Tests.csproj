@@ -149,9 +149,6 @@
     <Compile Include="Tests\StartAttributeName.cs" />
     <Compile Include="Tests\StartTagName.cs" />
     <Compile Include="Tests\ValueSuggestion.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Outracks.CodeCompletion.NRefactoryInterop\Outracks.CodeCompletion.NRefactoryInterop.csproj">

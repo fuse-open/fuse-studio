@@ -158,9 +158,6 @@
     <Compile Include="TestBase.cs" />
     <Compile Include="Runner\PerformanceTestRunner.cs" />
     <Compile Include="Context\UxPerformanceTestContext.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Outracks.CodeCompletion.CodeNinja\Outracks.CodeCompletion.CodeNinja.csproj">

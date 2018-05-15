@@ -178,9 +178,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuggestionsFeature.cs" />
     <Compile Include="SyntaxLanguage.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

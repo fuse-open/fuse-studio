@@ -187,9 +187,6 @@
     <Compile Include="MessageDatabaseItem.cs" />
     <Compile Include="MessageIntegrityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="Refactoring\ClassExtractorTests.cs" />
     <Compile Include="Refactoring\ExtractClassButtonViewModelTests.cs" />
     <Compile Include="Refactoring\ExtractClassViewModelTests.cs" />

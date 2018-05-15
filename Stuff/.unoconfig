@@ -9,5 +9,4 @@ Packages.SourcePaths += [
 Packages.LockFiles += [
     uno.packages
     fuselibs.packages
-    premiumlibs.packages
 ]

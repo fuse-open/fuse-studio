@@ -18,7 +18,7 @@ namespace Fuse.Preview
 		#pragma warning disable 0414
 		LockFile lockFile = null;
 		#pragma warning restore 0414
-		public UnoBuild(Version version)
+		public UnoBuild(string version)
 		{
 			_fileSystem = new Shell();
 			var cacheCleaner = new CacheCleaner(_fileSystem, version);

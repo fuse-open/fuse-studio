@@ -100,9 +100,6 @@
     <Compile Include="ProcessHelper.cs" />
     <Compile Include="ProgressExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="SdkConfigOptions.cs" />
     <Compile Include="VerifyCommand.cs" />
     <Compile Include="ZipHelper.cs" />

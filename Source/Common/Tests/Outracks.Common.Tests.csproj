@@ -82,9 +82,6 @@
     <Compile Include="Paths\FilePathTests.cs" />
     <Compile Include="Pipes\UnixSocketStreamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="RemoteTaskTest.cs" />
     <Compile Include="ReplayQueueSubjectTest.cs" />
     <Compile Include="ReportTest.cs" />

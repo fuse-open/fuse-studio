@@ -409,9 +409,6 @@
     <Compile Include="MainWindow\Inspector\Inspector.cs" />
     <Compile Include="MainWindow\MainWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)\SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="MainWindow\Stage\ViewportController.cs" />
     <Compile Include="MainWindow\Stage\ViewportFactory.cs" />

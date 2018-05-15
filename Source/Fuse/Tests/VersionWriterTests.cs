@@ -11,9 +11,9 @@ namespace Outracks.Common.CLI.Tests
 		[Test]
 		public void WritesVersion()
 		{
-			var writer = Substitute.For<TextWriter>();
-			VersionWriter.Write(writer, new Version(1, 2, 3, 4));
-			writer.Received().WriteLine("Fuse 1.2.3 (build 4)");
+			var writer = new StringWriter() {  NewLine = "\n" };
+			VersionWriter.Write(writer, "1.2.3-moo");
+			Assert.AreEqual("Fuse 1.2.3-moo\n", writer.ToString());
 		}
 	}
 }

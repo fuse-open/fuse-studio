@@ -200,9 +200,6 @@
     <Compile Include="GoToDefinition.cs" />
     <Compile Include="ParameterInfoSuggester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Core\Outracks.Common.Core.csproj">

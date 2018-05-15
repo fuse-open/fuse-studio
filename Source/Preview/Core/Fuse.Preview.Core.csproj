@@ -73,9 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmptyClass.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

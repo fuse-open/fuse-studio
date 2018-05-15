@@ -78,9 +78,6 @@
     <Compile Include="SuggestionHelper.cs" />
     <Compile Include="SuggestionParser.cs" />
     <Compile Include="TokenType.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Outracks.CodeCompletion.CodeNinja\Outracks.CodeCompletion.CodeNinja.csproj">
