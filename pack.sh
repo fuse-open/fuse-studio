@@ -70,7 +70,7 @@ $CP -R Modules/* "$DST/Modules"
 # Packages
 $CP Stuff/*.packages "$DST"
 
-# Include installed packages in installer (does not include "premiumlibs" packages)
+# Include installed packages in installer
 $CP -R Stuff/lib/* "$PACKAGES"
 
 # Fuse.unoconfig
@@ -97,7 +97,6 @@ Packages.SearchPaths += Packages
 Packages.LockFiles += [
     uno.packages
     fuselibs.packages
-    premiumlibs.packages
 ]
 
 // SDK config
