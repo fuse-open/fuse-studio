@@ -153,36 +153,29 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Uno.Common, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Common.1.8.0-dev-047994e\lib\net45\Uno.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.Common, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Common.1.9.0-rc1\lib\net45\Uno.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Compiler.API, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.API.1.8.0-dev-047994e\lib\net45\Uno.Compiler.API.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.Compiler.API, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.API.1.9.0-rc1\lib\net45\Uno.Compiler.API.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Compiler.Frontend, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Frontend.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Frontend.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.Compiler.Frontend, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Frontend.1.9.0-rc1\lib\net45\Uno.Compiler.Frontend.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Configuration, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Configuration.1.8.0-dev-047994e\lib\net45\Uno.Configuration.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.Configuration, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Configuration.1.9.0-rc1\lib\net45\Uno.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.ProjectFormat, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.ProjectFormat.1.8.0-dev-047994e\lib\net45\Uno.ProjectFormat.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.ProjectFormat, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.ProjectFormat.1.9.0-rc1\lib\net45\Uno.ProjectFormat.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Runtime.Core, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Runtime.Core.1.8.0-dev-047994e\lib\net45\Uno.Runtime.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.Runtime.Core, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Runtime.Core.1.9.0-rc1\lib\net45\Uno.Runtime.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Stuff, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Stuff.1.8.0-dev-047994e\lib\net45\Uno.Stuff.dll</HintPath>
+    <Reference Include="Uno.Stuff, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Stuff.1.9.0-rc1\lib\net45\Uno.Stuff.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.UX.Markup.Common, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.UX.Markup.Common.1.8.0-dev-047994e\lib\net45\Uno.UX.Markup.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Uno.UX.Markup.Common, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.UX.Markup.Common.1.9.0-rc1\lib\net45\Uno.UX.Markup.Common.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

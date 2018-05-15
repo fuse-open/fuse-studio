@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IKVM.Reflection, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Backends.PInvoke.1.8.0-dev-047994e\lib\net45\IKVM.Reflection.dll</HintPath>
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Backends.PInvoke.1.9.0-rc1\lib\net45\IKVM.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Minimatch, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0cadeb0b849c27c0, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Minimatch.1.1.0.0\lib\portable-net40+sl50+win+wp80\Minimatch.dll</HintPath>
@@ -48,29 +48,29 @@
       <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="Uno.Common, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Common.1.8.0-dev-047994e\lib\net45\Uno.Common.dll</HintPath>
+    <Reference Include="Uno.Common, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Common.1.9.0-rc1\lib\net45\Uno.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Compiler.API, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.API.1.8.0-dev-047994e\lib\net45\Uno.Compiler.API.dll</HintPath>
+    <Reference Include="Uno.Compiler.API, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.API.1.9.0-rc1\lib\net45\Uno.Compiler.API.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Compiler.Backends.PInvoke, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Backends.PInvoke.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Backends.PInvoke.dll</HintPath>
+    <Reference Include="Uno.Compiler.Backends.PInvoke, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Backends.PInvoke.1.9.0-rc1\lib\net45\Uno.Compiler.Backends.PInvoke.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Compiler.Core, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Core.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Core.dll</HintPath>
+    <Reference Include="Uno.Compiler.Core, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Core.1.9.0-rc1\lib\net45\Uno.Compiler.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Compiler.Frontend, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Frontend.1.8.0-dev-047994e\lib\net45\Uno.Compiler.Frontend.dll</HintPath>
+    <Reference Include="Uno.Compiler.Frontend, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Compiler.Frontend.1.9.0-rc1\lib\net45\Uno.Compiler.Frontend.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Configuration, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Configuration.1.8.0-dev-047994e\lib\net45\Uno.Configuration.dll</HintPath>
+    <Reference Include="Uno.Configuration, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Configuration.1.9.0-rc1\lib\net45\Uno.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.ProjectFormat, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.ProjectFormat.1.8.0-dev-047994e\lib\net45\Uno.ProjectFormat.dll</HintPath>
+    <Reference Include="Uno.ProjectFormat, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.ProjectFormat.1.9.0-rc1\lib\net45\Uno.ProjectFormat.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Stuff, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\FuseOpen.Uno.Stuff.1.8.0-dev-047994e\lib\net45\Uno.Stuff.dll</HintPath>
+    <Reference Include="Uno.Stuff, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FuseOpen.Uno.Stuff.1.9.0-rc1\lib\net45\Uno.Stuff.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
