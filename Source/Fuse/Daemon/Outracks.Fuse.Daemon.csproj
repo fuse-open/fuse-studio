@@ -69,9 +69,6 @@
     <Compile Include="Identity.cs" />
     <Compile Include="ReadUntilExtension.cs" />
     <Compile Include="ServiceRunner.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AndroidManager\Outracks.AndroidManager.csproj">

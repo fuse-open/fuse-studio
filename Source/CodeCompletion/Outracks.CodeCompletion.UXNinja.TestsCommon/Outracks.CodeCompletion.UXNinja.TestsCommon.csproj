@@ -79,9 +79,6 @@
     <Compile Include="DummySource.cs" />
     <Compile Include="DummySourcePackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Outracks.CodeCompletion.CodeNinja\Outracks.CodeCompletion.CodeNinja.csproj">

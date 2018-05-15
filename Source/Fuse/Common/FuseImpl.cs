@@ -51,8 +51,8 @@ namespace Outracks.Fuse
 			get { return Diagnostics.Platform.OperatingSystem; }
 		}
 
-		public Version Version { get; set; }
-		public bool IsInstalled { get { return Version != new Version(1, 0, 0, 0); } }
+		public string Version { get; set; }
+		public bool IsInstalled { get { return Version.Contains("-dev"); } }
 
 
 		public AbsoluteDirectoryPath FuseRoot { get; set; }

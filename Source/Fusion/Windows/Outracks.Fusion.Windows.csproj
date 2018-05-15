@@ -137,9 +137,6 @@
     <Compile Include="FileDialogs.cs" />
     <Compile Include="FilterString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="WindowsMenuBuilder.cs" />
     <Compile Include="WpfCommand.cs" />
   </ItemGroup>

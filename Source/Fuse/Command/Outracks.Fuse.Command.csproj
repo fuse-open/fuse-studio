@@ -208,9 +208,6 @@
     <Compile Include="TableWriter.cs" />
     <Compile Include="UnknownCommand.cs" />
     <Compile Include="UnoConfigExtensions.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="VersionWriter.cs" />
   </ItemGroup>
   <ItemGroup>

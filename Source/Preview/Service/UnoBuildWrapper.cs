@@ -29,7 +29,7 @@ namespace Fuse.Preview
 		#pragma warning disable 0414
 		static LockFile lockFile = null;
 		#pragma warning restore 0414
-		public static UnoBuildWrapper Create(IFileSystem shell, Version version, IObserver<IBinaryMessage> buildEvents, bool isHost, params IErrorHelper[] errorHelpers)
+		public static UnoBuildWrapper Create(IFileSystem shell, string version, IObserver<IBinaryMessage> buildEvents, bool isHost, params IErrorHelper[] errorHelpers)
 		{
 			var cacheCleaner = new CacheCleaner(shell, version);
 			var simulatorBuilder = new SimulatorBuilder(shell, cacheCleaner, isHost: isHost, registerLock: (e) => lockFile = e);

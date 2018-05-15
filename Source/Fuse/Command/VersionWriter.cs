@@ -5,9 +5,9 @@ namespace Outracks.Fuse
 {
 	public static class VersionWriter
 	{
-		public static void Write(TextWriter textWriter, Version version)
+		public static void Write(TextWriter textWriter, string version)
 		{
-			textWriter.WriteLine(string.Format("Fuse {0}.{1}.{2} (build {3})", version.Major, version.Minor, version.Build, version.Revision));
+			textWriter.WriteLine("Fuse {0}", version);
 		}
 	}
 }

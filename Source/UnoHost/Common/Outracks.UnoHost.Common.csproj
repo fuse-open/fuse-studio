@@ -79,9 +79,6 @@
     <Compile Include="Input\MouseButtons.cs" />
     <Compile Include="Input\ModifierKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="UnoHandles\GraphicsContextHandleImpl.cs" />
     <Compile Include="UnoHandles\PlatformWindowHandleImpl.cs" />
     <Compile Include="UnoHostControl.cs" />

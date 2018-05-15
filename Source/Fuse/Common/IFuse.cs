@@ -8,7 +8,7 @@ namespace Outracks.Fuse
 	public interface IFuse : IFuseLauncher
 	{
 		OS Platform { get; }
-		Version Version { get; }
+		string Version { get; }
 		bool IsInstalled { get; }
 
 		Guid SystemId { get; }

@@ -105,9 +105,6 @@
     <Compile Include="OpenTKGL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)\SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="UnoHostControlImplementation.cs" />
     <Compile Include="UnoControl.cs">
       <SubType>UserControl</SubType>

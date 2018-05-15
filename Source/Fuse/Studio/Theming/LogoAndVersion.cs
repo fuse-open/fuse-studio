@@ -6,9 +6,9 @@ namespace Outracks.Fuse.Designer
 {
 	public static class LogoAndVersion
 	{
-		public static IControl Create(Version fuseVersion)
+		public static IControl Create(string fuseVersion)
 		{
-			var versionStr = "Version " + fuseVersion.ToString(3) + " (build " + fuseVersion.Revision + ")";
+			var versionStr = "Version " + fuseVersion;
 			return Layout.StackFromTop(
 				Image.FromResource("Outracks.Fuse.Icons.FuseProLogo.png", typeof(LogoAndVersion).Assembly, Theme.DefaultText)
 					.WithSize(new Size<Points>(336 * 0.65, 158 * 0.65))

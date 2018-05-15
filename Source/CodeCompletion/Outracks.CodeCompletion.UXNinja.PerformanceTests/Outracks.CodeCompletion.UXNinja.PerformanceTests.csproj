@@ -46,9 +46,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SomeTest.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Outracks.CodeCompletion.UXNinja.PerformanceTests.Core\Outracks.CodeCompletion.UXNinja.PerformanceTests.Core.csproj">

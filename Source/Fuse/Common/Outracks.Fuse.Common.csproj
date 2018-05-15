@@ -93,9 +93,6 @@
     <Compile Include="ProjectDetector.cs" />
     <Compile Include="ProjectNotFound.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
-      <Link>Properties/SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="Protocol\Building\BuildEnded.cs" />
     <Compile Include="Protocol\Building\BuildIssueDetected.cs" />
     <Compile Include="Protocol\Building\BuildLogged.cs" />

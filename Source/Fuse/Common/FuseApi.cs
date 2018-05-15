@@ -86,11 +86,14 @@ namespace Outracks.Fuse
 				: fuseRoot / new FileName("Fuse.exe"));
 
 			var unoExe = FindUnoExe(fuseRoot);
-				
+
+			var version = SystemInfoFactory.GetBuildVersion(typeof(FuseApi).Assembly);
+
+
 			var impl = new FuseImpl
 			{
 				FuseRoot = fuseRoot,
-				Version = SystemInfoFactory.GetBuildVersion(),
+				Version = version,
 
 				UnoExe = unoExe,
 				FuseExe = fuseExe,
