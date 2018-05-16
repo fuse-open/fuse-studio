@@ -11,9 +11,6 @@ using Outracks.IO;
 
 namespace Outracks.Fuse.Protocol.Tests.Refactoring
 {
-	// These tests should finish pretty fast as they involve no IO or CPU intensive work,
-	// this timeout attribute is here to avoid waiting forever due to some async mistake
-	[Timeout(3000)]
 	[TestFixture]
 	public class ExtractClassButtonViewModelTests
 	{
@@ -28,7 +25,7 @@ namespace Outracks.Fuse.Protocol.Tests.Refactoring
 		IElement _includeElement;
 
 		[SetUp]
-		public async Task SetUp()
+		public void SetUp()
 		{
 			var project = Substitute.For<IProject>();
 			project.Classes.Returns(Observable.Return(new IElement[] { }));
@@ -44,111 +41,110 @@ namespace Outracks.Fuse.Protocol.Tests.Refactoring
 				}, new Shell(), Substitute.For<IClassExtractor>());
 			_root = CreateTree("<App><JavaScript /><Include /><Panel /><Circle ux:Class=\"MyClass\" /></App>");
 				
-			_classElement = await GetTreeChild("Circle");
-			_instanceElement = await GetTreeChild("Panel");
-			_javaScriptElement = await GetTreeChild("JavaScript");
-			_includeElement = await GetTreeChild("Include");
+			_classElement = GetTreeChild("Circle");
+			_instanceElement = GetTreeChild("Panel");
+			_javaScriptElement = GetTreeChild("JavaScript");
+			_includeElement = GetTreeChild("Include");
 			project.Classes.Returns(Observable.Return(new[] { _classElement }));
 		}
 
 		[Test]
-		public async Task Button_is_disabled_while_nothing_is_selected()
+		public void Button_is_disabled_while_nothing_is_selected()
 		{
 			_currentSelection.OnNext(Element.Empty);
-			await AssertButtonDisabled();
+			AssertButtonDisabled();
 		}
 
 		[Test]
-		public async Task Button_is_disabled_while_selecting_element_that_is_already_a_class()
+		public void Button_is_disabled_while_selecting_element_that_is_already_a_class()
 		{
 			_currentSelection.OnNext(_classElement);
-			await AssertButtonDisabled();
+			AssertButtonDisabled();
 		}
 
 		[Test]
-		public async Task Button_is_disabled_while_selecting_root()
+		public void Button_is_disabled_while_selecting_root()
 		{
 			_currentSelection.OnNext(_root);
-			await AssertButtonDisabled();
+			AssertButtonDisabled();
 		}
 
 		[Test]
-		public async Task Button_is_disabled_while_javascript_selected()
+		public void Button_is_disabled_while_javascript_selected()
 		{
 			_currentSelection.OnNext(_javaScriptElement);
-			await AssertButtonDisabled();
+			AssertButtonDisabled();
 		}
 
 		[Test]
-		[Ignore("Times out on AppVeyor for some reason")]
-		public async Task Button_is_disabled_while_include_element_selected()
+		public void Button_is_disabled_while_include_element_selected()
 		{
 			_currentSelection.OnNext(_includeElement);
-			await AssertButtonDisabled();
+			AssertButtonDisabled();
 		}
 
 		[Test]
-		public async Task Button_is_enabled_while_element_that_is_an_instance_is_selected()
+		public void Button_is_enabled_while_element_that_is_an_instance_is_selected()
 		{
 			_currentSelection.OnNext(_instanceElement);
-			await AssertButtonEnabled();
+			AssertButtonEnabled();
 		}
 
 		[Test]
-		public async Task HighlightSelectedElement_is_true_after_HoverEnter_is_called_while_instance_element_is_selected()
+		public void HighlightSelectedElement_is_true_after_HoverEnter_is_called_while_instance_element_is_selected()
 		{
 			_currentSelection.OnNext(_instanceElement);
 			_model.HoverEnter();
-			Assert.That(await _model.HighlightSelectedElement.FirstAsync(), Is.True);
+			Assert.That(_model.HighlightSelectedElement.LastNonBlocking, Is.True);
 		}
 
 		[Test]
-		public async Task HighlightSelectedElement_is_false_after_HoverEnter_is_called_while_class_element_is_selected()
+		public void HighlightSelectedElement_is_false_after_HoverEnter_is_called_while_class_element_is_selected()
 		{
 			_currentSelection.OnNext(_classElement);
 			_model.HoverEnter();
-			Assert.That(await _model.HighlightSelectedElement.FirstAsync(), Is.False);
+			Assert.That(_model.HighlightSelectedElement.LastNonBlocking(), Is.False);
 		}
 
 		[Test]
-		public async Task HighlightSelectedElement_is_cleared_after_HoverExit_is_called_while_instance_element_is_selected()
+		public void HighlightSelectedElement_is_cleared_after_HoverExit_is_called_while_instance_element_is_selected()
 		{
 			_currentSelection.OnNext(_instanceElement);
 			_model.HoverEnter();
-			Assert.That(await _model.HighlightSelectedElement.FirstAsync(), Is.True);
+			Assert.That(_model.HighlightSelectedElement.LastNonBlocking(), Is.True);
 			_model.HoverExit();
-			Assert.That(await _model.HighlightSelectedElement.FirstAsync(), Is.False);
+			Assert.That(_model.HighlightSelectedElement.LastNonBlocking, Is.False);
 		}
 
 		[Test]
-		public async Task Clicking_button_invokes_and_passes_dialog_view_model_to_callback()
+		public void Clicking_button_invokes_and_passes_dialog_view_model_to_callback()
 		{
 			_currentSelection.OnNext(_instanceElement);
-			var action = (await _model.Command.Action.FirstAsync()).Value;
+			var action = _model.Command.Action.LastNonBlocking().Value;
 			action();
 			Assert.That(_buttonClicked, Is.True);
 			Assert.That(_resultingViewModel, Is.Not.Null);
 
 			// Just do some initial assertions that the dialog is in a state we expect
 			// (more testing of the dialog in another fixture)
-			Assert.That(await _resultingViewModel.ClassName.FirstAsync(), Is.EqualTo("MyPanel"));
-			Assert.That(await _resultingViewModel.CreateInNewFile.FirstAsync(), Is.False);
-			Assert.That(await _resultingViewModel.CreateInNewFile.IsReadOnly.FirstAsync(), Is.False);
+			Assert.That(_resultingViewModel.ClassName.LastNonBlocking(), Is.EqualTo("MyPanel"));
+			Assert.That(_resultingViewModel.CreateInNewFile.LastNonBlocking, Is.False);
+			Assert.That(_resultingViewModel.CreateInNewFile.IsReadOnly.LastNonBlocking, Is.False);
 		}
 
-		async Task<IElement> GetTreeChild(string name)
+		IElement GetTreeChild(string name)
 		{
-			return await _root.Children.Where(x => x.Name.Is(name)).Select(x => x.First()).FirstAsync();
+			return _root.Children.Where(x => x.Name.Is(name)).Select(x => x.First()).LastNonBlocking();
 		}
 
-		async Task AssertButtonDisabled()
+		void AssertButtonDisabled()
 		{
-			Assert.That((await _model.Command.Action.FirstAsync()).HasValue, Is.False);
+			Assert.That(_model.Command.Action.LastNonBlocking().HasValue, Is.False);
 		}
 
-		async Task AssertButtonEnabled()
+		void AssertButtonEnabled()
 		{
-			Assert.That((await _model.Command.Action.FirstAsync()).HasValue, Is.True);
+			Assert.That(_model.Command.Action.LastNonBlocking().HasValue, Is.True);
 		}
 
 		static IElement CreateTree(string uxSource)
