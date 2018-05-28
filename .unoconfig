@@ -2,7 +2,7 @@
 // The include path specified below must be updated whenever the Uno version
 // specified in the .unoversion file changes.
 
-include packages/FuseOpen.Uno.Tool.1.9.0-rc1/tools/.unoconfig
+include packages/FuseOpen.Uno.Tool.1.9.0/tools/.unoconfig
 
 // ..right now we have a unit test that verifies this is consistent, but we
 // might want to get a script to automate this for us in the future.
