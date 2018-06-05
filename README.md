@@ -44,6 +44,36 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 Please report issues [here](https://github.com/fuse-open/fuse-studio/issues).
 
+## Building installers
+
+Note that building installers is due to legacy reasons a bit cumbersome, and we eventually want that part of the build process cleaned up.
+
+### Making a macOS installer
+
+Note that the current installer scripts expects a signing key available in the keychain, which is the property of Fusetools AS. It should be easy to modify script to use a different signing key if desirable.
+By setting env var `SIGN` to `0` it should be possible to just create an unsigned installer, but haven't tested that this works.
+
+To give the installer a specific version, set the environment vars RELEASE_VERSION and BUILD_NUMBER (this used to be set by the old CI setup when running on TC).
+
+```shell
+git clean -xdf && RELEASE_VERSION=1.9.0-rc3 BUILD_NUMBER=1.9.0-rc3 Installer/OSX/build.sh
+```
+
+The above commands produces an installer located at `Installer/OSX/Fuse_1_9_0-rc3.pkg`. We'll rename this to `fuse_osx_1_9_0_rc2.pkg` before uploading the release, to be consistent with naming of older versions.
+
+The reason we do a `git clean` before building installer, is to avoid accidentially include cruft from older builds.
+
+### Making a Windows installer
+
+Making the Windows installer for the 1.9.0-rc3 release was done using the following commands (in a git bash shell).
+Note that in addition to the regular build requirements this also requires [7-zip](https://www.7-zip.org/) installed.
+
+```shell
+ ( git clean -xdf && RELEASE_VERSION=1.9.0-rc3 BUILD_NUMBER=1.9.0-rc3 ./pack.sh && mkdir -p Installer/Windows/Source/Fuse && unzip Fuse-1.9.0-rc3-Win32.zip -d Installer/Windows/Source/Fuse/ && RELEASE_VERSION=1.9.0-rc3 BUILD_NUMBER=1.9.0-rc3 ./WindowsInstallerWrapper.sh )
+```
+
+ Note that we've dropped signing of the Windows installer, which seems to work fine. _If_ this causes more problems down the line than anticipated we might reconsider.
+
 ## Use Sublime or Atom plugin with dev build
 
 To set which fuse to start in sublime, can be done by setting `fuse_path_override: false` inside your settings file. Open your settings by clicking Preferences->Package Settings->Fuse->Settings-User.
