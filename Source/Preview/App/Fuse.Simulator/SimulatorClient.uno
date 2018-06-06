@@ -113,7 +113,6 @@ namespace Fuse.Simulator
 		readonly Uno.Threading.ConcurrentQueue<IBinaryMessage> _messagesToClient = new Uno.Threading.ConcurrentQueue<IBinaryMessage>();
 		readonly Thread _readWorker;
 		readonly Thread _writeWorker;
-		readonly IDisposable _alsoReceieveMessagesFromPipe;
 		readonly EndPoint _endpoint;
 
 		public Uno.Threading.ConcurrentQueue<IBinaryMessage> IncommingMessages 
@@ -145,8 +144,6 @@ namespace Fuse.Simulator
 				_writeWorker.Name = "Write to " + _socket.RemoteEndPoint;
 
 			}
-
-			_alsoReceieveMessagesFromPipe = BinaryMessageInbox.Receive(_messagesToClient.Enqueue);
 
 			_readWorker.Start();
 			_writeWorker.Start();
@@ -205,8 +202,6 @@ namespace Fuse.Simulator
 		{
 			_running = false;
 			
-			_alsoReceieveMessagesFromPipe.Dispose();
-
 			_readWorker.Join();
 			_writeWorker.Join();
 
