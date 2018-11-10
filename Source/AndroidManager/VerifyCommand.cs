@@ -38,12 +38,6 @@ namespace Outracks.AndroidManager
 				_progress.Report(new InstallerMessage("Failed to find NDK."));
 			}
 
-			if (newConfig.AndroidSdkBuildToolsVersion.HasValue == false)
-			{
-				failed = true;
-				_progress.Report(new InstallerMessage("Failed to find Android Build tools."));
-			}
-
 			if (newConfig.HaveAllSdkPackages == false)
 			{
 				failed = true;

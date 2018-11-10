@@ -52,8 +52,6 @@ namespace Outracks.AndroidManager
 			{
 				if (!IsPlatformToolsInstalled(progress, installPath)) return false;
 
-				if (!IsBuildToolsInstalled(progress, installPath)) return false;
-
 				if (!IsAndroidSupportRepositoryInstalled(progress, installPath)) return false;
 
 				if (!IsGoogleRepositoryInstalled(progress, installPath)) return false;
@@ -76,16 +74,6 @@ namespace Outracks.AndroidManager
 		{
 			var basePath = installPath / new DirectoryName("ndk-bundle");
 			return _fs.Exists(basePath / new FileName("package.xml"));
-		}
-
-		public bool IsBuildToolsInstalled(IProgress<InstallerEvent> progress, AbsoluteDirectoryPath installPath)
-		{
-			if (!_fs.Exists(installPath / new DirectoryName("build-tools")))
-			{
-				progress.Report(new InstallerMessage("Android Build Tools was not found and is required"));
-				return false;
-			}
-			return true;
 		}
 
 		public bool IsPlatformToolsInstalled(IProgress<InstallerEvent> progress, AbsoluteDirectoryPath installPath)
