@@ -164,7 +164,7 @@ namespace Outracks.UnoDevelop.CodeNinja
 					Debug = true,
 					CodeCompletionMode = true,
 					OutputDirectory = (rootDir / "Output").ToString(),
-					BuildTarget = new DefaultBuild().Identifier,
+					BuildTarget = "CodeNinja",
 					Strip = false
 				});
 
