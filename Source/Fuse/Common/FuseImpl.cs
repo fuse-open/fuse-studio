@@ -52,7 +52,17 @@ namespace Outracks.Fuse
 		}
 
 		public string Version { get; set; }
-		public bool IsInstalled { get { return Version.Contains("-dev"); } }
+		public bool IsInstalled
+		{
+			get
+			{
+#if DEBUG
+				return false;
+#else
+				return Version.Contains("-dev");
+#endif
+			}
+		}
 
 
 		public AbsoluteDirectoryPath FuseRoot { get; set; }
