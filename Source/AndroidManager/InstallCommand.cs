@@ -112,8 +112,7 @@ namespace Outracks.AndroidManager
 				{
 					if (config.HaveAllSdkPackages 
 						&& config.AndroidNdkDirectory.HasValue 
-						&& config.AndroidSdkBuildToolsVersion.HasValue 
-						&& config.CMake.HasValue)
+						&& config.AndroidSdkBuildToolsVersion.HasValue)
 						return;
 
 					var installer = new AndroidSDKPackageInstaller(
@@ -130,7 +129,6 @@ namespace Outracks.AndroidManager
 
 					config.AndroidNdkDirectory = result.NdkBundle;
 					config.AndroidSdkBuildToolsVersion = result.BuildToolsVersion;
-					config.CMake = result.CMake;
 				});
 		}
 

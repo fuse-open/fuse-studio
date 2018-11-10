@@ -60,8 +60,6 @@ namespace Outracks.AndroidManager
 
 				if (!IsNdkInstalled(installPath)) return false;
 
-				if (!IsCmakeInstalled(installPath)) return false;
-
 				return true;
 			}
 			catch (InstallerError)
@@ -78,12 +76,6 @@ namespace Outracks.AndroidManager
 		{
 			var basePath = installPath / new DirectoryName("ndk-bundle");
 			return _fs.Exists(basePath / new FileName("package.xml"));
-		}
-
-		public bool IsCmakeInstalled(AbsoluteDirectoryPath installPath)
-		{
-			var basePath = installPath / new DirectoryName("cmake");
-			return _fs.Exists(basePath);
 		}
 
 		public bool IsBuildToolsInstalled(IProgress<InstallerEvent> progress, AbsoluteDirectoryPath installPath)

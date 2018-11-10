@@ -44,13 +44,6 @@ namespace Outracks.AndroidManager
 				_progress.Report(new InstallerMessage("Failed to find Android Build tools."));
 			}
 
-			if (newConfig.CMake.HasValue == false)
-			{
-				failed = true;
-				_progress.Report(new InstallerMessage("Failed to find CMake."));
-			}
-
-
 			if (newConfig.HaveAllSdkPackages == false)
 			{
 				failed = true;

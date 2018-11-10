@@ -17,9 +17,6 @@ namespace Outracks.AndroidManager
 		[JsonProperty("Android.SDK.BuildToolsVersion")]
 		public string AndroidSdkBuildToolsVersion = null;
 
-		[JsonProperty("CMake")]
-		public string CMake = null;
-
 		[JsonProperty("HaveAllSDKPackages")]
 		public bool HaveAllSdkPackages = false;
 	}
@@ -29,7 +26,6 @@ namespace Outracks.AndroidManager
 		public Optional<AbsoluteDirectoryPath> AndroidSdkDirectory;
 		public Optional<AbsoluteDirectoryPath> AndroidNdkDirectory;
 		public Optional<AbsoluteDirectoryPath> JavaJdkDirectory;
-		public Optional<AbsoluteDirectoryPath> CMake;
 		public Optional<string> AndroidSdkBuildToolsVersion;
 		public bool HaveAllSdkPackages;
 
@@ -38,14 +34,12 @@ namespace Outracks.AndroidManager
 			Optional<AbsoluteDirectoryPath> androidNdkDirectory, 
 			Optional<AbsoluteDirectoryPath> javaJdkDirectory, 
 			Optional<string> androidSdkBuildToolsVersion, 
-			Optional<AbsoluteDirectoryPath> cmake,
 			bool haveAllSdkPackages)
 		{
 			AndroidSdkDirectory = androidSdkDirectory;
 			AndroidNdkDirectory = androidNdkDirectory;
 			JavaJdkDirectory = javaJdkDirectory;
 			AndroidSdkBuildToolsVersion = androidSdkBuildToolsVersion;
-			CMake = cmake;
 			HaveAllSdkPackages = haveAllSdkPackages;
 		}
 	}
@@ -62,14 +56,12 @@ namespace Outracks.AndroidManager
 					androidNdkDirectory: AbsoluteDirectoryPath.TryParse(someConfig.AndroidNdkDirectory),
 					javaJdkDirectory: AbsoluteDirectoryPath.TryParse(someConfig.JavaJdkDirectory),
 					androidSdkBuildToolsVersion: someConfig.AndroidSdkBuildToolsVersion.ToOptional(),
-					cmake: AbsoluteDirectoryPath.TryParse(someConfig.CMake),
 					haveAllSdkPackages: someConfig.HaveAllSdkPackages
 				);
 			}
 			else
 			{
 				return new OptionalSdkConfigOptions(
-					Optional.None(),
 					Optional.None(),
 					Optional.None(),
 					Optional.None(),
@@ -86,7 +78,6 @@ namespace Outracks.AndroidManager
 				AndroidNdkDirectory = sdkConfigOptions.AndroidNdkDirectory.Select(dir => dir.NativePath).Or((string) null),
 				JavaJdkDirectory = sdkConfigOptions.JavaJdkDirectory.Select(dir => dir.NativePath).Or((string) null),
 				AndroidSdkBuildToolsVersion = sdkConfigOptions.AndroidSdkBuildToolsVersion.Or((string) null),
-				CMake = sdkConfigOptions.CMake.Select(dir => dir.NativePath).Or((string)null),
 				HaveAllSdkPackages = sdkConfigOptions.HaveAllSdkPackages
 			};
 		}
