@@ -66,14 +66,14 @@
       <HintPath>..\..\packages\System.Reactive.Windows.Threading.4.0.0-preview00001\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
-    <Reference Include="Uno.Common, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FuseOpen.Uno.Common.1.9.0\lib\net45\Uno.Common.dll</HintPath>
+    <Reference Include="Uno.Common, Version=1.10.0.187, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Common.1.10.0-rc1\lib\net45\Uno.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Configuration, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FuseOpen.Uno.Configuration.1.9.0\lib\net45\Uno.Configuration.dll</HintPath>
+    <Reference Include="Uno.Configuration, Version=1.10.0.187, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Configuration.1.10.0-rc1\lib\net45\Uno.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Uno.Stuff, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FuseOpen.Uno.Stuff.1.9.0\lib\net45\Uno.Stuff.dll</HintPath>
+    <Reference Include="Uno.Stuff, Version=1.10.0.187, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FuseOpen.Uno.Stuff.1.10.0-rc1\lib\net45\Uno.Stuff.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
