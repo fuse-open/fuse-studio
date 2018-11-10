@@ -56,8 +56,6 @@ namespace Outracks.AndroidManager
 				"build-tools;23.0.1",
 				"cmake;3.6.4111459",
 				"ndk-bundle",
-				"platforms;android-21",
-				"platforms;android-23",
 				"extras;android;m2repository",
 				"extras;google;m2repository"
 			}, ct, installerProgress);
