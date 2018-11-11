@@ -50,8 +50,6 @@ namespace Outracks.Fuse
 							Spacer.Smaller,
 							CreateFlagCheckBox(showWindow, editArgs, "-DCOCOAPODS", "Enable CocoaPods builds on iOS (-DCOCOAPODS)"),
 							Spacer.Smaller,
-							CreateFlagCheckBox(showWindow, editArgs, "-DGRADLE", "Enable Gradle builds on Android (-DGRADLE)"),
-							Spacer.Smaller,
 							CreateFlagCheckBox(showWindow, editArgs, "-DDEBUG_V8", "Enable the V8 debugger (-DDEBUG_V8)"),
 							Spacer.Smaller,
 							CreateFlagCheckBox(showWindow, editArgs, "-v", "Enable verbose builds (-v)"))
