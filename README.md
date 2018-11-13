@@ -23,8 +23,8 @@ To run with debugging in Visual Studio set `Outracks.Fuse.Studio` as the startup
 
 The prerequisites for building on macOS is
 
-* [XCode](https://developer.apple.com/xcode/)
-  * Remember to open XCode one time after installing to accept EULA
+* [Xcode](https://developer.apple.com/xcode/)
+  * Remember to open Xcode one time after installing to accept EULA
 * [Mono](https://www.mono-project.com/download/stable/)
   * Tested with [5.4.1](https://download.mono-project.com/archive/5.4.1/macos-10-universal/MonoFramework-MDK-5.4.1.7.macos10.xamarin.universal.pkg), but newer versions should also work fine
 
