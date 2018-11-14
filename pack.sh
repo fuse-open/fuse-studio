@@ -132,7 +132,7 @@ darwin*)
     # Fix Info.plist
     PLIST=bin/Release/Fuse.app/Contents/Info.plist
     sed -i '' "s/VERSION_NUMBER/$VERSION/" $PLIST
-    sed -i '' 's/Copyright [^<]*/Copyright © 2017 Fusetools AS/' $PLIST
+    sed -i '' 's/Copyright [^<]*/Copyright © 2018-present Fuse Open/' $PLIST
 
     # Simulator client uno project
     rsync -ru --copy-links Source/Simulator/build/* "$PACKAGES"

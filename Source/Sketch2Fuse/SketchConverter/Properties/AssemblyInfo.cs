@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SketchConverter")]
 [assembly: AssemblyDescription("Sketch to .ux converter")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Fusetools AS")]
+[assembly: AssemblyCompany("Fuse Open")]
 [assembly: AssemblyProduct("SketchConverter")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © 2018-present Fuse Open")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

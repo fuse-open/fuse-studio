@@ -121,7 +121,7 @@ namespace Outracks.Fuse
 		static void WriteVersion(this TextWriter writer, string version)
 		{
 			writer.WriteLine("Fuse version " + version);
-			writer.WriteLine("Copyright (C) 2017 Fusetools");
+			writer.WriteLine("Copyright (C) 2018-present Fuse Open");
 		}
 
 

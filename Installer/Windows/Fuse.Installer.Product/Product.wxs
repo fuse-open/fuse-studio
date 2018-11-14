@@ -3,7 +3,7 @@
          xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   
     <?define ProductName = "Fuse" ?>
-    <?define Manufacturer = "Fusetools" ?>
+    <?define Manufacturer = "Fuse Open" ?>
     <?define MainExe = "Fuse Studio.exe" ?>
     <?define VERSION="!(bind.fileVersion.FuseEXE)"?>
 
