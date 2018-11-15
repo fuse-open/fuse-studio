@@ -96,7 +96,7 @@ namespace Outracks.Simulator.Client
 			var fakeApp = new FakeApp(this);
 			UserAppState.Default = UserAppState.Save(fakeApp);
 
-			if (defined(CPLUSPLUS))
+			if defined(CPLUSPLUS)
 				ResetEverything(true, new Panel());
 
 			_developerMenu = new Outracks.Simulator.DeveloperMenu();
@@ -137,7 +137,7 @@ namespace Outracks.Simulator.Client
         
 		public void OnPointerPressed(PointerPressedArgs args)
 		{
-            if (!defined(DOTNET))
+            if defined(!DOTNET)
             {
                 pointers.Add(args);
                 if (pointers.Count == 3)
