@@ -10,13 +10,10 @@ namespace Outracks.AndroidManager
 	class AndroidPackageInstallResult
 	{
 		public readonly AbsoluteDirectoryPath NdkBundle;
-		public readonly AbsoluteDirectoryPath CMake;
-		public readonly string BuildToolsVersion;
-		public AndroidPackageInstallResult(AbsoluteDirectoryPath ndkBundle, string buildToolsVersion, AbsoluteDirectoryPath cmake)
+
+		public AndroidPackageInstallResult(AbsoluteDirectoryPath ndkBundle)
 		{
 			NdkBundle = ndkBundle;
-			BuildToolsVersion = buildToolsVersion;
-			CMake = cmake;
 		}
 	}
 
@@ -53,19 +50,13 @@ namespace Outracks.AndroidManager
 			InstallPackages(new []
 			{
 				"platform-tools",
-				"build-tools;23.0.1",
-				"cmake;3.6.4111459",
 				"ndk-bundle",
-				"platforms;android-21",
-				"platforms;android-23",
 				"extras;android;m2repository",
 				"extras;google;m2repository"
 			}, ct, installerProgress);
 
 			return new AndroidPackageInstallResult(
-				_androidSdkRoot / new DirectoryName("ndk-bundle"),
-				TryGetBuildToolsVersion().OrThrow(new InstallerError("Couldn't find build tools version")),
-				_androidSdkRoot / new DirectoryName("cmake"));
+				_androidSdkRoot / new DirectoryName("ndk-bundle"));
 		}
 
 		void UpdateTools(CancellationToken ct, IProgress<InstallerEvent> progress, string package)
@@ -121,18 +112,6 @@ namespace Outracks.AndroidManager
 
 			if (exitCode != 0)
 				throw new InstallerError("Failed to install package '" + package + "'");
-		}
-
-		Optional<string> TryGetBuildToolsVersion()
-		{
-			var buildToolsFolder = _androidSdkRoot / new DirectoryName("build-tools");
-			if (!_fs.Exists(buildToolsFolder))
-				return Optional.None();
-
-			var buildToolsPackages = AndroidSDKPackageParser.SearchForPackagesIn(_fs, buildToolsFolder);
-			var latestPackage = buildToolsPackages.OrderBy(p => p.SortableRevision).LastOrNone();
-
-			return latestPackage.Select(package => package.OriginalRevision);
 		}
 
 		Optional<Version> TryGetToolsVersion()

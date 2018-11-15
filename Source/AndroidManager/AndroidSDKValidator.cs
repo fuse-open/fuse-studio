@@ -52,19 +52,11 @@ namespace Outracks.AndroidManager
 			{
 				if (!IsPlatformToolsInstalled(progress, installPath)) return false;
 
-				if (!IsBuildToolsInstalled(progress, installPath)) return false;
-
-				if (!IsAndroidPlatformInstalled(progress, installPath, 21)) return false;
-
-				if (!IsAndroidPlatformInstalled(progress, installPath, 23)) return false;
-
 				if (!IsAndroidSupportRepositoryInstalled(progress, installPath)) return false;
 
 				if (!IsGoogleRepositoryInstalled(progress, installPath)) return false;
 
 				if (!IsNdkInstalled(installPath)) return false;
-
-				if (!IsCmakeInstalled(installPath)) return false;
 
 				return true;
 			}
@@ -82,33 +74,6 @@ namespace Outracks.AndroidManager
 		{
 			var basePath = installPath / new DirectoryName("ndk-bundle");
 			return _fs.Exists(basePath / new FileName("package.xml"));
-		}
-
-		public bool IsCmakeInstalled(AbsoluteDirectoryPath installPath)
-		{
-			var basePath = installPath / new DirectoryName("cmake");
-			return _fs.Exists(basePath);
-		}
-
-		public bool IsAndroidPlatformInstalled(IProgress<InstallerEvent> progress, AbsoluteDirectoryPath installPath, int version, Optional<string> extraInfo = default(Optional<string>))
-		{
-			var basePath = installPath / new DirectoryName("platforms") / new DirectoryName("android-" + version);
-			if (!_fs.Exists(basePath / new FileName("package.xml")))
-			{
-				progress.Report(new InstallerMessage("Android Platform " + version + " was not found and is required. " + extraInfo.Or("")));
-				return false;
-			}
-			return true;
-		}
-
-		public bool IsBuildToolsInstalled(IProgress<InstallerEvent> progress, AbsoluteDirectoryPath installPath)
-		{
-			if (!_fs.Exists(installPath / new DirectoryName("build-tools")))
-			{
-				progress.Report(new InstallerMessage("Android Build Tools was not found and is required"));
-				return false;
-			}
-			return true;
 		}
 
 		public bool IsPlatformToolsInstalled(IProgress<InstallerEvent> progress, AbsoluteDirectoryPath installPath)

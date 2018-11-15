@@ -111,9 +111,7 @@ namespace Outracks.AndroidManager
 				androidRoot =>
 				{
 					if (config.HaveAllSdkPackages 
-						&& config.AndroidNdkDirectory.HasValue 
-						&& config.AndroidSdkBuildToolsVersion.HasValue 
-						&& config.CMake.HasValue)
+						&& config.AndroidNdkDirectory.HasValue)
 						return;
 
 					var installer = new AndroidSDKPackageInstaller(
@@ -129,8 +127,6 @@ namespace Outracks.AndroidManager
 					var result = installer.Install(CancellationToken.None, _dialog, _progress);
 
 					config.AndroidNdkDirectory = result.NdkBundle;
-					config.AndroidSdkBuildToolsVersion = result.BuildToolsVersion;
-					config.CMake = result.CMake;
 				});
 		}
 

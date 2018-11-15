@@ -19,8 +19,8 @@ namespace Outracks.AndroidManager
 		{
 			_installPath = installPath;
 			_downloadUrl = Platform.OperatingSystem == OS.Windows
-				? new Uri("https://go.fusetools.com/android-sdk-win-2")
-				: new Uri("https://go.fusetools.com/android-sdk-osx-2");
+				? new Uri("https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip")
+				: new Uri("https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip");
 			_fileSystem = fileSystem;
 		}
 
