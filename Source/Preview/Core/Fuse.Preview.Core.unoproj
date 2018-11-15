@@ -1,8 +1,8 @@
 {
-	"Copyright": "Copyright (c) Fusetools AS 2015",
+	"Copyright": "Copyright (c) 2018-present Fuse Open",
 	"Title": "Fuse Preview Core",
 	"Description": "Fuse Preview Core for Fuse Preview",
-	"Publisher": "Fusetools AS",
+	"Publisher": "Fuse Open",
 	"Version": "0.1.0",
 	"Internal": true,
 	"InternalsVisibleTo": [ ],

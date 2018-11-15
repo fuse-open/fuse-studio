@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Fuse.Installer.Actions")]
-[assembly: AssemblyCopyright("Copyright © Fusetools  2017")]
+[assembly: AssemblyCopyright("Copyright © 2018-present Fuse Open")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: InternalsVisibleTo("Fuse.Installer.Actions.Tests")]

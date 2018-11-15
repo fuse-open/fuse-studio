@@ -13,9 +13,9 @@ using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 [assembly: AssemblyTitle("Fuse.Installer.Gui")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Fusetools AS")]
+[assembly: AssemblyCompany("Fuse Open")]
 [assembly: AssemblyProduct("Fuse.Installer.Gui")]
-[assembly: AssemblyCopyright("Copyright © Fusetools AS 2017")]
+[assembly: AssemblyCopyright("Copyright © 2018-present Fuse Open")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -4,7 +4,7 @@
   "Version": "1.0.0",
   "VersionCode": 1,
   "Description": "Simulator for Fuse projects",
-  "Publisher": "Fusetools AS",
+  "Publisher": "Fuse Open",
   "Packages": [
     "Fuse",
     "FuseJS",

@@ -4,9 +4,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyCompany("Fusetools")]
+[assembly: AssemblyCompany("Fuse Open")]
 [assembly: AssemblyProduct("Fuse Studio")]
-[assembly: AssemblyCopyright("Copyright © 2015-2018 Fusetools")]
+[assembly: AssemblyCopyright("Copyright © 2018-present Fuse Open")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
