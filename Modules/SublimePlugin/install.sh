@@ -106,7 +106,7 @@ function install_or_update
 	mkdir -p "$SUBLIME_PACKAGE_DIR"
 
 	echo Installing sublime plugin...
-	curl -s -L -o temp_package --header "If-None-Match: $LOCAL_ETAG" "https://raw.githubusercontent.com/fuse-open/Fuse.SublimePlugin/master/releases/FuseSublimePlugin_1_5_0.zip" --dump-header header_dump >/dev/null
+	curl -s -L -o temp_package --header "If-None-Match: $LOCAL_ETAG" "https://github.com/fuse-open/Fuse.SublimePlugin/releases/download/1.5.0/FuseSublimePlugin_1_5_0.zip" --dump-header header_dump >/dev/null
 	if [[ $status -ne 0 ]]; then
         echo "Download failed!" >&2
         exit_with_error
@@ -120,7 +120,7 @@ function install_or_update
 function check_for_update
 {
 	echo "Checking for update"
-	curl -s -L --header "If-None-Match: $LOCAL_ETAG" "https://raw.githubusercontent.com/fuse-open/Fuse.SublimePlugin/master/releases/FuseSublimePlugin_1_5_0.zip" --dump-header header_dump >/dev/null
+	curl -s -L --header "If-None-Match: $LOCAL_ETAG" "https://github.com/fuse-open/Fuse.SublimePlugin/releases/download/1.5.0/FuseSublimePlugin_1_5_0.zip" --dump-header header_dump >/dev/null
 	if [[ $status -ne 0 ]]; then
         echo "Check for update failed!" >&2
         exit_with_error
