@@ -31,12 +31,12 @@ IF NOT EXIST "%sublime_package_dir%" (
 )
 
 ECHO Installing sublime plugin...
-for /f "delims=" %%A in ('call .\tools\curl.exe -I -s -L --header "If-None-Match: %fuse_etag%" "https://go.fusetools.com/latest-sublime-plugin-2"') do call :checkHeader %%A %%B
+for /f "delims=" %%A in ('call .\tools\curl.exe -I -s -L --header "If-None-Match: %fuse_etag%" "https://github.com/fuse-open/Fuse.SublimePlugin/releases/download/1.5.0/FuseSublimePlugin_1_5_0.zip"') do call :checkHeader %%A %%B
 IF %ERRORLEVEL% NEQ 0 (
 	ECHO Download failed!
 	GOTO error
 	)
-call .\tools\curl.exe -s -L -o ^"%fuse_package_file%^" "https://go.fusetools.com/latest-sublime-plugin-2"
+call .\tools\curl.exe -s -L -o ^"%fuse_package_file%^" "https://github.com/fuse-open/Fuse.SublimePlugin/releases/download/1.5.0/FuseSublimePlugin_1_5_0.zip"
 IF %ERRORLEVEL% NEQ 0 (
 	ECHO Download failed!
 	GOTO error
@@ -47,7 +47,7 @@ GOTO:eof
 IF NOT EXIST "%fuse_version_file%" (
 	GOTO no_plugin
 	)
-for /f "delims=" %%A in ('call .\tools\curl.exe -I -s -L --header "If-None-Match: %fuse_etag%" "https://go.fusetools.com/latest-sublime-plugin-2"') do call :checkHeaderUpdate %%A %%B
+for /f "delims=" %%A in ('call .\tools\curl.exe -I -s -L --header "If-None-Match: %fuse_etag%" "https://github.com/fuse-open/Fuse.SublimePlugin/releases/download/1.5.0/FuseSublimePlugin_1_5_0.zip"') do call :checkHeaderUpdate %%A %%B
 
 IF %ERRORLEVEL% NEQ 0 (
 	rem ECHO Check for update failed!

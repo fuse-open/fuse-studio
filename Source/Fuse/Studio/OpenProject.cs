@@ -107,7 +107,7 @@ namespace Outracks.Fuse.Designer
 				_fuse,
 				glVersion);
 
-			var mode = Property.Create(Mode.Normal);
+			var mode = UserSettings.Enum<Mode>("WindowMode").Or(Mode.Normal);
 			var previewDevices = new PreviewDevices(project, _shell);
 			var workspace = new StageController(
 				viewport,

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -12,12 +12,12 @@ namespace Outracks.AndroidManager
 {
 	class JavaInstaller
 	{
-		readonly Uri _downloadUrlMac = new Uri("https://go.fusetools.com/jdk-mac-x64");
-		readonly Uri _downloadUrlWin32 = new Uri("https://go.fusetools.com/jdk-i586");
-		readonly Uri _downloadUrlWin64 = new Uri("https://go.fusetools.com/jdk-x64");
+		readonly Uri _downloadUrlMac = new Uri("http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-macosx-x64.dmg");
+		readonly Uri _downloadUrlWin32 = new Uri("http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-i586.exe");
+		readonly Uri _downloadUrlWin64 = new Uri("http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-windows-x64.exe");
 		readonly IFileSystem _fs;
-
-		readonly AbsoluteDirectoryPath _pathToJdkMac = AbsoluteDirectoryPath.Parse("/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/bin");
+		readonly string _jdk_name = "JDK 8 Update 191";
+		readonly AbsoluteDirectoryPath _pathToJdkMac = AbsoluteDirectoryPath.Parse("/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/bin");
 
 		public JavaInstaller(IFileSystem fs)
 		{
@@ -47,12 +47,12 @@ namespace Outracks.AndroidManager
 			var tempFilePath = DirectoryPath.GetTempPath() / new FileName("jdk" + ".dmg");
 
 			progress.DoInstallerStep("Starting download of Java Development Kit",
-				() => DownloadHelper.DownloadFileWithProgress(_downloadUrlMac, tempFilePath, ct, progress),
+				() => DownloadHelper.DownloadFileWithProgress(_downloadUrlMac, tempFilePath, ct, progress, "oraclelicense=accept-securebackup-cookie"),
 				e => _fs.Delete(tempFilePath));
 
 			Process.Start("open", tempFilePath.NativePath);
 
-			progress.Report(new InstallerMessage("Please start the JDK installer by double clicking the icon inside the 'JDK 8 Update 40' window."));
+			progress.Report(new InstallerMessage("Please start the JDK installer by double clicking the icon inside the '" + _jdk_name + "' window."));
 			progress.Report(new InstallerMessage("Waiting for the JDK installer to finish..."));
 			while (!_fs.Exists(_pathToJdkMac))
 			{
@@ -102,7 +102,7 @@ namespace Outracks.AndroidManager
 			if (!_fs.Exists(tempFilePath))
 			{
 				installerProgress.DoInstallerStep("Starting download of Java Development Kit",
-					() => DownloadHelper.DownloadFileWithProgress(IntPtr.Size == 4 ? _downloadUrlWin32 : _downloadUrlWin64, tempFilePath, ct, installerProgress),
+					() => DownloadHelper.DownloadFileWithProgress(IntPtr.Size == 4 ? _downloadUrlWin32 : _downloadUrlWin64, tempFilePath, ct, installerProgress, "oraclelicense=accept-securebackup-cookie"),
 					e => _fs.Delete(tempFilePath));
 			}
 		}

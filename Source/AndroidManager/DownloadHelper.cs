@@ -8,7 +8,7 @@ namespace Outracks.AndroidManager
 {
 	public static class DownloadHelper
 	{
-		public static void DownloadFileWithProgress(Uri downloadUri, AbsoluteFilePath destination, CancellationToken ct, IProgress<InstallerEvent> progress)
+		public static void DownloadFileWithProgress(Uri downloadUri, AbsoluteFilePath destination, CancellationToken ct, IProgress<InstallerEvent> progress, string cookieStr)
 		{
 			using (var client = new WebClient())
 			{
@@ -36,6 +36,7 @@ namespace Outracks.AndroidManager
 				};
 
 				// We need to do Task.Run on OSX because a bug in mono implementation.
+        client.Headers.Add(HttpRequestHeader.Cookie, cookieStr); //cookie required for downloads like JDK
 				Task.Run(() => client.DownloadFileAsync(downloadUri, destination.NativePath));
 
 				try
