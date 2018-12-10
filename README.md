@@ -66,7 +66,7 @@ The reason we do a `git clean` before building installer, is to avoid accidentia
 ### Making a Windows installer
 
 Making the Windows installer for the 1.9.0-rc3 release was done using the following commands (in a git bash shell).
-Note that in addition to the regular build requirements this also requires [7-zip](https://www.7-zip.org/) installed.
+Note that in addition to the regular build requirements this also requires [7-zip](https://www.7-zip.org/) and [WiX Toolset](http://wixtoolset.org/releases/) with [Visual Studio 2017 Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) installed.
 
 ```shell
  ( git clean -xdf && RELEASE_VERSION=1.9.0-rc3 BUILD_NUMBER=1.9.0-rc3 ./pack.sh && mkdir -p Installer/Windows/Source/Fuse && unzip Fuse-1.9.0-rc3-Win32.zip -d Installer/Windows/Source/Fuse/ && RELEASE_VERSION=1.9.0-rc3 BUILD_NUMBER=1.9.0-rc3 ./WindowsInstallerWrapper.sh )
