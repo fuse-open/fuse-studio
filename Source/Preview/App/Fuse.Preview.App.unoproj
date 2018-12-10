@@ -2,7 +2,7 @@
   "RootNamespace":"Fuse.Preview",
   "Name": "FusePreview",
   "Title": "Fuse Preview",
-  "Version": "1.9.0",
+  "Version": "1.10.0-rc1",
   "VersionCode": 11,
   "Description": "Fuse Preview is a development tool for creating mobile user experiences. It lets you iterate on your designs while previewing the changes in real-time on one or more mobile devices.\n\nNote: A computer running _Fuse Studio_ (https://www.fusetools.com/) is required in order to utilize this app. Fuse Preview is merely the client for previewing the work you perform on your development computer.",
   "Publisher": "Fuse Open",
