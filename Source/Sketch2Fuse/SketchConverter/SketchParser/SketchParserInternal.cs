@@ -90,7 +90,7 @@ namespace SketchConverter.SketchParser
 
 		SketchAxisAlignment ParseAlignmentAxis(byte code)
 		{
-			return new SketchAxisAlignment(GetBit(code, 0), GetBit(code, 1), GetBit(code, 2));
+			return new SketchAxisAlignment(GetBit(code, 2), GetBit(code, 0), GetBit(code, 1));
 		}
 
 		SketchAlignment ParseAlignment(JObject layer)
