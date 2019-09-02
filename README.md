@@ -2,7 +2,7 @@
 
 Fuse Studio is a visual desktop tool suite for working with the Fuse framework.
  
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Windows build status](https://ci.appveyor.com/api/projects/status/github/fuse-open/fuse-studio?branch=master&svg=true)](https://ci.appveyor.com/project/fusetools/fuse-studio/branch/master) [![macOS build Status](https://travis-ci.org/fuse-open/fuse-studio.svg)](https://travis-ci.org/fuse-open/fuse-studio)
+[![Financial Contributors on Open Collective](https://opencollective.com/fuse-open/all/badge.svg?label=financial+contributors)](https://opencollective.com/fuse-open) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Windows build status](https://ci.appveyor.com/api/projects/status/github/fuse-open/fuse-studio?branch=master&svg=true)](https://ci.appveyor.com/project/fusetools/fuse-studio/branch/master) [![macOS build Status](https://travis-ci.org/fuse-open/fuse-studio.svg)](https://travis-ci.org/fuse-open/fuse-studio)
 
 For download links and docs click [here](http://fuse-open.github.io/).
 
@@ -80,3 +80,33 @@ To set which fuse to start in sublime, can be done by setting `fuse_path_overrid
 
 To set which fuse to start in Atom, is done by setting:
 ![Fuse settings](http://az664292.vo.msecnd.net/files/I4UI3gJqReq1fpI6-atom_2016-01-22_18-33-41.png)
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/fuse-open/fuse-studio/graphs/contributors"><img src="https://opencollective.com/fuse-open/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/fuse-open/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/fuse-open"><img src="https://opencollective.com/fuse-open/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/fuse-open/contribute)]
+
+<a href="https://opencollective.com/fuse-open/organization/0/website"><img src="https://opencollective.com/fuse-open/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/1/website"><img src="https://opencollective.com/fuse-open/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/2/website"><img src="https://opencollective.com/fuse-open/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/3/website"><img src="https://opencollective.com/fuse-open/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/4/website"><img src="https://opencollective.com/fuse-open/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/5/website"><img src="https://opencollective.com/fuse-open/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/6/website"><img src="https://opencollective.com/fuse-open/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/7/website"><img src="https://opencollective.com/fuse-open/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/8/website"><img src="https://opencollective.com/fuse-open/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/fuse-open/organization/9/website"><img src="https://opencollective.com/fuse-open/organization/9/avatar.svg"></a>
