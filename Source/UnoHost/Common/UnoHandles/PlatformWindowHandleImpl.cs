@@ -17,6 +17,8 @@ namespace Outracks.UnoHost
 		public PlatformWindowHandleImpl(IUnoCallbacks callbacks)
 		{
 			_callbacks = callbacks;
+			Size = new Size<Pixels>();
+			Density = new Ratio<Pixels, Points>();
 		}
 
 		#region Size and density (read-only)

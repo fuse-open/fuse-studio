@@ -8,12 +8,10 @@ using System.Windows.Forms;
 using Outracks.Fusion;
 using Outracks.Fusion.Windows;
 using Outracks.UnoHost.Windows.Protocol;
-using MessageBox = System.Windows.MessageBox;
 
 namespace Outracks.UnoHost.Windows
 {
 	using Extensions;
-	using Fuse;
 	using Fuse.Analytics;
 	using IO;
 
@@ -68,12 +66,12 @@ namespace Outracks.UnoHost.Windows
 				Observable.FromEventPattern(unoControl, "GotFocus").Select(_ => WindowFocusMessage.Compose(FocusState.Focused)),
 				lostFocus.Select(_ => WindowFocusMessage.Compose(FocusState.Blurred)),
 				lostFocus.Select(_ => WindowContextMenuMessage.Compose(false)),
-				Observable.FromEventPattern<MouseEventArgs>(unoControl, "MouseUp")
+				Observable.FromEventPattern<System.Windows.Forms.MouseEventArgs>(unoControl, "MouseUp")
 					.Where(m => m.EventArgs.Button == System.Windows.Forms.MouseButtons.Right)
 					.Select(_ => WindowContextMenuMessage.Compose(true)),
-				Observable.FromEventPattern<MouseEventArgs>(unoControl, "MouseDown")
+				Observable.FromEventPattern<System.Windows.Forms.MouseEventArgs>(unoControl, "MouseDown")
 					.Select(_ => WindowContextMenuMessage.Compose(false)),
-				Observable.FromEventPattern<MouseEventArgs>(unoControl, "MouseWheel")
+				Observable.FromEventPattern<System.Windows.Forms.MouseEventArgs>(unoControl, "MouseWheel")
 					.Select(m => WindowMouseScrollMessage.Compose(m.EventArgs.Delta)),
 				Observable.FromEventPattern<KeyEventArgs>(unoControl, "KeyDown")
 					.Select(m => WindowKeyDown.Compose(m.EventArgs.KeyCode)),
@@ -113,11 +111,18 @@ namespace Outracks.UnoHost.Windows
 				.RefCount()
 				.ObserveOn(dispatcher)
 				.Publish();
+			messagesFrom
+				.SelectSome(MouseEventMessage.TryParse)
+				.Subscribe(unoControl.OnMouseEvent);
 
 			messagesFrom.Subscribe(next => { }, e => form.Exit(1), () => form.Exit(0));
 
+			messagesFrom
+				.SelectSome(SetSurfaceMessage.TryParse)
+				.Subscribe(texture => unoControl.SetBackingSurface(texture));
+
 			// Run the uno entrypoints, this initializes Uno.Application.Current
-			
+
 			unoHostProject.ExecuteStartupCode();
 			var app = Uno.Application.Current as dynamic;
 

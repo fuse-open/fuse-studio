@@ -12,6 +12,10 @@ namespace Outracks.Fusion.Windows
 	using System.Windows.Media;
 	public static class Marshalling
 	{
+		public static Point<Points> ToFusion(this System.Windows.Point point)
+		{
+			return new Point<Points>(point.X, point.Y);
+		}
 
 		public static Size<Points> ToFusion(this System.Windows.Size size)
 		{

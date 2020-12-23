@@ -58,7 +58,7 @@ namespace Outracks.UnoHost.Windows
 
 			public void Dispose()
 			{
-				OpenTK.Graphics.OpenGL.GL.DeleteTexture(HandleName);
+				OpenTK.Graphics.ES20.GL.DeleteTexture(HandleName);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace Outracks.UnoHost.Windows
 
 			public void Dispose()
 			{
-				OpenTK.Graphics.OpenGL.GL.DeleteFramebuffer(HandleName);
+				OpenTK.Graphics.ES20.GL.DeleteFramebuffer(HandleName);
 			}
 		}
 
@@ -88,7 +88,7 @@ namespace Outracks.UnoHost.Windows
 
 			public void Dispose()
 			{
-				OpenTK.Graphics.OpenGL.GL.DeleteBuffer(HandleName);
+				OpenTK.Graphics.ES20.GL.DeleteBuffer(HandleName);
 			}
 		}
 
@@ -103,7 +103,7 @@ namespace Outracks.UnoHost.Windows
 
 			public void Dispose()
 			{
-				OpenTK.Graphics.OpenGL.GL.DeleteRenderbuffer(HandleName);
+				OpenTK.Graphics.ES20.GL.DeleteRenderbuffer(HandleName);
 			}
 		}
 
@@ -118,7 +118,7 @@ namespace Outracks.UnoHost.Windows
 
 			public void Dispose()
 			{
-				OpenTK.Graphics.OpenGL.GL.DeleteShader(HandleName);
+				OpenTK.Graphics.ES20.GL.DeleteShader(HandleName);
 			}
 		}
 
@@ -133,7 +133,7 @@ namespace Outracks.UnoHost.Windows
 
 			public void Dispose()
 			{
-				OpenTK.Graphics.OpenGL.GL.DeleteProgram(HandleName);
+				OpenTK.Graphics.ES20.GL.DeleteProgram(HandleName);
 			}
 		}
 	}
