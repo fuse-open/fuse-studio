@@ -1,3 +1,4 @@
+- Reflect icons from Fernando Lins on Fuse Open project [logo contest](https://fuseopen.com/logo-contest/)
 - Improved problems view
 - Remove old sketch importer, import Sketch symbols using the new Sketch importer instead. Add Sketch files to watch in `Fuse Studio` from `Project/Sketch import`-dialog or use command line `fuse import <file>.sketch` to import symbols from a single Sketch file. `fuse import <project>.sketchFiles` will import symbols from all files added from `Fuse Studio`. 
 - Disabled drag and drop import using old Sketch importer.
