@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41764897-B354-499D-A31A-6A1D3BB9E158}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.Fuse.Preview.Core</RootNamespace>
+    <AssemblyName>Outracks.Fuse.Preview.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\core\Outracks.Core.csproj">
+      <Project>{196b010d-ad36-4947-95aa-14fc4a27bd18}</Project>
+      <Name>Outracks.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\simulator\common\Outracks.Simulator.csproj">
+      <Project>{3335BB78-0B8A-4D2F-919F-2E6F08883D51}</Project>
+      <Name>Outracks.Simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\unohost\common\Outracks.UnoHost.csproj">
+      <Project>{f2aeb321-51e5-40b8-9cf0-53c930e631f0}</Project>
+      <Name>Outracks.UnoHost</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="ProxyClient.uno" />
+    <None Include="DeveloperMenu.ux" />
+    <None Include="SimulatorClient.uno" />
+    <None Include="Dialogs\LoadingScreen.ux" />
+    <None Include="Dialogs\ModalDialog.ux" />
+    <None Include="Application.uno" />
+    <None Include="ApplicationStates.uno" />
+    <None Include="Context.uno" />
+    <None Include="DeviceInfo.uno" />
+    <None Include="FakeApp.uno" />
+    <None Include="ModalDialog.uno" />
+    <None Include="UserAppState.uno" />
+    <None Include="DashedBrush.uno" />
+    <None Include="DeveloperMenu.ux.uno" />
+    <None Include="Reflection\NativeReflection.uno" />
+    <None Include="Reflection\ReflectionCache.uno" />
+    <None Include="Reflection\ReflectionExtensions.uno" />
+    <None Include="Reflection\DotNetReflection.uxl" />
+    <None Include="Reflection\DotNetReflection.uno" />
+    <None Include="fight.png" />
+    <None Include="Fuse.Preview.Core.unoproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmptyClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+  <PropertyGroup>
+    <PostBuildEvent Condition=" '$(OS)' == 'Windows_NT' ">
+      pushd $(SolutionDir)
+      node_modules\.bin\uno doctor --configuration=$(Configuration) src/simulator src/preview
+      popd
+      rmdir /s /q $(ProjectDir)\..\build\Fuse.Preview.App
+    </PostBuildEvent>
+    <PostBuildEvent Condition=" '$(OS)' != 'Windows_NT' ">
+      pushd $(SolutionDir)
+      node_modules\.bin\uno doctor --configuration=$(Configuration) src/simulator src/preview
+      popd
+      rm -rf $(ProjectDir)/../build/Fuse.Preview.App
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

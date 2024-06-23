@@ -1,0 +1,21 @@
+{
+	"title": "fuse X",
+	"icon": "dmg.icns",
+	"background": "dmg-background.png",
+	"icon-size": 160,
+	"format": "UDZO",
+	"window": {
+		"size": {
+			"width": 660,
+			"height": 400
+		}
+	},
+	"contents": [
+		{
+			"x": 165,
+			"y": 170,
+			"type": "file",
+			"path": "Install fuse X.pkg"
+		}
+	]
+}

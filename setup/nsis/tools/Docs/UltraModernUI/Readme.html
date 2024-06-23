@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta content="SuperPat" name="author" />
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  <script type="text/javascript" src="script.js"></script>
+
+  <title>NSIS Ultra-Modern User Interface</title>
+
+</head>
+
+<body>
+
+  <div class="maintable">
+
+  <a target="_blank" href="http://ultramodernui.sourceforge.net/" title="Go to the NSIS Ultra-Modern User Interface home page"><img src="images/header.png" alt="NSIS Ultra-Modern User Interface" /></a>
+
+  <p class="options"><a onclick="loadSlider();expandall();">[Expand all]</a>&nbsp;&nbsp;<a onclick="collapseall();">[Collapse all]</a></p>
+
+  <div>
+
+    <img class="smallScreen" src="images/SmallScreen.png" alt="" />
+
+    <h1>Introduction</h1>
+
+    <div style="text-align: justify;">
+      <p>The Ultra-Modern User Interface is a new interface with a style like the most recent installers for NSIS 3 (Nullsoft Scriptable Install System) x86 edition, the tool that allows programmers to create such installers for Windows. Ultra-Modern UI and NSIS are released under an open source license.</p>
+      <p>The Ultra-Modern User Interface also features new pages (Confirm, Abort, AlternativeStartMenu, AdditionalTasks, Information, Maintenance, Update, SetupType...). The interface and the graphics can be customized using the provided settings and the new skins system. </p>
+      <p>Ultra-Modern UI include also an other User Interface named Modern UIEx. Modern UIEx is the same User Interface as the original Modern UI style but with the support of the new ultra-modern pages and with a little more options.</p>
+      <p>Using the Ultra-Modern UI macros and language files, writing scripts with a ultra-modern interface is easy. A lot of examples are available to show the different features and this document contains all information about writing Ultra-Modern UI scripts and a reference of all settings.</p>
+      <p>The issue of Ultra-Modern UI is to be the most compatible with the existing Modern UI scripts. Because of it is based on the Modern UI of Joost Verburg, it use the same macro a define and provide new one. The new macro and define use the prefix UMUI_ instead of MUI_.</p>
+      <p>Please be aware that the Ultra-Modern UI and the Modern UI interfaces settings are different compared to the classic interface. This means that you should not use settings like LicenseText, Icon, CheckBitmap, InstallColors etc. but the ones that are documented here.</p>
+      <p>Ultra-Modern UI include three NSIS plug-ins:</p>
+      <ul>
+        <li><a target="_blank" href="../SkinnedControls/Readme.html">SkinnedControls</a>: a plug-in, natively integrated to Ultra-Modern UI, to skin all buttons and scroll bars of your installer;</li>
+        <li><a target="_blank" href="../InstallOptionsEx/Readme.html">InstallOptionsEx</a>: an extension, natively integrated to Ultra-Modern UI, of the original <a target="_blank" href="../InstallOptions/Readme.html">InstallOptions</a> plug-in with more feature to create custom pages;</li>
+        <li><a target="_blank" href="../nsArray/Readme.txt">nsArray</a>: needed by some Ultra-Modern UI features, provide less out-of-the-box arrays and map features.</li>
+      </ul>
+
+      <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_screenshots" src="images/closed.gif" onclick="loadSlider();toggle('trigger_screenshots', 'toggle_screenshots');" /> Screenshots</h3>
+      <div class="toggle" id="toggle_screenshots">
+
+        <div id="sliderFrame">
+            <div id="slider">
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI01.png" alt="Multi language page with default skin" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI02.png" alt="Welcome page with blue skin with alternative text and alternative style options" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI03.png" alt="Maintenance page with blue2 skin with page background image option" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI04.png" alt="Update page with SoftBlue skin with page background image option" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI05.png" alt="License page with SoftRed skin" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI06.png" alt="Information page in RTF file with SoftBrown skin" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI07.png" alt="Setup type page" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI08.png" alt="Directory page with unique background image option" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI09.png" alt="Alternative start menu page with TreeView" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI10.png" alt="Additional tasks page with green skin" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI11b.png" alt="Installer confirm page with red skin" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI12.png" alt="Abort page" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUINoLeftImage01.png" alt="License page with the no left image option" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUINoLeftImage02.png" alt="Directory page with the no left image option with SoftBule skin" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUISmall01.png" alt="Welcome page with the small page option" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUISmall02.png" alt="Directory page with the small page option" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/MUIEx01.png" alt="Multi language page with the Modern UIEx interface" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/MUIEx02.png" alt="Setup type page with the Modern UIEx interface" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/MUIEx03.png" alt="Additional tasks page with the Modern UIEx interface" />
+                <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/MUIEx04.png" alt="Serial number page with the Modern UIEx interface" />
+            </div>
+        </div>
+
+      </div>
+
+      <p>The colors, that are used in this document, correspond to the differences between Ultra-Modern UI / Modern UIEx and the original Modern UI:</p>
+      <ul>
+        <li><strong>BLACK:</strong>&nbsp; macro and define that were the same;</li>
+        <li><span class="red"><strong>RED:</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;macro and define that were removed;</li>
+        <li><span class="blue"><strong>BLUE:</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;macro and define that were added;</li>
+        <li><span class="purple"><strong>PURPLE:</strong></span>&nbsp;macro and define that were modified.</li>
+      </ul>
+
+    </div>
+
+    <h1>Writing Ultra-Modern UI Scripts</h1>
+
+    <div style="text-align: justify;">
+      <p>The Ultra-Modern UI has a macro system, so all the code to control the interface has already been written for you.</p>
+      <p>If you want to start a new Ultra-Modern UI script or upgrade an older script with the Modern UI or Classic UI, follow the steps below.</p>
+      <p>Taking a look at the <a href="#examples">example scripts</a> will also help you to learn more about the Ultra-Modern UI.</p>
+
+      <h2>Syntax</h2>
+      <div>
+        <p>Some defines (e.g. MUI_COMPONENTSPAGE_SMALLDESC) don't need a value, they are true/false settings. Others (e.g. MUI_UI) can be used to define a specific value.</p>
+        <p>Parameters are specified in this format: <span class="parameter">required (option1 | option2) [optional]</span></p>
+        <p>Parameters for defined settings should be in one string:</p>
+        <pre>!define MUI_COMPONENTSPAGE_SMALLDESC ;No value<br />!define MUI_UI "myUI.exe" ;Value<br />!define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000" ;Multiple settings<br /></pre>
+        <p>If you want a certain value (e.g. a text) to be language-specific, set a language string (using LangString) and define $(STRINGNAME) as value. Use a license language string (LicenseLangString) for the license text.</p>
+        <p>If you want to add " to a Modern UI string, you should always escape it using $\" because the Modern UI macros use " to separate parameters.</p>
+      </div>
+
+
+      <h2>1. Header file</h2>
+      <div>
+
+        <p>If you want to upgrade your Modern UI script to the Ultra-Modern style, simply replace the line:</p>
+        <pre>!include "MUI.nsh"</pre>
+        <p>in your script by this one:</p>
+        <pre><span class="purple">!include "UMUI.nsh"</span></pre>
+        <p>Or this one if you want to use the Modern UIEx style (The extended version of Modern UI but with the support of the new Ultra-Modern pages):</p>
+        <pre><span class="purple">!include "MUIEx.nsh"</span></pre>
+
+        <p>UMUI.nsh and MUIEx.nsh are in the Include directory, so you don't have to specify a path.</p>
+
+        Warning, if you use the .onGuiEnd or un.onGuiEnd functions in your script, <a href="#customFunctions">see this link</a>
+      </div>
+
+
+      <h2><a id="interfaceConf">2. Interface Configuration</a></h2>
+      <div>
+
+        <p>Interface settings should be set before inserting page macros. Page interface settings apply to all pages of a certain type.</p>
+        <p>There are some difference between UMUI and MUIEx defined in particular on the default values:</p>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_in" src="images/closed.gif" onclick="toggle('trigger_umui_in', 'toggle_umui_in');" /> Interface Settings for Ultra-Modern UI</h3>
+        <div class="toggle" id="toggle_umui_in">
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_ac" src="images/closed.gif" onclick="toggle('trigger_umui_ac', 'toggle_umui_ac');" /> Skin Setting</h3>
+        <div class="toggle" id="toggle_umui_ac">
+
+          <p><span class="blue"><strong>UMUI_SKIN</strong></span> <span class="parameter">skin_name</span><br />
+          Use a skin. It contain a lot of interface settings defines. You can change a setting to redefining it.<br />
+          You can also use a custom skin not included in the default skin folders. It can contain all the Interface Setting defines you need.<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <p><em style="font-style: normal;">Example of the "blue" skin:</em></p>
+<pre>!define /IfNDef MUI_TEXTCOLOR FFFFFF
+!define /IfNDef MUI_BGCOLOR 4C72B2
+!define /IfNDef UMUI_TEXT_LIGHTCOLOR FFFF00
+!define /IfNDef UMUI_HEADERTEXT_COLOR FFFFFF
+!define /IfNDef UMUI_BRANDINGTEXTFRONTCOLOR 8b8ca4
+!define /IfNDef UMUI_BRANDINGTEXTBACKCOLOR eeeef3
+!define /IfNDef UMUI_DISABLED_BUTTON_TEXT_COLOR 808080
+!define /IfNDef UMUI_SELECTED_BUTTON_TEXT_COLOR 000080
+!define /IfNDef UMUI_BUTTON_TEXT_COLOR 000000
+!define /IfNDef UMUI_LEFTIMAGE_BMP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Left.bmp"
+!define /IfNDef UMUI_HEADERBGIMAGE_BMP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Header.bmp"
+!define /IfNDef UMUI_BOTTOMIMAGE_BMP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Bottom.bmp"
+!define /IfNDef UMUI_BUTTONIMAGE_BMP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Button.bmp"
+!define /IfNDef UMUI_SCROLLBARIMAGE_BMP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\ScrollBar.bmp"
+!define /IfNDef UMUI_PAGEBGIMAGE_BMP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\PageBG.bmp"
+!define /IfNDef MUI_WELCOMEFINISHPAGE_BITMAP \
+    "${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Wizard.bmp"
+!define /IfNDef MUI_ICON \
+    "${NSISDIR}\Contrib\Graphics\UltraModernUI\Icon.ico"
+!define /IfNDef MUI_UNICON \
+    "${NSISDIR}\Contrib\Graphics\UltraModernUI\UnIcon.ico"</pre>
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_ad" src="images/closed.gif" onclick="toggle('trigger_umui_ad', 'toggle_umui_ad');" /> BackGround Skin Setting</h3>
+        <div class="toggle" id="toggle_umui_ad">
+
+          <p><span class="blue"><strong>UMUI_USE_BG</strong></span> <span class="parameter">background_skin_name</span><br />
+          Use a background skin. It contain two macro named "UMUI_BG" and "UMUI_BG_Destroy".<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_USE_CUSTOMBG</strong></span><br />
+          Use a custom background skin. don't forget to create two macro named "UMUI_BG" and "UMUI_BG_Destroy".</p>
+
+          <p><em style="font-style: normal;">Example of a custom background skin:</em></p>
+
+<pre>!define UMUI_USE_CUSTOMBG
+
+!macro UMUI_BG
+  SetOutPath "$PLUGINSDIR"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\SpotlightBG.bmp"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\KeyBG.bmp"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\HeaderBG.bmp"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\BtmImgBG.bmp"
+  BgImage::SetBg /GRADIENT 78 111 214 78 111 214
+  BgImage::AddImage "$PLUGINSDIR\HeaderBG.bmp" 0 0
+  BgImage::AddImage "$PLUGINSDIR\SpotlightBG.bmp" 0 57
+  BgImage::AddImage "$PLUGINSDIR\BtmImgBG.bmp" 0 -70
+  BgImage::AddImage "$PLUGINSDIR\KeyBG.bmp" -248 -351
+  CreateFont $1 "Verdana" 30 700
+  BgImage::AddText "$(^Name)" $1 8 51 155 15 70 -1 -1
+  BgImage::AddText "$(^Name)" $1 255 255 255 10 65 -1 -1
+  BgImage::Redraw
+!macroend
+
+!macro UMUI_BG_Destroy
+  BgImage::Destroy
+!macroend</pre>
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_ingen" src="images/closed.gif" onclick="toggle('trigger_umui_ingen', 'toggle_umui_ingen');" /> General Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_ingen">
+
+          <p><strong>MUI_ICON</strong> <span class="parameter">icon_file</span><br />
+          The icon for the installer.<br />
+          <span class="purple"><em>Default: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Icon.ico</em></span></p>
+
+          <p><strong>MUI_UNICON</strong> <span class="parameter">icon_file</span><br />
+          The icon for the uninstaller.<br />
+          <span class="purple"><em>Default: ${NSISDIR}\Contrib\Graphics\UltraModernUI\UnIcon.ico</em></span></p>
+
+          <p><span class="red"><strong>MUI_HEADERIMAGE</strong></span><br />
+          Display an image on the header of the page.</p>
+
+          <div>
+
+            <p><span class="red"><strong>MUI_HEADERIMAGE_BITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+            Bitmap image to display on the header of installers pages (recommended size: 150x57 pixels).<br />
+            <em>Default: ${NSISDIR}\Contrib\Graphics\Header\nsis.bmp</em></p>
+
+            <div>
+              <p><span class="red"><strong>MUI_HEADERIMAGE_BITMAP_NOSTRETCH</strong></span><br />
+              Do not stretch the installer header bitmap to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+
+              <p><span class="red"><strong>MUI_HEADERIMAGE_BITMAP_RTL</strong></span> <span class="parameter">bmp_file</span><br />
+              Bitmap image to display on the header of installers pages when using a RTL language (recommended size: 150x57 pixels).<br />
+              <em>Default: Non-RTL bitmap</em></p>
+
+              <div>
+                <p><span class="red"><strong>MUI_HEADERIMAGE_BITMAP_RTL_NOSTRETCH</strong></span><br />
+                Do not stretch the installer header bitmap when using a RTL language to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+              </div>
+            </div>
+
+            <p><span class="red"><strong>MUI_HEADERIMAGE_UNBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+            Bitmap image to display on the header of uninstaller pages (recommended size: 150x57 pixels).<br />
+            <em>Default: Installer header bitmap</em></p>
+
+            <div>
+              <p><span class="red"><strong>MUI_HEADERIMAGE_UNBITMAP_NOSTRETCH</strong></span><br />
+              Do not stretch the uninstaller header bitmap to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+
+              <p><span class="red"><strong>MUI_HEADERIMAGE_UNBITMAP_RTL</strong></span> <span class="parameter">bmp_file</span><br />
+              Bitmap image to display on the header of uninstallers pages when using a RTL language (recommended size: 150x57 pixels).<br />
+              <em>Default: Installer RTL header bitmap</em></p>
+
+              <div>
+                <p><span class="red"><strong>MUI_HEADERIMAGE_UNBITMAP_RTL_NOSTRETCH</strong></span><br />
+                Do not stretch the uninstaller header bitmap when using a RTL language to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+              </div>
+            </div>
+
+            <p><span class="red"><strong>MUI_HEADERIMAGE_RIGHT</strong></span><br />
+            Display the header image on the right side instead of the left side (when using a RTL language it will be displayed on the left side instead of the right side).</p>
+
+          </div>
+
+          <p><strong>MUI_TEXTCOLOR</strong> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Text color for all the pages.
+          <span class="purple"><em>Default: FFFFFF</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_TEXT_LIGHTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Text color for GroupBox and Link of all the pages.<br />
+          <span class="blue"><em>Default: FFFF00</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_TEXT_INPUTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Text color for input controls (except checkboxes and radio buttons) of all the pages.<br />
+          <span class="blue"><em>Default: 000000</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BGINPUTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Background color for input controls (except checkboxes and radio buttons) of all the pages.<br />
+          <span class="blue"><em>Default: FFFFFF</em></span></p>
+
+          <p><strong>MUI_BGCOLOR</strong> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Background color for all the pages.<br />
+          <span class="purple"><em>Default: 4C72B2</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BRANDINGTEXTFRONTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Branding text front color for all the pages.<br />
+          <span class="blue"><em>Default: 8b8ca4</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BRANDINGTEXTBACKCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Branding text back color for all the pages.<br />
+          <span class="blue"><em>Default: eeeef3</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_HEADERTEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Header text color for all the pages.<br />
+          <span class="blue"><em>Default: ${MUI_TEXTCOLOR}</em></span></p>
+
+          <p><span class="red"><strong>MUI_HEADER_TRANSPARENT_TEXT</strong></span><br />
+          Set a transparent background for the  header's label controls. Useful for custom user interfaces that set a bigger header image.</p>
+
+          <p><span class="blue"><strong>UMUI_HEADERBGIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to display on the header of installers pages.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Header.bmp</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_LEFTIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to display on the left of installers pages.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Left.bmp</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BOTTOMIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to display on the bottom of installers pages.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Skins\blue\BtmImg.bmp</em></span></p>
+
+          <div>
+            <span class="blue"><strong>UMUI_NOBOTTOMIMAGE</strong></span><br />
+            Don't draw the bottom Image of installers and uninstallers pages.
+          </div>
+
+          <p><span class="blue"><strong>UMUI_UNIQUEBGIMAGE</strong></span><br />
+          Show a single full background image of installer.</p>
+
+          <p><span class="blue"><strong>UMUI_PAGEBGIMAGE</strong></span><br />
+          Show a background image on installers page.</p>
+
+          <div>
+            <p><span class="blue"><strong>UMUI_PAGEBGIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+            Bitmap image for background of installers pages or single full bitmap image of installer.<br />
+            <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Skins\blue\PageBG.bmp</em></span></p>
+          </div>
+
+
+          <p><span class="blue"><strong>UMUI_BUTTONIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all buttons of installer.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Button.bmp</em></span></p>
+
+          <div>
+            <span class="blue"><strong>UMUI_NO_BUTTONIMAGE</strong></span><br />
+            Don't skin buttons of installers and uninstaller.
+
+            <p><span class="blue"><strong>UMUI_DISABLED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for disabled buttons of all the pages.<br />
+            <span class="blue"><em>Default: 808080</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_SELECTED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for selected buttons of all the pages.<br />
+            <span class="blue"><em>Default: 000080</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for normal buttons of all the pages.<br />
+            <span class="blue"><em>Default: 000000</em></span></p>
+          </div>
+
+          <p><span class="blue"><strong>UMUI_SCROLLBARIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all scroll bars of installer.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Skins\blue\ScrollBar.bmp</em></span></p>
+
+          <div>
+            <span class="blue"><strong>UMUI_NO_SCROLLBARIMAGE</strong></span><br />
+            Don't skin scroll bars of installer and uninstaller.
+          </div>
+    
+          <p><span class="blue"><strong>UMUI_UNHEADERBGIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to display on the header of uninstallers pages.<br />
+          <span class="blue"><em>Default: ${UMUI_HEADERBGIMAGE_BMP}</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_UNLEFTIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to display on the left of uninstallers pages.<br />
+          <span class="blue"><em>Default: ${UMUI_LEFTIMAGE_BMP}</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_UNBOTTOMIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to display on the bottom of uninstallers pages.<br />
+          <span class="blue"><em>Default: ${UMUI_BOTTOMIMAGE_BMP}</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_UNUNIQUEBGIMAGE</strong></span><br />
+          Show a single full background image of uninstaller.</p>
+
+          <p><span class="blue"><strong>UMUI_UNPAGEBGIMAGE</strong></span><br />
+          Show a background image on uninstallers page.</p>
+
+          <div>
+            <p><span class="blue"><strong>UMUI_UNPAGEBGIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+            Bitmap image for background of uninstallers pages or single full bitmap image of uninstaller.<br />
+            <span class="blue"><em>Default: ${UMUI_PAGEBGIMAGE_BMP}</em></span></p>
+          </div>
+
+          <p><span class="blue"><strong>UMUI_UNBUTTONIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all buttons of uninstaller.<br />
+          <span class="blue"><em>Default: ${UMUI_BUTTONIMAGE_BMP}</em></span></p>
+
+          <div>
+            <p><span class="blue"><strong>UMUI_UNDISABLED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for disabled buttons of all the pages.<br />
+            <span class="blue"><em>Default: ${UMUI_DISABLED_BUTTON_TEXT_COLOR}</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_UNSELECTED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for selected buttons of all the pages.<br />
+            <span class="blue"><em>Default: ${UMUI_SELECTED_BUTTON_TEXT_COLOR}</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_UNBUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for normal buttons of all the pages.<br />
+            <span class="blue"><em>Default: ${UMUI_BUTTON_TEXT_COLOR}</em></span></p>
+          </div>
+
+          <p><span class="blue"><strong>UMUI_UNSCROLLBARIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all scroll bars of uninstaller.<br />
+          <span class="blue"><em>Default: ${UMUI_SCROLLBARIMAGE_BMP}</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BRANDINGTEXTFRONTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          The front color of the bottom text. Use the BrandingText instruction to replace the default text.<br />
+          <span class="blue"><em>Default: 8B8CA4</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BRANDINGTEXTBACKCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          The back color of the bottom text. It is shifted in comparison with the front text of one pixel to right and down below in order to give relief.<br />
+          <span class="blue"><em>Default: EEEEF3</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_XPSTYLE</strong></span> <span class="parameter">(On/Off)</span><br />
+          Sets whether or not a XP visual style manifest will be added to the installer. This manifest makes the installers controls use the new visual styles when running on Windows XP and later. This affects the uninstaller too.<br />
+          <span class="blue"><em>Default: Off</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_ULTRAMODERN_SMALL</strong></span><br />
+          Use a small interface having the same size as Modern UI but with ultra-modern graphics.</p>
+
+          <p><span class="blue"><strong>UMUI_NOLEFTIMAGE</strong></span><br />
+          User an interface without the left image.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inres" src="images/closed.gif" onclick="toggle('trigger_umui_inres', 'toggle_umui_inres');" /> Interface Resource Settings</h3>
+        <div class="toggle" id="toggle_umui_inres">
+
+          <p><span class="purple"><strong>UMUI_UI</strong></span> <span class="parameter">ui_file</span><br />
+          The interface file with the dialog resources when the <strong>UMUI_ULTRAMODERN_SMALL</strong> option not defined. Change this if you have made your own customized UI.<br />
+          The MUI_UI define has been renamed in Ultra-Modern UI in order to assure the compatibility with the former Modern UI scripts.<br />
+          <span class="purple"><em>Default: ${NSISDIR}\Contrib\UIs\UltraModernUI\UltraModern.exe</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_UI_SMALL</strong></span> <span class="parameter">ui_file</span><br />
+          The interface file with the dialog resources when the <strong>UMUI_ULTRAMODERN_SMALL</strong> option defined. Change this if you have made your own customized UI.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UIs\UltraModernUI\UltraModern_small.exe</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_UI_NOLEFTIMAGE</strong></span> <span class="parameter">ui_file</span><br />
+          The interface file with the dialog resources IDD_INST when the <strong>UMUI_NOLEFTIMAGE</strong> option defined and the <strong>UMUI_ULTRAMODERN_SMALL</strong> option not defined. Change this if you have made your own customized UI.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UIs\UltraModernUI\UltraModern_noleftimage.exe</em></span></p>
+
+          <p><span class="red"><strong>MUI_UI_HEADERIMAGE</strong></span> <span class="parameter">ui_file</span><br />
+          The interface files with the dialog resource IDD_INST that contains a bitmap control and space for the header bitmap.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern_headerbmp.exe</em></p>
+
+          <p><span class="red"><strong>MUI_UI_HEADERIMAGE_RIGHT</strong></span> <span class="parameter">ui_file</span><br />
+          The interface files with the dialog resource IDD_INST that contains a bitmap control and space for the header bitmap on the right side.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern_headerbmpr.exe</em></p>
+
+          <p><strong>MUI_UI_COMPONENTSPAGE_SMALLDESC</strong> <span class="parameter">ui_file</span><br />
+          The interface files with a customized dialog resource IDD_SELCOM with a small description area.<br />
+          <em><span class="purple">Default without UMUI_USE_SMALLPAGE option defined:<br />${NSISDIR}\Contrib\UIs\UltraModernUI\UltraModern_smalldesc.exe</span><br />
+          Default with UMUI_USE_SMALLPAGE option defined:<br />${NSISDIR}\Contrib\UIs\UltraModernUI\modern_smalldesc.exe</em></p>
+
+          <p><strong>MUI_UI_COMPONENTSPAGE_NODESC</strong> <span class="parameter">ui_file</span><br />
+          The interface files with a customized dialog resource IDD_SELCOM without a description area.<br />
+          <em><span class="purple">Default without UMUI_USE_SMALLPAGE option defined:<br />${NSISDIR}\Contrib\UIs\UltraModernUI\UltraModern_nodesc.exe</span><br />
+          Default with UMUI_USE_SMALLPAGE option defined:<br />${NSISDIR}\Contrib\UIs\UltraModernUI\modern_nodesc.exe</em></p>
+
+          <p><span class="blue"><strong>UMUI_UI_COMPONENTSPAGE_BIGDESC</strong></span> <span class="parameter">ui_file</span><br />
+          The interface files with a customized dialog resource IDD_SELCOM with a big description area.<br />
+          <span class="blue"><em>Default without UMUI_USE_SMALLPAGE option defined:<br />${NSISDIR}\Contrib\UIs\UltraModernUI\UltraModern_bigdesc.exe<br />
+          Default with UMUI_USE_SMALLPAGE option defined:<br />${NSISDIR}\Contrib\UIs\UltraModernUI\modern_bigdesc.exe</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inwf" src="images/closed.gif" onclick="toggle('trigger_umui_inwf', 'toggle_umui_inwf');" /> Welcome/Finish/Abort Pages Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_inwf">
+
+          <p><span class="blue"><strong>UMUI_USE_ALTERNATE_PAGE</strong></span><br />
+          Use an alternative Welcome page, Finish page and Abort page that looks like the most recent installers</p>
+
+         <p><span class="blue"><strong>UMUI_WELCOMEFINISHABORT_TITLE_FONTSIZE</strong></span> <span class="parameter">size</span><br />
+         Use an alternative Welcome page, Finish page and Abort page that looks like the most recent installers<br />
+         <em><span class="blue">Default with UMUI_USE_ALTERNATE_PAGE option defined: 8</span><br />
+         Default without UMUI_USE_ALTERNATE_PAGE option defined: 12</em></p>
+
+          <p><span class="purple"><strong>MUI_WELCOMEFINISHPAGE_BITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap for the Welcome, the Finish and the Abort pages (recommended size: 164x314 pixels).<br />
+          <em><span class="purple">Default with UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option defined:<br />${NSISDIR}\Contrib\UltraModernUI\Skins\blue\Wizard.bmp<br />
+          Default without UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option defined: none</span></em></p>
+
+          <div>
+            <p><strong>MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH</strong><br />
+            Do not stretch the bitmap for the Welcome, the Finish and the Abort pagesto fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+          </div>
+
+         <p><span class="blue"><strong>UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE</strong></span><br />
+         Enable Bitmap for the Welcome, the Finish and the Abort pages.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inwfi" src="images/closed.gif" onclick="toggle('trigger_umui_inwfi', 'toggle_umui_inwfi');" /> Welcome/Finish/Abort Pages InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_inwfi">
+
+          <p><span class="purple"><strong>UMUI_WELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Welcome, the Finish and the Abort pages.<br />
+          The MUI_WELCOMEFINISHPAGE_INI define has been renamed in Ultra-Modern UI in order to assure the compatibility with the former Modern UI scripts.<br />
+          <span class="purple"><em>Default with UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbortImage.ini<br />
+          Default without UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbort.ini</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_ALTERNATEWELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Alternate Welcome page, the Alternate Finish page and the Alternate Abort page.<br />
+          <span class="blue"><em>Default with UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbortImage.ini<br />
+          Default without UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbort.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inuwf" src="images/closed.gif" onclick="toggle('trigger_umui_inuwf', 'toggle_umui_inuwf');" /> Uninstaller Welcome/Finish/Abort Pages Settings</h3>
+        <div class="toggle" id="toggle_umui_inuwf">
+
+          <p><span class="blue"><strong>UMUI_USE_UNALTERNATE_PAGE</strong></span><br />
+          Use an alternative Welcome page, Finish page and Abort page that looks like the most recent installers</p>
+
+          <p><span class="purple"><strong>MUI_UNWELCOMEFINISHPAGE_BITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap for the Welcome, the Finish and the Abort pages (recommended size: 164x314 pixels).<br />
+          <span class="purple"><em>Default : ${MUI_WELCOMEFINISHPAGE_BITMAP}</em></span></p>
+
+          <div>
+            <p><strong>MUI_UNWELCOMEFINISHPAGE_BITMAP_NOSTRETCH</strong><br />
+            Do not stretch the bitmap for the Welcome, the Finish and the Abort pagesto fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+          </div>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inuwfi" src="images/closed.gif" onclick="toggle('trigger_umui_inuwfi', 'toggle_umui_inuwfi');" /> Uninstaller Welcome/Finish/Abort Pages Interface INI Settings</h3>
+        <div class="toggle" id="toggle_umui_inuwfi">
+
+          <p><span class="purple"><strong>UMUI_UNWELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the uninstaller Welcome page, the Finish page and the Abort page.<br />
+          The MUI_UNWELCOMEFINISHPAGE_INI define has been renamed in Ultra-Modern UI in order to assure the compatibility with the former Modern UI scripts.<br />
+          <span class="purple"><em>Default with UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbortImage.ini<br />
+          Default without UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbort.ini</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_ALTERNATEUNWELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the uninstaller Alternate Welcome page, the Alternate Finish page and the Alternate Abort page.<br />
+          <span class="blue"><em>Default with UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbortImage.ini<br />
+          Default without UMUI_WELCOMEFINISHABORTPAGE_USE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbort.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inmus" src="images/closed.gif" onclick="toggle('trigger_umui_inmus', 'toggle_umui_inmus');" /> Maintenance/Update/SetupType Pages InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_inmus">
+
+          <p><span class="blue"><strong>UMUI_MAINTENANCEUPDATESETUPTYPEPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Maintenance, the Update and the SetupType pages.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\MaintenanceUpdateSetupType.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_incnf" src="images/closed.gif" onclick="toggle('trigger_umui_incnf', 'toggle_umui_incnf');" /> Confirm Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_incnf">
+
+          <p><span class="blue"><strong>UMUI_CONFIRMPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Confirm page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\Confirm.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_ininf" src="images/closed.gif" onclick="toggle('trigger_umui_ininf', 'toggle_umui_ininf');" /> Information Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_ininf">
+
+          <p><span class="blue"><strong>UMUI_INFORMATIONPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Information page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\Information.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inadt" src="images/closed.gif" onclick="toggle('trigger_umui_inadt', 'toggle_umui_inadt');" /> AdditionalTasks Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_inadt">
+
+          <p><span class="blue"><strong>UMUI_ADDITIONALTASKSPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the AdditionalTasks page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\AdditionalTasks.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_insn" src="images/closed.gif" onclick="toggle('trigger_umui_insn', 'toggle_umui_insn');" /> SerialNumber Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_insn">
+
+          <p><span class="blue"><strong>UMUI_SERIALNUMBERPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the SerialNumber page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\SerialNumber.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inasm" src="images/closed.gif" onclick="toggle('trigger_umui_inasm', 'toggle_umui_inasm');" /> AlternativeStartMenu Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_umui_inasm">
+
+          <p><span class="blue"><strong>UMUI_ALTERNATIVESTARTMENUPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the AlternativeStartMenu page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\AlternativeStartMenu.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inl" src="images/closed.gif" onclick="toggle('trigger_umui_inl', 'toggle_umui_inl');" /> License Page Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_inl">
+
+          <p><strong>MUI_LICENSEPAGE_BGCOLOR</strong> <span class="parameter">(/windows | /grey | (color: RRGGBB hexadecimal))</span><br />
+          The background color for the license textbox. Use /windows for the Windows text background color (usually white). Use the /grey for the window background color (usually grey).<br />
+          <em>Default: /windows</em></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inc" src="images/closed.gif" onclick="toggle('trigger_umui_inc', 'toggle_umui_inc');" /> Components Page Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_inc">
+
+          <p><strong>MUI_COMPONENTSPAGE_CHECKBITMAP</strong> <span class="parameter">bitmap_file</span><br />
+          The bitmap with images for the checks of the component select treeview.<br />
+          <em>Default: ${NSISDIR}\Contrib\Graphics\Checks\modern.bmp</em></p>
+
+          <p><strong>MUI_COMPONENTSPAGE_SMALLDESC</strong><br />
+          A small description area on the bottom of the page. Use this layout if you have a lot of sections and don't need large descriptions.</p>
+
+          <p><strong>MUI_COMPONENTSPAGE_NODESC</strong><br />
+          No description area.</p>
+
+          <p><span class="blue"><strong>UMUI_COMPONENTSPAGE_BIGDESC</strong></span><br />
+          A big description area on the bottom of the page. Use this layout if you have a lot of sections and need large descriptions.</p>
+
+          <p><span class="blue"><strong>UMUI_ENABLE_DESCRIPTION_TEXT</strong></span> <span class="parameter">ini_file</span><br />
+          Enable the description text when the mouse is not positionned over a component.<br />
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_ini" src="images/closed.gif" onclick="toggle('trigger_umui_ini', 'toggle_umui_ini');" /> Installation Page Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_ini">
+
+          <p><strong>MUI_INSTFILESPAGE_COLORS</strong> <span class="parameter">(/windows | (foreground color: RRGGBB hexadecimal) (background color: RRGGBB hexadecimal))</span><br />
+          The colors of the details screen. Use /windows for the default Windows colors.<br />
+          <span class="purple"><em>Default: ${MUI_TEXTCOLOR} ${MUI_BGCOLOR}</em></span></p>
+
+          <p><strong>MUI_INSTFILESPAGE_PROGRESSBAR</strong> <span class="parameter">("" | colored | smooth)</span><br />
+          The style of the progress bar. Colored makes it use the MUI_INSTALLCOLORS.<br />
+          <em>Default: smooth</em></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inf" src="images/closed.gif" onclick="toggle('trigger_umui_inf', 'toggle_umui_inf');" /> Installer Finish Page Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_inf">
+
+          <p><strong>MUI_FINISHPAGE_NOAUTOCLOSE</strong><br />
+          Do not automatically jump to the finish page, to allow the user to check the install log.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_uinf" src="images/closed.gif" onclick="toggle('trigger_umui_uinf', 'toggle_umui_uinf');" /> Uninstaller Finish Page Interface Settings</h3>
+        <div class="toggle" id="toggle_umui_uinf">
+
+          <p><strong>MUI_UNFINISHPAGE_NOAUTOCLOSE</strong><br />
+          Do not automatically jump to the finish page, to allow the user to check the uninstall log.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inaw" src="images/closed.gif" onclick="toggle('trigger_umui_inaw', 'toggle_umui_inaw');" /> Abort Warning Settings</h3>
+        <div class="toggle" id="toggle_umui_inaw">
+
+          <p><strong>MUI_ABORTWARNING</strong><br />
+          Show a message box with a warning when the user wants to close the installer.</p>
+
+          <div>
+            <p><strong>MUI_ABORTWARNING_TEXT</strong> <span class="parameter">text</span><br />
+            Text to display on the abort warning messagebox.</p>
+            <p><strong>MUI_ABORTWARNING_CANCEL_DEFAULT</strong><br />
+            Set the Cancel button as the default button on the message box.</p>
+          </div>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui_inuaw" src="images/closed.gif" onclick="toggle('trigger_umui_inuaw', 'toggle_umui_inuaw');" /> Uninstaller Abort Warning Settings</h3>
+        <div class="toggle" id="toggle_umui_inuaw">
+
+          <p><strong>MUI_UNABORTWARNING</strong><br />
+          Show a message box with a warning when the user wants to close the uninstaller.</p>
+
+          <div>
+            <p><strong>MUI_UNABORTWARNING_TEXT</strong> <span class="parameter">text</span><br />
+            Text to display on the abort warning messagebox.</p>
+
+            <p><strong>MUI_UNABORTWARNING_CANCEL_DEFAULT</strong><br />
+            Set the Cancel button as the default button on the message box.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_in" src="images/closed.gif" onclick="toggle('trigger_muiex_in', 'toggle_muiex_in');" /> Interface Settings for Modern UIEx</h3>
+      <div class="toggle" id="toggle_muiex_in">
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_ad" src="images/closed.gif" onclick="toggle('trigger_muiex_ad', 'toggle_muiex_ad');" /> BackGround Skin Setting</h3>
+        <div class="toggle" id="toggle_muiex_ad">
+
+          <p><span class="blue"><strong>UMUI_USE_BG</strong></span> <span class="parameter">bgskin_name</span><br />
+          Use a background skin. It contain two macro named "UMUI_BG" and "UMUI_BG_Destroy".<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_USE_CUSTOMBG</strong></span><br />
+          Use a custom background skin. don't forget to create two macro named "UMUI_BG" and "UMUI_BG_Destroy".</p>
+
+          <p>Example of a custom background skin:</p>
+<pre>!define UMUI_USE_CUSTOMBG
+
+!macro UMUI_BG
+  SetOutPath "$PLUGINSDIR"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\SpotlightBG.bmp"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\KeyBG.bmp"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\HeaderBG.bmp"
+  File "${NSISDIR}\Contrib\UltraModernUI\BGSkins\wxp\BtmImgBG.bmp"
+  BgImage::SetBg /GRADIENT 78 111 214 78 111 214
+  BgImage::AddImage "$PLUGINSDIR\HeaderBG.bmp" 0 0
+  BgImage::AddImage "$PLUGINSDIR\SpotlightBG.bmp" 0 57
+  BgImage::AddImage "$PLUGINSDIR\BtmImgBG.bmp" 0 -70
+  BgImage::AddImage "$PLUGINSDIR\KeyBG.bmp" -248 -351
+  CreateFont $1 "Verdana" 30 700
+  BgImage::AddText "$(^Name)" $1 8 51 155 15 70 -1 -1
+  BgImage::AddText "$(^Name)" $1 255 255 255 10 65 -1 -1
+  BgImage::Redraw
+!macroend
+
+!macro UMUI_BG_Destroy
+  BgImage::Destroy
+!macroend</pre>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_ingen" src="images/closed.gif" onclick="toggle('trigger_muiex_ingen', 'toggle_muiex_ingen');" /> General Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_ingen">
+
+          <p><strong>MUI_ICON</strong> <span class="parameter">icon_file</span><br />
+          The icon for the installer.<br />
+          <em>Default: ${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico</em></p>
+
+          <p><strong>MUI_UNICON</strong> <span class="parameter">icon_file</span><br />
+          The icon for the uninstaller.<br />
+          <em>Default: ${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico</em></p>
+
+          <p><strong>MUI_HEADERIMAGE</strong><br />
+          Display an image on the header of the page.</p>
+
+          <div>
+
+            <p><strong>MUI_HEADERIMAGE_BITMAP</strong> <span class="parameter">bmp_file</span><br />
+            Bitmap image to display on the header of installers pages (recommended size: 150x57 pixels).<br />
+            <em>Default: ${NSISDIR}\Contrib\Graphics\Header\nsis.bmp</em></p>
+
+            <div>
+              <p><strong>MUI_HEADERIMAGE_BITMAP_NOSTRETCH</strong><br />
+              Do not stretch the installer header bitmap to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+
+              <p><strong>MUI_HEADERIMAGE_BITMAP_RTL</strong> <span class="parameter">bmp_file</span><br />
+              Bitmap image to display on the header of installers pages when using a RTL language (recommended size: 150x57 pixels).<br />
+              <em>Default: Non-RTL bitmap</em></p>
+
+              <div>
+                <p><strong>MUI_HEADERIMAGE_BITMAP_RTL_NOSTRETCH</strong><br />
+                Do not stretch the installer header bitmap when using a RTL language to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+             </div>
+           </div>
+
+           <p><strong>MUI_HEADERIMAGE_UNBITMAP</strong> <span class="parameter">bmp_file</span><br />
+           Bitmap image to display on the header of uninstaller pages (recommended size: 150x57 pixels).<br />
+           <em>Default: Installer header bitmap</em></p>
+
+           <div>
+             <p><strong>MUI_HEADERIMAGE_UNBITMAP_NOSTRETCH</strong><br />
+             Do not stretch the uninstaller header bitmap to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+
+             <p><strong>MUI_HEADERIMAGE_UNBITMAP_RTL</strong> <span class="parameter">bmp_file</span><br />
+             Bitmap image to display on the header of uninstallers pages when using a RTL language (recommended size: 150x57 pixels).<br />
+             <em>Default: Installer RTL header bitmap</em></p>
+
+             <div>
+               <p><strong>MUI_HEADERIMAGE_UNBITMAP_RTL_NOSTRETCH</strong><br />
+               Do not stretch the uninstaller header bitmap when using a RTL language to fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+             </div>
+           </div>
+
+           <p><strong>MUI_HEADERIMAGE_RIGHT</strong><br />
+           Display the header image on the right side instead of the left side (when using a RTL language it will be displayed on the left side instead of the right side).</p>
+
+          </div>
+
+
+          <p><span class="blue"><strong>UMUI_HEADERBGIMAGE</strong></span><br />
+          Display a background image on the header of the page.</p>
+
+          <div>
+            <p><span class="blue"><strong>UMUI_NOHEADERBGIMAGE</strong></span><br />
+            Hide the background image on the header of the page.</p>
+  
+            <p><span class="blue"><strong>UMUI_HEADERBGIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+            Bitmap image to display on the header of installers pages (recommended size: 497*59 pixels).<br />
+            <span class="blue"><em>Default: ${NSISDIR}\Contrib\Graphics\Header\UltraModernUI\HeaderBG.bmp"</em></span></p>
+  
+            <p><span class="blue"><strong>UMUI_UNHEADERBGIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+            Bitmap image to display on the header of installers pages (recommended size: 497*59 pixels).<br />
+            <span class="blue"><em>Default: ${UMUI_HEADERBGIMAGE_BMP}"</em></span></p>
+
+          </div>
+
+          <p><strong>MUI_TEXTCOLOR</strong> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Text color for all the pages.
+          <em>Default: 000000</em></p>
+
+          <p><span class="blue"><strong>UMUI_TEXT_LIGHTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Default link color for finish and abort pages.<br />
+          <span class="blue"><em>Default: 000000</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_TEXT_INPUTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Text color for input controls (except checkboxes and radio buttons) of all the pages.<br />
+          <span class="blue"><em>Default: 000000</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BGINPUTCOLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Background color for input controls (except checkboxes and radio buttons) of all the pages.<br />
+          <span class="blue"><em>Default: FFFFFF</em></span></p>
+
+          <p><strong>MUI_BGCOLOR</strong> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Background color for the header, the Welcome, the Finish and the Abort pages.<br />
+          <em>Default: FFFFFF</em></p>
+
+          <p><span class="blue"><strong>UMUI_HEADERTEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+          Header text color for all the pages.<br />
+          <span class="blue"><em>Default: ${MUI_TEXTCOLOR}</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_BUTTONIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all buttons of installer.<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <div>
+            <p><span class="blue"><strong>UMUI_DISABLED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for disabled buttons of all the pages.<br />
+            <span class="blue"><em>Default: 808080</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_SELECTED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for selected buttons of all the pages.<br />
+            <span class="blue"><em>Default: 000080</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for normal buttons of all the pages.<br />
+            <span class="blue"><em>Default: 000000</em></span></p>
+          </div>
+        
+          <p><span class="blue"><strong>UMUI_SCROLLBARIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all scroll bars of installer.<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_UNBUTTONIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all buttons of uninstaller.<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <div>
+            <p><span class="blue"><strong>UMUI_UNDISABLED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for disabled buttons of all the pages.<br />
+            <span class="blue"><em>Default: ${UMUI_DISABLED_BUTTON_TEXT_COLOR}</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_UNSELECTED_BUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for selected buttons of all the pages.<br />
+            <span class="blue"><em>Default: ${UMUI_SELECTED_BUTTON_TEXT_COLOR}</em></span></p>
+
+            <p><span class="blue"><strong>UMUI_UNBUTTON_TEXT_COLOR</strong></span> <span class="parameter">(color: RRGGBBR hexadecimal)</span><br />
+            Text color for normal buttons of all the pages.<br />
+            <span class="blue"><em>Default: ${UMUI_BUTTON_TEXT_COLOR}</em></span></p>
+          </div>
+
+          <p><span class="blue"><strong>UMUI_UNSCROLLBARIMAGE_BMP</strong></span> <span class="parameter">bmp_file</span><br />
+          Bitmap image to skin all scroll bars of uninstaller.<br />
+          <span class="blue"><em>Default: none</em></span></p>
+
+          <p><strong>MUI_HEADER_TRANSPARENT_TEXT</strong><br />
+          Set a transparent background for the  header's label controls. Useful for custom user interfaces that set a bigger header image.</p>
+
+          <p><span class="blue"><strong>UMUI_XPSTYLE</strong></span> <span class="parameter">(On/Off)</span><br />
+          Sets whether or not a XP visual style manifest will be added to the installer. This manifest makes the installers controls use the new visual styles when running on Windows XP and later. This affects the uninstaller too.<br />
+          <span class="blue"><em>Default with UMUI_BUTTONIMAGE_BMP|UMUI_UNBUTTONIMAGE_BMP option defined: Off<br />
+          Default without UMUI_BUTTONIMAGE_BMP&UMUI_UNBUTTONIMAGE_BMP option defined: On</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inres" src="images/closed.gif" onclick="toggle('trigger_muiex_inres', 'toggle_muiex_inres');" /> Interface Resource Settings</h3>
+        <div class="toggle" id="toggle_muiex_inres">
+
+          <p><strong>MUI_UI</strong> <span class="parameter">ui_file</span><br />
+          The interface file with the dialog resources. Change this if you have made your own customized UI.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern.exe</em></p>
+
+          <p><strong>MUI_UI_HEADERIMAGE</strong> <span class="parameter">ui_file</span><br />
+          The interface files with the dialog resource IDD_INST that contains a bitmap control and space for the header bitmap.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern_headerbmp.exe</em></p>
+
+          <p><strong>MUI_UI_HEADERIMAGE_RIGHT</strong> <span class="parameter">ui_file</span><br />
+          The interface files with the dialog resource IDD_INST that contains a bitmap control and space for the header bitmap on the right side.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern_headerbmpr.exe</em></p>
+
+          <p><span class="blue"><strong>UMUI_UI_HEADERBGIMAGE</strong></span> <span class="parameter">ui_file</span><br />
+          The interface files with the dialog resource IDD_INST that contains a bitmap control for the header background bitmap.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UIs\UltraModernUI\modern_headerbgimage.exe</em></span></p>
+
+          <p><strong>MUI_UI_COMPONENTSPAGE_SMALLDESC</strong> <span class="parameter">ui_file</span><br />
+          The interface files with a customized dialog resource IDD_SELCOM with a small description area.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern_smalldesc.exe</em></p>
+
+          <p><strong>MUI_UI_COMPONENTSPAGE_NODESC</strong> <span class="parameter">ui_file</span><br />
+          The interface files with a customized dialog resource IDD_SELCOM without a description area.<br />
+          <em>Default: ${NSISDIR}\Contrib\UIs\modern_nodesc.exe</em></p>
+
+          <p><span class="blue"><strong>UMUI_UI_COMPONENTSPAGE_BIGDESC</strong></span> <span class="parameter">ui_file</span><br />
+          The interface files with a customized dialog resource IDD_SELCOM with a big description area.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UIs\UltraModernUI\modern_bigdesc.exe</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inwf" src="images/closed.gif" onclick="toggle('trigger_muiex_inwf', 'toggle_muiex_inwf');" /> Welcome/Finish/Abort Pages Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_inwf">
+
+          <p><span class="blue"><strong>UMUI_USE_ALTERNATE_PAGE</strong></span><br />
+          Use an alternative Welcome page, Finish page and Abort page that looks like the most recent installers</p>
+
+          <p><span class="blue"><strong>UMUI_WELCOMEFINISHABORT_TITLE_FONTSIZE</strong></span> <span class="parameter">size</span><br />
+          Use an alternative Welcome page, Finish page and Abort page that looks like the most recent installers<br />
+          <em><span class="blue">Default with UMUI_USE_ALTERNATE_PAGE option defined: 8</span><br />
+          Default without UMUI_USE_ALTERNATE_PAGE option defined: 12</em></p>
+
+          <p><strong>MUI_WELCOMEFINISHPAGE_BITMAP</strong> <span class="parameter">bmp_file</span><br />
+          Bitmap for the Welcome, the Finish and the Abort pages (recommended size: 164x314 pixels).<br />
+          <em>Default: ${NSISDIR}\Contrib\Graphics\Wizard\win.bmp</em></p>
+
+          <div>
+            <p><strong>MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH</strong><br />
+            Do not stretch the bitmap for the Welcome, the Finish and the Abort pagesto fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+          </div>
+
+          <p><span class="blue"><strong>UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE</strong></span><br />
+          Disable Bitmap for the Welcome, the Finish and the Abort pages.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inwfi" src="images/closed.gif" onclick="toggle('trigger_muiex_inwfi', 'toggle_muiex_inwfi');" /> Welcome/Finish/Abort Pages InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_inwfi">
+
+          <p><span class="purple"><strong>UMUI_WELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Welcome, the Finish and the Abort pages.<br />
+          The MUI_WELCOMEFINISHPAGE_INI define has been renamed in Ultra-Modern UI in order to assure the compatibility with the former Modern UI scripts.<br />
+          <span class="purple"><em>Default without UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbortImage.ini<br />
+          Default with UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbort.ini</em></span></p>
+
+          <p><span class="blue"><strong>UMUI_ALTERNATEWELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Alternate Welcome page, the Alternate Finish page and the Alternate Abort page.<br />
+          <span class="blue"><em>Default without UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbortImage.ini<br />
+          Default with UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbort.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inuwf" src="images/closed.gif" onclick="toggle('trigger_muiex_inuwf', 'toggle_muiex_inuwf');" /> Uninstaller Welcome/Finish/Abort Pages Settings</h3>
+        <div class="toggle" id="toggle_muiex_inuwf">
+
+          <p><span class="blue"><strong>UMUI_USE_UNALTERNATE_PAGE</strong></span><br />
+          Use an alternative Welcome page, Finish page and Abort page that looks like the most recent installers</p>
+
+          <p><strong>MUI_UNWELCOMEFINISHPAGE_BITMAP</strong> <span class="parameter">bmp_file</span><br />
+          Bitmap for the Welcome, the Finish and the Abort pages (recommended size: 164x314 pixels).<br />
+          <em>Default: ${NSISDIR}\Contrib\Graphics\Wizard\win.bmp</em></p>
+
+          <div>
+            <p><strong>MUI_UNWELCOMEFINISHPAGE_BITMAP_NOSTRETCH</strong><br />
+            Do not stretch the bitmap for the Welcome, the Finish and the Abort pagesto fit the size of the field. Use this option only if you have an image that does not use the whole space. If you have a full size bitmap that fits exactly, you should not use this option because the size of the field will be different if the user has a custom DPI setting.</p>
+          </div>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inuwfi" src="images/closed.gif" onclick="toggle('trigger_muiex_inuwfi', 'toggle_muiex_inuwfi');" /> Uninstaller Welcome/Finish/Abort Pages Interface INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_inuwfi">
+
+           <p><span class="purple"><strong>UMUI_UNWELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+           InstallOptions INI file for the uninstaller Welcome page, the Finish page and the Abort page.<br />
+           The MUI_UNWELCOMEFINISHPAGE_INI define has been renamed in Ultra-Modern UI in order to assure the compatibility with the former Modern UI scripts.<br />
+           <span class="purple"><em>Default without UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbortImage.ini<br />
+           Default with UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\WelcomeFinishAbort.ini</em></span></p>
+
+           <p><span class="blue"><strong>UMUI_ALTERNATEUNWELCOMEFINISHABORTPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+           InstallOptions INI file for the uninstaller Alternate Welcome page, the Alternate Finish page and the Alternate Abort page.<br />
+           <span class="blue"><em>Defaultout with UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbortImage.ini<br />
+           Default with UMUI_WELCOMEFINISHABORTPAGE_NOTUSE_IMAGE option enabled:<br />${NSISDIR}\Contrib\UltraModernUI\Ini\AlternateWelcomeFinishAbort.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inmus" src="images/closed.gif" onclick="toggle('trigger_muiex_inmus', 'toggle_muiex_inmus');" /> Maintenance/Update/SetupType Pages InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_inmus">
+
+          <p><span class="blue"><strong>UMUI_MAINTENANCEUPDATESETUPTYPEPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Maintenance, the Update and the SetupType pages.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\MaintenanceUpdateSetupType.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_incnf" src="images/closed.gif" onclick="toggle('trigger_muiex_incnf', 'toggle_muiex_incnf');" /> Confirm Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_incnf">
+
+          <p><span class="blue"><strong>UMUI_CONFIRMPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Confirm page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\Confirm.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_ininf" src="images/closed.gif" onclick="toggle('trigger_muiex_ininf', 'toggle_muiex_ininf');" /> Information Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_ininf">
+
+          <p><span class="blue"><strong>UMUI_INFORMATIONPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the Information page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\Information.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inadt" src="images/closed.gif" onclick="toggle('trigger_muiex_inadt', 'toggle_muiex_inadt');" /> AdditionalTasks Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_inadt">
+
+          <p><span class="blue"><strong>UMUI_ADDITIONALTASKSPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the AdditionalTasks page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\AdditionalTasks.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_insn" src="images/closed.gif" onclick="toggle('trigger_muiex_insn', 'toggle_muiex_insn');" /> SerialNumber Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_insn">
+
+          <p><span class="blue"><strong>UMUI_SERIALNUMBERPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the SerialNumber page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\SerialNumber.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inasm" src="images/closed.gif" onclick="toggle('trigger_muiex_inasm', 'toggle_muiex_inasm');" /> AlternativeStartMenu Page InstallOptions INI Settings</h3>
+        <div class="toggle" id="toggle_muiex_inasm">
+
+          <p><span class="blue"><strong>UMUI_ALTERNATIVESTARTMENUPAGE_INI</strong></span> <span class="parameter">ini_file</span><br />
+          InstallOptions INI file for the AlternativeStartMenu page.<br />
+          <span class="blue"><em>Default: ${NSISDIR}\Contrib\UltraModernUI\Ini\AlternativeStartMenu.ini</em></span></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inl" src="images/closed.gif" onclick="toggle('trigger_muiex_inl', 'toggle_muiex_inl');" /> License Page Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_inl">
+
+          <p><strong>MUI_LICENSEPAGE_BGCOLOR</strong> <span class="parameter">(/windows | /grey | (color: RRGGBB hexadecimal))</span><br />
+          The background color for the license textbox. Use /windows for the Windows text background color (usually white). Use the /grey for the window background color (usually grey).<br />
+          <em>Default: /windows</em></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inc" src="images/closed.gif" onclick="toggle('trigger_muiex_inc', 'toggle_muiex_inc');" /> Components Page Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_inc">
+
+          <p><strong>MUI_COMPONENTSPAGE_CHECKBITMAP</strong> <span class="parameter">bitmap_file</span><br />
+          The bitmap with images for the checks of the component select treeview.<br />
+          <em>Default: ${NSISDIR}\Contrib\Graphics\Checks\modern.bmp</em></p>
+
+          <p><strong>MUI_COMPONENTSPAGE_SMALLDESC</strong><br />
+          A small description area on the bottom of the page. Use this layout if you have a lot of sections and don't need large descriptions.</p>
+
+          <p><strong>MUI_COMPONENTSPAGE_NODESC</strong><br />
+          No description area.</p>
+
+          <p><span class="blue"><strong>UMUI_COMPONENTSPAGE_BIGDESC</strong></span><br />
+          A big description area on the bottom of the page. Use this layout if you have a lot of sections and need large descriptions.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_ini" src="images/closed.gif" onclick="toggle('trigger_muiex_ini', 'toggle_muiex_ini');" /> Installation Page Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_ini">
+
+          <p><strong>MUI_INSTFILESPAGE_COLORS</strong> <span class="parameter">(/windows | (foreground color: RRGGBB hexadecimal) (background color: RRGGBB hexadecimal))</span><br />
+          The colors of the details screen. Use /windows for the default Windows colors.<br />
+          <em>Default: /windows</em></p>
+
+          <p><strong>MUI_INSTFILESPAGE_PROGRESSBAR</strong> <span class="parameter">("" | colored | smooth)</span><br />
+          The style of the progress bar. Colored makes it use the MUI_INSTALLCOLORS.<br />
+          <em>Default: smooth</em></p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inf" src="images/closed.gif" onclick="toggle('trigger_muiex_inf', 'toggle_muiex_inf');" /> Installer Finish Page Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_inf">
+
+          <p><strong>MUI_FINISHPAGE_NOAUTOCLOSE</strong><br />
+          Do not automatically jump to the finish page, to allow the user to check the install log.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_uinf" src="images/closed.gif" onclick="toggle('trigger_muiex_uinf', 'toggle_muiex_uinf');" /> Uninstaller Finish Page Interface Settings</h3>
+        <div class="toggle" id="toggle_muiex_uinf">
+
+          <p><strong>MUI_UNFINISHPAGE_NOAUTOCLOSE</strong><br />
+          Do not automatically jump to the finish page, to allow the user to check the uninstall log.</p>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inaw" src="images/closed.gif" onclick="toggle('trigger_muiex_inaw', 'toggle_muiex_inaw');" /> Abort Warning Settings</h3>
+        <div class="toggle" id="toggle_muiex_inaw">
+
+          <p><strong>MUI_ABORTWARNING</strong><br />
+          Show a message box with a warning when the user wants to close the installer.</p>
+
+          <div>
+            <p><strong>MUI_ABORTWARNING_TEXT</strong> <span class="parameter">text</span><br />
+            Text to display on the abort warning messagebox.</p>
+            <p><strong>MUI_ABORTWARNING_CANCEL_DEFAULT</strong><br />
+            Set the Cancel button as the default button on the message box.</p>
+          </div>
+
+        </div>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_muiex_inuaw" src="images/closed.gif" onclick="toggle('trigger_muiex_inuaw', 'toggle_muiex_inuaw');" /> Uninstaller Abort Warning Settings</h3>
+        <div class="toggle" id="toggle_muiex_inuaw">
+
+          <p><strong>MUI_UNABORTWARNING</strong><br />
+          Show a message box with a warning when the user wants to close the uninstaller.</p>
+
+          <div>
+            <p><strong>MUI_UNABORTWARNING_TEXT</strong> <span class="parameter">text</span><br />
+            Text to display on the abort warning messagebox.</p>
+
+            <p><strong>MUI_UNABORTWARNING_CANCEL_DEFAULT</strong><br />
+            Set the Cancel button as the default button on the message box.</p>
+          </div>
+
+        </div>
+
+    </div>
+
+  </div>
+
+
+  <h2>3. Pages</h2>
+  <div>
+
+    <p>Insert the following macros to set the pages you want to use. The pages will appear in the order you insert them in your script. You can also insert custom Page commands between the macros to add custom pages. <a href="#customPages">More info about custom pages...</a></p>
+    <p>You can add multiple pages of certain types (for example, if you want the user to specify multiple folders).</p>
+
+    <p>Examples:</p>
+<pre>!insertmacro MUI_PAGE_LICENSE "License.rtf"
+!insertmacro MUI_PAGE_COMPONENTS
+Var STARTMENU_FOLDER
+!insertmacro MUI_PAGE_STARTMENU "Application" $STARTMENU_FOLDER</pre>
+
+    <p>You will need the page ID for the Start Menu Folder page when using the Start Menu Folder macros. The Start Menu Folder will be stored in the specified variable.</p>
+
+    <strong>Installer Pages:</strong>
+    <ul>
+      <li><span class="blue">UMUI_PAGE_MULTILANGUAGE</span></li>
+      <li><span class="blue">UMUI_PAGE_MAINTENANCE</span></li>
+      <li><span class="blue">UMUI_PAGE_UPDATE</span></li>
+      <li>MUI_PAGE_WELCOME</li>
+      <li>MUI_PAGE_LICENSE <span class="parameter">text/rtf_file</span></li>
+      <li><span class="blue">UMUI_PAGE_INFORMATION</span> <span class="parameter">text/rtf_files</span></li>
+      <li><span class="blue">UMUI_PAGE_SERIALNUMBER</span> <span class="parameter">function</span></li>
+      <li><span class="blue">UMUI_PAGE_SETUPTYPE</span></li>
+      <li>MUI_PAGE_COMPONENTS</li>
+      <li>MUI_PAGE_DIRECTORY</li>
+      <li>MUI_PAGE_STARTMENU <span class="parameter">page_id variable</span></li>
+      <li><span class="blue">UMUI_PAGE_ALTERNATIVESTARTMENU</span> <span class="parameter">page_id variable</span></li>
+      <li><span class="blue">UMUI_PAGE_ADDITIONALTASKS</span> <span class="parameter">function</span></li>
+      <li><span class="blue">UMUI_PAGE_CONFIRM</span></li>
+      <li><span class="blue">UMUI_PAGE_FILEDISKREQUEST</span></li>
+      <li>MUI_PAGE_INSTFILES</li>
+      <li>MUI_PAGE_FINISH</li>
+      <li><span class="blue">UMUI_PAGE_ABORT</span></li>
+    </ul>
+
+    <strong>Uninstaller Pages:</strong>
+    <ul>
+      <li><span class="blue">UMUI_UNPAGE_MULTILANGUAGE</span></li>
+      <li><span class="blue">UMUI_UNPAGE_MAINTENANCE</span></li>
+      <li>MUI_UNPAGE_WELCOME</li>
+      <li>MUI_UNPAGE_CONFIRM</li>
+      <li>MUI_UNPAGE_LICENSE <span class="parameter">text/rtf_file</span></li>
+      <li><span class="blue">UMUI_UNPAGE_INFORMATION</span> <span class="parameter">text/rtf_files</span></li>
+      <li><span class="blue">UMUI_UNPAGE_SERIALNUMBER</span> <span class="parameter">un.function</span></li>
+      <li><span class="blue">UMUI_UNPAGE_SETUPTYPE</span></li>
+      <li>MUI_UNPAGE_COMPONENTS</li>
+      <li>MUI_UNPAGE_DIRECTORY</li>
+      <li><span class="blue">UMUI_UNPAGE_ADDITIONALTASKS</span> <span class="parameter">page_id un.function</span></li>
+      <li><span class="blue">UMUI_UNPAGE_CONFIRM</span></li>
+      <li><span class="blue">UMUI_UNPAGE_FILEDISKREQUEST</span></li>
+      <li>MUI_UNPAGE_INSTFILES</li>
+      <li>MUI_UNPAGE_FINISH</li>
+      <li><span class="blue">UMUI_UNPAGE_ABORT</span></li>
+    </ul>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pg" src="images/closed.gif" onclick="toggle('trigger_pg', 'toggle_pg');" /> Page Settings</h3>
+    <div class="toggle" id="toggle_pg">
+
+    <p>Page settings apply to a single page and should be set before inserting a page macro. You have to repeat the setting if you want it to apply to multiple pages. Example:</p>
+
+<pre>;Add a directory page to let the user specify a plug-ins folder
+;Store the folder in $PLUGINS_FOLDER
+Var PLUGINS_FOLDER
+!define MUI_DIRECTORYPAGE_VARIABLE $PLUGINS_FOLDER
+!insertmacro MUI_PAGE_DIRECTORY</pre>
+
+    <p><strong>Note:</strong> There is no difference between installer and uninstaller page settings.</p>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgg" src="images/closed.gif" onclick="toggle('trigger_pgg', 'toggle_pgg');" /> General Page Settings</h3>
+    <div class="toggle" id="toggle_pgg">
+
+      <p><strong>MUI_PAGE_HEADER_TEXT</strong> <span class="parameter">text</span><br />
+      Text to display on the header of the page.</p>
+
+      <p><strong>MUI_PAGE_HEADER_SUBTEXT</strong> <span class="parameter">text</span><br />
+      Subtext to display on the header of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_PREUNINSTALL_FUNCTION</strong></span> <span class="parameter">function</span><br />
+      A function to remove already installed files, but keeping configuration files and registery keys, executed before the installation itself. Useful in repair, modify and update mode or when user uncheck already installed components.</p>
+
+      <p><span class="blue"><strong>UMUI_PARAMS_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_PARAMS_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      The default registry key to store diverse values. Some pages will use it to remember the selected values. Don't forget to remove this key during uninstallation.</p>
+
+      <p><span class="blue"><strong>UMUI_INSTALLDIR_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_INSTALLDIR_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_INSTALLDIR_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store the $INSTDIR variable. This replace the InstallDirRegKey instruction. This value will be automatically saved to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      UMUI_INSTALLDIR_REGISTRY_ROOT and UMUI_INSTALLDIR_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p><span class="blue"><strong>UMUI_DEFAULT_SHELLVARCONTEXT</strong></span> <span class="parameter">(all/current)</span><br />
+      Set the default context of $SMPROGRAMS and other shell folders. If set to 'current' (the default), the current user's shell folders are used. If set to 'all', the 'all users' shell folder is used. The all users folder may not be supported on all OSes. If the all users folder is not found, the current user folder will be used. Please take into consideration that a "normal user" has no rights to write in the all users area. Only admins have full access rights to the all users area. You can check this by using the UserInfo plug-in. See Contrib\UserInfo\UserInfo.nsi for an example.</p>
+
+      <p><span class="blue"><strong>UMUI_SHELLVARCONTEXT_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_SHELLVARCONTEXT_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_SHELLVARCONTEXT_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store the ShellVarContext (current|all). Useful if the user has the option to choose through the AlternativeStartMenu page or the AddistionalTasks page. This value will be automatically saved to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      UMUI_SHELLVARCONTEXT_REGISTRY_ROOT and UMUI_SHELLVARCONTEXT_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p>You can use these macros to add value to save automatically to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      <strong>UMUI_ADDPARAMTOSAVETOREGISTRY</strong> <span class="parameter">registry_root registry_key value_name data</span><br />
+      <strong>UMUI_ADDPARAMTOSAVETOREGISTRY</strong> <span class="parameter">value_name data</span><br />
+      The last one required the <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> parameters to be defined.</p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgw" src="images/closed.gif" onclick="toggle('trigger_pgw', 'toggle_pgw');" /> MultiLanguage Page Settings</h3>
+    <div class="toggle" id="toggle_pgw">
+
+      <p><span class="blue"><strong>UMUI_MULTILANGUAGEPAGE_TITLE</strong></span> <span class="parameter">title</span><br />
+      Title to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_MULTILANGUAGEPAGE_TITLE_3LINES</strong></span><br />
+      Extra space for the title area.<br />
+      It is not used in the alternate welcome page.</p>
+
+      <p><span class="blue"><strong>UMUI_MULTILANGUAGEPAGE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display on the page. Use \r\n for a newline.</p>
+
+      <p><span class="blue"><strong>UMUI_MULTILANGUAGEPAGE_LANGUAGE</strong></span> <span class="parameter">text</span><br />
+      Text to display on the language frame.</p>
+
+      <p><span class="purple"><strong>UMUI_LANGUAGE_ALWAYSSHOW</strong></span><br />
+      Always show the language selection dialog, even if a language has been stored in the registry. The language stored in the registry will be selected by default.</p>
+  
+      <p><span class="purple"><strong>UMUI_LANGUAGE_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="purple"><strong>UMUI_LANGUAGE_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="purple"><strong>UMUI_LANGUAGE_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store the language. The users preference will be remembered. You can also use it for the uninstaller to display the right language. This value will be automatically saved to the registry on install success. Don't forget to remove this key in the uninstaller.<br />
+      UMUI_LANGUAGE_REGISTRY_ROOT and UMUI_LANGUAGE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+     
+      <p>Insert the Modern UI language files for the languages to want to include:</p>
+      <pre>!insertmacro MUI_LANGUAGE "English"<br /></pre>
+
+      <p>For the installer and the uninstaller, insert the <strong>UMUI_MULTILANG_GET</strong> macro in .onInit and un.onInit fuctions to get the stored language list:</p>
+<pre>Function .onInit
+!insertmacro UMUI_MULTILANG_GET
+FunctionEnd
+Function un.onInit
+!insertmacro UMUI_MULTILANG_GET
+FunctionEnd</pre>
+      <p>If you need to use the instruction "SetRegView 64", it must be inserted in the (un).onInit functions and before the UMUI_MULTILANG_GET macro insertions.</p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_mn" src="images/closed.gif" onclick="toggle('trigger_mn', 'toggle_mn');" /> Maintenance Page Settings</h3>
+    <div class="toggle" id="toggle_mn">
+
+      <p>This page is shown only when the product is already installed in the same version. It draw radio buttons usualy named Modify, Repair, Remove and Continue setup. If Repair is selected, the Components, Directory and StartMenu pages are skipped.<br />
+      To work, the <strong>UMUI_VERBUILD_REGISTRY_VALUENAME</strong> and the <strong>UMUI_VERBUILD</strong> parameters are required but also, the <strong>UMUI_INSTALLERFULLPATH_REGISTRY_VALUENAME</strong>, the <strong>UMUI_COMPONENTSPAGE_REGISTRY_VALUENAME</strong> and optionally the <strong>UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_VALUENAME</strong> parameter of the Component Page.</p>
+
+      <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_MODIFY</strong></span><br />
+      Enable the modify option.</p>
+      <div>
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_MODIFY_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the modify radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_MODIFY_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the modify radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_MODIFYBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the modify radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Modify.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\ModifyEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REPAIR</strong></span><br />
+      Enable the repair option.</p>
+      <div>
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REPAIR_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the repair radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REPAIR_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the repair radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REPAIRBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the repair radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Repair.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\RepairEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REMOVE</strong></span><br />
+      Enable the remove option.</p>
+      <div>
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REMOVE_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the remove radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REMOVE_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the remove radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_REMOVEBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the remove radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Remove.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\RemoveEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_CONTINUE_SETUP</strong></span><br />
+      Enable the continue setup option.</p>
+      <div>
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_CONTINUE_SETUP_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the continue setup radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_CONTINUE_SETUP_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the continue setup radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_CONTINUE_SETUPBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the continue setup radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Continue.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\ContinueEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_MAINTENANCEPAGE_DEFAULTCHOICE</strong></span> <span class="parameter">flag</span><br />
+      The default selected flag: must be one of ${UMUI_MODIFY}, ${UMUI_REPAIR}, ${UMUI_REMOVE} or ${UMUI_CONTINUE_SETUP}<br />
+      <span class="blue"><em>Default: ${UMUI_MODIFY}</em></span></p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_upd" src="images/closed.gif" onclick="toggle('trigger_upd', 'toggle_upd');" /> Update Page Settings</h3>
+    <div class="toggle" id="toggle_upd">
+
+      <p>This page is shown only when the product is already installed in a different version. It draw radio buttons usualy named Update, Remove and Continue setup. If Update is selected, the Components, Directory and StartMenu pages are skipped.<br />
+      To work, the <strong>UMUI_VERBUILD_REGISTRY_VALUENAME</strong> and the <strong>UMUI_VERBUILD</strong> parameters are required but also, the <strong>UMUI_COMPONENTSPAGE_REGISTRY_VALUENAME</strong> and optionally the <strong>UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_VALUENAME</strong> parameter of the Component Page.</p>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_UPDATE_TITLE</strong></span> <span class="parameter">text</span><br />
+      Title of the update radiobutton.</p>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_UPDATE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display under the update radiobutton.</p>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_UPDATEBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+      Bitmap image to display under the update radiobutton.<br />
+      <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Update.bmp<br />
+      Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\UpdateEx.bmp</em></span></p>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_REMOVE</strong></span><br />
+      Enable the remove option.</p>
+      <div>
+        <p><span class="blue"><strong>UMUI_UPDATEPAGE_REMOVE_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the remove radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_UPDATEPAGE_REMOVE_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the remove radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_UPDATEPAGE_REMOVEBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the remove radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Remove.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\RemoveEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_CONTINUE_SETUP</strong></span><br />
+      Enable the continue setup option.</p>
+      <div>
+        <p><span class="blue"><strong>UMUI_UPDATEPAGE_CONTINUE_SETUP_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the continue setup radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_UPDATEPAGE_CONTINUE_SETUP_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the continue setup radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_UPDATEPAGE_CONTINUE_SETUPBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the continue setup radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Continue.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\ContinueEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_UPDATEPAGE_DEFAULTCHOICE</strong></span> <span class="parameter">flag</span><br />
+      The default selected flag: must be one of ${UMUI_UPDATE}, ${UMUI_REPAIR}, ${UMUI_REMOVE} or ${UMUI_CONTINUE_SETUP}<br />
+      <span class="blue"><em>Default: ${UMUI_CONTINUE_SETUP}</em></span></p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgl" src="images/closed.gif" onclick="toggle('trigger_pgl', 'toggle_pgl');" /> License Page Settings</h3>
+    <div class="toggle" id="toggle_pgl">
+
+      <p><strong>MUI_LICENSEPAGE_TEXT_TOP</strong> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><strong>MUI_LICENSEPAGE_TEXT_BOTTOM</strong> <span class="parameter">text</span><br />
+      Text to display on the bottom of the page.</p>
+
+      <p><strong>MUI_LICENSEPAGE_BUTTON</strong> <span class="parameter">button_text</span><br />
+      Text to display on the 'I Agree' button.</p>
+
+      <p><strong>MUI_LICENSEPAGE_CHECKBOX</strong><br />
+      Display a checkbox the user has to check to agree with the license terms.</p>
+
+      <div>
+        <p><strong>MUI_LICENSEPAGE_CHECKBOX_TEXT</strong> <span class="parameter">text</span><br />
+        Text to display next to the checkbox to agree with the license terms.</p>
+      </div>
+
+      <p><strong>MUI_LICENSEPAGE_RADIOBUTTONS</strong><br />
+      Display two radio buttons to allow the user to choose between accepting the license terms or not.</p>
+
+      <div>
+        <p><strong>MUI_LICENSEPAGE_RADIOBUTTONS_TEXT_ACCEPT</strong> <span class="parameter">text</span><br />
+        Text to display next to the checkbox to accept the license terms.</p>
+
+        <p><strong>MUI_LICENSEPAGE_RADIOBUTTONS_TEXT_DECLINE</strong> <span class="parameter">text</span><br />
+        Text to display next to the checkbox to decline the license terms.</p>
+      </div>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_aj" src="images/closed.gif" onclick="toggle('trigger_aj', 'toggle_aj');" /> Information Page Settings</h3>
+    <div class="toggle" id="toggle_aj">
+
+      <p>The pages display a single or multiple textes files or Richtext RTF files.<br />
+      File name may contains a * which will be replaced by the language code. For example:<br />
+      "information1033.txt" will be displayed for english and "information1036.txt" for french.<br />
+      Optional "information.txt" for untranslated language files (if "informationXXXX.txt" not found).<br />
+      Text files support the UTF16LE charset only if the Unicode True instruction set or an ANSI charset.</p>
+
+      <p><span class="blue"><strong>UMUI_INFORMATIONPAGE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_INFORMATIONPAGE_USE_RICHTEXTFORMAT</strong></span><br />
+      Information file(s) is/are in RichText RTF format.</p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_sn" src="images/closed.gif" onclick="toggle('trigger_sn', 'toggle_sn');" /> SerialNumber Page Settings</h3>
+    <div class="toggle" id="toggle_sn">
+
+      <p><span class="blue"><strong>UMUI_SERIALNUMBERPAGE_TEXT_TOP</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p>The page take a function in parameter containing some macro to add elements on the page. Example:</p>
+<pre>Function serial_function
+
+;Get the windows name and organisation
+!insertmacro UMUI_SERIALNUMBERPAGE_GET_WINDOWS_REGISTRED_OWNER R0
+!insertmacro UMUI_SERIALNUMBERPAGE_GET_WINDOWS_REGISTRED_ORGANIZATION R1
+
+StrCpy $R2 "11111-22222-33333-44444-55555"
+
+  !define UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_VALUENAME "RegName"
+!insertmacro UMUI_SERIALNUMBERPAGE_ADD_LABELEDSERIAL \
+    REGNAME      0 "TOUPPER"           $R0 "$(UMUI_TEXT_SERIALNUMBER_NAME)"
+
+  !define UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_VALUENAME "Organisation"
+!insertmacro UMUI_SERIALNUMBERPAGE_ADD_LABELEDSERIAL \
+    ORGANISATION 0 "CANBEEMPTY|TOLOWER" $R1 "$(UMUI_TEXT_SERIALNUMBER_ORGANIZATION)"
+
+!insertmacro UMUI_SERIALNUMBERPAGE_ADD_HLINE
+
+  !define UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_VALUENAME "SerialNumber"
+!insertmacro UMUI_SERIALNUMBERPAGE_ADD_LABELEDSERIAL \
+    SERIAL     55555 "NUMBERS|NODASHS" $R2 "$(UMUI_TEXT_SERIALNUMBER_SERIALNUMBER)"
+
+FunctionEnd</pre>
+      <p><strong>UMUI_SERIALNUMBERPAGE_GET_WINDOWS_REGISTRED_OWNER</strong> <span class="parameter">default</span><br />
+      Macro to get the windows registered user;<br />
+      <strong>UMUI_SERIALNUMBERPAGE_GET_WINDOWS_REGISTRED_ORGANIZATION</strong> <span class="parameter">default</span><br />
+      Macro to get the windows registered organization;<br />
+      <strong>UMUI_SERIALNUMBERPAGE_ADD_LABEL</strong> <span class="parameter">text</span><br />
+      Macro to add a text;<br />
+      <strong>UMUI_SERIALNUMBERPAGE_ADD_SERIAL</strong> <span class="parameter">serialID type flags default</span><br />
+      <strong>UMUI_SERIALNUMBERPAGE_ADD_LABELEDSERIAL</strong> <span class="parameter">serialID type flags default text</span><br />
+      Two macros to add an input with label. Parameters are:<br />
+      serialID: A unique identifiant for this serial number<br />
+      type: How many chars and how many inputs to show on the line. Example: 555 for 3 inputs of 5 characters each, 0 for unlimited chars<br />
+      flags: Can be one or many (separated by |) of "", NODASHS, TOUPPER, TOLOWER, NUMBERS, CANBEEMPTY<br />
+      default: The défault value if not already saved in the registry.<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example XXXXX-XXXXX-XXXXX or XXXXXXXXXXXXXXX<br />
+      A define are available on these macro :<br />
+      <span class="blue"><strong>UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store the value. This value will be automatically saved to the registry on install success. Don't forget to remove this key in the uninstaller.<br />
+      UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_ROOT and UMUI_SERIALNUMBERPAGE_SERIAL_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p>Use the <strong>UMUI_SERIALNUMBER_GET</strong> <span class="parameter">serialID variable</span> macro to get the value.</p>
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_ak" src="images/closed.gif" onclick="toggle('trigger_ak', 'toggle_ak');" /> SetupType Page Settings</h3>
+    <div class="toggle" id="toggle_ak">
+
+      <p>This page draw radio buttons usualy named Minimal, Standard, Complete and Custom. If Custom is not selected, the Components, Directory and StartMenu pages are skipped.</p>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_MINIMAL</strong></span> <span class="parameter">InstTypeName</span><br />
+      Enable the minimal option. The InstTypeName must correspond to an existing InstType declaration. Typically:</p>
+<pre>!define UMUI_SETUPTYPEPAGE_MINIMAL "$(UMUI_TEXT_SETUPTYPE_MINIMAL_TITLE)"
+InstType "$(UMUI_TEXT_SETUPTYPE_MINIMAL_TITLE)"</pre>
+      <div>
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_MINIMAL_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the minimal radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_MINIMAL_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the minimal radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_MINIMALBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the minimal radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Minimal.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\MinimalEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_STANDARD</strong></span> <span class="parameter">InstTypeName</span><br />
+      Enable the standard option. The InstTypeName must correspond to an existing InstType declaration. Typically:</p>
+<pre>!define UMUI_SETUPTYPEPAGE_STANDARD "$(UMUI_TEXT_SETUPTYPE_STANDARD_TITLE)"
+InstType "$(UMUI_TEXT_SETUPTYPE_STANDARD_TITLE)"</pre>
+      <div>
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_STANDARD_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the standard radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_STANDARD_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the standard radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_STANDARDBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the standard radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Standard.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\StandardEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_COMPLETE</strong></span> <span class="parameter">InstTypeName</span><br />
+      Enable the complete option. The InstTypeName must correspond to an existing InstType declaration. Typically:</p>
+<pre>!define UMUI_SETUPTYPEPAGE_COMPLETE "$(UMUI_TEXT_SETUPTYPE_COMPLETE_TITLE)"
+InstType "$(UMUI_TEXT_SETUPTYPE_COMPLETE_TITLE)"</pre>
+      <div>
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_COMPLETE_TITLE</strong></span> <span class="parameter">text</span><br />
+        Title of the complete radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_COMPLETE_TEXT</strong></span> <span class="parameter">text</span><br />
+        Text to display under the complete radiobutton.</p>
+
+        <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_COMPLETEBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+        Bitmap image to display under the complete radiobutton.<br />
+        <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Complete.bmp<br />
+        Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\CompleteEx.bmp</em></span></p>
+      </div>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_CUSTOM_TITLE</strong></span> <span class="parameter">text</span><br />
+      Title of the custom radiobutton.</p>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_CUSTOM_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display under the custom radiobutton.</p>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_CUSTOMBITMAP</strong></span> <span class="parameter">bmp_file</span><br />
+      Bitmap image to display under the custom radiobutton.<br />
+      <span class="blue"><em>Default with UMUI: ${NSISDIR}\Contrib\Graphics\UltraModernUI\Custom.bmp<br />
+      Default with MUIEx: ${NSISDIR}\Contrib\Graphics\UltraModernUI\CustomEx.bmp</em></span></p>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_DEFAULTCHOICE</strong></span> <span class="parameter">flag</span><br />
+      The default selected flag: must be one of ${UMUI_MINIMAL}, ${UMUI_STANDARD}, ${UMUI_COMPLETE} or ${UMUI_CUSTOM}<br />
+      <span class="blue"><em>Default: ${UMUI_CUSTOM}</em></span></p>
+
+      <p><span class="blue"><strong>UMUI_SETUPTYPEPAGE_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_SETUPTYPEPAGE_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_SETUPTYPEPAGE_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store selected setup type. The page will use it to remember the selected setup type. This value will be automatically saved to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      UMUI_SETUPTYPEPAGE_REGISTRY_ROOT and UMUI_SETUPTYPEPAGE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p>You can use the macro UMUI_GET_CHOOSEN_SETUP_TYPE_TEXT to get the selected setup type text for, by example, the Confirm page function:</p>
+<pre>Function confirm_function
+; ...
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE "$(UMUI_TEXT_SETUPTYPE_TITLE):"
+  !insertmacro UMUI_GET_CHOOSEN_SETUP_TYPE_TEXT
+  Pop $R0
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE "      $R0"
+; ...
+FunctionEnd</pre>
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgc" src="images/closed.gif" onclick="toggle('trigger_pgc', 'toggle_pgc');" /> Components Page Settings</h3>
+    <div class="toggle" id="toggle_pgc">
+
+      <p><strong>MUI_COMPONENTSPAGE_TEXT_TOP</strong> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><strong>MUI_COMPONENTSPAGE_TEXT_COMPLIST</strong> <span class="parameter">text</span><br />
+      Text to display on next to the components list.</p>
+
+      <p><strong>MUI_COMPONENTSPAGE_TEXT_INSTTYPE</strong> <span class="parameter">text</span><br />
+      Text to display on next to the installation type combo box.</p>
+
+      <p><strong>MUI_COMPONENTSPAGE_TEXT_DESCRIPTION_TITLE</strong> <span class="parameter">text</span><br />
+      Text to display on the of the top of the description box.</p>
+
+      <p><strong>MUI_COMPONENTSPAGE_TEXT_DESCRIPTION_INFO</strong> <span class="parameter">text</span><br />
+      Text to display inside the description box when no section is selected.</p>
+
+      <p><span class="blue"><strong>UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store selected setup type. The page will use it to remember the selected setup type. This value will be automatically saved to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_ROOT and UMUI_COMPONENTSPAGE_INSTTYPE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p><span class="blue"><strong>UMUI_COMPONENTSPAGE_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_COMPONENTSPAGE_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_COMPONENTSPAGE_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store selected components. The page will use it to remember the selected components. This value will be automatically saved to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      UMUI_COMPONENTSPAGE_REGISTRY_ROOT and UMUI_COMPONENTSPAGE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.<br />
+      Components must be declared using UMUI_COMPONENT macro surrounded by UMUI_DECLARECOMPONENTS_BEGIN and UMUI_DECLARECOMPONENTS_END macros:</p>
+<pre>Section "Section 1" SecID1
+SectionEnd
+Section "Section 2" SecID2
+SectionEnd
+
+!insertmacro UMUI_DECLARECOMPONENTS_BEGIN
+  !insertmacro UMUI_COMPONENT SecID1
+  !insertmacro UMUI_COMPONENT SecID2
+!insertmacro UMUI_DECLARECOMPONENTS_END</pre>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgd" src="images/closed.gif" onclick="toggle('trigger_pgd', 'toggle_pgd');" /> Directory Page Settings</h3>
+    <div class="toggle" id="toggle_pgd">
+
+      <p><strong>MUI_DIRECTORYPAGE_TEXT_TOP</strong> <span class="parameter">text</span><br />
+      Text to display on top of the page.</p>
+
+      <p><strong>MUI_DIRECTORYPAGE_TEXT_DESTINATION</strong> <span class="parameter">text</span><br />
+      Text to display on the destination folder frame.</p>
+
+      <p><strong>MUI_DIRECTORYPAGE_VARIABLE</strong> <span class="parameter">variable</span><br />
+      Variable in which to store the selected folder.<br />
+      <em>Default: $INSTDIR</em></p>
+
+      <p><strong>MUI_DIRECTORYPAGE_VERIFYONLEAVE</strong><br />
+      Does not disable the Next button when a folder is invalid but allows you to use GetInstDirError in the leave function to handle an invalid folder.</p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgs" src="images/closed.gif" onclick="toggle('trigger_pgs', 'toggle_pgs');" /> Start Menu Folder Page Settings</h3>
+    <div class="toggle" id="toggle_pgs">
+
+      <p>For that the START_MENU page uses the colors of background and of text, you must use at least the version 2.06 of NSIS</p>
+
+      <p>Put the code to write the shortcuts (using CreateShortcut) between the MUI_STARTMENU_WRITE_BEGIN and MUI_STARTMENU_WRITE_END macros:</p>
+<pre>!insertmacro MUI_STARTMENU_WRITE_BEGIN page_id
+...create shortcuts...
+!insertmacro MUI_STARTMENU_WRITE_END</pre>
+
+      <p>The page ID should be the ID of the page on which the user has selected the folder for the shortcuts you want to write.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_TEXT_TOP</strong> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_TEXT_CHECKBOX</strong> <span class="parameter">text</span><br />
+      Text to display next to the checkbox to disable the Start Menu folder creation.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_DEFAULTFOLDER</strong> <span class="parameter">folder</span><br />
+      The default Start Menu Folder.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_NODISABLE</strong><br />
+      Do not display the checkbox to disable the creation of Start Menu shortcuts.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_REGISTRY_ROOT</strong> <span class="parameter">root</span><br />
+      <strong>MUI_STARTMENUPAGE_REGISTRY_KEY</strong> <span class="parameter">key</span><br />
+      <strong>MUI_STARTMENUPAGE_REGISTRY_VALUENAME</strong> <span class="parameter">value_name</span><br />
+      The registry key to store the Start Menu folder. The page will use it to remember the users preference. This value will be automatically saved to the registry on install success. You should also use for the uninstaller to remove the Start Menu folders. Don't forget to remove this key during uninstallation.<br />
+      MUI_STARTMENUPAGE_REGISTRY_ROOT and MUI_STARTMENUPAGE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p>For the uninstaller, use the <strong>MUI_STARTMENU_GETFOLDER</strong> macro to get the Start Menu folder:</p>
+<pre>!insertmacro MUI_STARTMENU_GETFOLDER page_id $R0
+Delete "$SMPROGRAMS\$R0\Your Shortcut.lnk"</pre>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgasm" src="images/closed.gif" onclick="toggle('trigger_pgasm', 'toggle_pgasm');" /> Alternative Start Menu Folder Page Settings</h3>
+    <div class="toggle" id="toggle_pgasm">
+
+      <p>For that the START_MENU page uses the colors of background and of text, you must use at least the version 2.06 of NSIS</p>
+
+      <p>Put the code to write the shortcuts (using CreateShortcut) between the MUI_STARTMENU_WRITE_BEGIN and MUI_STARTMENU_WRITE_END macros:</p>
+
+<pre>!insertmacro MUI_STARTMENU_WRITE_BEGIN page_id
+...create shortcuts...
+!insertmacro MUI_STARTMENU_WRITE_END</pre>
+
+      <p>The page ID should be the ID of the page on which the user has selected the folder for the shortcuts you want to write.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_TEXT_TOP</strong> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_TEXT_CHECKBOX</strong> <span class="parameter">text</span><br />
+      Text to display next to the checkbox to disable the Start Menu folder creation.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_DEFAULTFOLDER</strong> <span class="parameter">folder</span><br />
+      The default Start Menu Folder.</p>
+
+      <p><strong>MUI_STARTMENUPAGE_NODISABLE</strong><br />
+      Do not display the checkbox to disable the creation of Start Menu shortcuts.</p>
+
+      <p><span class="blue"><strong>UMUI_ALTERNATIVESTARTMENUPAGE_USE_TREEVIEW</strong></span><br />
+      Replace the default ListVIew by a TreeView.</p>
+
+      <p><span class="blue"><strong>UMUI_ALTERNATIVESTARTMENUPAGE_SETSHELLVARCONTEXT</strong></span><br />
+      Show radio buttons to select ShellVarContext.</p>
+
+      <div>
+        <p><span class="blue"><strong>UMUI_STARTMENUPAGE_SHELL_VAR_CONTEXT_TITLE</strong></span> <span class="parameter">text</span><br />
+        Text to display on the top of the ShellVarContext GroupBox.</p>
+
+        <p><span class="blue"><strong>UMUI_STARTMENUPAGE_TEXT_FOR_ALL_USERS</strong></span> <span class="parameter">text</span><br />
+        Text to display next to the radio button to select for all users ShellVarContext.</p>
+
+        <p><span class="blue"><strong>UMUI_STARTMENUPAGE_TEXT_FOR_THE_CURRENT_USER</strong></span> <span class="parameter">text</span><br />
+        Text to display next to the radio button to select the current user ShellVarContext.</p>
+      </div>
+
+      <p><strong>MUI_STARTMENUPAGE_REGISTRY_ROOT</strong> <span class="parameter">root</span><br />
+      <strong>MUI_STARTMENUPAGE_REGISTRY_KEY</strong> <span class="parameter">key</span><br />
+      <strong>MUI_STARTMENUPAGE_REGISTRY_VALUENAME</strong> <span class="parameter">value_name</span><br />
+      The registry key to store the Start Menu folder. The page will use it to remember the users preference. This value will be automatically saved to the registry on install success. You should also use for the uninstaller to remove the Start Menu folders. Don't forget to remove this key during uninstallation.<br />
+      MUI_STARTMENUPAGE_REGISTRY_ROOT and MUI_STARTMENUPAGE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p>For the uninstaller, use the <strong>MUI_STARTMENU_GETFOLDER</strong> macro to get the Start Menu folder:</p>
+<pre>!insertmacro MUI_STARTMENU_GETFOLDER page_id $R0
+Delete "$SMPROGRAMS\$R0\Your Shortcut.lnk"</pre>
+
+      <p>You can use the <strong>UMUI_GETSHELLVARCONTEXT</strong> macro to get the selected selected shell var context for, by example, the Confirm page function:</p>
+<pre>Function confirm_function
+; ...
+  ;Only if StartMenu Folder is selected
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+    !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+        "$(UMUI_TEXT_INSTCONFIRM_TEXTBOX_START_MENU_FOLDER)"
+    !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE "      $STARTMENU_FOLDER"
+
+    ;ShellVarContext
+    !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE "$(UMUI_TEXT_SHELL_VAR_CONTEXT)"
+    !insertmacro UMUI_GETSHELLVARCONTEXT
+    Pop $1
+    StrCmp $1 "all" 0 current
+      !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+          "      $(UMUI_TEXT_SHELL_VAR_CONTEXT_FOR_ALL_USERS)"
+      Goto endsvc
+    current:
+      !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+          "      $(UMUI_TEXT_SHELL_VAR_CONTEXT_ONLY_FOR_CURRENT_USER)"
+    endsvc:
+    !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE ""
+
+  !insertmacro MUI_STARTMENU_WRITE_END
+; ...
+FunctionEnd</pre>
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_adt" src="images/closed.gif" onclick="toggle('trigger_adt', 'toggle_adt');" /> AdditionalTasks Page Settings</h3>
+    <div class="toggle" id="toggle_adt">
+
+      <p><span class="blue"><strong>UMUI_ADDITIONALTASKSPAGE_TEXT_TOP</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_ADDITIONALTASKS_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="blue"><strong>UMUI_ADDITIONALTASKS_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="blue"><strong>UMUI_ADDITIONALTASKS_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store the AddistionalTasks value. The page will use it to remember the all selected all value selected on all the AddistionalTasks pages. This value will be automatically saved to the registry on install success. Don't forget to remove this key during uninstallation.<br />
+      UMUI_ADDITIONALTASKS_REGISTRY_ROOT and UMUI_ADDITIONALTASKS_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.</p>
+
+      <p>The page take a function in parameter containing some macro to add elements on the page.<br />
+      <strong>UMUI_ADDITIONALTASKSPAGE_ADD_LABEL</strong> <span class="parameter">text</span><br />
+      Macro to add a text;<br />
+      <strong>UMUI_ADDITIONALTASKSPAGE_ADD_TASK</strong> <span class="parameter">taskID isChecked text</span><br />
+      Macro to add a checkbox task;<br />
+      <strong>UMUI_ADDITIONALTASKSPAGE_ADD_TASK_RADIO</strong> <span class="parameter">taskID isSelected text</span><br />
+      Macro to add a radio task;<br />
+      <strong>UMUI_ADDITIONALTASKSPAGE_ADD_EMPTYLINE</strong><br />
+      Macro to add an empty line;<br />
+      <strong>UMUI_ADDITIONALTASKSPAGE_ADD_LINE</strong><br />
+      Macro to add an horizontal line;<br />
+       for example:</p>
+<pre>Function addtasks_function
+
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_LABEL \
+      "$(UMUI_TEXT_ADDITIONALTASKS_ADDITIONAL_ICONS)"
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_TASK DESKTOP 1 \
+      "$(UMUI_TEXT_ADDITIONALTASKS_CREATE_DESKTOP_ICON)"
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_TASK QUICK_LAUNCH 1 \
+      "$(UMUI_TEXT_ADDITIONALTASKS_CREATE_QUICK_LAUNCH_ICON)"
+
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_EMPTYLINE
+
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_LABEL \
+      "$(UMUI_TEXT_ADDITIONALTASKS_ADVANCED_PARAMETERS)"
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_TASK STARTUP 1 \
+      "$(UMUI_TEXT_ADDITIONALTASKS_LAUNCH_PROGRAM_AT_WINDOWS_STARTUP)"
+
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_LABEL \
+      "$(UMUI_TEXT_ADDITIONALTASKS_FILE_ASSOCIATION)"
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_TASK ASSOCIATE 0 \
+      "$(UMUI_TEXT_ADDITIONALTASKS_ASSOCIATE_WITH) .UMUI $(UMUI_TEXT_ADDITIONALTASKS_ASSOCIATE_WITH_END)"
+
+  !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_LINE
+
+  ; only if a directory has been selected in the STARTMENU page
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+    !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_LABEL "$(UMUI_TEXT_SHELL_VAR_CONTEXT)"
+    !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_TASK_RADIO ALL 1 \
+      "$(UMUI_TEXT_SHELL_VAR_CONTEXT_FOR_ALL_USERS)"
+    !insertmacro UMUI_ADDITIONALTASKSPAGE_ADD_TASK_RADIO CURRENT 0 \
+      "$(UMUI_TEXT_SHELL_VAR_CONTEXT_ONLY_FOR_CURRENT_USER)"
+  !insertmacro MUI_STARTMENU_WRITE_END
+
+FunctionEnd</pre>
+
+      <p>You can use the <strong>UMUI_ADDITIONALTASKS_IF_CKECKED, UMUI_ADDITIONALTASKS_IF_NOT_CKECKED</strong> and <strong>UMUI_ADDITIONALTASKS_ENDIF</strong> macros to check if element is selected.<br />
+      By example, the Confirm page function:</p>
+<pre>Function confirm_function
+; ...
+  ;Only if one at least of the six checks is checked  
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED DESKTOP|QUICK_LAUNCH|STARTUP|ASSOCIATE|ALL|CURRENT
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "$(UMUI_TEXT_ADDITIONALTASKS_TITLE):"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF
+  ;Only if one at least of additional icon check is checked  
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED DESKTOP|QUICK_LAUNCH
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "      $(UMUI_TEXT_ADDITIONALTASKS_ADDITIONAL_ICONS)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF
+  ;Only if the first check is checked  
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED DESKTOP
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "            $(UMUI_TEXT_ADDITIONALTASKS_CREATE_DESKTOP_ICON)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF
+  ;Only if the second check is checked  
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED QUICK_LAUNCH
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "            $(UMUI_TEXT_ADDITIONALTASKS_CREATE_QUICK_LAUNCH_ICON)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF
+  ;Only if start programm at windows startup check is checked  
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED STARTUP
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "      $(UMUI_TEXT_ADDITIONALTASKS_ADVANCED_PARAMETERS)"
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "            $(UMUI_TEXT_ADDITIONALTASKS_LAUNCH_PROGRAM_AT_WINDOWS_STARTUP)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF 
+  ;Only if file association check is checked  
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED ASSOCIATE
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "      $(UMUI_TEXT_ADDITIONALTASKS_FILE_ASSOCIATION)"
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "            $(UMUI_TEXT_ADDITIONALTASKS_ASSOCIATE_WITH) .UMUI $(UMUI_TEXT_ADDITIONALTASKS_ASSOCIATE_WITH_END)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF 
+  ; only if a directory has been selected in the STARTMENU page
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED ALL|CURRENT
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "      $(UMUI_TEXT_SHELL_VAR_CONTEXT)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF
+  ; only if for all user radio is selected
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED ALL
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "            $(UMUI_TEXT_SHELL_VAR_CONTEXT_FOR_ALL_USERS)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF
+  ; only if for current user is selected
+  !insertmacro UMUI_ADDITIONALTASKS_IF_CKECKED CURRENT
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+      "            $(UMUI_TEXT_SHELL_VAR_CONTEXT_ONLY_FOR_CURRENT_USER)"
+  !insertmacro UMUI_ADDITIONALTASKS_ENDIF 
+; ...
+FunctionEnd</pre>
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgab" src="images/closed.gif" onclick="toggle('trigger_pgab', 'toggle_pgab');" /> Install Confirm Page Settings</h3>
+    <div class="toggle" id="toggle_pgab">
+
+      <p><span class="blue"><strong>UMUI_CONFIRMPAGE_TEXT_TOP</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_CONFIRMPAGE_TEXT_BOTTOM</strong></span> <span class="parameter">text</span><br />
+      Text to display on the bottom of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_CONFIRMPAGE_TEXTBOX</strong></span> <span class="parameter">function_name</span><br />
+      Draw a TextBox in which will be post the current configuration. The function will be use to add lines (using the UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE macro).</p>
+
+      <p>For example to add the Destination Location and the Start Menu Floder :</p>
+<pre>Function function_name
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+    "$(UMUI_INSTCONFIRM_TEXTBOX_DESTINATION_LOCATION)"
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE " $INSTDIR"
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE ""
+  ;Only if StartMenu Floder is selected
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE \
+    "$(UMUI_INSTCONFIRM_TEXTBOX_START_MENU_FLODER)"
+  !insertmacro UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE " $STARTMENU_FOLDER"
+  !insertmacro MUI_STARTMENU_WRITE_END
+FunctionEnd</pre>
+
+      <p>Use the <strong>UMUI_CONFIRMPAGE_TEXTBOX_ADDLINE</strong> macro to add lines with a empty string to jump a line.<br />
+      The $(UMUI_TEXT_INSTCONFIRM_TEXTBOX_DESTINATION_LOCATION) and <br />
+      $(UMUI_TEXT_INSTCONFIRM_TEXTBOX_START_MENU_FLODER) variables are defined in the langage files. </p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_fdr" src="images/closed.gif" onclick="toggle('trigger_fdr', 'toggle_fdr');" /> FileDiskRequest Page Settings</h3>
+    <div class="toggle" id="toggle_fdr">
+
+      <p>This page is shown only when the file to search is not on the folder stored on the specified variable.</p>
+
+      <p><span class="blue"><strong>UMUI_FILEDISKREQUESTPAGE_TEXT_TOP</strong></span> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><span class="blue"><strong>UMUI_FILEDISKREQUESTPAGE_TEXT_PATH</strong></span> <span class="parameter">text</span><br />
+      Text to display on the folder frame.</p>
+
+      <p><span class="blue"><strong>UMUI_FILEDISKREQUESTPAGE_FILE_NAME</strong></span> <span class="parameter">name</span><br />
+      The name of the file to search.</p>
+
+      <p><span class="blue"><strong>UMUI_FILEDISKREQUESTPAGE_DISK_NAME</strong></span> <span class="parameter">name</span><br />
+      Optional. The name of the disk containing the file to search. This parameter change the default UMUI_FILEDISKREQUESTPAGE_TEXT_TOP.</p>
+
+      <p><span class="blue"><strong>UMUI_FILEDISKREQUESTPAGE_VARIABLE</strong></span> <span class="parameter">variable</span><br />
+      Variable in which to store the selected folder.</p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgi" src="images/closed.gif" onclick="toggle('trigger_pgi', 'toggle_pgi');" /> Installation Page Settings</h3>
+    <div class="toggle" id="toggle_pgi">
+
+      <p><strong>MUI_INSTFILESPAGE_FINISHHEADER_TEXT</strong> <span class="parameter">text</span><br />
+      Text to display on the header of the installation page when the installation has been completed (won't be displayed when using a Finish page without MUI_(UN)FINISHPAGE_NOAUTOCLOSE).</p>
+
+      <p><strong>MUI_INSTFILESPAGE_FINISHHEADER_SUBTEXT</strong> <span class="parameter">text</span><br />
+      Subext to display on the header of the installation page when the installation has been completed (won't be displayed when using a Finish page without MUI_(UN)FINISHPAGE_NOAUTOCLOSE).</p>
+
+      <p><strong>MUI_INSTFILESPAGE_ABORTHEADER_TEXT</strong> <span class="parameter">text</span><br />
+      Text to display on the header of the installation page when the installation has been aborted.</p>
+
+      <p><strong>MUI_INSTFILESPAGE_ABORTHEADER_SUBTEXT</strong> <span class="parameter">text</span><br />
+      Subext to display on the header of the installation page when the installation has been aborted.</p>
+
+      <p><span class="blue"><strong>UMUI_INSTFILEPAGE_ENABLE_CANCEL_BUTTON</strong></span> <span class="parameter">function_name</span><br />
+      Enable the instfile page cancel button and call the function_name in case of cancelled. This function must cancel the modifications of the system that there could have had. For the UNPAGE_INSTFILE, this function must begin with "un." . </p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgf" src="images/closed.gif" onclick="toggle('trigger_pgf', 'toggle_pgf');" /> Finish Page Settings</h3>
+    <div class="toggle" id="toggle_pgf">
+
+      <p><strong>MUI_FINISHPAGE_TITLE</strong> <span class="parameter">title</span><br />
+      Title to display on the top of the page.</p>
+
+      <p><strong>MUI_FINISHPAGE_TITLE_3LINES</strong><br />
+      Extra space for the title area.<br />
+      It is not used in the alternate finish page.</p>
+
+      <p><strong>MUI_FINISHPAGE_TEXT</strong> <span class="parameter">text</span><br />
+      Text to display on the page. Use \r\n for a newline.</p>
+
+      <p><strong>MUI_FINISHPAGE_TEXT_LARGE</strong><br />
+      Extra space for the text area (if using checkboxes).</p>
+
+      <p><strong>MUI_FINISHPAGE_BUTTON</strong> <span class="parameter">text</span><br />
+      Text to display on the Finish button.</p>
+
+      <p><strong>MUI_FINISHPAGE_TEXT_REBOOT</strong> <span class="parameter">text</span><br />
+      Text to display on the finish page when asking for a system reboot. Use \r\n for a newline.</p>
+
+      <p><strong>MUI_FINISHPAGE_TEXT_REBOOTNOW</strong> <span class="parameter">text</span><br />
+      Text to display next to the 'Reboot now' option button.</p>
+
+      <p><strong>MUI_FINISHPAGE_TEXT_REBOOTLATER</strong> <span class="parameter">text</span><br />
+      Text to display next to the 'Reboot later' option button.</p>
+
+      <p><strong>MUI_FINISHPAGE_RUN</strong> <span class="parameter">exe_file</span><br />
+      Application which the user can select to run using a checkbox. You don't need to put quotes around the filename when it contains spaces.</p>
+
+      <div>
+        <p><strong>MUI_FINISHPAGE_RUN_TEXT</strong> <span class="parameter">text</span><br />
+        Texts to display next to the 'Run program' checkbox.</p>
+
+        <p><strong>MUI_FINISHPAGE_RUN_PARAMETERS</strong> <span class="parameter">parameters</span><br />
+        Parameters for the application to run. Don't forget to escape double quotes in the value (use $\").</p>
+
+        <p><strong>MUI_FINISHPAGE_RUN_NOTCHECKED</strong><br />
+        Do not check the 'Run program' checkbox by default</p>
+
+        <p><strong>MUI_FINISHPAGE_RUN_FUNCTION</strong> <span class="parameter">function_name</span><br />
+        Call a function instead of executing an application (define MUI_FINISHPAGE_RUN without parameters). You can use the function to exectute multiple applications or you can change the checkbox name and use it for other things.</p>
+      </div>
+
+      <p><strong>MUI_FINISHPAGE_SHOWREADME</strong> <span class="parameter">file/url</span><br />
+      File or website which the user can select to view using a checkbox. You don't need to put quotes around the filename when it contains spaces.</p>
+
+      <div>
+        <p><strong>MUI_FINISHPAGE_SHOWREADME_TEXT</strong> <span class="parameter">text</span><br />
+        Texts to display next to the 'Show Readme' checkbox.</p>
+
+        <p><strong>MUI_FINISHPAGE_SHOWREADME_NOTCHECKED</strong><br />
+        Do not check the 'Show Readme' checkbox by default</p>
+
+        <p><strong>MUI_FINISHPAGE_SHOWREADME_FUNCTION</strong> <span class="parameter">function_name</span><br />
+        Call a function instead of showing a file (define MUI_FINISHPAGE_SHOWREADME without parameters). You can use the function to show multiple files or you can change the checkbox name and use it for other things.</p>
+      </div>
+
+      <p><strong>MUI_FINISHPAGE_LINK</strong> <span class="parameter">link_text</span><br />
+      Text for a link on the which the user can click to view a website or file.</p>
+
+      <div>
+        <p><strong>MUI_FINISHPAGE_LINK_LOCATION</strong> <span class="parameter">file/url</span><br />
+        Website or file which the user can select to view using the link. You don't need to put quotes around the filename when it contains spaces.</p>
+
+        <p><strong>MUI_FINISHPAGE_LINK_COLOR</strong> <span class="parameter">(color: RRGGBB hexadecimal)</span><br />
+        Text color for the link on the Finish page.<br />
+        <span class="purple"><em>Default: ${UMUI_TEXT_LIGHTCOLOR}</em></span></p>
+      </div>
+
+      <p><strong>MUI_FINISHPAGE_NOREBOOTSUPPORT</strong><br />
+      Disables support for the page that allows the user to reboot the system. Define this option to save some space if you are not using the /REBOOTOK flag or SetRebootFlag.</p>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgau" src="images/closed.gif" onclick="toggle('trigger_pgau', 'toggle_pgau');" /> Abort Page Settings</h3>
+    <div class="toggle" id="toggle_pgau"> <strong><span class="blue">UMUI_ABORTPAGE_TITLE</span></strong> <span class="parameter">title</span><br />
+
+      Title to display on the top of the page.
+
+      <p><span class="blue"><strong>UMUI_ABORTPAGE_TITLE_3LINES</strong></span><br />
+      Extra space for the title area.<br />
+      It is not used in the alternate abort page.</p>
+
+      <p><span class="blue"><strong>UMUI_ABORTPAGE_TEXT</strong></span> <span class="parameter">text</span><br />
+      Text to display on the page. Use \r\n for a newline.</p>
+
+      <p><span class="blue"><strong>UMUI_ABORTPAGE_LINK</strong></span> <span class="parameter">link_text</span><br />
+      Text for a link on the which the user can click to view a website or file.</p>
+
+      <div>
+        <p><span class="blue"><strong>UMUI_ABORTPAGE_LINK_LOCATION</strong></span> <span class="parameter">file/url</span><br />
+        Website or file which the user can select to view using the link. You don't need to put quotes around the filename when it contains spaces.</p>
+
+        <p><span class="blue"><strong>UMUI_ABORTPAGE_LINK_COLOR</strong></span> <span class="parameter">(color: RRGGBB hexadecimal)</span><br />
+        Text color for the link on the Finish page.<br />
+        <span class="blue"><em>Default: ${UMUI_TEXT_LIGHTCOLOR}</em></span></p>
+      </div>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pgu" src="images/closed.gif" onclick="toggle('trigger_pgu', 'toggle_pgu');" /> Uninstall Confirm Page Settings</h3>
+    <div class="toggle" id="toggle_pgu">
+
+      <p><strong>MUI_UNCONFIRMPAGE_TEXT_TOP</strong> <span class="parameter">text</span><br />
+      Text to display on the top of the page.</p>
+
+      <p><strong>MUI_UNCONFIRMPAGE_TEXT_LOCATION</strong> <span class="parameter">text</span><br />
+      Text to display next to the uninstall location text box.</p>
+
+      <strong>MUI_UNCONFIRMPAGE_VARIABLE</strong> <span class="parameter">variable</span><br />
+      Variable in which to store the uninstall source folder.<br />
+      <em>Default: $INSTDIR</em></p>
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_pga" src="images/closed.gif" onclick="toggle('trigger_pga', 'toggle_pga');" /> Advanced Page Settings</h3>
+    <div class="toggle" id="toggle_pga">
+
+      <p>You can add custom code to the page functions of your Modern UI pages. <a href="#customFunctions">More info...</a></p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<h2>4. Custom functions</h2>
+<div>
+
+  <p>If you want add your own code to functions inserted by the Modern UI (e.g. the .onGUIInit function and the page functions), create your own function and let the Modern UI functions call them.</p>
+
+  <p><a href="#customFunctions">More info...</a></p>
+
+</div>
+
+
+<h2>5. Language files</h2>
+<div>
+
+  <p>Insert the Modern UI language files for the languages to want to include.</p>
+
+  <pre>!insertmacro MUI_LANGUAGE "English"<br /></pre>
+
+  <p>The Modern UI language files load the NLF language files, so you should not use LoadLanguageFile.</p>
+
+
+  <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_lp" src="images/closed.gif" onclick="toggle('trigger_lp', 'toggle_lp');" /> Language Selection Page</h3>
+  <div class="toggle" id="toggle_lp">
+
+    <p>See the MultiLanguage Page Settings above.</p>
+
+  </div>
+
+
+  <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_ls" src="images/closed.gif" onclick="toggle('trigger_ls', 'toggle_ls');" /> Language Selection Dialog</h3>
+  <div class="toggle" id="toggle_ls">
+
+    <p>If you want the installer to display a language selection dialog (have a look at the <a href="../../Examples/Modern%20UI/MultiLanguage.nsi">MultiLanguage.nsi</a> example), insert the MUI_LANGDLL_DISPLAY macro in the .onInit function:</p>
+
+<pre>Function .onInit
+!insertmacro MUI_LANGDLL_DISPLAY
+FunctionEnd</pre>
+
+    <p>You can also use this macro for the uninstaller, in the un.onInit function.</p>
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_lss" src="images/closed.gif" onclick="toggle('trigger_lss', 'toggle_lss');" /> Language Selection Dialog Settings</h3>
+    <div class="toggle" id="toggle_lss">
+
+      <p>To remember to users preference, you ca define a registry key.<br />
+
+      <strong>Note:</strong> These defines should be set before inserting the installation page macro.</p>
+
+      <p><span class="purple"><strong>UMUI_LANGUAGE_REGISTRY_ROOT</strong></span> <span class="parameter">root</span><br />
+      <span class="purple"><strong>UMUI_LANGUAGE_REGISTRY_KEY</strong></span> <span class="parameter">key</span><br />
+      <span class="purple"><strong>UMUI_LANGUAGE_REGISTRY_VALUENAME</strong></span> <span class="parameter">value_name</span><br />
+      The registry key to store the language. The users preference will be remembered. You can also use it for the uninstaller to display the right language. This value will be automatically saved to the registry on install success. Don't forget to remove this key in the uninstaller.<br />
+      UMUI_LANGUAGE_REGISTRY_ROOT and UMUI_LANGUAGE_REGISTRY_KEY defines are optional when <strong>UMUI_PARAMS_REGISTRY_ROOT</strong> and <strong>UMUI_PARAMS_REGISTRY_KEY</strong> are defined.<br />
+      The MUI_LANGDLL_REGISTRY_ROOT, MUI_LANGDLL_REGISTRY_KEY and MUI_LANGDLL_REGISTRY_VALUENAME defines has been renamed in Ultra-Modern UI.</p>
+
+      <p>For the uninstaller, insert the <strong>MUI_UNGETLANGUAGE</strong> macro in un.onInit to get the stored language preference:</p>
+
+<pre>Function un.onInit
+!insertmacro MUI_UNGETLANGUAGE
+FunctionEnd</pre>
+
+    </div>
+
+
+    <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_lsin" src="images/closed.gif" onclick="toggle('trigger_lsin', 'toggle_lsin');" /> Language Selection Dialog Interface Settings</h3>
+    <div class="toggle" id="toggle_lsin">
+
+      <p>To customize the language selection dialog interface, use these defines before inserting the MUI_LANGDLL_DISPLAY macro.</p>
+
+      <p><strong>MUI_LANGDLL_WINDOWTITLE</strong> <span class="parameter">text</span><br />
+      The window title of the language selection dialog.</p>
+
+      <p><strong>MUI_LANGDLL_INFO</strong> <span class="parameter">text</span><br />
+      The text to display on the language selection dialog.</p>
+
+      <p><span class="purple"><strong>UMUI_LANGUAGE_ALWAYSSHOW</strong></span><br />
+      Always show the language selection dialog, even if a language has been stored in the registry. The language stored in the registry will be selected by default.<br />
+      The MUI_LANGDLL_ALWAYSSHOW define has been renamed in UltraModernUI.</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<h2>6. Reserve files</h2>
+<div>
+
+  <p>If you are using solid compression (by default, solid compression is enabled for BZIP2 and LZMA), it's important that files which are being extracted in init- or page functions function are located before other files in the data block, because this will make your installer faster.</p>
+
+  <p>If there are File commands in your sections or functions above the init- or page functions, add the reserve file macros above your sections and functions.</p>
+
+  <pre>ReserveFile "ioFile.ini" ;Your own InstallOptions INI files<br />!insertmacro MUI_RESERVEFILE_INSTALLOPTIONS ;InstallOptions plug-in<br />!insertmacro MUI_RESERVEFILE_LANGDLL ;Language selection dialog<br /></pre>
+
+</div>
+
+
+
+<h2>7. Your own sections and functions</h2>
+<div>
+
+  <p>Add your installer sections and functions. See the NSIS Users Manual for details.</p>
+
+  <p>Information about section code and function code for Start Menu shortcut creation and language selection can be found above.</p>
+
+</div>
+
+
+
+<h2>8. Section descriptions</h2>
+<div>
+
+  <p>The descriptions of sections will be displayed on the components page, when the user hovers the mouse over a section. If you don't want to use descriptions, use the MUI_COMPONENTSPAGE_NODESC interface setting.</p>
+
+  <p>To set a description for a section, you have to add an additional parameter to the Section commmand with a name for the define that should contain the section number.</p>
+
+<pre>Section "Section Name 1" Section1
+ ...
+SectionEnd</pre>
+
+  <p>Use these macros to set the descriptions:</p>
+  <pre>LangString DESC_Section1 ${LANG_ENGLISH} "Description of section 1."<br />LangString DESC_Section2 ${LANG_ENGLISH} "Description of section 2."<br /><br />!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN<br /> !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)<br /> !insertmacro MUI_DESCRIPTION_TEXT ${Section2} $(DESC_Section2)<br />!insertmacro MUI_FUNCTION_DESCRIPTION_END<br /></pre>
+
+  <p>For the uninstaller, use the MUI_UNFUNCTION_DESCRIPTION_BEGIN and MUI_UNFUNCTIONS_DESCRIPTION_END macros.</p>
+
+</div>
+
+</div>
+
+
+<h1><a id="customPages"></a>Custom pages</h1>
+<div>
+
+   <p>If you want add your custom pages to your installer, you should insert your own page commands between the page macros.</p>
+
+<pre>!insertmacro MUI_PAGE_WELCOME
+Page custom FunctionName ;Custom page
+!insertmacro MUI_PAGE_COMPONENTS
+
+;Uninstaller
+!insertmacro MUI_UNPAGE_CONFIRM
+UninstPage custom un.FunctionName ;Custom page
+!insertmacro MUI_UNPAGE_INSTFILES</pre>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_io" src="images/closed.gif" onclick="toggle('trigger_io', 'toggle_io');" /> Using InstallOptions or InstallOptionsEx for custom pages</h2>
+  <div class="toggle" id="toggle_io">
+
+    <p>Ultra-Modern UI support natively two plug-ins to displays custom pages which you can create using INI files. InstallOptions and InstallOptionsEx:</p>
+
+    <p>InstallOptions is the original plug-in used by Modern UI.</p>
+
+    <p>InstallOptionsEx, writing by deguix and by SuperPat since version 2.4.5, is an expanded version of InstallOptions containing many new features, with size drawback.</p>
+
+    <p>Have a look at the <a target="_blank" href="../InstallOptions/Readme.html">InstallOptions documentation</a> or the <a target="_blank" href="../InstallOptionsEx/Readme.html">InstallOptionsEx documentation</a> for info about creating InstallOptions(Ex) INI files.</p>
+
+    <p>If you wan't to use InstallOptionEx Instead of the original IntallOption pluyg-in, you have to use the <strong>UMUI_USE_INSTALLOPTIONSEX</strong> define.</p>
+  
+    <p>InstallOptionEx is used in the Alternative Start Menu page to show Start Menu directories in a TreeView and in the Information pages to show RichText files. You can't use these features if InstallOptionEx is not activated.</p>
+
+
+    <p>Next, you have to extract your InstallOptions INI File in the .onInit function (un.onInit for the uninstaller) using the <strong>MUI_INSTALLOPTIONS_EXTRACT</strong> macro:</p>
+
+<pre>Function .onInit
+!insertmacro MUI_INSTALLOPTIONS_EXTRACT "ioFile.ini"
+FunctionEnd</pre>
+
+    <p>If your INI File is located in another directory, use MUI_INSTALLOPTIONS_EXTRACT_AS. The second parameter is the filename for the temporary plug-ins directory, use this filename as parameter for the other InstallOptions macros.</p>
+
+<pre>Function .onInit
+!insertmacro MUI_INSTALLOPTIONS_EXTRACT_AS "..\ioFile.ini" "ioFile.ini"
+FunctionEnd</pre>
+
+    <p>You can call InstallOptions in the function defined with the Page or UninstPage command using the MUI_INSTALLOPTIONS_DISPLAY macro. 
+    This macro skin automatically your custom pages. It can also automatically convert, on the fly, your custom InstallOptions INI into an InstallOptionsEx INI.</p>
+
+    <p>If the UMUI_(UN)PAGE_ABORT page is inserted, you need to use the <strong>UMUI_ABORT_IF_INSTALLFLAG_IS</strong> macro with the ${UMUI_CANCELLED} flag to hide the page when user cancel the installation:</p>
+    <p>Use the <strong>MUI_HEADER_TEXT</strong> macro to set the text on the page header:</p>
+
+<pre>LangString TEXT_IO_TITLE ${LANG_ENGLISH} "Install Options Page Title"
+LangString TEXT_IO_SUBTITLE ${LANG_ENGLISH} "A subtitle"
+Function FunctionName ;FunctionName defined with Page command
+  <span class="blue">
+  !insertmacro UMUI_ABORT_IF_INSTALLFLAG_IS ${UMUI_CANCELLED}
+  </span>
+  !insertmacro MUI_HEADER_TEXT "$(TEXT_IO_TITLE)" "$(TEXT_IO_SUBTITLE)"
+  !insertmacro MUI_INSTALLOPTIONS_DISPLAY "ioFile.ini"
+FunctionEnd</pre>
+
+    <p>For custom fonts and colors, macros for the initDialog and show functions of InstallOptions are also available. It can automatically convert, on the fly, your custom InstallOptions INI into an InstallOptionsEx INI. 
+    Contrary to the MUI_INSTALLOPTIONS_DISPLAY macro, These one can't skin automatically your pages and you need to apply manually the text color and background color to all fields:</p>
+
+<pre>Var HWND
+Var DLGITEM
+Var FONT
+LangString TEXT_IO_TITLE ${LANG_ENGLISH} "Install Options Page Title"
+LangString TEXT_IO_SUBTITLE ${LANG_ENGLISH} "A subtitle"
+Function FunctionName ;FunctionName defined with Page command
+  <span class="blue">
+  !insertmacro UMUI_ABORT_IF_INSTALLFLAG_IS ${UMUI_CANCELLED}
+  </span>
+  !insertmacro MUI_HEADER_TEXT "$(TEXT_IO_TITLE)" "$(TEXT_IO_SUBTITLE)"
+  !insertmacro MUI_INSTALLOPTIONS_INITDIALOG "ioFile.ini"
+  Pop $HWND ;HWND of dialog
+  <span class="blue">
+  ;If you do not use MUIEx, apply the background color to the page:
+  ; Manually:
+  SetCtlColors $HWND "" "${MUI_BGCOLOR}"
+  ; or if you use a background image:
+  SetCtlColors $HWND "" "transparent"
+  ; Or using this macro:
+  !insertmacro UMUI_IOPAGEBGTRANSPARENT_INIT $HWND
+
+  ;You can apply the right text color and background color to all the Text, Password,
+  ; DateTime, IPAddress, ListBox, ComboBox, DropList, FileRequest and DirRequest fields
+  ; Manually:
+  GetDlgItem $0 $HWND 1200
+  SetCtlColors $0 ${UMUI_TEXT_INPUTCOLOR} ${UMUI_BGINPUTCOLOR}
+  ; Or using this macro:
+  GetDlgItem $0 $HWND 1201
+  !insertmacro UMUI_IOPAGEINPUTCTL_INIT $0
+
+  ;You need to apply the right text color and background color to all the Link fields
+  ; Manually:
+  GetDlgItem $0 $HWND 1202
+  SetCtlColors $0 ${UMUI_TEXT_LIGHTCOLOR} ${MUI_BGCOLOR}
+  ; or if you use a background image:
+  SetCtlColors $0 ${UMUI_TEXT_LIGHTCOLOR} "transparent"
+  ; Or using this macro:
+  GetDlgItem $0 $HWND 1203
+  !insertmacro UMUI_IOPAGECTLLIGHTTRANSPARENT_INIT $0
+
+  ;You need to apply the right text color and background color to all the
+  ; GroupBox fields
+  ; Manually:
+  GetDlgItem $0 $HWND 1202
+  SetCtlColors $0 ${UMUI_TEXT_LIGHTCOLOR} ${MUI_BGCOLOR}
+  ; Or using this macro:
+  GetDlgItem $0 $HWND 1203
+  !insertmacro UMUI_IOPAGECTLLIGHT_INIT $0
+
+  ;If you do not use MUIEx, you need to apply the right text color and background color
+  ; to all the label, checkbox, radiobutton fields
+  ; Manually:
+  GetDlgItem $0 $HWND 1204
+  SetCtlColors $0 ${MUI_TEXTCOLOR} ${MUI_BGCOLOR}
+  ; or if you use a background image:
+  SetCtlColors $0 ${MUI_TEXTCOLOR} "transparent"
+  ; Or using this macro:
+  GetDlgItem $0 $HWND 1205
+  !insertmacro UMUI_IOPAGECTLTRANSPARENT_INIT $0
+  </span>
+  GetDlgItem $DLGITEM $HWND 1200 ;1200 + Field number - 1
+  ;$DLGITEM contains the HWND of the first field
+  CreateFont $FONT "Tahoma" 10 700 SendMessage $DLGITEM ${WM_SETFONT} $FONT 0
+  !insertmacro MUI_INSTALLOPTIONS_SHOW
+FunctionEnd</pre>
+
+    <p>If you need the InstallOptions return value (success, back, cancel, error), use the <strong>MUI_INSTALLOPTIONS_DISPLAY_RETURN</strong> or <strong>MUI_INSTALLOPTIONS_SHOW_RETURN</strong> macros. The return value will be added to the stack, so you can use the Pop command to get it.</p>
+
+    <p>Use these macros to read or write INI file values:</p>
+
+<pre>!insertmacro MUI_INSTALLOPTIONS_READ $VAR "ioFile.ini" "Field #" "Name"
+!insertmacro MUI_INSTALLOPTIONS_WRITE "ioFile.ini" "Field #" "Name" "Value"</pre>
+
+    <p>For example, you can use the <strong>MUI_INSTALLOPTIONS_READ</strong> macro in a section to get the user input:</p>
+
+    <pre>!insertmacro MUI_INSTALLOPTIONS_READ $R0 "ioFile.ini" "Field 1" "State"</pre>
+
+    <p>For more details about InstallOptions, validation of user input etc., check the <a target="_blank" href="../InstallOptions/Readme.html">InstallOptions documentation</a> or the <a href="../InstallOptionsEx/Readme.html">InstallOptionsEx documentation</a>.</p>
+
+  </div>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_nsDialogs" src="images/closed.gif" onclick="toggle('trigger_nsDialogs', 'toggle_nsDialogs');" /> Using nsDialogs for custom pages</h2>
+  <div class="toggle" id="toggle_nsDialogs">
+
+    <p>nsDialogs is the official plug-in used by Modern UI 2.</p>
+
+    <p>Ultra-Modern UI version 2 still not use the nsDialogs plug-in to displays custom pages but InstallOptions(Ex), so usage of nsDialogs is not recommended because two concurrent plug-ins will be used in parallel due to custom UMUI pages.</p>
+
+    <p>Have a look at the <a target="_blank" href="../nsDialogs/Readme.html">nsDialogs documentation</a> for info about creating nsDialogs custom pages.</p>
+
+    <p>Contrary to InstallOptions(Ex), Ultra-Modern UI does not have macro to skin automatically your custom pages.</p>
+
+    <p>If the UMUI_(UN)PAGE_ABORT page is inserted, you need to use the <strong>UMUI_ABORT_IF_INSTALLFLAG_IS</strong> macro with the ${UMUI_CANCELLED} flag to hide the page when user cancel the installation:</p>
+    <p>Use the <strong>MUI_HEADER_TEXT</strong> macro to set the text on the page header:</p>
+
+<pre>!include nsDialogs.nsh
+LangString TEXT_NSD_TITLE ${LANG_ENGLISH} "nsDialogs Page Title"
+LangString TEXT_NSD_SUBTITLE ${LANG_ENGLISH} "A subtitle"
+Function FunctionName ;FunctionName defined with Page command
+  <span class="blue">
+  !insertmacro UMUI_ABORT_IF_INSTALLFLAG_IS ${UMUI_CANCELLED}
+  </span>
+  !insertmacro MUI_HEADER_TEXT "$(TEXT_NSD_TITLE)" "$(TEXT_NSD_SUBTITLE)"
+  nsDialogs::Create 1018
+  Pop $HWND ;HWND of dialog
+  <span class="blue">
+  ;If you do not use MUIEx, apply the background color to the page:
+  ; Manually:
+  SetCtlColors $HWND "" "${MUI_BGCOLOR}"
+  ; or if you use a background image:
+  SetCtlColors $HWND "" "transparent"
+  ; Or using this macro:
+  !insertmacro UMUI_IOPAGEBGTRANSPARENT_INIT $HWND
+  </span>
+  ${NSD_CreateText} 0 35 100% 12u hello
+  Pop $0
+  <span class="blue">
+  ;You can apply the right text color and background color to all the Text, Password,
+  ; Number, ListBox, ComboBox, DropList, FileRequest and DirRequest input fields
+  ; Manually:
+  SetCtlColors $0 ${UMUI_TEXT_INPUTCOLOR} ${UMUI_BGINPUTCOLOR}
+  ; Or using this macro:
+  !insertmacro UMUI_IOPAGEINPUTCTL_INIT $0
+  </span>
+  ${NSD_CreateLink} 10 120 100% 12 "http://ultramodernui.sourceforge.net/"
+  Pop $0
+  ${NSD_OnClick} $0 onClickMyLink  
+  <span class="blue">
+  ;You need to apply the right text color and background color to all the Link fields
+  ; Manually:
+  SetCtlColors $0 ${UMUI_TEXT_LIGHTCOLOR} ${MUI_BGCOLOR}
+  ; or if you use a background image:
+  SetCtlColors $0 ${UMUI_TEXT_LIGHTCOLOR} "transparent"
+  ; Or using this macro:
+  !insertmacro UMUI_IOPAGECTLLIGHTTRANSPARENT_INIT $0
+  </span>
+  ${NSD_CreateGroupBox} 0 40u 100% 40u "Group"
+  Pop $0
+  <span class="blue">
+  ;You need to apply the right text color and background color to all the
+  ; GroupBox fields
+  ; Manually:
+  SetCtlColors $0 ${UMUI_TEXT_LIGHTCOLOR} ${MUI_BGCOLOR}
+  ; Or using this macro:
+  !insertmacro UMUI_IOPAGECTLLIGHT_INIT $0
+  </span>
+  ${NSD_CreateCheckbox} 0 -50 100% 8u Test
+  Pop $0
+  GetFunctionAddress $HWND OnCheckbox
+  nsDialogs::OnClick $0 $HWND
+  <span class="blue">
+  ;If you do not use MUIEx, you need to apply the right text color and background color
+  ; to all the label, checkbox, radiobutton fields
+  ; Manually:
+  SetCtlColors $0 ${MUI_TEXTCOLOR} ${MUI_BGCOLOR}
+  ; or if you use a background image:
+  SetCtlColors $0 ${MUI_TEXTCOLOR} "transparent"
+  ; Or using this macro:
+  !insertmacro UMUI_IOPAGECTLTRANSPARENT_INIT $0
+  </span>
+  nsDialogs::Show
+FunctionEnd</pre>
+
+    <p>For more details about nsDialogs, validation of user input etc., check the <a target="_blank" href="../nsDialogs/Readme.html">nsDialogs documentation</a>.</p>
+
+  </div>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_dlg" src="images/closed.gif" onclick="toggle('trigger_dlg', 'toggle_dlg');" /> Customize standard dialogs</h2>
+  <div class="toggle" id="toggle_dlg">
+
+    <p>To change elements on the dialogs, use customized UI resource files (see <a href="#interfaceConf">Interface Configuration</a>).
+    You can change your copies of the original files (in the Contrib\UIs folder) by using an application such as <a target="_blank" href="http://www.users.on.net/johnson/resourcehacker/">Resource Hacker</a>.</p>
+
+    <p>The 'Please wait while Setup is loading...' text on the splash screen that is being displayed while the installer is starting (Verifying installer, Unpacking data) can be changed by using a customized UI resource file (MUI_UI setting) with a modified dialog 111.<br />
+    The 'Verifying installer' and 'Unpacking data' texts are defined in the language header file of the NSIS exehead (Source\exehead\lang.h). To change them, you have to edit this file and recompile NSIS.</p>
+
+    <p>To modify the Welcome dialog and Finish dialog, use a custom INI file (MUI_SPECIALINI setting) or write to the INI file in the custom page functions.</p>
+
+  </div>
+
+</div>
+
+
+
+<h1><a id="customFunctions"></a>Customize Ultra-Modern UI Functions</h1>
+<div>
+
+  <p>If you want add your own code to functions inserted by the Ultra-Modern UI, such as the .onGUIInit function and the Page functions, create your own function and let the Ultra-Modern UI functions call them. Use the defines to define the name of your functions.</p>
+  <p>Contrary to Modern UI, Ultra-Modern UI may also define itself, if background skin is used, the .onGUIEnd and the un.onGUIEnd functions. Consequently, you may not be able to declare them in your script, and, in this case, you must used this customization.</p>
+
+  <p>Example:</p>
+
+<pre>!define MUI_CUSTOMFUNCTION_GUIINIT myGUIInit
+Function myGUIInit
+ ...your own code...
+FunctionEnd
+
+<span class="blue">!define UMUI_CUSTOMFUNCTION_GUIEND myGUIEnd
+Function myGUIEnd
+ ...your own code...
+FunctionEnd</span>
+
+!define MUI_CUSTOMFUNCTION_UNGUIINIT myunGUIInit
+Function myunGUIInit
+ ...your own code...
+FunctionEnd
+
+<span class="blue">!define UMUI_CUSTOMFUNCTION_UNGUIEND myunGUIEnd
+Function myunGUIEnd
+ ...your own code...
+FunctionEnd</span></pre>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_cfg" src="images/closed.gif" onclick="toggle('trigger_cfg', 'toggle_cfg');" /> General Custom Functions</h2>
+  <div class="toggle" id="toggle_cfg">
+
+    <p>These defines should be set before inserting the language macros.</p>
+
+    <p><strong>MUI_CUSTOMFUNCTION_GUIINIT</strong> <span class="parameter">function</span><br />
+    <strong>MUI_CUSTOMFUNCTION_UNGUIINIT</strong> <span class="parameter">function</span><br />
+    <span class="blue"><strong>UMUI_CUSTOMFUNCTION_GUIEND</strong></span> <span class="parameter">function</span><br />
+    <span class="blue"><strong>UMUI_CUSTOMFUNCTION_UNGUIEND</strong></span> <span class="parameter">function</span><br />
+    <strong>MUI_CUSTOMFUNCTION_ABORT</strong> <span class="parameter">function</span><br />
+    <strong>MUI_CUSTOMFUNCTION_UNABORT</strong> <span class="parameter">function</span><br />
+    <strong>MUI_CUSTOMFUNCTION_ONMOUSEOVERSECTION</strong> <span class="parameter">function</span><br />
+    <strong>MUI_CUSTOMFUNCTION_UNONMOUSEOVERSECTION</strong> <span class="parameter">function</span></p>
+    <p>Mouse over functions are only available when the description macros (MUI_FUNCTION_DESCRIPTION_BEGIN) are used. 
+      When component page descriptions are not used, regular .onMouseOverSection and un.onMouseOverSection must be used.</p>
+  </div>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_cfpg" src="images/closed.gif" onclick="toggle('trigger_cfpg', 'toggle_cfpg');" /> Page Custom Functions</h2>
+  <div class="toggle" id="toggle_cfpg">
+
+    <p>These defines should be set before inserting a page macro.</p>
+
+    <p><strong>MUI_PAGE_CUSTOMFUNCTION_PRE</strong> <span class="parameter">function</span><br />
+    <strong>MUI_PAGE_CUSTOMFUNCTION_SHOW</strong> <span class="parameter">function</span><br />
+    <strong>MUI_PAGE_CUSTOMFUNCTION_LEAVE</strong> <span class="parameter">function</span><br />
+    <strong>MUI_PAGE_CUSTOMFUNCTION_DESTROYED</strong> <span class="parameter">function</span></p>
+
+    <p><strong>Notes:</strong></p>
+    <ul>
+      <li>In the Pre function of the Welcome, the Finish and the Abort pages, you can write to the InstallOptions INI file of the page (ioSpecial.ini)</li>
+      <li>In the Show function of Welcome, Finish and StartMenu pages, $MUI_HWND contains the HWND of the inner dialog</li>
+      <li>The destroyed function is called after a external/plug-in page has been destroyed. (Currently only for the original StartMenu Page)</li>
+    </ul>
+
+  </div>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_cfwf" src="images/closed.gif" onclick="toggle('trigger_cfwf', 'toggle_cfwf');" /> Welcome/Finish/Abort Pages Custom Functions</h2>
+  <div class="toggle" id="toggle_cfwf">
+
+    <p>This define should be inserted before a single Welcome, Finish or Abort page.</p>
+
+    <p><strong>MUI_WELCOMEFINISHPAGE_CUSTOMFUNCTION_INIT</strong> <span class="parameter">function</span></p>
+    <p>This Init function is called before the InstallOptions INI file for the page is written, so you can use it to initialize any variables used in the page settings.</p>
+
+  </div>
+
+</div>
+
+
+
+<h1><a id="examples"></a>Example Scripts</h1>
+<div>
+  <p>These examples are in the NSISDir\Examples\UltraModernUI folder :</p>
+  <ul>
+    <li>Basic: <a target="_blank" href="../../Examples/UltraModernUI/Basic.nsi">Basic.nsi</a></li>
+    <li>BigTest: <a target="_blank" href="../../Examples/UltraModernUI/bigtest.nsi">bigtest.nsi</a></li>
+    <li>Header with Bitmap (MUIEx only): <a target="_blank" href="../../Examples/UltraModernUI/HeaderBitmapEx.nsi">HeaderBitmapEx.nsi</a></li>
+    <li>Header with Background image (MUIEx only): <a target="_blank" href="../../Examples/UltraModernUI/HeaderBGImageEx.nsi">HeaderBGImageEx.nsi</a></li>
+    <li>Background Skin: <a target="_blank" href="../../Examples/UltraModernUI/PageBG.nsi">PageBG.nsi</a></li>
+    <li>No left Image UI (UMUI only): <a target="_blank" href="../../Examples/UltraModernUI/NoLeftImage.nsi">NoLeftImage.nsi</a></li>
+    <li>Ultra-Modern Small UI (UMUI only): <a target="_blank" href="../../Examples/UltraModernUI/UltraModernSmall.nsi">UltraModernSmall.nsi</a></li>
+    <li>Multiple languages page: <a target="_blank" href="../../Examples/UltraModernUI/MultiLanguage.nsi">MultiLanguage.nsi</a></li>
+    <li>Maintenance page: <a target="_blank" href="../../Examples/UltraModernUI/Maintenance.nsi">Maintenance.nsi</a></li>
+    <li>Update page: <a target="_blank" href="../../Examples/UltraModernUI/Update.nsi">Update.nsi</a></li>
+    <li>Welcome/Finish/Abort page: <a target="_blank" href="../../Examples/UltraModernUI/WelcomeFinishAbort.nsi">WelcomeFinishAbort.nsi</a></li>
+    <li>Information page: <a target="_blank" href="../../Examples/UltraModernUI/Information.nsi">Information.nsi</a></li>
+    <li>Serial Number page: <a target="_blank" href="../../Examples/UltraModernUI/SerialNumber.nsi">SerialNumber.nsi</a></li>
+    <li>Setup Type page: <a target="_blank" href="../../Examples/UltraModernUI/SetupType.nsi">SetupType.nsi</a></li>
+    <li>Alternative Start Menu Folder page: <a target="_blank" href="../../Examples/UltraModernUI/StartMenu.nsi">StartMenu.nsi</a></li>
+    <li>Additional Tasks page: <a target="_blank" href="../../Examples/UltraModernUI/AdditionalTasks.nsi">AdditionalTasks.nsi</a></li>
+    <li>Confirm page: <a target="_blank" href="../../Examples/UltraModernUI/Confirm.nsi">Confirm.nsi</a></li>
+    <li>File&disk request page: <a target="_blank" href="../../Examples/UltraModernUI/FileDiskRequest.nsi">FileDiskRequest.nsi</a></li>
+    <li>Custom pages: <a target="_blank" href="../../Examples/UltraModernUI/InstallOptions.nsi">InstallOptions.nsi</a></li>
+    <li>Custom pages: <a target="_blank" href="../../Examples/UltraModernUI/nsDialogs.nsi">nsDialogs.nsi</a></li>
+    <li>NSIS menu with Ultra-Modern UI: <a target="_blank" href="../../Examples/UltraModernUI/NSISUMUIMenu.nsi">NSISUMUIMenu.nsi</a></li>
+    <li>Ultra-Modern UI installer: <a target="_blank" href="../../Examples/UltraModernUI/UltraModernUI.nsi">UltraModernUI.nsi</a></li>
+    <li>NSIS+Ultra-Modern UI installer: <a target="_blank" href="../../Examples/UltraModernUI/NSISUltraModernUI.nsi">NSISUltraModernUI.nsi</a></li>
+  </ul>
+</div>
+
+
+
+<h1>Version History</h1>
+<ul>
+
+  <li><strong>Version 2.0 beta 5</strong> - January 01, 2019
+  <ul>
+    <li>Ultra-Modern UI is resynchronized under Modern UI version 1.81.</li>
+    <li>Consequently, The UMUI_TEXT_COLOR define was renamed in MUI_TEXTCOLOR.</li>
+    <li>UMUI now provide an extended NSIS Menu with links for UMUI and extra plugins documentations.</li>
+    <li>Consequently, UMUI installers no more create extra shortcuts on the start menu, but replace the original NSIS menu shortcuts.</li>
+    <li>Fixed bug when the Additional Tasks page is skipped, options were not affected...</li>
+    <li>Fixed bug when the License page text is unreadable with the Windows high contrast mode.</li>
+    <li>Minor Fixes.</li>
+  </ul>
+  </li>
+
+  <li><strong>Version 2.0 beta 4</strong> - February 04, 2018
+  <ul>
+    <li>Fixed UMUI_PAGE_SERIALNUMBER and UMUI_UNPAGE_SERIALNUMBER pages failed to compile.</li>
+  </ul>
+  </li>
+
+  <li><strong>Version 2.0 beta 3</strong> - August 06, 2017
+  <ul>
+    <li>New Bulgarian language files by Angel.</li>
+    <li>Added support HKCR32, HKCR64, HKCU32, HKCU64, HKLM32 and HKLM64 root keys for all the UMUI_*_REGISTRY_ROOT defines and for the UMUI_ADDPARAMTOSAVETOREGISTRYKEY macro with NSIS versions >= 3.02.</li>
+    <li>Added support for MUI_UNCONFIRMPAGE_VARIABLE from Modern UI 1.8.</li>
+    <li>Added support for MUI_PAGE_CUSTOMFUNCTION_DESTROYED for original StartMenu page from Modern UI 1.8.</li>
+    <li>Minor Fixes.</li>
+  </ul>
+  </li>
+
+  <li><strong>Version 2.0 beta 2</strong> - December 25, 2016
+  <ul>
+    <li>Updated the SkinnedControls plug-in to version 1.4 with support of the new NSIS plug-in API, optional unskinit method calls and ignore case parameters name support.</li>
+    <li>Fixed: Links on RichText information pages are now clickable;</li>
+    <li>Fixed: Missing MUI_PAGE_CUSTOMFUNCTION_PRE support missing for some Ultra-Modern pages (by Bodenseematze);</li>
+    <li>Fixed: Most of the time, command line parameters were not transferred to Exec calls (thanks Bodenseematze);</li>
+    <li>Several new and completed language files and other minor fixes by Bodenseematze:</li>
+    <ul>
+      <li>Completed: German language file;</li>
+      <li>New: Greek language file;</li>
+      <li>New: Italian language file;</li>
+      <li>New: Lithuanian language file;</li>
+      <li>New: Russian language file;</li>
+      <li>New: Slovenian language file;</li>
+      <li>New: Spanish language file;</li>
+      <li>New: Turkish language file;</li>
+    </ul>
+    <li>Minor optimizations.</li>
+  </ul>
+  </li>
+
+  <li><strong>Version 2.0 beta 1</strong> - August 27, 2016
+  <ul>
+    <li>Ultra-Modern UI is now fully compatible with NSIS version 3 x86 edition and now with the large string special build;
+    <li>The NSISArray plug-in was replaced by the new nsArray plug-in in version 1.1.1.7 who is faster and uses less memory;</li>
+    <li>Updated the InstallOptionsEx plug-in to version 2.4.5 beta 3 with full unicode support;</li>
+    <li>Updated the SkinnedControls plug-in to version 1.3 with unicode support, bug fixed, rewritten documentation, button image size no more limited to allow smoother gradients...;</li>
+    <li>The information page is now compatible with UTF16LE text files if compiled in Unicode;</li>
+    <li>The information page is now compatible with Unix style (LF only) line return text files;</li>
+    <li>The UMUI_CUSTOM_SKIN define is now deprecated, it is no more necessary and you can simply use the UMUI_SKIN define with your custom skin;</li>
+    <li>All button image was recreated with smoother gradient;</li>
+    <li>Reduced weight of skin images;</li>
+    <li>Updated and almost completed documentation;</li>
+    <li>Added an example for nsDialogs based custom page and documentation;</li>
+    <li>The default install directory for the NSIS + Ultra-Modern UI package is now C:\ProgramData on Windows Vista and upper to allow examples to be compiled without access rights errors;</li>
+    <li>A lot of bug fixes and optimizations;</li>
+    <li>Source code now on GitHub: <a target="_blank" href="https://github.com/SuperPat45/UltraModernUI">https://github.com/SuperPat45/UltraModernUI</a>.</li>
+  </ul>
+  </li>
+
+  <li><strong>Version 1.00 beta 2</strong> - November 11, 2010
+  <ul>
+    <li>Second public beta release after more than three development years.</li>
+    <li>Ultra-Modern UI use the new NSIS Doc directory used since the version 2.07 and UMUI.nsh is resynchronised under Modern UI version 1.8.</li>
+    <li>Ultra-Modern UI include also a second Unser Interface named Modern UIEx. Modern UIEx is an extended version of Modern UI but with the new UltraModern pages support.</li>
+
+    <li>Ultra-Modern UI included henceforth three plug-ins that are supported natively :
+      <ul>
+        <li>The SkinnedControls plug-in. SkinnedScrollControls is based on the wansis plug-in of Saivert and can skin all buttons and scroll bars of your NSIS installer like the most recent installers as well as the scrollbars (only for Windows 2000/XP/2003/Vista/2008).</li>
+        <li>The fixed version of the InstallOptionEx plug-in. InstallOptionEx is writen by Diego Pedroso (deguix) and is an expanded version of InstallOptions containing many new features, with size drawback. This version, debugged by SuperPat, contain a lot of bug fixes necessary to the correct operation of some Ultra-Modern UI pages.</li>
+        <li>The NSISArray plug-in. This plug-in written by Afrow UK, allows the support of the array in NSIS. It comes with plenty of functions for managing your arrays. This plug-in is used with the AlternativeStartMenu and MultiLanguages Pages of Ultra-Modern UI.</li>
+      </ul>
+    </li>
+
+    <li>All skins were remakes and twenty skins are now available. blue, blue2, SoftBlue, red, red2, SoftRed....</li>
+
+    <li>New pages are available:
+      <ul>
+        <li>MultiLanguage Page that can be replace the MultiLanguage Plug-in.</li>
+        <li>Maintenance Page with Repair, Modify, Uninstall and Continue Setup options.</li>
+        <li>Update Page with Update, Uninstall and Continue Setup options.</li>
+        <li>Information Page for viewing text and RichText files.</li>
+        <li>SerialNumber Page.</li>
+        <li>Setup Type Page with Minimal, Standard, Complete and Custom options.</li>
+        <li>AlternativeStartMenu Page to replace the StartMenu Plug-in. It allow to use a TreeWiew instead of the ListView and can set the ShellVarContext</li>
+        <li>Additional Tasks page.</li>
+        <li>File and Disk Request Page.</li>
+      </ul>
+    </li>
+
+    <li>Left Text, Left Time and LeftMessageBox functions are removed.</li>
+    <li>And a huge number of fixes and improvements.</li>
+  </ul>
+  </li>
+
+  <li><strong>Version 1.00 beta 1</strong> - March 20, 2005
+  <ul>
+    <li>First public beta release.</li>
+    <li>Several skins are available in several color (blue , green, red, purple, brown, gray, cleargreen) and a background skin named wxp. You can obviously create your own skins.</li>
+    <li>The Header Image defines are disables momentarily.</li>
+    <li>New pages are available: Abrot Page and Confim page with recapitulation of your setting , LeftMessageBox.</li>
+    <li>Draw Left Text and Left Time.</li>
+  </ul>
+  </li>
+
+
+</ul>
+
+
+<h1>Credits</h1>
+<div>
+
+  <p>Made by SuperPat<br />
+  - Based on Modern UI 1.81 Copyright 2002-2019 Joost Verburg.<br />
+  - And inspired of the ExperienceUI of dandaman32.</p>
+
+  <p>Skins by SuperPat<br />
+  UltraModern Icons and WXP BackGround skin is taken again on ExperineceUI of dandaman32.</p>
+
+</div>
+
+
+
+<h1>Help</h1>
+<div>
+
+  <p>Please post questions at the <a target="_blank" href="http://forums.winamp.com/forumdisplay.php?forumid=65">Official NSIS Forum</a>.</p>
+
+</div>
+
+
+
+<h1>License</h1>
+<div>
+
+  <p>The zlib/libpng license applies to Ultra-Modern UI.</p>
+
+
+  <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_lic" src="images/closed.gif" onclick="toggle('trigger_lic', 'toggle_lic');" /> License Terms</h2>
+  <div class="toggle" id="toggle_lic">
+
+  <pre>Copyright &copy; 2005-2019 SuperPat</pre>
+
+  <pre>This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.</pre>
+
+  <pre>Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute
+it freely, subject to the following restrictions:</pre>
+
+  <pre>1. The origin of this software must not be misrepresented;
+   you must not claim that you wrote the original software.
+   If you use this software in a product, an acknowledgment in the
+   product documentation would be appreciated but is not required.
+2. Altered versions must be plainly marked as such,
+   and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any distribution.</pre>
+
+   </div>
+
+</div>
+
+</div>
+
+  <div class="footer">&copy; 2005-2019 SuperPat</div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+#!/bin/sh
+
+if [ -n "$SUDO_USER" ]; then
+	export USER=$SUDO_USER
+fi
+
+function clean_up {
+	rm -rf "/tmp/fuse X.app"
+	rm -rf /tmp/fuse-x-studio-mac.tar
+	rm -rf /tmp/install-fuse.sh
+	rm -rf /tmp/check-system.sh
+	rm -rf /tmp/launch-fuse.sh
+	rm -rf /tmp/get-version.js
+	rm -rf /tmp/version-gte.js
+}
+
+function error {
+	cat /tmp/$1.log
+	cat /tmp/$1.err
+	#clean_up
+	exit 1
+}
+
+chown -R "$USER" /usr/local/bin
+chown -R "$USER" /usr/local/lib/node_modules
+
+su "$USER" -c 'bash /tmp/check-system.sh' \
+	2> /tmp/check-system.err > /tmp/check-system.log || error check-system
+
+su "$USER" -c 'bash /tmp/install-fuse.sh || bash /tmp/install-fuse.sh || bash /tmp/install-fuse.sh' \
+	2> /tmp/install-fuse.err > /tmp/install-fuse.log || error install-fuse
+
+mv "/tmp/fuse X.app" /Applications/ \
+	2> /tmp/fuse-app.err > /tmp/fuse-app.log || error fuse-app
+
+/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister \
+	-R -f "/Applications/fuse X.app" \
+	2> /tmp/register-fuse.err > /tmp/register-fuse.log || :
+
+su "$USER" -c 'bash /tmp/launch-fuse.sh' \
+	2> /tmp/launch-fuse.err > /tmp/launch-fuse.log || error launch-fuse
+
+echo Success
+clean_up

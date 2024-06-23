@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F431473B-DA4A-4335-BF9C-4841ED71E799}</ProjectGuid>
+    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Outracks.Mac.Studio</RootNamespace>
+    <AssemblyName>fuse X</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>true</UseSGen>
+    <UseRefCounting>true</UseRefCounting>
+    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <XamMacArch></XamMacArch>
+    <AOTMode>None</AOTMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <UseSGen>true</UseSGen>
+    <UseRefCounting>true</UseRefCounting>
+    <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
+    <LinkMode>None</LinkMode>
+    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <XamMacArch></XamMacArch>
+    <AOTMode>None</AOTMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <HintPath>..\wpf\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.Mac" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fuse\studio\fuse-studio.csproj">
+      <Project>{490EF7E5-46FF-4DF3-8342-530429CA65B5}</Project>
+      <Name>fuse-studio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\fusion\mac\Outracks.Fusion.Mac.csproj">
+      <Project>{4B9EC6E2-AA97-48DE-9891-2C1D24A4D383}</Project>
+      <Name>Outracks.Fusion.Mac</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\msbuild\Xamarin.Mac.CSharp.targets" />
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+</Project>

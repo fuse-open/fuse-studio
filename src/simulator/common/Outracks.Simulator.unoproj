@@ -1,0 +1,17 @@
+{
+    "Packages": [
+        "Uno.Collections",
+        "Uno.Threading",
+        "Uno.Net.Sockets"
+    ],
+    "Includes": [
+        "*.cs:SourceFile",
+        "Bytecode/*.cs:SourceFile",
+        "Common/*.uxl",
+        "Common/*.cs:SourceFile",
+        "Common/Optionals/*.cs:SourceFile",
+        "Common/Optionals/Operators/*.cs:SourceFile",
+        "Messages/*.cs:SourceFile",
+        "Runtime/*.cs:SourceFile",
+    ]
+}

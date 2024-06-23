@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA6DFB99-345F-4214-9A79-076829C0F777}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.Fuse</RootNamespace>
+    <AssemblyName>Outracks.Fuse</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath>bin/$(Configuration)</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\..\..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.4.4.1\lib\net46\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Uno.Configuration">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.UX.Markup.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Uno.Common">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Mac">
+      <HintPath>..\..\..\node_modules\%40fuse-open\xamarin-mac\Xamarin.Mac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auth\ILicenseState.cs" />
+    <Compile Include="Auth\Utilities\Win32HardwareInfo.cs" />
+    <Compile Include="Net\FuseWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Protocol\Auth\LicenseEvent.cs" />
+    <Compile Include="Auth\Utilities\GZip.cs" />
+    <Compile Include="Auth\Hardware.cs" />
+    <Compile Include="Auth\LicenseData.cs" />
+    <Compile Include="Auth\UriHandler.cs" />
+    <Compile Include="Auth\Utilities\BASE36.cs" />
+    <Compile Include="ExportTargetNotSupported.cs" />
+    <Compile Include="DefaultApplicationWin.cs" />
+    <Compile Include="FileExtensions.cs" />
+    <Compile Include="FileFilters.cs" />
+    <Compile Include="FuseApi.cs" />
+    <Compile Include="FuseImpl.cs" />
+    <Compile Include="IFuse.cs" />
+    <Compile Include="IFuseLauncher.cs" />
+    <Compile Include="Auth\ILicense.cs" />
+    <Compile Include="KillAll\FuseKiller.cs" />
+    <Compile Include="KillAll\IFuseKiller.cs" />
+    <Compile Include="KillAll\MacFuseKiller.cs" />
+    <Compile Include="KillAll\WinFuseKiller.cs" />
+    <Compile Include="Auth\License.cs" />
+    <Compile Include="Auth\LicenseStatus.cs" />
+    <Compile Include="Auth\Storage.cs" />
+    <Compile Include="UxExpression.cs" />
+    <Compile Include="Parsed.cs" />
+    <Compile Include="SourceFragment.cs" />
+    <Compile Include="UxWriter.cs" />
+    <Compile Include="UxSize.cs" />
+    <Compile Include="ProjectDetector.cs" />
+    <Compile Include="ProjectNotFound.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\Building\BuildEnded.cs" />
+    <Compile Include="Protocol\Building\BuildIssueDetected.cs" />
+    <Compile Include="Protocol\Building\BuildLogged.cs" />
+    <Compile Include="Protocol\Building\BuildStarted.cs" />
+    <Compile Include="Protocol\Client.cs" />
+    <Compile Include="Protocol\ConnectAndGreet.cs" />
+    <Compile Include="Protocol\ConnectWithReconnect.cs" />
+    <Compile Include="Protocol\Core\FocusDesignerRequest.cs" />
+    <Compile Include="Protocol\Core\FocusDesignerResponse.cs" />
+    <Compile Include="Protocol\Core\FocusEditorResponse.cs" />
+    <Compile Include="Protocol\Core\FocusEditorRequest.cs" />
+    <Compile Include="Protocol\Core\Hello.cs" />
+    <Compile Include="Protocol\Core\KillRequest.cs" />
+    <Compile Include="Protocol\Core\KillResponse.cs" />
+    <Compile Include="Protocol\Core\ProjectClosed.cs" />
+    <Compile Include="Protocol\Core\PublishService.cs" />
+    <Compile Include="Protocol\Core\Subscribe.cs" />
+    <Compile Include="Protocol\Core\Unsubscribe.cs" />
+    <Compile Include="Protocol\Core\Welcome.cs" />
+    <Compile Include="Protocol\DaemonKey.cs" />
+    <Compile Include="Protocol\DaemonSpawner.cs" />
+    <Compile Include="Protocol\Event.cs" />
+    <Compile Include="Protocol\IMessage.cs" />
+    <Compile Include="Protocol\IMessagingService.cs" />
+    <Compile Include="Protocol\LocalSocketClient.cs" />
+    <Compile Include="Protocol\LocalSocketServer.cs" />
+    <Compile Include="Protocol\MessageManager.cs" />
+    <Compile Include="Protocol\NullObjects.cs" />
+    <Compile Include="Protocol\PayloadParserContext.cs" />
+    <Compile Include="Protocol\Preview\ExceptionEvent.cs" />
+    <Compile Include="Protocol\Preview\LogEvent.cs" />
+    <Compile Include="Protocol\Preview\ProjectIdComputer.cs" />
+    <Compile Include="Protocol\Preview\RegisterClientEvent.cs" />
+    <Compile Include="Protocol\Preview\TextPosition.cs" />
+    <Compile Include="Protocol\Request.cs" />
+    <Compile Include="Protocol\RequestSender.cs" />
+    <Compile Include="Protocol\ResetPreviewEvent.cs" />
+    <Compile Include="Protocol\Response.cs" />
+    <Compile Include="Protocol\SelectionChanged.cs" />
+    <Compile Include="Protocol\Serializer.cs" />
+    <Compile Include="Protocol\SwitchingMessagingService.cs" />
+    <Compile Include="WebLinks.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\core\Outracks.Core.csproj">
+      <Project>{196B010D-AD36-4947-95AA-14FC4A27BD18}</Project>
+      <Name>Outracks.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\text\Outracks.Text.csproj">
+      <Project>{d52bec1d-d0b3-4c44-956f-9747233cd6ca}</Project>
+      <Name>Outracks.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\math\Outracks.Math.csproj">
+      <Project>{3C1C1047-8830-498E-882A-503C0956CBE3}</Project>
+      <Name>Outracks.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\simulator\main\Outracks.Simulator.Main.csproj">
+      <Project>{E8884270-5F2C-4076-86D0-456B831BE3E5}</Project>
+      <Name>Outracks.Simulator.Main</Name>
+    </ProjectReference>
+    <Reference Include="Outracks.Simulator">
+      <HintPath>..\..\simulator\common\bin\Outracks.Simulator.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\..\fusion\core\Outracks.Fusion.Core.csproj">
+      <Project>{8DFB02E0-ACBF-4432-8DD9-56712E206968}</Project>
+      <Name>Outracks.Fusion.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

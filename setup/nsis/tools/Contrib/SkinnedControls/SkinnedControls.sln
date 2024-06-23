@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SkinnedControls", "SkinnedControls.vcproj", "{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7} = {5FAA4FEB-2E89-4033-9702-6605B20746A7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coolsb", "coolsb\coolsb.vcproj", "{5FAA4FEB-2E89-4033-9702-6605B20746A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Ansi OldAPI|Win32 = Debug Ansi OldAPI|Win32
+		Debug Ansi|Win32 = Debug Ansi|Win32
+		Debug Unicode|Win32 = Debug Unicode|Win32
+		Release Ansi OldAPI|Win32 = Release Ansi OldAPI|Win32
+		Release Ansi|Win32 = Release Ansi|Win32
+		Release Unicode|Win32 = Release Unicode|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Debug Ansi OldAPI|Win32.ActiveCfg = Debug Ansi OldAPI|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Debug Ansi OldAPI|Win32.Build.0 = Debug Ansi OldAPI|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Debug Ansi|Win32.ActiveCfg = Debug Ansi|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Debug Ansi|Win32.Build.0 = Debug Ansi|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Debug Unicode|Win32.ActiveCfg = Debug Unicode|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Debug Unicode|Win32.Build.0 = Debug Unicode|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Release Ansi OldAPI|Win32.ActiveCfg = Release Ansi OldAPI|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Release Ansi OldAPI|Win32.Build.0 = Release Ansi OldAPI|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Release Ansi|Win32.ActiveCfg = Release Ansi|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Release Ansi|Win32.Build.0 = Release Ansi|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Release Unicode|Win32.ActiveCfg = Release Unicode|Win32
+		{80973FE4-5C0E-48F7-97EC-F6FEE6A12B31}.Release Unicode|Win32.Build.0 = Release Unicode|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Debug Ansi OldAPI|Win32.ActiveCfg = Debug Ansi OldAPI|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Debug Ansi OldAPI|Win32.Build.0 = Debug Ansi OldAPI|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Debug Ansi|Win32.ActiveCfg = Debug Ansi|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Debug Ansi|Win32.Build.0 = Debug Ansi|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Debug Unicode|Win32.ActiveCfg = Debug Unicode|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Debug Unicode|Win32.Build.0 = Debug Unicode|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Release Ansi OldAPI|Win32.ActiveCfg = Release Ansi OldAPI|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Release Ansi OldAPI|Win32.Build.0 = Release Ansi OldAPI|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Release Ansi|Win32.ActiveCfg = Release Ansi|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Release Ansi|Win32.Build.0 = Release Ansi|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Release Unicode|Win32.ActiveCfg = Release Unicode|Win32
+		{5FAA4FEB-2E89-4033-9702-6605B20746A7}.Release Unicode|Win32.Build.0 = Release Unicode|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

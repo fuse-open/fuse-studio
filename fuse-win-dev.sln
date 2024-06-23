@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fuse-studio", "src\fuse\studio\fuse-studio.csproj", "{490EF7E5-46FF-4DF3-8342-530429CA65B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outracks.Fuse", "src\fuse\common\Outracks.Fuse.csproj", "{AA6DFB99-345F-4214-9A79-076829C0F777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outracks.Fuse.Locale", "src\fuse\locale\Outracks.Fuse.Locale.csproj", "{0E454646-B607-4FED-AB02-BECBC5620FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outracks.Fusion.Windows", "src\fusion\win\Outracks.Fusion.Windows.csproj", "{55C9979B-C90E-426F-8C75-DCCE6F193D23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outracks.Fusion.Core", "src\fusion\core\Outracks.Fusion.Core.csproj", "{8DFB02E0-ACBF-4432-8DD9-56712E206968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outracks.Fusion.Mac", "src\fusion\mac\Outracks.Fusion.Mac.csproj", "{4B9EC6E2-AA97-48DE-9891-2C1D24A4D383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outracks.Fuse.Command", "src\fuse\command\Outracks.Fuse.Command.csproj", "{8B6673C5-58B8-4E5A-8369-2E21507F4131}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{490EF7E5-46FF-4DF3-8342-530429CA65B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490EF7E5-46FF-4DF3-8342-530429CA65B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490EF7E5-46FF-4DF3-8342-530429CA65B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490EF7E5-46FF-4DF3-8342-530429CA65B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6DFB99-345F-4214-9A79-076829C0F777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6DFB99-345F-4214-9A79-076829C0F777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6DFB99-345F-4214-9A79-076829C0F777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6DFB99-345F-4214-9A79-076829C0F777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E454646-B607-4FED-AB02-BECBC5620FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E454646-B607-4FED-AB02-BECBC5620FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E454646-B607-4FED-AB02-BECBC5620FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E454646-B607-4FED-AB02-BECBC5620FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C9979B-C90E-426F-8C75-DCCE6F193D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C9979B-C90E-426F-8C75-DCCE6F193D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C9979B-C90E-426F-8C75-DCCE6F193D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C9979B-C90E-426F-8C75-DCCE6F193D23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFB02E0-ACBF-4432-8DD9-56712E206968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFB02E0-ACBF-4432-8DD9-56712E206968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFB02E0-ACBF-4432-8DD9-56712E206968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFB02E0-ACBF-4432-8DD9-56712E206968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B9EC6E2-AA97-48DE-9891-2C1D24A4D383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B9EC6E2-AA97-48DE-9891-2C1D24A4D383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B9EC6E2-AA97-48DE-9891-2C1D24A4D383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B9EC6E2-AA97-48DE-9891-2C1D24A4D383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6673C5-58B8-4E5A-8369-2E21507F4131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6673C5-58B8-4E5A-8369-2E21507F4131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6673C5-58B8-4E5A-8369-2E21507F4131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6673C5-58B8-4E5A-8369-2E21507F4131}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C18A79D-385D-462F-888D-A17500C93249}
+	EndGlobalSection
+EndGlobal

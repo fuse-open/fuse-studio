@@ -1,0 +1,30 @@
+
+****************************************
+** TaskbarProgress NSIS plug-in
+****************************************
+
+Author:  AndersK
+Weblink: http://nsis.sourceforge.net/TaskbarProgress_plug-in
+Version: 20091109
+Minimum NSIS Version: 2.43
+License: zlib/libpng
+Contrib: Marius Negrutiu (built for amd64-unicode)
+         https://github.com/negrutiu/nsis
+
+
+****************************************
+** Usage:
+****************************************
+
+Section -MyFirstSection
+	w7tbp::Start /NOUNLOAD
+SectionEnd
+
+Call "w7tbp::Start /NOUNLOAD" from your first section
+/NOUNLOAD is mandatory otherwise the framework unloads the plugin immediately
+
+The plugin will do the rest...
+It monitors installer's progress bar and reflects it in the taskbar
+Enjoy!
+
+NOTE: Threre's no "w7tbp::Stop". The plugin will unload automatically when the installer exits

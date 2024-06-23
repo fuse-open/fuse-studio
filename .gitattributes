@@ -1,3 +1,7 @@
+# Third-party code
+3rdparty/**/*           linguist-vendored
+setup/nsis/tools/**/*   linguist-vendored
+
 # We don't really care about the order of changelog entries
 CHANGELOG.md merge=union
 

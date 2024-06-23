@@ -1,25 +1,21 @@
-version: 1.0.{build}
+version: '{build}'
+image: Visual Studio 2019
 
-configuration: Release
+environment:
+  nodejs_version: 16
 
-image: Visual Studio 2017
-platform: Any CPU
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
 
-build:
-  project: Fuse-Win32.sln
-  verbosity: normal
+build_script:
+  - md src\preview\core\bin\src\preview
+  - md src\preview\core\bin\src\simulator
+  - npm run setup:build
 
-clone_depth: 1
+after_build:
+  - ps: |
+      Push-AppveyorArtifact "fuse-*.exe"
 
-test:
-  assemblies:
-    only:
-      - Source\CodeCompletion\Outracks.CodeCompletion.CodeNinja.Tests\bin\$(configuration)\Outracks.CodeCompletion.CodeNinja.Tests.dll
-      - Source\CodeCompletion\Outracks.CodeCompletion.UXNinja.Tests\bin\$(configuration)\Outracks.CodeCompletion.UXNinja.Tests.dll
-      - Source\Common\Tests\bin\$(configuration)\Outracks.Common.Tests.dll
-      - Source\Fuse\Tests\bin\$(configuration)\Outracks.Fuse.Protocol.Tests.dll
-      - Source\Fusion\IntegrationTests\bin\$(configuration)\Fusion-IntegrationTests.exe
-      - Source\Fusion\Tests\bin\$(configuration)\Outracks.Fusion.Tests.dll
-      - Source\Preview\Tests\bin\$(configuration)\Fuse.Preview.Tests.dll
-      - Source\Simulator\Tests\bin\$(configuration)\Outracks.Simulator.Tests.dll
-      - Source\UnoHost\Tests\bin\$(configuration)\Outracks.UnoHost.Common.Tests.dll
+test_script:
+  - echo TODO npm test

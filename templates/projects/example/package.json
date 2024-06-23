@@ -1,0 +1,17 @@
+{
+  "name": "_$filename$_",
+  "private": true,
+  "devDependencies": {
+    "@fuse-open/tsconfig": "~2.7.0",
+    "@fuse-open/types": "~2.7.1"
+  },
+  "scripts": {
+    "android": "uno build android --run",
+    "android-emu": "uno build android-emu --run",
+    "ios": "uno build ios --debug",
+    "ios-sim": "uno build ios-sim --run",
+    "dotnet": "uno build dotnet --run",
+    "native": "uno build native --run",
+    "clean": "uno clean"
+  }
+}

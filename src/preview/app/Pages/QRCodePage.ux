@@ -1,0 +1,114 @@
+<Page ux:Class="QRCodePage">
+	<Router ux:Dependency="router" />
+
+	<JavaScript>
+		var Observable = require('FuseJS/Observable');
+		var simulatorAPI = require('SimulatorAPI');
+		var Permissions = require("BarcodeScanner/Permissions");
+		var environment = require('FuseJS/Environment');
+		var showBarcode = new Observable(true);
+		var errorMessage = new Observable("");
+
+		var BarcodeScanner = barcodeScanner;
+
+		BarcodeScanner.onCodeScanned(result => {
+			if(!environment.mobile)
+			{
+				errorMessage.value = 'Unsupported platform';
+				return;
+			}
+			errorMessage.value = '';
+			var lines = result.split('\n');
+			var addresses = lines.slice(0,lines.length-1);
+			var code = lines[lines.length-1].split("Code:")[1];
+			isBusy.activate();
+			stopQrCode();
+			simulatorAPI
+				.connectToProxy(addresses)
+				.then(function(proxy) {
+					proxy.connectToHost(code.toUpperCase())
+						.then(function(simulator) {
+							isBusy.deactivate();
+							router.goto("appViewPage", { simulatorId: simulator.id });
+						})
+				.catch(function(error) {
+					errorMessage.value = error;
+				});
+			})
+			.catch(function(error) {
+				errorMessage.value = error + "\nMake sure the IP address is correct and try again"
+				isBusy.deactivate();
+			});
+		})
+
+		function startQrCode() {
+			if(!environment.mobile)
+			{
+				errorMessage.value = 'Unsupported platform';
+				return;
+			}
+			Permissions.requrestCamera().then(() => {
+				errorMessage.value = '';
+				showBarcode.value = true;
+				BarcodeScanner
+					.start()
+					.then(() => {
+						console.log("Barcode scanner started")
+					})
+					.catch(err => {
+						errorMessage.value = "Failed to start barcode scanner: " + err
+					});
+			})
+			.catch(err => {
+				errorMessage.value = "Failed to acquire camera permission: " + err
+			})
+		}
+
+		function stopQrCode() {
+			if(!environment.mobile)
+			{
+				errorMessage.value = 'Unsupported platform';
+				return;
+			}
+			errorMessage.value = '';
+			showBarcode.value = false;
+			BarcodeScanner
+				.stop()
+				.then(() => console.log("Barcode scanner stopped"))
+				.catch(err => errorMessage.value = "Failed to stop barcode scanner: " + err);
+		}
+
+		module.exports = {
+			errorMessage: errorMessage,
+			startQrCode: startQrCode,
+			stopQrCode: stopQrCode,
+			showBarcode: showBarcode
+		};
+	</JavaScript>
+	<PageContent Title="Scan QR code" SubTitle="Ensure camera permissions are granted.">
+		<Busy ux:Name="isBusy" IsActive="false" />
+		<WhileString Value="{errorMessage}" Test="IsNotEmpty">
+			<ErrorView Message="{errorMessage}" Margin="0,16,0,0" Dock="Bottom"/>
+			<BasicButton Text="Scan QR code" Clicked="{startQrCode}">
+				<QRCodeIconWhite />
+			</BasicButton>
+		</WhileString>
+		<WhileString Value="{errorMessage}" Test="IsEmpty">
+			<WhileBusy>
+				<MyLoadingIndicator ux:Name="loadingPanel" ThemeColor="Highlight" Margin="16" />
+			</WhileBusy>
+		</WhileString>
+		<NativeViewHost ux:Name="barcodeContainer" Dock="Fill" Margin="0,16,0,0" Visibility="Collapsed">
+			<BarcodeScanner ux:Name="barcodeScanner" />
+		</NativeViewHost>
+		<WhileTrue Value="{showBarcode}">
+			<Change barcodeContainer.Visibility="Visible" />
+		</WhileTrue>
+	</PageContent>
+	<Deactivated>
+		<Callback Handler="{stopQrCode}"/>
+	</Deactivated>
+	<Activated>
+		<Callback Handler="{startQrCode}"/>
+	</Activated>
+</Page>

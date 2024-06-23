@@ -1,0 +1,1 @@
+Voici le contenu du fichier d'information français pour l'exemple Information.nsi

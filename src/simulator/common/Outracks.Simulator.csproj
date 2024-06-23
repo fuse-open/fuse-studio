@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3335BB78-0B8A-4D2F-919F-2E6F08883D51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.Simulator</RootNamespace>
+    <AssemblyName>Outracks.Simulator.Protocol</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath>bin\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="Bytecode\Exceptions.cs" />
+    <None Include="Bytecode\Expression.cs" />
+    <None Include="Bytecode\ExpressionIdRegistry.cs" />
+    <None Include="Bytecode\Expressions.cs" />
+    <None Include="Bytecode\Lambda.cs" />
+    <None Include="Bytecode\Literal.cs" />
+    <None Include="Bytecode\LiteralIdRegistry.cs" />
+    <None Include="Bytecode\Literals.cs" />
+    <None Include="Bytecode\MethodGroup.cs" />
+    <None Include="Bytecode\NamespaceName.cs" />
+    <None Include="Bytecode\Parameter.cs" />
+    <None Include="Bytecode\ProjectBytecode.cs" />
+    <None Include="Bytecode\ProjectDependency.cs" />
+    <None Include="Bytecode\ProjectMetadata.cs" />
+    <None Include="Bytecode\Signature.cs" />
+    <None Include="Bytecode\Statement.cs" />
+    <None Include="Bytecode\StatementIdRegistry.cs" />
+    <None Include="Bytecode\Statements.cs" />
+    <None Include="Bytecode\StaticMemberName.cs" />
+    <None Include="Bytecode\TypeMemberName.cs" />
+    <None Include="Bytecode\TypeName.cs" />
+    <None Include="Bytecode\TypeNameParser.cs" />
+    <None Include="Bytecode\TypeNameTokenizer.cs" />
+    <None Include="Bytecode\Variable.cs" />
+    <None Include="Common\BinaryMessage.cs" />
+    <None Include="Common\CharacterNumber.cs" />
+    <None Include="Common\Closure.cs" />
+    <None Include="Common\ImmutableList.cs" />
+    <None Include="Common\LineNumber.cs" />
+    <None Include="Common\MissingStuff.cs" />
+    <None Include="Common\SourceReference.cs" />
+    <None Include="Common\StringExtensions.cs" />
+    <None Include="Common\TextOffset.cs" />
+    <None Include="Common\TextOffsetConversion.cs" />
+    <None Include="Common\TextPosition.cs" />
+    <None Include="Messages\DebugLog.cs" />
+    <None Include="Messages\Diagnostic.cs" />
+    <None Include="Messages\Error.cs" />
+    <None Include="Messages\ExceptionInfo.cs" />
+    <None Include="Messages\RegisterName.cs" />
+    <None Include="Messages\UnhandledException.cs" />
+    <None Include="Runtime\*.cs" />
+    <None Include="Runtime\IReflection.cs" />
+    <None Include="EmptyClass.cs" />
+    <None Include="ObjectIdentifier.cs" />
+    <None Include="*.uno" />
+    <None Include="*.ux" />
+    <None Include="*.unoproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Messages\BytecodeGenerated.cs" />
+    <None Include="Messages\BytecodeUpdated.cs" />
+    <None Include="Bytecode\Exceptions.cs" />
+    <None Include="Common\Optionals\Operators\Combine.cs" />
+    <None Include="Common\Optionals\Operators\Or.cs" />
+    <None Include="Common\Optionals\Operators\Select.cs" />
+    <None Include="Common\Optionals\Operators\Serialization.cs" />
+    <None Include="Common\Optionals\Operators\TryGetValue.cs" />
+    <None Include="Common\Optionals\Optional.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+      pushd $(SolutionDir)
+      node_modules\.bin\uno build dotnet -DLIBRARY -DPREVIEW -DDESIGNER -DREFLECTION "$(ProjectDir)\Outracks.Simulator.unoproj" --configuration=$(Configuration) --output-dir=$(ProjectDir)$(OutDir) --no-strip
+      popd
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

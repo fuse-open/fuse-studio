@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SketchConverter", "SketchConverter\SketchConverter.csproj", "{B086E390-CE62-4C90-9214-9E828DE7AF33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SketchConverterTests", "SketchConverterTests\SketchConverterTests.csproj", "{D7DBE4E2-7E7F-4B7D-BFF5-2B9883555330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{C8EF4AC7-129C-4B5C-BEC7-C57AACAA7887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndToEndTests", "EndToEndTests\EndToEndTests.csproj", "{54732A2D-CA63-40FE-BECF-EB8040A67099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegressionTests", "RegressionTests\RegressionTests.csproj", "{42B45B5F-5F3F-4790-85FE-D21D0D3F0C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegressionTestsTests", "RegressionTestsTests\RegressionTestsTests.csproj", "{CD83B172-60DE-4677-9A5D-0B3699A1D15C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B086E390-CE62-4C90-9214-9E828DE7AF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B086E390-CE62-4C90-9214-9E828DE7AF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B086E390-CE62-4C90-9214-9E828DE7AF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B086E390-CE62-4C90-9214-9E828DE7AF33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7DBE4E2-7E7F-4B7D-BFF5-2B9883555330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7DBE4E2-7E7F-4B7D-BFF5-2B9883555330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7DBE4E2-7E7F-4B7D-BFF5-2B9883555330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7DBE4E2-7E7F-4B7D-BFF5-2B9883555330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8EF4AC7-129C-4B5C-BEC7-C57AACAA7887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8EF4AC7-129C-4B5C-BEC7-C57AACAA7887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8EF4AC7-129C-4B5C-BEC7-C57AACAA7887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8EF4AC7-129C-4B5C-BEC7-C57AACAA7887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54732A2D-CA63-40FE-BECF-EB8040A67099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54732A2D-CA63-40FE-BECF-EB8040A67099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54732A2D-CA63-40FE-BECF-EB8040A67099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54732A2D-CA63-40FE-BECF-EB8040A67099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B45B5F-5F3F-4790-85FE-D21D0D3F0C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B45B5F-5F3F-4790-85FE-D21D0D3F0C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B45B5F-5F3F-4790-85FE-D21D0D3F0C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B45B5F-5F3F-4790-85FE-D21D0D3F0C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD83B172-60DE-4677-9A5D-0B3699A1D15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD83B172-60DE-4677-9A5D-0B3699A1D15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD83B172-60DE-4677-9A5D-0B3699A1D15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD83B172-60DE-4677-9A5D-0B3699A1D15C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

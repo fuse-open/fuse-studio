@@ -21,6 +21,8 @@ packages/
 / /
 
 # Generated files
+*.aab
+*.apk
 *.deb
 *.tgz
 *.dll
@@ -58,6 +60,7 @@ Tests/SystemTest
 *.wixobj
 *.wixpdb
 /packages-wix.xml
+VcRedistLog.txt
 
 #UnoTest generated files
 *_actual_render.png
@@ -86,6 +89,7 @@ Uno/Packages/**/*
 
 # Build
 .build-inited
+.dotnet-run
 
 # STUFF
 .stuff/
@@ -100,12 +104,22 @@ auto_test_app_uno.pid
 # Visual studio 2015+ user specific directory
 .vs
 tools/mono
-Source/Fuse/Sandbox/AutoReloadContent.cs
-.vscode
-
+src/Fuse/Sandbox/AutoReloadContent.cs
 
 # unpacked Sketch43 test-files
 files/output
 
 #NUnit
 TestResult.xml
+
+# Node.js
+node_modules/
+
+# Installers
+*.dmg
+*.pkg
+*.exe
+
+# Logs
+unohost-*.txt
+debug.log

@@ -1,0 +1,11 @@
+{
+  "Packages": [
+    "Fuse",
+    "FuseJS"
+  ],
+  "Includes": [
+    "*",
+    "*.js:FuseJS"
+  ]
+}
+

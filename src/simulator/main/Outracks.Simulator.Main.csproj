@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8884270-5F2C-4076-86D0-456B831BE3E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.Simulator</RootNamespace>
+    <AssemblyName>Fuse.Simulator</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>obj/</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>obj/</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.4.4.1\lib\net46\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Build">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Common">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.API">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Compiler.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Backends.CIL">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Compiler.Backends.CIL.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.UX.Markup.dll</HintPath>
+    </Reference>
+    <Reference Include="UnoCore">
+      <HintPath>..\common\bin\UnoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildFailed.cs" />
+    <Compile Include="CodeGeneration\Paths.cs" />
+    <Compile Include="UxFileContents.cs" />
+    <Compile Include="Parser\AccumulatingProgress.cs" />
+    <Compile Include="Parser\Caching\CachingCompiler.cs" />
+    <Compile Include="Parser\Caching\CachingDataType.cs" />
+    <Compile Include="Parser\Exceptions.cs" />
+    <Compile Include="Parser\Ghosting\GhostCompiler.cs" />
+    <Compile Include="Parser\Ghosting\GhostCompilerFactory.cs" />
+    <Compile Include="Parser\Ghosting\GhostDataType.cs" />
+    <Compile Include="Parser\Ghosting\GhostGlobalResource.cs" />
+    <Compile Include="Parser\Ghosting\GhostProperty.cs" />
+    <Compile Include="Parser\Ghosting\GlobalResourceNode.cs" />
+    <Compile Include="Parser\Ghosting\IMemberNode.cs" />
+    <Compile Include="Parser\Ghosting\OuterClassNode.cs" />
+    <Compile Include="Parser\Ghosting\PropertyNode.cs" />
+    <Compile Include="Parser\Ghosting\UxXmlExtensions.cs" />
+    <Compile Include="Parser\HasErrorsErrorLogWrapper.cs" />
+    <Compile Include="Parser\ParsedDocument.cs" />
+    <Compile Include="Parser\UxParser.cs" />
+    <Compile Include="CodeGeneration\ReifyRequired.cs" />
+    <Compile Include="CodeGeneration\Context.cs" />
+    <Compile Include="CodeGeneration\Declarations.cs" />
+    <Compile Include="CodeGeneration\Exceptions.cs" />
+    <Compile Include="CodeGeneration\FileSources.cs" />
+    <Compile Include="CodeGeneration\FindNodesInScope.cs" />
+    <Compile Include="CodeGeneration\GetExpression.cs" />
+    <Compile Include="CodeGeneration\Initialization.cs" />
+    <Compile Include="CodeGeneration\Initialization.EventBindings.cs" />
+    <Compile Include="CodeGeneration\Initialization.ListProperties.cs" />
+    <Compile Include="CodeGeneration\Initialization.SingleProperties.cs" />
+    <Compile Include="CodeGeneration\Scopes.cs" />
+    <Compile Include="CodeGeneration\UxClasses.cs" />
+    <Compile Include="CodeGeneration\UxFactories.cs" />
+    <Compile Include="CodeGeneration\UxProperties.cs" />
+    <Compile Include="CodeGeneration\InvalidUXIL.cs" />
+    <Compile Include="MetadataGenerator.cs" />
+    <Compile Include="ExpressionConverter.cs" />
+    <Compile Include="ProjectObjectIdentifiers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\DotNetBuild.cs" />
+    <Compile Include="Runtime\DotNetReflection.cs" />
+    <Compile Include="Runtime\MemoizingTypeMap.cs" />
+    <Compile Include="Runtime\TypeAliasNameResolver.cs" />
+    <Compile Include="Runtime\TypeMap.cs" />
+    <Compile Include="UniqueNames.cs" />
+    <Compile Include="UXIL\Marshalling.cs" />
+    <Compile Include="UXIL\MatchWith.cs" />
+    <Compile Include="ValueParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\common\Outracks.Simulator.csproj">
+      <Project>{3335BB78-0B8A-4D2F-919F-2E6F08883D51}</Project>
+      <Name>Outracks.Simulator</Name>
+    </ProjectReference>
+    <Reference Include="Outracks.Simulator">
+      <HintPath>..\common\bin\Outracks.Simulator.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Collections">
+      <HintPath>..\..\simulator\common\bin\Uno.Collections.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,14 @@
+<App Background="#FFF">
+    <Panel>
+        <Button Alignment="CenterRight" Text="Clear" Margin="5">
+            <Clicked>
+                <Set text.Value="" />
+            </Clicked>
+        </Button>
+        <TextInput ux:Name="text" PlaceholderText="Text field" PlaceholderColor="#ccc" Height="50" Padding="5" >
+            <Rectangle Layer="Background">
+                <Stroke Width="2" Brush="#BBB" />
+            </Rectangle>
+        </TextInput>
+    </Panel>
+</App>

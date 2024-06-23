@@ -1,0 +1,287 @@
+<!--
+***********************************************************************************************
+Xamarin.Mac.Common.targets
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+  created a backup copy.  Incorrect changes to this file will make it
+  impossible to load or build your projects from the command-line or the IDE.
+
+This file imports the version- and platform-specific targets for the project importing
+this file. This file also defines targets to produce an error if the specified targets
+file does not exist, but the project is built anyway (command-line or IDE build).
+
+Copyright (C) 2014 Xamarin. All rights reserved.
+***********************************************************************************************
+-->
+
+<!-- Xamarin.Mac.Common.targets currently is not shared with Xamarin.Mac.ObjCBinding targets,
+     so be careful not to add fixes here that should go into Xamarin.Mac.Common.props which is shared -->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(MSBuildThisFileDirectory)Xamarin.Mac.Common.props" />
+	
+	<Import Project="$(MSBuildThisFileDirectory)Xamarin.Shared.targets"/>
+
+	<Import Project="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).Before.targets"
+			Condition="Exists('$(MSBuildThisFileDirectory)$(MSBuildThisFileName).Before.targets')"/>
+
+	<PropertyGroup>
+		<_CanOutputAppBundle>False</_CanOutputAppBundle>
+		<_CanOutputAppBundle Condition="'$(OutputType)' == 'Exe' Or '$(IsAppExtension)' == 'true'">true</_CanOutputAppBundle>
+
+		<_CanArchive>False</_CanArchive>
+		<_CanArchive Condition="'$(OutputType)' == 'Exe'">true</_CanArchive>
+
+		<_RequireProvisioningProfile>False</_RequireProvisioningProfile>
+		<_RequireProvisioningProfile Condition="'$(CodesignProvision)' != ''">True</_RequireProvisioningProfile>
+
+		<_PreparedResourceRules></_PreparedResourceRules>
+		<_AppBundleName>$(AssemblyName)</_AppBundleName>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(UsingAppleNETSdk)' != 'true'">
+		<BuildDependsOn>
+			BuildOnlySettings;
+			_CollectBundleResources;
+			_PackLibraryResources;
+			_UnpackLibraryResources;
+			$(BuildDependsOn);
+			_GenerateBundleName;
+			_CreateAppBundle;
+			Codesign;
+			_CreateInstaller;
+			Archive;
+		</BuildDependsOn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<CreateAppBundleDependsOn Condition="'$(UsingAppleNETSdk)' != 'true'">
+			_DetectSigningIdentity;
+			_CopyResourcesToBundle;
+			_SmeltMetal;
+			_ForgeMetal;
+			_TemperMetal;
+			_CompileEntitlements;
+			_CompileAppManifest;
+			_ParseBundlerArguments;
+			_CompileToNative;
+			_CreatePkgInfo;
+			_CopyAppExtensionsToBundle;
+			_ReadAppExtensionDebugSymbolProperties;
+			_GenerateAppExtensionDebugSymbols;
+			_PrepareDebugSymbolGeneration;
+			_GenerateDebugSymbols;
+		</CreateAppBundleDependsOn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<_CodesignAppBundleDependsOn>
+			_CreateAppBundle;
+			_EmbedProvisionProfile;
+			_CodesignNativeLibraries;
+			_CollectFrameworks;
+			_CodesignFrameworks;
+		</_CodesignAppBundleDependsOn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(UsingAppleNETSdk)' != 'true'">
+		<CleanDependsOn>
+			$(CleanDependsOn);
+			_CleanAppBundle;
+			_CleanIntermediateToolOutput;
+		</CleanDependsOn>
+	</PropertyGroup>
+
+	<Target Name="_CleanAppBundle" Condition="'$(_CanOutputAppBundle)' == 'true'" DependsOnTargets="_GenerateBundleName">
+		<RemoveDir Directories="$(_AppBundlePath)" />
+	</Target>
+
+	<Target Name="_CleanIntermediateToolOutput">
+		<RemoveDir Directories="$(IntermediateOutputPath)actool" />
+		<RemoveDir Directories="$(IntermediateOutputPath)ibtool" />
+		<RemoveDir Directories="$(IntermediateOutputPath)metal" />
+		<RemoveDir Directories="$(IntermediateOutputPath)scntool" />
+		<RemoveDir Directories="$(IntermediateOutputPath)TextureAtlas" />
+		<RemoveDir Directories="$(IntermediateOutputPath)" />
+	</Target>
+
+	<Target Name="_CodesignAppBundle" Condition="'$(_RequireCodeSigning)'" DependsOnTargets="$(_CodesignAppBundleDependsOn)">
+		<Codesign
+			Condition="'$(IsMacEnabled)' == 'true'"
+			SessionId="$(BuildSessionId)"
+			ToolExe="$(CodesignExe)"
+			ToolPath="$(CodesignPath)"
+			CodesignAllocate="$(_CodesignAllocate)"
+			Keychain="$(CodesignKeychain)"
+			Entitlements="$(IntermediateOutputPath)Entitlements.xcent"
+			Resources="$(AppBundleDir)"
+			SigningKey="$(_CodeSigningKey)"
+			ExtraArgs="$(CodesignExtraArgs)"
+			IsAppExtension="$(IsAppExtension)"
+			UseHardenedRuntime="$(UseHardenedRuntime)"
+			UseSecureTimestamp="$(UseHardenedRuntime)"
+			>
+		</Codesign>
+	</Target>
+
+	<Target Name="_CodesignVerify" Condition="'$(_RequireCodeSigning)'" DependsOnTargets="_CodesignAppBundle">
+		<CodesignVerify
+			Condition="'$(IsMacEnabled)' == 'true'"
+			SessionId="$(BuildSessionId)"
+			ToolExe="$(CodesignExe)"
+			ToolPath="$(CodesignPath)"
+			CodesignAllocate="$(_CodesignAllocate)"
+			Resource="$(AppBundleDir)"
+		>
+		</CodesignVerify>
+	</Target>
+
+	<Target Name="_CompileTextureAtlases" DependsOnTargets="_DetectAppManifest;_DetectSdkLocations;_CoreCompileTextureAtlases" />
+
+	<Target Name="_CoreCompileTextureAtlases">
+		<TextureAtlas
+			Condition="'$(IsMacEnabled)' == 'true'"
+			SessionId="$(BuildSessionId)"
+			ToolExe="$(TextureAtlasExe)"
+			ToolPath="$(TextureAtlasPath)"
+			AtlasTextures="@(AtlasTexture)"
+			IntermediateOutputPath="$(IntermediateOutputPath)"
+			ProjectDir="$(MSBuildProjectDirectory)"
+			ResourcePrefix="$(_ResourcePrefix)"
+			SdkDevPath="$(_SdkDevPath)"
+			SdkBinPath="$(_SdkBinPath)"
+			SdkUsrPath="$(_SdkUsrPath)">
+			<Output TaskParameter="BundleResources" ItemName="FileWrites" />
+			<Output TaskParameter="BundleResources" ItemName="_BundleResourceWithLogicalName" />
+		</TextureAtlas>
+	</Target>
+
+	<Target Name="_CompileProductDefinition" Condition="$(CreatePackage)" DependsOnTargets="_DetectAppManifest;_ComputeTargetArchitectures">
+		<CompileProductDefinition
+			Condition="'$(IsMacEnabled)' == 'true'"
+			SessionId="$(BuildSessionId)"
+			ProductDefinition="$(ProductDefinition)"
+			OutputDirectory = "$(IntermediateOutputPath)"
+			TargetArchitectures = "$(TargetArchitectures)"
+			AppManifest = "$(_AppManifest)">
+			<Output TaskParameter="CompiledProductDefinition" PropertyName="_CompiledProductDefinition" />
+		</CompileProductDefinition>
+	</Target>
+
+	<Target Name="_CreateInstaller" Condition="$(CreatePackage)" DependsOnTargets="Codesign;_CompileProductDefinition">
+		<CreateInstallerPackage
+			Condition="'$(IsMacEnabled)' == 'true'"
+			SessionId="$(BuildSessionId)"
+			OutputDirectory = "$(TargetDir)"
+			Name = "$(AssemblyName)"
+			AppManifest="$(_AppManifest)"
+			ProjectPath= "$(MSBuildProjectFullPath)"
+			AppBundleDir= "$(AppBundleDir)"
+			MainAssembly= "$(TargetPath)"
+			EnablePackageSigning = "$(EnablePackageSigning)"
+			ProductDefinition = "$(_CompiledProductDefinition)"
+			PackageSigningKey = "$(PackageSigningKey)"
+			PackagingExtraArgs = "$(PackagingExtraArgs)">
+		</CreateInstallerPackage>
+	</Target>
+
+	<PropertyGroup>
+		<CompileToNativeDependsOn>
+			_ComputeLinkMode;
+			_ComputeTargetFrameworkMoniker;
+			_DetectAppManifest;
+			_DetectSdkLocations;
+			_GenerateBundleName;
+			ResolveReferences;
+			_CompileEntitlements;
+			_CompileAppManifest;
+			_GetNativeExecutableName;
+			_GetCompileToNativeInputs;
+			_ExpandNativeReferences;
+			_ComputeTargetArchitectures;
+		</CompileToNativeDependsOn>
+	</PropertyGroup>
+
+	<Target Name="_CompileToNative" DependsOnTargets="$(CompileToNativeDependsOn)"
+		Condition = "'$(UsingAppleNETSdk)' != 'true'"
+		Inputs="@(_CompileToNativeInput);@(_FileNativeReference);@(BundleDependentFiles)"
+		Outputs="$(_AppBundlePath)Contents\MacOS\$(_AppBundleName);$(DeviceSpecificOutputPath)bundler.stamp">
+<!--
+		<Mmp
+			Condition="'$(IsMacEnabled)' == 'true'"
+			SessionId="$(BuildSessionId)"
+			AppBundleDir="$(AppBundleDir)"
+			OutputPath="$(OutputPath)"
+			ApplicationName="$(_AppBundleName)"
+			MainAssembly="$(OutputPath)$(TargetName)$(TargetExt)"
+			MinimumOSVersion="$(_MinimumOSVersion)"
+			TargetFrameworkMoniker="$(_ComputedTargetFrameworkMoniker)"
+			Architecture="$(TargetArchitectures)"
+			ArchiveSymbols="$(MonoSymbolArchive)"
+			CustomBundleName="$(_CustomBundleName)"
+			LinkMode="$(_LinkMode)"
+			Debug="$(_BundlerDebug)"
+			HttpClientHandler="$(HttpClientHandler)"
+			I18n="$(I18n)"
+			Profiling="$(Profiling)"
+			ExtraArgs="$(_BundlerArguments)"
+			NativeReferences="@(_FrameworkNativeReference);@(_FileNativeReference)"
+			References="@(ReferencePath);@(_BundlerReferencePath)"
+			ResponseFilePath="$(IntermediateOutputPath)response-file.rsp"
+			SdkRoot="$(_SdkDevPath)"
+			IntermediateOutputPath="$(IntermediateOutputPath)mmp-cache"
+			SdkVersion="$(_SdkVersion)"
+			IsAppExtension="$(IsAppExtension)"
+			IsXPCService="$(IsXPCService)"
+			EnableSGenConc="$(EnableSGenConc)"
+			AotMode="$(AOTMode)"
+			HybridAOT="$(HybridAOT)"
+			ExplicitAotAssemblies="$(ExplicitAotAssemblies)"
+			StandardOutputImportance="High"
+			XamarinSdkRoot="$(_XamarinSdkRoot)"
+			>
+		</Mmp>
+-->
+		<Touch
+			SessionId="$(BuildSessionId)"
+			Condition="'$(IsMacEnabled)' == 'true'"
+			AlwaysCreate="true"
+			Files="$(DeviceSpecificOutputPath)bundler.stamp"
+			>
+			<Output TaskParameter="TouchedFiles" ItemName="FileWrites" />
+		</Touch>
+	</Target>
+
+	<Import Project="$(MSBuildThisFileDirectory)Xamarin.Mac.msbuild.targets" />
+
+	<PropertyGroup>
+		<ArchiveDependsOn>
+			_CoreArchive
+		</ArchiveDependsOn>
+	</PropertyGroup>
+	
+	<Target Name="Archive" Condition="'$(_CanArchive)' == 'true'" DependsOnTargets="$(ArchiveDependsOn)" />
+	
+	<Target Name="_CoreArchive" Condition="'$(ArchiveOnBuild)' == 'true'" DependsOnTargets="$(Codesign)">
+		<Error Text="Code signing must be enabled to create an Xcode archive." Condition="'$(_CodeSigningKey)' == ''" />
+
+		<Archive
+			SessionId="$(BuildSessionId)"
+			AppBundleDir="$(AppBundleDir)"
+			InsightsApiKey="$(XamarinInsightsApiKey)"
+			SigningKey="$(_CodeSigningKey)"
+			ProjectName="$(MSBuildProjectName)"
+			ProjectGuid="$(ProjectGuid)"
+			ProjectTypeGuids="$(ProjectTypeGuids)"
+			OutputPath="$(OutputPath)"
+			TargetFrameworkMoniker="$(_ComputedTargetFrameworkMoniker)"
+			CustomBundleName="$(_CustomBundleName)"
+			>
+			<Output TaskParameter="ArchiveDir" PropertyName="ArchiveDir" />
+		</Archive>
+	</Target>
+
+	<Import Project="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).After.targets"
+			Condition="Exists('$(MSBuildThisFileDirectory)$(MSBuildThisFileName).After.targets')"/>
+</Project>
+

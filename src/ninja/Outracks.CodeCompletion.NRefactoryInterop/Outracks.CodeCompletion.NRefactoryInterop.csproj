@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A43F127-3217-4BEA-93F0-13903B240B5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.CodeCompletion</RootNamespace>
+    <AssemblyName>Outracks.CodeCompletion.NRefactoryInterop</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath>bin/$(Configuration)</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3rdparty\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.Xml, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3rdparty\ICSharpCode.NRefactory.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Uno.Common">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.API">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Compiler.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Core">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Compiler.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Compiler.Frontend">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Compiler.Frontend.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.UX.Markup.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GotoDefinitionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuggestionsFactory.cs" />
+    <Compile Include="UXNinja\Attribute.cs" />
+    <Compile Include="UXNinja\CodeReader.cs" />
+    <Compile Include="UXNinja\Context.cs" />
+    <Compile Include="UXNinja\CreateUXSuggestions.cs" />
+    <Compile Include="UXNinja\ElementContext.cs" />
+    <Compile Include="UXNinja\NRefactoryExtensions.cs" />
+    <Compile Include="UXNinja\SourceEntityFactoryUX.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\core\Outracks.Core.csproj">
+      <Project>{196B010D-AD36-4947-95AA-14FC4A27BD18}</Project>
+      <Name>Outracks.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Outracks.CodeCompletion.CodeNinja\Outracks.CodeCompletion.CodeNinja.csproj">
+      <Project>{5C6C19F4-C5C4-4F8B-BAE4-A92E6C0D62BB}</Project>
+      <Name>Outracks.CodeCompletion.CodeNinja</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Outracks.CodeCompletion.UXNinja\Outracks.CodeCompletion.UXNinja.csproj">
+      <Project>{3C19F9AA-9C81-426F-A0EA-B046AAE755EE}</Project>
+      <Name>Outracks.CodeCompletion.UXNinja</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Outracks.CodeCompletion\Outracks.CodeCompletion.csproj">
+      <Project>{3AAB1DB2-FCB7-495D-ADDF-11131DCF821A}</Project>
+      <Name>Outracks.CodeCompletion</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

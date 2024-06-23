@@ -1,5 +1,0 @@
-<App ux:Class="Application">
-	<Panel Color="BG">
-		<MainView />
-	</Panel>
-</App>

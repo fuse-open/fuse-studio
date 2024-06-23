@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "*.plist": "xml",
+        "*.uxl": "xml"
+    },
+    "files.exclude": {
+        "**/.uno": true,
+        "**/.vs": true,
+        "**/bin": true,
+        "**/build": true,
+        "**/node_modules": true,
+        "**/packages": true,
+        "**/obj": true,
+        "**/*.user": true,
+        "*.apk": true,
+        "*.dmg": true,
+        "*.exe": true,
+        "*.pkg": true,
+        "*.tgz": true
+    }
+}

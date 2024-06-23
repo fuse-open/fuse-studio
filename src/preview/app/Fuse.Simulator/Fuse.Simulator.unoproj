@@ -1,0 +1,18 @@
+{
+  "RootNamespace":"Fuse.Simulator",
+  "Title": "Fuse Simulator",
+  "Version": "1.0.0",
+  "VersionCode": 1,
+  "Description": "Simulator for Fuse projects",
+  "Publisher": "Build & Run",
+  "Packages": [
+    "Fuse",
+    "FuseJS",
+    "Uno.Net.Sockets",
+    "Fuse.Preview.Core",
+    "Outracks.Simulator"
+  ],
+  "Includes": [
+    "*"
+  ]
+}

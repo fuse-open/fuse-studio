@@ -1,0 +1,45 @@
+<Page ux:Class="SetupPage">
+	<Router ux:Dependency="router" />
+	<JavaScript>
+		var projects = require('Projects');
+		var simulatorAPI = require('SimulatorAPI');
+
+		function requestPortrait() {
+			simulatorAPI.requestScreenOrientation("Portrait");
+		}
+
+		module.exports = {
+			projects: projects.getProjects(),
+			requestPortrait: requestPortrait
+		};
+	</JavaScript>
+	<Activated Handler="{requestPortrait}" />
+	<Android.StatusBarConfig Color="BG" IsVisible="True" />
+	<iOS.StatusBarConfig Style="Light" Animation="Slide" IsVisible="True" />
+
+	<ClientPanel>
+		<AttractorConfig Unit="Normalized" Easing="CircularInOut" Duration="0.4" ux:Global="asNormalized" />
+
+		<DockPanel>
+			<ManualSetupPageIndicator Dock="Bottom" ux:Name="pageIndicator" Progress="attract({Property pageControl.ActiveIndex} - 2, asNormalized)" Opacity="0">
+				<WhileTrue Value="{Property pageControl.ActiveIndex} > 1">
+					<Change pageIndicator.Opacity="1" Duration="0.2"/>
+				</WhileTrue>
+			</ManualSetupPageIndicator>
+
+			<PageControl ux:Name="pageControl" Active="firstPage">
+				<QRCodePage ux:Name="qrCodePage" router="router"/>
+				<DescriptionPage ux:Name="firstPage"/>
+				<OpenPage ux:Name="manualSetupPage">
+					<WhileActive>
+						<Change pageControl.AllowedSwipeDirections="Forward"/>
+					</WhileActive>
+					<OnConnected>
+						<GoBack/>
+					</OnConnected>
+				</OpenPage>
+				<CodePage router="router" />
+			</PageControl>
+		</DockPanel>
+	</ClientPanel>
+</Page>

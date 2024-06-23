@@ -12,7 +12,7 @@ it in all your interactions related to the project.
 1. Features should generally be pulled against the `master` branch.
    Bug fixes, depending on the urgency and risk, go either against an active
    release branch, or `master`.
-2. Make sure the code follows our [coding style](Documentation/CodingStyle.md).
+2. Make sure the code follows our [coding style](docs/coding-style.md).
 3. New features should have tests added, ensuring the feature does not
    silently break. Bug fixes should generally have regression tests added
    to ensure they're not reintroduced later.

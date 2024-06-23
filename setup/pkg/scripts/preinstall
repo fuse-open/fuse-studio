@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Clean up any old install
+rm -rf /usr/local/share/uno/Packages            # Legacy
+rm -rf /usr/local/bin/fuse-x
+rm -rf /usr/local/bin/fuse
+rm -rf /usr/local/bin/uno
+rm -rf /usr/local/bin/unotest                   # Legacy
+rm -rf /Applications/Fuse.app                   # Legacy
+rm -rf "/Applications/fuse X.app"
+rm -rf /Applications/fuse-uri.app               # Legacy
+rm -rf "/Applications/fuse X (uri-handler).app" # Legacy
+
+# Old path
+rm -rf /usr/share/uno/Packages
+rm -rf /usr/bin/uno
+rm -rf /usr/bin/unotest
+rm -rf /usr/bin/fuse
+
+# Legacy
+rm -rf "$HOME/Library/Application Support/Fusetools"
+rm -rf /usr/local/share/uno/SDKs
+rm -rf /usr/share/uno/SDKs
+
+# Temp files
+rm -rf /tmp/get-version.js
+rm -rf /tmp/version-gte.js
+rm -rf /tmp/check-system.*
+rm -rf /tmp/install-fuse.*
+rm -rf /tmp/launch-fuse.*
+rm -rf /tmp/fuse-*.tgz
+rm -rf "/tmp/fuse X.app"

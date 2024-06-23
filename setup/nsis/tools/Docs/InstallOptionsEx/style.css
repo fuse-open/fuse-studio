@@ -1,0 +1,171 @@
+body
+  {
+  background-color: #F0F0F0;
+  font: 11px Verdana, Helvetica;
+  text-align: justify;
+  padding: 10px;
+  }
+
+h1
+  {
+  color: #333;
+  font: 30px Verdana, Helvetica;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  }
+  
+h2
+  {
+  color: #333;
+  font: 16px Verdana, Helvetica;
+  margin-top: 0px;
+  }
+  
+.mm
+  {
+  margin-left: 5%;
+  }
+
+ul
+  {
+  margin: 0px 40px 5px 40px;
+  list-style-type: circle;
+  }
+  
+ul ul
+  {
+  margin: 0px 60px 5px 60px;
+  list-style-type: square;
+  }
+
+p, pre, br
+  {
+  margin: 7.5px 0px;
+  }
+  
+.tm
+  {
+  margin: 7.5px 0px 0px;
+  }
+  
+.bm
+  {
+  margin: 0px 0px 7.5px;
+  }
+  
+.pm
+  {
+  margin: 0px;
+  }
+
+a:link, a:visited, a:active
+  {
+  color: #294F75;
+  }
+
+a:hover
+  {
+  color: #182634;
+  text-decoration: underline;
+  }
+  
+table
+  {
+  background-color: #FFF;
+  border: 1px solid #000;
+  font: 11px Verdana;
+  text-align: justify;
+  }
+
+.maintable
+  {
+  border: 2px solid #376EAB;
+  width: 95%;
+  }
+  
+.ti
+  {
+  color: #FFF;
+  background-color: #888;
+  font: 12px Arial;
+  text-indent: 2px;
+  width: 90%;
+  }
+
+.tia
+  {
+  color: #FFF;
+  background-color: #888;
+  font: 12px Arial;
+  text-indent: 2px;
+  width: 100%;
+  }
+  
+.tian
+  {
+  color: #FFF;
+  background-color: #F60;
+  font: 12px Arial;
+  text-indent: 2px;
+  width: 100%;
+  }
+
+.tiao
+  {
+  color: #FFF;
+  background-color: #070;
+  font: 12px Arial;
+  text-indent: 2px;
+  width: 100%;
+  }
+
+.tx
+  {
+  background-color: #DDD;
+  border-top: 0px solid #000;
+  width: 90%;
+  padding: 2%;
+  }
+
+.txa
+  {
+  background-color: #DDD;
+  border-top: 0px solid #000;
+  width: 100%;
+  padding: 2%;
+  }
+
+.txan
+  {
+  background-color: #fA0;
+  border-top: 0px solid #000;
+  width: 100%;
+  padding: 2%;
+  }
+
+.txao
+  {
+  background-color: #7A7;
+  border-top: 0px solid #000;
+  width: 100%;
+  padding: 2%;
+  }
+
+.trigger
+  {
+  cursor: pointer;
+  cursor: hand;
+  }
+
+.toggle
+  {
+  display: none;
+  }
+
+a
+  {
+  cursor: pointer;
+  cursor: hand;
+  }
+  
+.sc{display:none;}

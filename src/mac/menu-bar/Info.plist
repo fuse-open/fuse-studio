@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>fuse X (menu bar)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.fuse-x.menu-bar</string>
+	<key>CFBundleName</key>
+	<string>fuse X (menu bar)</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.10</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>CFBundleIconFile</key>
+	<string>Fuse</string>
+	<key>CFBundleShortVersionString</key>
+	<string>VERSION_NUMBER</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSUserNotificationAlertStyle</key>
+	<string>alert</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© Build &amp; Run</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+</dict>
+</plist>

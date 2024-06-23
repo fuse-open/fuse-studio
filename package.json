@@ -1,0 +1,97 @@
+{
+  "name": "@fuse-x/studio",
+  "version": "2.9.1",
+  "description": "fuse X is a visual desktop tool suite for working with the Fuse Open framework.",
+  "dependencies": {
+    "@fuse-open/fuselibs": "~2.9.1",
+    "@fuse-open/opentk": "~3.2.0",
+    "@fuse-open/tsconfig": "~2.7.0",
+    "@fuse-open/types": "~2.7.1",
+    "@fuse-open/uno": "~2.9.2",
+    "@fuse-open/xamarin-mac": "~9.3.0"
+  },
+  "devDependencies": {
+    "filecompare": "^1.0.4",
+    "fuse-barcodescanner": "^1.0.0",
+    "replace": "^1.2.2",
+    "rimraf": "^5.0.0",
+    "xbash": "^1.6.0",
+    "xml-reader": "^2.4.3"
+  },
+  "bin": {
+    "fuse": "bin/Debug/fuse.js",
+    "fuse-x": "bin/Debug/fuse.js",
+    "uno": "node_modules/@fuse-open/uno/bin/uno.js"
+  },
+  "bin-mac": {
+    "fuse": "bin/Release/fuse.js",
+    "fuse-x": "bin/Release/fuse.js",
+    "uno": "node_modules/@fuse-open/uno/bin/uno.js"
+  },
+  "bin-win": {
+    "fuse": "bin/Release/fuse.exe",
+    "fuse-x": "bin/Release/fuse.exe",
+    "uno": "node_modules/@fuse-open/uno/bin/uno.exe"
+  },
+  "scripts": {
+    "app:android": "bash src/preview/app/build.sh android --run",
+    "app:android-emu": "bash src/preview/app/build.sh android-emu --run",
+    "app:dotnet": "bash src/preview/app/build.sh dotnet --run",
+    "app:native": "bash src/preview/app/build.sh native --run",
+    "app:ios": "bash src/preview/app/build.sh ios -DCOCOAPODS --debug",
+    "app:ios-sim": "bash src/preview/app/build.sh ios-sim -DCOCOAPODS --run",
+    "build": "bash scripts/build.sh",
+    "app:build-apk": "bash src/preview/app/build.sh android --release -f && bash -c 'cp -Lfv src/preview/app/build/android/release/fuse-preview.apk fuse-x-preview-$npm_package_version-android.apk'",
+    "app:build-aab": "bash src/preview/app/build.sh android --release -f && bash -c 'cp -Lfv src/preview/app/build/android/release/fuse-preview.aab fuse-x-preview-$npm_package_version-android.aab'",
+    "setup:build": "bash setup/build.sh",
+    "setup:notarize": "bash setup/notarize.sh",
+    "setup:staple": "bash setup/staple.sh",
+    "texts-cs": "node scripts/texts-cs.js",
+    "clean": "rimraf bin/ packages/ src/**/.uno/ src/**/build/ src/**/bin/ src/**/obj/",
+    "daemon": "bash scripts/daemon.sh",
+    "doctor": "uno doctor src/simulator src/preview",
+    "fuse": "node bin/Debug/fuse.js",
+    "kill": "bash scripts/kill.sh",
+    "nuke": "yes n | git clean -dxf & npm run build",
+    "test": "bash scripts/test.sh",
+    "version": "bash scripts/version.sh",
+    "uninstall": "bash scripts/uninstall.sh",
+    "uno": "uno"
+  },
+  "scripts-mac": {
+    "postinstall": "node scripts/restore.js"
+  },
+  "scripts-win": {
+    "postinstall": "node scripts/restore.js"
+  },
+  "files": [
+    ".unoconfig",
+    "bin/Release/**/*",
+    "components/**/*",
+    "empty/*.*",
+    "scripts/restore.js",
+    "setup/uninstall.sh",
+    "src/preview/build/**/*",
+    "src/simulator/build/**/*",
+    "src/simulator/main/obj/Fuse.Simulator.dll",
+    "templates/**/*",
+    "templates/**/.gitattributes",
+    "templates/**/.gitignore"
+  ],
+  "os-mac": [
+    "darwin"
+  ],
+  "os-win": [
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuse-x/studio.git"
+  },
+  "author": "Build & Run",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuse-x/studio/issues"
+  },
+  "homepage": "https://fuse-x.com"
+}

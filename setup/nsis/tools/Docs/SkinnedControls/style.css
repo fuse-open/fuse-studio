@@ -1,0 +1,246 @@
+body {
+  padding: 10px;
+  background-color: #F0F0F0;
+  font-size: 13px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-align: left;
+  color: #000000;
+}
+
+p, li {
+  font-size: 13px;
+}
+
+ul {
+  padding-bottom:8px;
+  padding-left:25px;
+}
+
+.maintable {
+  border: 2px solid #376EAB;
+  width: 750px;
+  margin:auto;
+  color: #000000;
+  background-color: #FFFFFF;
+  min-height: 600px;
+}
+
+.parameter {
+  font-weight: bold;
+  color: #6586AC;
+  background-color: #FFFFFF;
+}
+
+.smallScreen {
+  margin-left: 15px;
+  margin-top: -38px;
+  margin-right: 6px;
+  float: right;
+}
+
+h1 {
+  font-size: 20px;
+  color: #7A7272;
+  background-color: #FFFFFF;
+  font-weight: normal;
+}
+h2 {
+  font-size: 17px;
+  font-weight: bold;
+  color: #2B5885;
+  background-color: #FFFFFF;
+}
+h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1C3A58;
+  background-color: #FFFFFF;
+}
+h5 {
+  margin: 0px;
+}
+
+pre {
+  font-size: 13px;
+  color: #333;
+  margin-top: -5px;
+}
+
+div {
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+
+}
+
+.footer {
+  font-size: 10px;
+  text-align: right;
+  color: #909090;
+  background-color: #FFFFFF;
+  margin: 5px;
+}
+
+a:link, a:visited, a:active {
+  color: #294F75;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: #182634;
+  background-color: #FFFFFF;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+/* Pour la Doc */
+/* ----------- */
+
+.trigger {
+  cursor: pointer;
+}
+.toggle {
+  display: none;
+}
+.options {
+  text-align: center;
+  cursor: pointer;
+  color: #294F75;
+  background-color: #FFFFFF;
+  font-weight: bold;
+}
+
+.red {
+  color: #ff0000;
+  background-color: #FFFFFF;
+  text-decoration: line-through;
+}
+.blue {
+  color: #0000ff;
+  background-color: #FFFFFF;
+}
+.purple {
+  color: #800080;
+  background-color: #FFFFFF;
+}
+
+
+/* http://www.menucool.com */
+
+#sliderFrame, #sliderFrame div {
+  margin:0;
+}
+#sliderFrame {
+  margin:0 auto; /*center-aligned*/
+  margin-left: -5px;
+  margin-bottom: 40px;
+  height: 542px;
+}
+
+#slider, #slider .sliderInner {
+  width:706px;
+  height:545px;/* Must be the same size as the slider images */
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#slider {
+  background-color:white;
+  position:relative;
+  margin:0 auto; /*center-aligned*/
+  -moz-box-shadow: 0px 1px 5px #999999;
+  -webkit-box-shadow: 0px 1px 5px #999999;
+  box-shadow: 0px 1px 5px #999999;
+}
+
+/* the link style (if an image is wrapped by a link) */
+#slider img {
+  display:none;
+  visibility:hidden;
+  width:0;
+  height:0;
+}
+
+/* Caption styles */
+#slider .mc-caption {
+  position:absolute;
+  width:100%;
+  height:auto;
+  padding: 15px 0 5px 0;/* will increase the height.*/
+  left:0px;
+  bottom:0px;top:auto;
+  overflow:hidden;
+  font: bold 14px/20px Arial;
+  color:#EEE;
+  text-align:center;
+  background: rgb(61,102,171); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(61,102,171,0) 0%, rgba(61,102,171,.9) 40%, rgba(61,102,171,.9) 100%); /* FF3.6-15 */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(61,102,171,0)), color-stop(40%,rgba(61,102,171,.9)), color-stop(100%,rgba(61,102,171,.9))); /* Chrome4-9,Safari4-5 */
+  background: -webkit-linear-gradient(top, rgba(61,102,171,0) 0%,rgba(61,102,171,.9) 40%,rgba(61,102,171,.9) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: -o-linear-gradient(top, rgba(61,102,171,0) 0%,rgba(61,102,171,.9) 40%,rgba(61,102,171,.9) 100%); /* Opera 11.10-11.50 */
+  background: linear-gradient(to bottom, rgba(61,102,171,0) 0%,rgba(61,102,171,.9) 40%,rgba(61,102,171,.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+/* ------ built-in navigation bullets wrapper ------*/
+#slider .navBulletsWrapper  {
+  top:555px;
+  text-align:center;
+  background:none;
+  position:relative;
+  z-index:3;
+}
+
+/* each bullet */
+#slider .navBulletsWrapper div {
+  width:11px;
+  height:11px;
+  font-size:0;
+  color:White;/*hide the index number in the bullet element*/
+  background:transparent url(images/bullet.png) no-repeat 0 0;
+  display:-moz-inline-block;  /* FF2 */
+  display:inline-block; 
+  *display:inline; zoom:1; /* IE7 */
+  overflow:hidden;
+  cursor:pointer;
+  margin:0 6px;/* set distance between each bullet*/
+}
+
+#slider .navBulletsWrapper .active {
+  background-position:0 -11px;
+}
+
+
+/* --------- Others ------- */
+
+#slider img, #slider>b, #slider a>b {
+  position:absolute;
+  border:none;
+  display:none;
+}
+
+#slider .sliderInner {
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#slider>a, #slider video, #slider audio {
+  display:none;
+}
+#slider, #slider div {
+  -ms-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}

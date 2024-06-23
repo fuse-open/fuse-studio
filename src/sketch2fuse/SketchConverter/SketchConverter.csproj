@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B086E390-CE62-4C90-9214-9E828DE7AF33}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SketchConverter</RootNamespace>
+    <AssemblyName>SketchConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>..\..\..\packages\Mono.Posix-4.5.4.5.0\lib\net45\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="plist-cil, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ec2cb9e1a719933d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\plist-cil.2.1.0\lib\netstandard1.3\plist-cil.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Memory.4.5.0\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reflection.TypeExtensions.4.3.0\lib\net46\System.Reflection.TypeExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.Serialization.Formatters.4.3.0\lib\net46\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\Factory.cs" />
+    <Compile Include="API\IConverter.cs" />
+    <Compile Include="API\ILogger.cs" />
+    <Compile Include="CompatibilityChecker.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="Optional.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchArtboard.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchBitmap.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchGroup.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchLayer.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchRectangle.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchShapeGroup.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchShapePath.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchSymbolInstance.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchSymbolMaster.cs" />
+    <Compile Include="SketchModel\Entities\Layers\SketchText.cs" />
+    <Compile Include="SketchModel\Entities\SketchDocument.cs" />
+    <Compile Include="SketchModel\Entities\SketchEntity.cs" />
+    <Compile Include="SketchModel\Entities\SketchPage.cs" />
+    <Compile Include="SketchModel\Types\ISketchBrush.cs" />
+    <Compile Include="SketchModel\Types\SketchAlignment.cs" />
+    <Compile Include="SketchModel\Types\SketchAttributedString.cs" />
+    <Compile Include="SketchModel\Types\SketchBlur.cs" />
+    <Compile Include="SketchModel\Types\SketchBorder.cs" />
+    <Compile Include="SketchModel\Types\SketchColor.cs" />
+    <Compile Include="SketchModel\Types\SketchCurvePoint.cs" />
+    <Compile Include="SketchModel\Types\SketchFill.cs" />
+    <Compile Include="SketchModel\Types\SketchGradientStop.cs" />
+    <Compile Include="SketchModel\Types\SketchImage.cs" />
+    <Compile Include="SketchModel\Types\SketchLinearGradientBrush.cs" />
+    <Compile Include="SketchModel\Types\SketchPath.cs" />
+    <Compile Include="SketchModel\Types\SketchPoint.cs" />
+    <Compile Include="SketchModel\Types\SketchRect.cs" />
+    <Compile Include="SketchModel\Types\SketchShadow.cs" />
+    <Compile Include="SketchModel\Types\SketchSolidColorBrush.cs" />
+    <Compile Include="SketchModel\Types\SketchStringAttribute.cs" />
+    <Compile Include="SketchModel\Types\SketchStyle.cs" />
+    <Compile Include="SketchParser\AttributedStringParser.cs" />
+    <Compile Include="SketchParser\Exceptions.cs" />
+    <Compile Include="SketchParser\ISketchArchive.cs" />
+    <Compile Include="SketchParser\SketchArchive.cs" />
+    <Compile Include="SketchParser\SketchParser.cs" />
+    <Compile Include="SketchParser\SketchParserInternal.cs" />
+    <Compile Include="Transforms\ITransform.cs" />
+    <Compile Include="Transforms\TextPropertyTransform.cs" />
+    <Compile Include="UxBuilder\ArtboardUxBuilder.cs" />
+    <Compile Include="UxBuilder\AssetEmitter.cs" />
+    <Compile Include="UxBuilder\Geometry.cs" />
+    <Compile Include="UxBuilder\IUxBuilder.cs" />
+    <Compile Include="UxBuilder\LayoutBuilder.cs" />
+    <Compile Include="UxBuilder\NameValidator.cs" />
+    <Compile Include="UxBuilder\SketchCurvePointsToSvg.cs" />
+    <Compile Include="UxBuilder\SymbolClassNameBuilder.cs" />
+    <Compile Include="UxBuilder\SymbolsUxBuilder.cs" />
+    <Compile Include="UxBuilder\UXBuilder.cs" />
+    <Compile Include="UxBuilder\Exceptions.cs" />
+    <Compile Include="UxBuilder\UXNode.cs" />
+    <Compile Include="UxBuilder\UxSize.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

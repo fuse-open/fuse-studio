@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta content="SuperPat" name="author" />
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  <script type="text/javascript" src="script.js"></script>
+
+  <title>SkinnedControls Plug-in for NSIS</title>
+
+</head>
+
+<body>
+
+  <div class="maintable">
+
+  <a target="_blank" href="http://ultramodernui.sourceforge.net/" title="Go to the SkinnedControls Plug-in for NSIS home page"><img src="images/header_sc.png" alt="SkinnedControls Plug-in for NSIS" /></a>
+
+    <p class="options" style="margin-top:3px;"><a onclick="loadSlider();expandall();">[Expand all]</a>&nbsp;&nbsp;<a onclick="collapseall();">[Collapse all]</a></p>
+
+    <div>
+
+      <h1>Introduction</h1>
+
+      <div style="text-align: justify;">
+        <p>This NSIS plug-in allows to skin all buttons and scroll bars of your installer and allows to select text colors on buttons even those on custom pages.</p>
+        <p>It was developed with an aim of integrate it in UltraModernUI, an new user interface with a style like the most recent installers for NSIS. (<a target="_blank" href="http://ultramodernui.sourceforge.net">http://ultramodernui.sourceforge.net</a>)</p>
+
+
+        <h3><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_screenshots" src="images/closed.gif" onclick="loadSlider();toggle('trigger_screenshots', 'toggle_screenshots');" /> Screenshots</h3>
+        <div class="toggle" id="toggle_screenshots">
+
+          <div id="sliderFrame">
+            <div id="slider">
+              <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/SkinnedControls1.png" alt="SkinnedControls Plug-in used with Modern UI or Modern UIEx interface" />
+              <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/SkinnedControls2.png" alt="SkinnedControls Plug-in used with Classic UI interface" />
+              <img data-src="http://ultramodernui.sourceforge.net/images/screenshots/UMUI09.png" alt="SkinnedControls Plug-in used with UltraModernUI interface" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <h1>Usage</h1>
+      <div>
+
+        <h3>SkinnedControls::skinit Function</h3>
+
+        <p>Skins the installer's buttons and scrollbars with selected bitmaps and sets colors for texts on buttons.</p>
+
+        <h4>Parameters:</h4>
+        <div>
+          <h5>/SetReturn</h5>
+              Force the method to return "success" on the stack or an error string if there was an error.<br />
+              This parameter must be set first.<br /><br />
+          <h5>/scrollbar=<span class="parameter"><span class="parameter">$PLUGINSDIR\scrollbar.bmp</span></span></h5>
+              Scrollbar image (se below).<br /><br />
+          <h5>/button=<span class="parameter"><span class="parameter">$PLUGINSDIR\button.bmp</span></span></h5>
+              Button image (se below).<br /><br />
+          <h5>/disabledtextcolor=<span class="parameter"><span class="parameter">808080</span></span></h5>
+              Color of text when button is disabled (Format is in hex: RRGGBB as CSS colors).<br /><br />
+          <h5>/selectedtextcolor=<span class="parameter"><span class="parameter">000080</span></span></h5>
+              Color of text when button is being clicked (Format is in hex: RRGGBB as CSS colors).<br /><br />
+          <h5>/textcolor=<span class="parameter"><span class="parameter">000000</span></span></h5>
+              Color for normal state of button (Format is in hex: RRGGBB as CSS colors).
+        </div>
+
+        <p>One of /scrollbar and /button parameter is required, other is optionnal.</p>
+
+        <p>If /SetReturn is set, the method returns "success" on the stack or an error string if there was an error.<br />
+        Else, error message boxes displayed automatically.</p>
+
+        <p>Parameter names are now ignore case.</p>
+
+        <h3>SkinnedControls::setskin Function</h3>
+
+        <p>Modifiy parameter. Use the same parameters as skinit</p>
+
+        <h3>SkinnedControls::unskinit Function</h3>
+
+        <p>Releases the plug-in resources (usually called in the (un).onGUIEnd function). This method is now optional thanks to the new NSIS plug-in API.</p>
+      </div>
+
+      <div>
+
+      <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_clui" src="images/closed.gif" onclick="toggle('trigger_clui', 'toggle_clui');"/> Usage without Modern UI</h2>
+      <div class="toggle" id="toggle_clui">
+
+        <ul>
+          <li><p>First, in the .onInit function, extract the button bitmap:</p>
+<pre>Function .onInit
+  InitPluginsDir
+  ; Extract bitmaps for buttons and scrollbars
+  File "/oname=<span class="parameter">$PLUGINSDIR\button.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultbtn.bmp"
+  File "/oname=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultsb.bmp"
+FunctionEnd</pre></li>
+
+          <li><p>Second, in the .onGUIInit function, it is time to let the plug-in do the work:</p>
+<pre>Function .onGUIInit
+  <strong>SkinnedControls::skinit</strong> /NOUNLOAD \
+                          /disabledtextcolor=<span class="parameter">808080</span> \
+                          /selectedtextcolor=<span class="parameter">000080</span> \
+                          /textcolor=<span class="parameter">000000</span> \
+                          "/scrollbar=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+                          "/button=<span class="parameter">$PLUGINSDIR\button.bmp</span>"
+FunctionEnd</pre></li>
+
+          <li><p>It's the same thing for the uninstaller:</p>
+<pre>Function un.onInit
+  InitPluginsDir
+  File "/oname=<span class="parameter">$PLUGINSDIR\button.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultbtn.bmp"
+  File "/oname=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultsb.bmp"
+FunctionEnd
+
+Function un.onGUIInit
+  <strong>SkinnedControls::skinit</strong> /NOUNLOAD \
+                          /disabledtextcolor=<span class="parameter">808080</span> \
+                          /selectedtextcolor=<span class="parameter">000080</span> \
+                          /textcolor=<span class="parameter">000000</span> \
+                          "/scrollbar=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+                          "/button=<span class="parameter">$PLUGINSDIR\button.bmp</span>"
+FunctionEnd</pre></li>
+
+          <li><p>That's all!</p></li>
+        </ul>
+
+      </div>
+
+      <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_mui" src="images/closed.gif" onclick="toggle('trigger_mui', 'toggle_mui');"/> Usage with Modern UI</h2>
+      <div class="toggle" id="toggle_mui">
+
+        <ul>
+          <li><p>First, in the .onInit function, extract the button bitmap:</p>
+<pre>Function .onInit
+  InitPluginsDir
+  ; Extract bitmaps for buttons and scrollbars
+  File "/oname=<span class="parameter">$PLUGINSDIR\button.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultbtn.bmp"
+  File "/oname=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultsb.bmp"
+FunctionEnd</pre></li>
+
+          <li><p>Second, create a function, for example, named myGUIInit, it is time to let the plug-in do the work:</p>
+<pre>Function myGUIInit
+  <strong>SkinnedControls::skinit</strong> /NOUNLOAD \
+                          /disabledtextcolor=<span class="parameter">808080</span> \
+                          /selectedtextcolor=<span class="parameter">000080</span> \
+                          /textcolor=<span class="parameter">000000</span> \
+                          "/scrollbar=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+                          "/button=<span class="parameter">$PLUGINSDIR\button.bmp</span>"
+FunctionEnd</pre>
+   <p>And add this line before the insertion of macro page.</p>
+<pre>!define MUI_CUSTOMFUNCTION_GUIINIT myGUIInit</pre></li>
+
+          <li><p>It's the same thing for the uninstaller:</p>
+<pre>Function un.onInit
+  InitPluginsDir
+  File "/oname=<span class="parameter">$PLUGINSDIR\button.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultbtn.bmp"
+  File "/oname=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+       "${NSISDIR}\Contrib\SkinnedControls\skins\defaultsb.bmp"
+FunctionEnd
+
+Function un.myGUIInit
+  <strong>SkinnedControls::skinit</strong> /NOUNLOAD \
+                          /disabledtextcolor=<span class="parameter">808080</span> \
+                          /selectedtextcolor=<span class="parameter">000080</span> \
+                          /textcolor=<span class="parameter">000000</span> \
+                          "/scrollbar=<span class="parameter">$PLUGINSDIR\scrollbar.bmp</span>" \
+                          "/button=<span class="parameter">$PLUGINSDIR\button.bmp</span>"
+FunctionEnd</pre>
+   <p>And add this line before the insertion of macro page.</p>
+<pre>!define MUI_CUSTOMFUNCTION_UNGUIINIT un.myGUIInit</pre></li>
+
+          <li><p>That's all!</p></li>
+        </ul>
+      </div>
+
+      <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_umui" src="images/closed.gif" onclick="toggle('trigger_umui', 'toggle_umui');"/> Usage with UltraModernUI and ModernUIEx</h2>
+      <div class="toggle" id="toggle_umui">
+
+        <p>UltraModernUI and ModernUIEx natively integrate the SkinnedControls plug-in.</p>
+        <ul>
+          <li><p>With MUIEx, all you need to do is to define some stuffs before the inclusion of macro pages.<br />
+             With UMUI which enable this plug-in through its skins system, you can define the same stuffs before the UMUI_SKIN define to override default skin values:</p>
+<pre>!define UMUI_BUTTONIMAGE_BMP \
+       "<span class="parameter">${NSISDIR}\Contrib\SkinnedControls\skins\defaultbtn.bmp</span>"
+!define UMUI_SCROLLBARIMAGE_BMP \
+       "<span class="parameter">${NSISDIR}\Contrib\SkinnedControls\skins\defaultsb.bmp</span>"
+
+!define UMUI_DISABLED_BUTTON_TEXT_COLOR <span class="parameter">808080</span>
+!define UMUI_SELECTED_BUTTON_TEXT_COLOR <span class="parameter">000080</span>
+!define UMUI_BUTTON_TEXT_COLOR <span class="parameter">000000</span></pre></li>
+
+          <li><p>That's all!</p></li>
+        </ul>
+      </div>
+      </div>
+
+      <h1>BITMAPS</h1>
+
+      <ul>
+
+        <li>
+        <a target="_blank" download href="../../Contrib/SkinnedControls/skins/defaultbtn.bmp" style="float:right; margin-left:20px;"><img src="../../Contrib/SkinnedControls/skins/defaultbtn.bmp" alt="" /></a>
+        <p>To skin the buttons, the plug-in need a bitmap image:<br />
+        The image width must be, at least, 10 pixels.<br />
+        The image height must be a multiple of three with, at least, 30 pixels.<br />
+        The typical image size is 72*72 pixels for smoother gradients.<br />
+        The first height third is for normal buttons,<br />
+        the next third is for activated buttons and the last third is for disabled buttons.</p>
+        </li>
+
+        <li>
+        <a target="_blank" download href="../../Contrib/SkinnedControls/skins/defaultsb.bmp" style="float:right; margin-left:20px;"><img src="../../Contrib/SkinnedControls/skins/defaultsb.bmp" alt="" /></a>
+        <p>To skin the scrollbars, the plug-in need an other bitmap image:<br />
+        The image image size is 134*34 pixels.<br />
+        It is composed of several little images in one file for normal an clicked arrows and bars.<br />
+        On the very right, three pixels appear for normal color, inverted color and deadarea color.</p>
+        </li>
+      </ul>
+
+      <h1>Problems and workarounds</h1>
+
+      <ul>
+
+        <li><p>During the installation, the "Show Detail" button is unskinned:</p>
+          <p>You can insert this instruction on your script to workaround this bug, for classic UI:</p>
+          <pre>ChangeUI IDD_INSTFILES "${NSISDIR}\Contrib\UIs\default_sb.exe"</pre>
+          <p>for ModernUI:</p>
+          <pre>ChangeUI IDD_INSTFILES "${NSISDIR}\Contrib\UIs\modern_sb.exe"</pre>
+        </li>
+        
+        <li><p>When using the previous workaround the "Show Detail" button is invisible:</p>
+          <p>Modern UI set the XPStyle instruction to On automatically. XPStyle must be set to Off with the previous workaround otherwise the "Show Detail" button will disappear:</p>
+          <pre>XPStyle Off</pre>
+        </li>
+        
+        <li><p>When you use MessageBox function on some page (or some other pop-up windows like Banner plug-in), the some page buttons and scrollbars got unskinned:</p>
+          <p>You can use this tricky workaround to fix this:</p>
+          <pre>MessageBox MB_OK "This message causes SkinnedControls bug..." 
+; After clicking OK the buttons lost their skin
+SendMessage $HWNDPARENT ${WM_MENUDRAG} 0 0 ; Do this to force reskin
+;If you use UMUI or MUIEx interfaces, you can simply insert macro:
+!insertmacro UMUI_FIX_BUTTONS_SKIN
+</pre>
+          <p>We used WM_MENUDRAG message (which is normally unused) to notify window to put another refresh message into queue -> to force redrawing. See the source code how it works.</p>
+        </li>
+
+        <li><p>The plug-in does not work on Windows 95:</p>
+          <p>Plug-ins compiled with Visual Studio 2008 is not executed... Microsoft says:<br />
+          "Beginning with Visual C++ 2008, Visual C++ does not support targeting Windows 95, Windows 98, Windows ME, or Windows NT [4]."</p>
+        </li>
+
+        <li><p>Scrollbars are not skinned on Windows 9x/Me:</p>
+          <p>The Cool Scrollbar Library, that the plug-in use, work only on Windows NT kernel.</p>
+        </li>
+
+      </ul>
+
+      <h1>Example Scripts</h1>
+
+      <div>
+        <p>These examples are in the NSISDir\Examples\SkinnedControls folder:</p>
+        <ul>
+          <li>Classic UI example: <a target="_blank" href="../../Examples/SkinnedControls/Example.nsi">Example.nsi</a></li>
+          <li>Modern UI example: <a target="_blank" href="../../Examples/SkinnedControls/Example_MUI.nsi">Example_MUI.nsi</a></li>
+          <li>ModernUIEx example: <a target="_blank" href="../../Examples/SkinnedControls/Example_MUIEx.nsi">Example_MUIEx.nsi</a></li>
+          <li>SkinnedControls installer: <a target="_blank" href="../../Examples/SkinnedControls/SkinnedControls.nsi">SkinnedControls.nsi</a></li>
+        </ul>
+      </div>
+
+      <h1>TODO</h1>
+
+      <div>
+        <p>Help wanted for improve this plug-in:</p>
+        <ul>
+          <li>Find better ways to fix buttons which unskin to avoid crappy workaround.</li>
+          <li>Support transparency for buttons.</li>
+          <li>Ability to skin checkboxes and radio buttons (transparency background required).</li>
+          <li>Ability to skin dropdown scroll bars and arrow down button.</li>
+          <li>Ability to skin MessageBox buttons and text and background colors.</li>
+        </ul>
+      </div>
+
+      <h1>Version History</h1>
+      <ul>
+
+        <li><strong>Version 1.4</strong> - December 25, 2016
+          <ul>
+            <li>Migrate to the new NSIS plug-in API;</li>
+            <li>The unskinit function in now optional thanks to the new NSIS plug-in API;</li>
+            <li>Parameter names are now ignore case.</li>
+          </ul>
+        </li>
+
+        <li><strong>Version 1.3</strong> - August 27, 2016
+          <ul>
+            <li>Button image size are no more limited to allow smoother gradients (see above);</li>
+            <li>"success" or error messages is no longer pushed in the stack by skinit and setskin methods unless the new /SetReturn parameter is set;</li>
+            <li>Fix License text and other RichText scrollbars was not skinned in Unicode Build;</li>
+            <li>Code cleanup;</li>
+            <li>Rewritten documentation.</li>
+          </ul>
+        </li>
+
+        <li><strong>Version 1.2</strong> (by Slappy) - 2011
+          <ul>
+            <li>Fixed unskinning buttons after MessageBox is shown (see above);
+            <li>Project was converted to Visual Studio 2008 format.
+          </ul>
+        </li>
+
+        <li><strong>Version 1.1</strong> (by Tallmaris) - 2010
+          <ul>
+            <li>Littles bug fixes &amp; Unicode build.</li>
+          </ul>
+        </li>
+
+        <li><strong>Version 1.0</strong> - 2009
+          <ul>
+            <li>First public release.</li>
+            <li>Replace the former SkinnedButton plug-in.</li>
+          </ul>
+        </li>
+
+      </ul>
+
+
+      <h1>Credits</h1>
+      <div>
+
+        <p>Made by SuperPat<br />
+        Based on <a target="_blank" href="http://nsis.sourceforge.net/Wansis_plug-in">wansis</a>, a Plug-in written by Saivert that skins NSIS like Winamp<br />
+          and use the wa_dlg.h courtesy of Nullsoft, Inc.<br />
+          as well as the Cool Scrollbar Library Copyright (c) J Brown 2001.</p>
+
+      </div>
+
+
+
+      <h1>Help</h1>
+      <div>
+
+        <p>Please post questions at the <a target="_blank" href="http://forums.winamp.com/forumdisplay.php?forumid=65">Official NSIS Forum</a>.</p>
+
+      </div>
+
+
+
+      <h1>License</h1>
+      <div>
+
+        <p>The zlib/libpng license applies to the SkinnedControls plug-in.</p>
+
+
+        <h2><img class="trigger" title="Open/Close section" alt="[+]" id="trigger_lic" src="images/closed.gif" onclick="toggle('trigger_lic', 'toggle_lic');"/> License Terms</h2>
+        <div class="toggle" id="toggle_lic">
+
+  <pre>Copyright &copy; 2005-2019 SuperPat</pre>
+
+  <pre>Based on <a target="_blank" href="http://nsis.sourceforge.net/Wansis_plug-in">wansis</a>, a Plug-in written by Saivert that skins NSIS like Winamp
+and use the wa_dlg.h courtesy of Nullsoft, Inc.
+as well as the Cool Scrollbar Library Copyright &copy; J Brown 2001.</pre>
+
+  <pre>This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.</pre>
+
+  <pre>Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute
+it freely, subject to the following restrictions:</pre>
+
+  <pre>1. The origin of this software must not be misrepresented;
+   you must not claim that you wrote the original software.
+   If you use this software in a product, an acknowledgment in the
+   product documentation would be appreciated but is not required.
+2. Altered versions must be plainly marked as such,
+   and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any distribution.</pre>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer">&copy; 2005-2019 SuperPat</div>
+
+  </div>
+
+</body>
+
+</html>

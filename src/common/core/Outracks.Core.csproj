@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\..\..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{196B010D-AD36-4947-95AA-14FC4A27BD18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks</RootNamespace>
+    <AssemblyName>Outracks</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>..\..\..\packages\JetBrains.Mono.Posix.0.1\lib\net40\Mono.Posix.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Outracks.Simulator">
+      <HintPath>..\..\simulator\common\bin\Outracks.Simulator.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\..\simulator\common\Outracks.Simulator.csproj">
+      <Project>{3335bb78-0b8a-4d2f-919f-2e6f08883d51}</Project>
+      <Name>Outracks.Simulator</Name>
+    </ProjectReference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.4.4.1\lib\net46\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Uno.Common">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\IBehavior.cs" />
+    <Compile Include="Behaviors\IBehaviorSubject.cs" />
+    <Compile Include="Behaviors\Operators\AsBehavior.cs" />
+    <Compile Include="Behaviors\Operators\CombineLatest.cs" />
+    <Compile Include="Behaviors\Operators\DistinctUntilChanged.cs" />
+    <Compile Include="Behaviors\Operators\Return.cs" />
+    <Compile Include="Behaviors\Operators\Select.cs" />
+    <Compile Include="Behaviors\Operators\Switch.cs" />
+    <Compile Include="ColoredTextWriter.cs" />
+    <Compile Include="Diagnostics\Reactive\IObservableTraceHandler.cs" />
+    <Compile Include="Diagnostics\Reactive\ObservableTraceInfo.cs" />
+    <Compile Include="Either.cs" />
+    <Compile Include="Extensions\BufferPrevious.cs" />
+    <Compile Include="Diagnostics\ObservableTraceLogger.cs" />
+    <Compile Include="Diagnostics\ConsoleTraceExtensions.cs" />
+    <Compile Include="DateFormat.cs" />
+    <Compile Include="Extensions\TestExtensions.cs" />
+    <Compile Include="Extensions\ObservableTuples.cs" />
+    <Compile Include="Extensions\LiftedOperators\Cache.cs" />
+    <Compile Include="Extensions\LiftedOperators\Select.cs" />
+    <Compile Include="Extensions\LiftedOperators\Where.cs" />
+    <Compile Include="Extensions\SelectWithState.cs" />
+    <Compile Include="Extensions\WithLatestFrom.cs" />
+    <Compile Include="FileOperations\FileSystemEventData.cs" />
+    <Compile Include="Logging\LogFactory.cs" />
+    <Compile Include="OpenGlVersion.cs" />
+    <Compile Include="SingleActionQueue.cs" />
+    <Compile Include="ReplayQueueSubject.cs" />
+    <Compile Include="TrySomethingExtension.cs" />
+    <Compile Include="Lookups\DictionaryLookup.cs" />
+    <Compile Include="Pipes\SocketWin32.cs" />
+    <Compile Include="Matching\DoSomeExtension.cs" />
+    <Compile Include="ArgumentParseExtensions.cs" />
+    <Compile Include="Diagnostics\AssemblyAnalyzer.cs" />
+    <Compile Include="Diagnostics\CallerInfo.cs" />
+    <Compile Include="Diagnostics\Platform.cs" />
+    <Compile Include="Diagnostics\ProfilingEvent.cs" />
+    <Compile Include="Diagnostics\ProfilingResult.cs" />
+    <Compile Include="Disposable.cs" />
+    <Compile Include="EqualityComparer.cs" />
+    <Compile Include="Extensions\EnumerableDiffing.cs" />
+    <Compile Include="Extensions\EnumerableIndexing.cs" />
+    <Compile Include="Extensions\EnumerableJoin.cs" />
+    <Compile Include="Extensions\EnumerableSetOperations.cs" />
+    <Compile Include="ObservableStack.cs" />
+    <Compile Include="Matching\MatchSomeExtension.cs" />
+    <Compile Include="SetInvariantCultureExtension.cs" />
+    <Compile Include="Extensions\ImmutableDictionaryExtensions.cs" />
+    <Compile Include="Extensions\TaskExtensions.cs" />
+    <Compile Include="Lookups\Grouping.cs" />
+    <Compile Include="Lookups\Lookup.cs" />
+    <Compile Include="Matching\DoExtension.cs" />
+    <Compile Include="ExternalApplications\AppBundle.cs" />
+    <Compile Include="ExternalApplications\ExternalApplication.cs" />
+    <Compile Include="ExternalApplications\MonoExe.cs" />
+    <Compile Include="ExternalApplications\NativeExe.cs" />
+    <Compile Include="FileOperations\BackupFile.cs" />
+    <Compile Include="FileOperations\FileHelpers.cs" />
+    <Compile Include="FileOperations\ForceWrite.cs" />
+    <Compile Include="FileOperations\IFilePermission.cs" />
+    <Compile Include="FileOperations\IFileSystem.cs" />
+    <Compile Include="FileOperations\IShell.cs" />
+    <Compile Include="LineEndings.cs" />
+    <Compile Include="FileOperations\MakePathUnique.cs" />
+    <Compile Include="Paths\AbsoluteDirectoryPath.cs" />
+    <Compile Include="Paths\AbsoluteFilePath.cs" />
+    <Compile Include="Paths\DirectoryName.cs" />
+    <Compile Include="Paths\DirectoryPath.cs" />
+    <Compile Include="Paths\FileName.cs" />
+    <Compile Include="Paths\FilePath.cs" />
+    <Compile Include="Paths\Interfaces\IAbsolutePath.cs" />
+    <Compile Include="Paths\Interfaces\IDirectoryPath.cs" />
+    <Compile Include="Paths\Interfaces\IFilePath.cs" />
+    <Compile Include="Paths\Interfaces\IName.cs" />
+    <Compile Include="Paths\Interfaces\IPath.cs" />
+    <Compile Include="Paths\Interfaces\IRelativePath.cs" />
+    <Compile Include="Paths\Operators\BinarySerialization.cs" />
+    <Compile Include="Paths\Operators\CombineWithName.cs" />
+    <Compile Include="Paths\Operators\CombineWithRelativePath.cs" />
+    <Compile Include="Paths\Operators\FindCommonAncestor.cs" />
+    <Compile Include="Paths\Operators\IsRootedIn.cs" />
+    <Compile Include="Paths\Operators\ParseNativePath.cs" />
+    <Compile Include="Paths\Operators\PathJsonConverter.cs" />
+    <Compile Include="Paths\Operators\RelativeTo.cs" />
+    <Compile Include="Paths\Operators\Rename.cs" />
+    <Compile Include="Paths\RelativeDirectoryPath.cs" />
+    <Compile Include="Paths\RelativeFilePath.cs" />
+    <Compile Include="FileOperations\Reading.cs" />
+    <Compile Include="FileOperations\RetryLoop.cs" />
+    <Compile Include="FileOperations\ShellHelper.cs" />
+    <Compile Include="StringToMemoryStream.cs" />
+    <Compile Include="SystemGuidLoader.cs" />
+    <Compile Include="SystemInfo\SystemInfoFactory.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="TextDocumentContent.cs" />
+    <Compile Include="FileOperations\Writing.cs" />
+    <Compile Include="Pipes\IPipeImpl.cs" />
+    <Compile Include="Pipes\NamedPipes.cs" />
+    <Compile Include="NetworkHelper.cs" />
+    <Compile Include="Pipes\Pipe.cs" />
+    <Compile Include="Pipes\PipeName.cs" />
+    <Compile Include="Pipes\UnixSocketPipes.cs" />
+    <Compile Include="Pipes\UnixSocketStream.cs" />
+    <Compile Include="Logging\Formatter.cs" />
+    <Compile Include="Logging\IReport.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="Logging\Report.cs" />
+    <Compile Include="Logging\ReportFactory.cs" />
+    <Compile Include="Logging\UnhandledExceptionReporter.cs" />
+    <Compile Include="Logging\UnixSocketLogClient.cs" />
+    <Compile Include="ProcessExtension.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\ObservableBooleans.cs" />
+    <Compile Include="Extensions\ObservableExtensions.cs" />
+    <Compile Include="RethrowExtension.cs" />
+    <Compile Include="SequenceEqualityComparer.cs" />
+    <Compile Include="SetEqualityComparer.cs" />
+    <Compile Include="Serialization\GuidSerializer.cs" />
+    <Compile Include="Matching\MatchWithExtension.cs" />
+    <Compile Include="Matching\IMatchTypes.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Diagnostics\ManualProfiling.cs" />
+    <Compile Include="ValidationResult.cs" />
+    <Compile Include="ConsoleExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+</Project>

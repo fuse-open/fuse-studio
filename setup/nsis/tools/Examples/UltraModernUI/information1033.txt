@@ -1,0 +1,1 @@
+This is the content of the english information file for the Information.msi example.

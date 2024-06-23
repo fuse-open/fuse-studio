@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{490EF7E5-46FF-4DF3-8342-530429CA65B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Outracks.Fuse</RootNamespace>
+    <AssemblyName>fuse-studio</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath Condition=" '$(OS)' != 'Windows_NT' ">bin\$(Configuration)</OutputPath>
+    <OutputPath Condition=" '$(OS)' == 'Windows_NT' ">$(SolutionDir)bin\$(Configuration)</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Fuse.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\ClassesSmall.png" />
+    <EmbeddedResource Include="Icons\DragIconSmallDark.png" />
+    <EmbeddedResource Include="Icons\DragIconSmall.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\Devices_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\Devices_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\touchOff_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\touchOff_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\touchOn_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\touchOn_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\SelectionOff_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\SelectionOff_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\SelectionOn_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\SelectionOn_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\AddViewport_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\AddViewport_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\Maximize_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\Maximize_light.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\Minimize_dark.png" />
+    <EmbeddedResource Include="Icons\HeaderBar\Minimize_light.png" />
+    <EmbeddedResource Include="Icons\FuseBusyAnim\BusyIndicator_0.png" />
+    <EmbeddedResource Include="Icons\FuseBusyAnim\BusyIndicator_1.png" />
+    <EmbeddedResource Include="Icons\FuseBusyAnim\BusyIndicator_2.png" />
+    <EmbeddedResource Include="Icons\FuseBusyAnim\BusyIndicator_3.png" />
+    <EmbeddedResource Include="Icons\Dashboard\LoggedOut_dark%402x.png" />
+    <EmbeddedResource Include="Icons\Dashboard\LoggedOut_light%402x.png" />
+    <EmbeddedResource Include="Icons\Dashboard\ProjectIcon_dark%402x.png" />
+    <EmbeddedResource Include="Icons\Dashboard\ProjectIcon_light%402x.png" />
+    <EmbeddedResource Include="Icons\Dashboard\Community.png" />
+    <EmbeddedResource Include="Icons\Dashboard\Community%402x.png" />
+    <EmbeddedResource Include="Icons\Dashboard\Docs.png" />
+    <EmbeddedResource Include="Icons\Dashboard\Docs%402x.png" />
+    <EmbeddedResource Include="Icons\Dashboard\Learn.png" />
+    <EmbeddedResource Include="Icons\Dashboard\Learn%402x.png" />
+    <EmbeddedResource Include="Icons\ExtractClassDisabled%402x.png" />
+    <EmbeddedResource Include="Icons\ExtractClassDisabled.png" />
+    <EmbeddedResource Include="Icons\ExtractClassEnabled%402x.png" />
+    <EmbeddedResource Include="Icons\ExtractClassEnabled.png" />
+    <EmbeddedResource Include="Icons\CannotEdit\Dark%402x.png" />
+    <EmbeddedResource Include="Icons\CannotEdit\Dark.png" />
+    <EmbeddedResource Include="Icons\CannotEdit\Light%402x.png" />
+    <EmbeddedResource Include="Icons\CannotEdit\Light.png" />
+    <EmbeddedResource Include="Icons\Checkmark%402x.png" />
+    <EmbeddedResource Include="Icons\Checkmark.png" />
+    <EmbeddedResource Include="Icons\Pro_Illustration%402x.png" />
+    <EmbeddedResource Include="Icons\Pro_Illustration.png" />
+    <EmbeddedResource Include="Icons\Edit\Active%402x.png" />
+    <EmbeddedResource Include="Icons\Edit\Active.png" />
+    <EmbeddedResource Include="Icons\Edit\InActive%402x.png" />
+    <EmbeddedResource Include="Icons\Edit\InActive.png" />
+    <EmbeddedResource Include="Icons\Edit\Small%402x.png" />
+    <EmbeddedResource Include="Icons\Edit\Small.png" />
+    <EmbeddedResource Include="Icons\LogOut%402x.png" />
+    <EmbeddedResource Include="Icons\LogOut.png" />
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\FSharp.Core.4.7.1\lib\net45\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3rdparty\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.Xml, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3rdparty\ICSharpCode.NRefactory.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Options">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Mono.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Mono.Posix-4.5.4.5.0\lib\net45\Mono.Posix.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="plist-cil, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ec2cb9e1a719933d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\plist-cil.2.1.0\lib\netstandard1.3\plist-cil.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Memory.4.5.0\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.4.4.1\lib\net46\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reflection.TypeExtensions.4.3.0\lib\net46\System.Reflection.TypeExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.Serialization.Formatters.4.3.0\lib\net46\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows" />
+    <Reference Include="Outracks.Simulator">
+      <HintPath>..\..\simulator\common\bin\Outracks.Simulator.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Collections">
+      <HintPath>..\..\simulator\common\bin\Uno.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.0.34.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Uno.Common">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Configuration">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.ProjectFormat">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.ProjectFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UX.Markup">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.UX.Markup.dll</HintPath>
+    </Reference>
+    <Reference Include="UnoCore">
+      <HintPath>..\..\simulator\common\bin\UnoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs" />
+    <Compile Include="Activate.cs" />
+    <Compile Include="ApplicationPaths.cs" />
+    <Compile Include="BehaviorSubjectExtensions.cs" />
+    <Compile Include="Components\AndroidBuildTools.cs" />
+    <Compile Include="Components\ScriptInstaller.cs" />
+    <Compile Include="Components\VsCodeExtension.cs" />
+    <Compile Include="Controls\BrowseButton.cs" />
+    <Compile Include="Controls\ConfirmCancelControl.cs" />
+    <Compile Include="Controls\FilePathControl.cs" />
+    <Compile Include="LanguageMenu.cs" />
+    <Compile Include="MainMenu\CheckForUpdates.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\FilePathEditor.cs" />
+    <Compile Include="NagScreen.cs" />
+    <Compile Include="Texts.cs" />
+    <Compile Include="Setup\VsCodeAppStatus.cs" />
+    <Compile Include="Setup\VsCodeExtensionStatus.cs" />
+    <Compile Include="Testing\IconPreviewWindow.cs" />
+    <Compile Include="MainWindow\Busy.cs" />
+    <Compile Include="Components\SublimePlugin.cs" />
+    <Compile Include="GlVersionParsing.cs" />
+    <Compile Include="Icons\TouchIcon.cs" />
+    <Compile Include="MainWindow\Hierarchy\DropPosition.cs" />
+    <Compile Include="MainWindow\Hierarchy\TreeView.cs" />
+    <Compile Include="MainWindow\Hierarchy\TreeRowView.cs" />
+    <Compile Include="MainWindow\Hierarchy\ITreeRowViewModel.cs" />
+    <Compile Include="MainWindow\Hierarchy\ITreeViewModel.cs" />
+    <Compile Include="MainWindow\Hierarchy\PendingDrop.cs" />
+    <Compile Include="MainWindow\Hierarchy\TreeViewModel.cs" />
+    <Compile Include="MainWindow\Hierarchy\TreeViewModel.RowModel.cs" />
+    <Compile Include="MainWindow\Notification.cs" />
+    <Compile Include="ProjectHost.cs" />
+    <Compile Include="Project\ILiveElement.cs" />
+    <Compile Include="Setup\InstallStatus.cs" />
+    <Compile Include="Sketch\SketchLogWrapper.cs" />
+    <Compile Include="Sketch\SketchWatcher.cs" />
+    <Compile Include="Sketch\SketchWatchExtensions.cs" />
+    <Compile Include="Theming\Arrow.cs" />
+    <Compile Include="Build.cs" />
+    <Compile Include="BuildArgs.cs" />
+    <Compile Include="BuildFlagsWindow.cs" />
+    <Compile Include="Theming\Buttons.cs" />
+    <Compile Include="Theming\CheckBox.cs" />
+    <Compile Include="CodeView.cs" />
+    <Compile Include="Components\AtomPlugin.cs" />
+    <Compile Include="Components\ComponentInstaller.cs" />
+    <Compile Include="Components\ComponentInstallers.cs" />
+    <Compile Include="Components\VsCodePlugin.cs" />
+    <Compile Include="Import\ImportFailed.cs" />
+    <Compile Include="Import\ImportOperation.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Layout\ElementDockPanelExtensions.cs" />
+    <Compile Include="MainWindow\LogView\ErrorView.cs" />
+    <Compile Include="MainWindow\Inspector\AttributeIntercepter.cs" />
+    <Compile Include="MainWindow\Inspector\CellLayout.cs" />
+    <Compile Include="Testing\Debug.cs" />
+    <Compile Include="ElementContext.cs" />
+    <Compile Include="Export.cs" />
+    <Compile Include="ExternalSelection.cs" />
+    <Compile Include="FocusEditorCommand.cs" />
+    <Compile Include="MainMenu\Help.cs" />
+    <Compile Include="Dashboard\CreateProject.cs" />
+    <Compile Include="Icons\AlignmentIcon.cs" />
+    <Compile Include="Icons\MinimizeAndMaximizeIcon.cs" />
+    <Compile Include="Icons\SelectionIcon.cs" />
+    <Compile Include="Icons\StackIcon.cs" />
+    <Compile Include="Icons\TextAlignmentIcon.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\EditorControl.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Color.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Dropdown.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Expression.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Factory.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Label.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Slider.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\List.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\RadioButton.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Switch.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Layout.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Layout\AlignmentEditor.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Layout\CustomRadioButton.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Layout\DockEditor.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Layout\Spacing.cs" />
+    <Compile Include="MainWindow\Inspector\IEditorFactory.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\SizePosition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Attributes.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Transform\Rotation.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Style.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Style\DropShadow.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Style\LinearGradient.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Style\SolidColor.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Style\Stroke.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Transform.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Advanced\Visibility.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow\Inspector\Sections\Common\Circle.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\Each.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\Grid.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\Image.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\ScrollView.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\StackPanel.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\Text.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\TextInput.cs" />
+    <Compile Include="MainWindow\Inspector\Sections\Common\WrapPanel.cs" />
+    <Compile Include="MainWindow\LogView\LogViewTab.cs" />
+    <Compile Include="Theming\Modal.cs" />
+    <Compile Include="Project\Attribute.Convert.cs" />
+    <Compile Include="Project\Attribute.cs" />
+    <Compile Include="Project\Attribute.Focus.cs" />
+    <Compile Include="Project\Converters\Angle.cs" />
+    <Compile Include="Project\Converters\Boolean.cs" />
+    <Compile Include="Project\Converters\Color.cs" />
+    <Compile Include="Project\Converters\Enum.cs" />
+    <Compile Include="Project\Converters\Scalar.cs" />
+    <Compile Include="Project\Converters\String.cs" />
+    <Compile Include="Project\Converters\TimeSpan.cs" />
+    <Compile Include="Project\Converters\UxSize.cs" />
+    <Compile Include="Project\Converters\Vector.cs" />
+    <Compile Include="Project\Element.cs" />
+    <Compile Include="Project\Element.Empty.cs" />
+    <Compile Include="Project\Element.Subtree.cs" />
+    <Compile Include="Project\Element.Switch.cs" />
+    <Compile Include="Project\IAttribute.cs" />
+    <Compile Include="Project\IContext.cs" />
+    <Compile Include="Project\IDocument.cs" />
+    <Compile Include="Project\IElement.cs" />
+    <Compile Include="Project\IProject.cs" />
+    <Compile Include="Project\Live\Context.cs" />
+    <Compile Include="Project\Live\FileWatchingDocument.cs" />
+    <Compile Include="Project\Live\LiveDocument.cs" />
+    <Compile Include="Project\Live\LiveElement.cs" />
+    <Compile Include="Project\Live\LiveElement.CutCopyPaste.cs" />
+    <Compile Include="Project\Live\LiveElement.Is.cs" />
+    <Compile Include="Project\Live\LiveElement.IsChildOf.cs" />
+    <Compile Include="Project\Live\LiveElement.IsSiblingOf.cs" />
+    <Compile Include="Project\Live\LiveElement.Update.cs" />
+    <Compile Include="Project\Live\LiveProject.cs" />
+    <Compile Include="Project\Live\ProjectWatcher.cs" />
+    <Compile Include="Project\Live\PushEventsToDaemon.cs" />
+    <Compile Include="Project\Live\XElementExtensions.cs" />
+    <Compile Include="Project\SpecialProperties.cs" />
+    <Compile Include="Project\Where.cs" />
+    <Compile Include="Refactoring\ClassExtractor.cs" />
+    <Compile Include="Refactoring\IClassExtractor.cs" />
+    <Compile Include="Refactoring\IExtractClassButtonViewModel.cs" />
+    <Compile Include="Refactoring\IExtractClassViewModel.cs" />
+    <Compile Include="Refactoring\ExtractClassButtonViewModel.cs" />
+    <Compile Include="Refactoring\ExtractClassViewModel.cs" />
+    <Compile Include="Refactoring\ExtractClassView.cs" />
+    <Compile Include="Refactoring\OverlayConfirmCancelDialog.cs" />
+    <Compile Include="Setup\MissingAndroidNotification.cs" />
+    <Compile Include="Setup\MissingPluginNotification.cs" />
+    <Compile Include="Theming\LogoAndVersion.cs" />
+    <Compile Include="OpenTerminal.cs" />
+    <Compile Include="OpenFolder.cs" />
+    <Compile Include="OpenTextEditor.cs" />
+    <Compile Include="MainWindow\Hierarchy\InsertionRod.cs" />
+    <Compile Include="Setup\SoftwareStatus.cs" />
+    <Compile Include="Setup\SublimeAppStatus.cs" />
+    <Compile Include="Setup\SublimePluginStatus.cs" />
+    <Compile Include="Templates\DirectoryToNamespace.cs" />
+    <Compile Include="Templates\FileAlreadyExist.cs" />
+    <Compile Include="Templates\ITemplateVariableResolver.cs" />
+    <Compile Include="Templates\NamespaceName.cs" />
+    <Compile Include="Templates\ProjectFolderNotEmpty.cs" />
+    <Compile Include="Templates\SpawnTemplate.cs" />
+    <Compile Include="Templates\Template.cs" />
+    <Compile Include="Templates\TemplateLoader.cs" />
+    <Compile Include="Templates\TemplateManifestParser.cs" />
+    <Compile Include="Templates\TemplateParseError.cs" />
+    <Compile Include="Templates\TemplateParser.cs" />
+    <Compile Include="Templates\TemplateSpawner.cs" />
+    <Compile Include="Templates\TemplateToken.cs" />
+    <Compile Include="Templates\TemplateVariableResolver.cs" />
+    <Compile Include="Theming\ThemedButton.cs" />
+    <Compile Include="Theming\ThemedTextBox.cs" />
+    <Compile Include="MainWindow\Stage\IStage.cs" />
+    <Compile Include="MainWindow\Stage\IViewport.cs" />
+    <Compile Include="MainWindow\Stage\StageView.cs" />
+    <Compile Include="Testing\ConsoleOutputWindow.cs" />
+    <Compile Include="Testing\RandomMutatorWindow.cs" />
+    <Compile Include="Testing\RandomUxMutator.cs" />
+    <Compile Include="MainWindow\LogView\LogViewHeader.cs" />
+    <Compile Include="Theming\Themes\ColorMap.cs" />
+    <Compile Include="Theming\Themes\ITheme.cs" />
+    <Compile Include="Theming\Themes\OriginalDarkTheme.cs" />
+    <Compile Include="Theming\Themes\OriginalLightTheme.cs" />
+    <Compile Include="Theming\Themes\Themes.cs" />
+    <Compile Include="MainWindow\Toolbox\Toolbox.cs" />
+    <Compile Include="Theming\Popover.cs" />
+    <Compile Include="PreviewOnDevice.cs" />
+    <Compile Include="ProjectData.cs" />
+    <Compile Include="Dashboard\ProjectList.cs" />
+    <Compile Include="Dashboard\ProjectListItem.cs" />
+    <Compile Include="Dashboard\ProjectListItemControl.cs" />
+    <Compile Include="RecentProjects.cs" />
+    <Compile Include="RespondToFocusRequests.cs" />
+    <Compile Include="Setup\SetupGuide.cs" />
+    <Compile Include="SimulatorNotifications.cs" />
+    <Compile Include="Theming\Spacer.cs" />
+    <Compile Include="MainWindow\Stage\Primitives.cs" />
+    <Compile Include="USBMode.cs" />
+    <Compile Include="MainWindow\Stage\Gizmos\ChangeSelection.cs" />
+    <Compile Include="MainWindow\Stage\Gizmos\ChangeTool.cs" />
+    <Compile Include="MainWindow\Stage\FocusBox.cs" />
+    <Compile Include="MainWindow\Stage\Gizmos\HitBoxes.cs" />
+    <Compile Include="MainWindow\Stage\Gizmos\PluginUnoHelpers.cs" />
+    <Compile Include="Icons\Icons.cs" />
+    <Compile Include="MainWindow\LogView\LogView.cs" />
+    <Compile Include="MainMenu\MainMenu.cs" />
+    <Compile Include="OpenProject.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\Field.cs" />
+    <Compile Include="MainWindow\Inspector\Editors\ListButtons.cs" />
+    <Compile Include="MainWindow\MainWindowIcons.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="MainMenu\ProjectMenu.cs" />
+    <Compile Include="Theming\Separator.cs" />
+    <Compile Include="Dashboard\Dashboard.cs" />
+    <Compile Include="MainWindow\Stage\Gizmos\BoxFactory.cs" />
+    <Compile Include="MainWindow\Stage\VirtualDevices\VirtualDevice.cs" />
+    <Compile Include="MainWindow\Stage\VirtualDevices\Devices.cs" />
+    <Compile Include="MainWindow\Stage\VirtualDevices\DeviceScreen.cs" />
+    <Compile Include="MainWindow\Stage\VirtualDevices\DevicesMenu.cs" />
+    <Compile Include="MainWindow\Stage\VirtualDevices\MalformedDeviceInfo.cs" />
+    <Compile Include="MainWindow\Stage\VirtualDevices\PreviewDevices.cs" />
+    <Compile Include="MainWindow\Stage\Gizmos\Gizmos.cs" />
+    <Compile Include="MainWindow\Inspector\Inspector.cs" />
+    <Compile Include="MainWindow\MainWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theming\Theme.cs" />
+    <Compile Include="MainWindow\Stage\ViewportController.cs" />
+    <Compile Include="MainWindow\Stage\ViewportFactory.cs" />
+    <Compile Include="MainWindow\Stage\StageController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="MainWindow\Stage\VirtualDevices\devices.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fuse\locale\Outracks.Fuse.Locale.csproj">
+      <Project>{0e454646-b607-4fed-ab02-becbc5620fa3}</Project>
+      <Name>Outracks.Fuse.Locale</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\math\Outracks.Math.csproj">
+      <Project>{3C1C1047-8830-498E-882A-503C0956CBE3}</Project>
+      <Name>Outracks.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\core\Outracks.Core.csproj">
+      <Project>{196b010d-ad36-4947-95aa-14fc4a27bd18}</Project>
+      <Name>Outracks.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\text\Outracks.Text.csproj">
+      <Project>{D52BEC1D-D0B3-4C44-956F-9747233CD6CA}</Project>
+      <Name>Outracks.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sketch2fuse\SketchConverter\SketchConverter.csproj">
+      <Project>{b086e390-ce62-4c90-9214-9e828de7af33}</Project>
+      <Name>SketchConverter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\common\Outracks.Fuse.csproj">
+      <Project>{AA6DFB99-345F-4214-9A79-076829C0F777}</Project>
+      <Name>Outracks.Fuse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\simulator\main\Outracks.Simulator.Main.csproj">
+      <Project>{E8884270-5F2C-4076-86D0-456B831BE3E5}</Project>
+      <Name>Outracks.Simulator.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\preview\service\fuse-preview.csproj">
+      <Project>{59e1073a-9b45-41f3-ab94-958a9d18fb72}</Project>
+      <Name>fuse-preview</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\unohost\common\Outracks.UnoHost.csproj">
+      <Project>{F2AEB321-51E5-40B8-9CF0-53C930E631F0}</Project>
+      <Name>Outracks.UnoHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\unohost\win\unohost-win.csproj" Condition=" '$(OS)' == 'Windows_NT'">
+      <Project>{dda536e3-a637-4a6d-b0f6-ea0bab92aff7}</Project>
+      <Name>unohost-win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fusion\core\Outracks.Fusion.Core.csproj">
+      <Project>{8DFB02E0-ACBF-4432-8DD9-56712E206968}</Project>
+      <Name>Outracks.Fusion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\fusion\win\Outracks.Fusion.Windows.csproj" Condition=" '$(OS)' == 'Windows_NT'">
+      <Project>{55c9979b-c90e-426f-8c75-dcce6f193d23}</Project>
+      <Name>Outracks.Fusion.Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\**\*.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fuse.ico" />
+    <EmbeddedResource Include="Icons\FuseProLogo_dark%402x.png" />
+    <EmbeddedResource Include="Icons\FuseProLogo_light%402x.png" />
+    <EmbeddedResource Include="Icons\CharacterLimit%402x.png" />
+    <EmbeddedResource Include="Icons\CharacterLimit.png" />
+    <EmbeddedResource Include="Icons\Confirm%402x.png" />
+    <EmbeddedResource Include="Icons\Confirm.png" />
+    <EmbeddedResource Include="Icons\LineSpacing%402x.png" />
+    <EmbeddedResource Include="Icons\LineSpacing.png" />
+    <EmbeddedResource Include="Icons\FontSize%402x.png" />
+    <EmbeddedResource Include="Icons\FontSize.png" />
+    <EmbeddedResource Include="Icons\Wrap\NoWrap%402x.png" />
+    <EmbeddedResource Include="Icons\Wrap\NoWrap.png" />
+    <EmbeddedResource Include="Icons\Wrap\Wrap%402x.png" />
+    <EmbeddedResource Include="Icons\Wrap\Wrap.png" />
+    <EmbeddedResource Include="Icons\Arrow.png" />
+    <EmbeddedResource Include="Icons\Arrow%402x.png" />
+    <EmbeddedResource Include="Icons\account%402x.png" />
+    <EmbeddedResource Include="Icons\account.png" />
+    <EmbeddedResource Include="Icons\selection_icon_off%402x.png" />
+    <EmbeddedResource Include="Icons\selection_icon_off.png" />
+    <EmbeddedResource Include="Icons\selection_icon_on%402x.png" />
+    <EmbeddedResource Include="Icons\selection_icon_on.png" />
+    <EmbeddedResource Include="Icons\Maximize%402x.png" />
+    <EmbeddedResource Include="Icons\Maximize.png" />
+    <EmbeddedResource Include="Icons\Minimize%402x.png" />
+    <EmbeddedResource Include="Icons\Minimize.png" />
+    <EmbeddedResource Include="Icons\Plugin_Error%402x.png" />
+    <EmbeddedResource Include="Icons\Plugin_Error.png" />
+    <EmbeddedResource Include="Icons\Plugin_Success%402x.png" />
+    <EmbeddedResource Include="Icons\Plugin_Success.png" />
+    <EmbeddedResource Include="Icons\Plugin_Warning%402x.png" />
+    <EmbeddedResource Include="Icons\Plugin_Warning.png" />
+    <EmbeddedResource Include="Icons\Docs_Illustration%402x.png" />
+    <EmbeddedResource Include="Icons\Docs_Illustration.png" />
+    <EmbeddedResource Include="Icons\Example_Illustration%402x.png" />
+    <EmbeddedResource Include="Icons\Example_Illustration.png" />
+    <EmbeddedResource Include="Icons\Fuse_Symbol_BLK_WHT%402x.png" />
+    <EmbeddedResource Include="Icons\Fuse_Symbol_BLK_WHT.png" />
+    <EmbeddedResource Include="Icons\Newsletter_Illustration%402x.png" />
+    <EmbeddedResource Include="Icons\Newsletter_Illustration.png" />
+    <EmbeddedResource Include="Icons\Tutorial_Illustration%402x.png" />
+    <EmbeddedResource Include="Icons\Tutorial_Illustration.png" />
+    <EmbeddedResource Include="Icons\new-empty-project.png" />
+    <EmbeddedResource Include="Icons\project_dummy.png" />
+    <EmbeddedResource Include="Icons\Christmas\Docs_Illustration.png" />
+    <EmbeddedResource Include="Icons\Christmas\Example_Illustration.png" />
+    <EmbeddedResource Include="Icons\Christmas\Newsletter_Illustration.png" />
+    <EmbeddedResource Include="Icons\Christmas\Tutorial_Illustration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Updates\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

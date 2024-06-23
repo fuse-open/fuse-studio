@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AcceptsFiles</key>
+	<false/>
+	<key>AcceptsText</key>
+	<false/>
+	<key>Authentication</key>
+	<false/>
+	<key>Author</key>
+	<string>Build &amp; Run</string>
+	<key>BundledFiles</key>
+	<array/>
+	<key>Creator</key>
+	<string>Platypus-5.4.1</string>
+	<key>DeclareService</key>
+	<false/>
+	<key>Destination</key>
+	<string>/Applications/fuse X.app</string>
+	<key>DevelopmentVersion</key>
+	<false/>
+	<key>DocIconPath</key>
+	<string></string>
+	<key>Droppable</key>
+	<true/>
+	<key>ExecutablePath</key>
+	<string>/usr/local/share/platypus/ScriptExec</string>
+	<key>IconPath</key>
+	<string>../../src/mac/studio/Resources/FuseBigSur.icns</string>
+	<key>Identifier</key>
+	<string>com.fuse-x.app</string>
+	<key>InterfaceType</key>
+	<string>Progress Bar</string>
+	<key>InterpreterArgs</key>
+	<array>
+		<string>-l</string>
+	</array>
+	<key>InterpreterPath</key>
+	<string>/bin/bash</string>
+	<key>Name</key>
+	<string>fuse X</string>
+	<key>NibPath</key>
+	<string>/usr/local/share/platypus/MainMenu.nib</string>
+	<key>OptimizeApplication</key>
+	<false/>
+	<key>Overwrite</key>
+	<false/>
+	<key>PromptForFileOnLaunch</key>
+	<false/>
+	<key>RemainRunning</key>
+	<true/>
+	<key>RunInBackground</key>
+	<false/>
+	<key>ScriptArgs</key>
+	<array/>
+	<key>ScriptPath</key>
+	<string>main.sh</string>
+	<key>SendNotifications</key>
+	<false/>
+	<key>StatusItemDisplayType</key>
+	<string>Text</string>
+	<key>StatusItemIcon</key>
+	<data></data>
+	<key>StatusItemIconIsTemplate</key>
+	<true/>
+	<key>StatusItemTitle</key>
+	<string>Title</string>
+	<key>StatusItemUseSystemFont</key>
+	<true/>
+	<key>Suffixes</key>
+	<array/>
+	<key>TextBackground</key>
+	<string>#ffffff</string>
+	<key>TextFont</key>
+	<string>Monaco</string>
+	<key>TextForeground</key>
+	<string>#000000</string>
+	<key>TextSize</key>
+	<real>13</real>
+	<key>URISchemes</key>
+	<array>
+		<string>fuse-x</string>
+	</array>
+	<key>UniformTypes</key>
+	<array>
+		<string>public.item</string>
+		<string>public.folder</string>
+	</array>
+	<key>Version</key>
+	<string>VERSION_NUMBER</string>
+</dict>
+</plist>
