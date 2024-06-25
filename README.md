@@ -1,20 +1,26 @@
 <p align="center"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/fuse-x/studio/raw/master/img/logo-darkmode.png">
-  <img src="https://github.com/fuse-x/studio/raw/master/img/logo.png" width="216" alt="fuse X" />
+  <img src="https://github.com/fuse-x/studio/raw/master/img/logo.png" width="216" alt="Fuse X" />
 </picture></p>
 
-<p align="center"><img src="https://img.shields.io/badge/target%20os-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-7F5AB6?style=flat-square&amp;logo=android&amp;logoColor=silver" alt="Target platforms">
+<p align="center"><a href="https://ci.appveyor.com/project/fusetools/uno/branch/master"><img src="https://img.shields.io/appveyor/ci/fusetools/uno/master.svg?logo=appveyor&logoColor=silver&style=flat-square" alt="AppVeyor build status"></a>
+<img src="https://img.shields.io/badge/target%20os-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-7F5AB6?style=flat-square&amp;logo=android&amp;logoColor=silver" alt="Target platforms">
 <img src="https://img.shields.io/badge/host%20os-macOS%20%7C%20Windows-7F5AB6?logo=apple&amp;style=flat-square" alt="Host platforms">
-<a href="https://github.com/fuse-x/studio/releases"><img src="https://img.shields.io/github/v/release/fuse-x/studio?include_prereleases&amp;logo=github&amp;label=latest&amp;sort=semver&amp;style=flat-square" alt="Latest version"></a>
-<a href="https://github.com/fuse-x/studio/releases"><img src="https://img.shields.io/github/downloads/fuse-x/studio/total?logo=github&amp;color=blue&amp;style=flat-square" alt="Downloads"></a></p>
+</p>
 
-<p align="center"><img src="https://github.com/fuse-x/studio/blob/master/img/screenshot.png?raw=true" width="744" alt="fuse X" /></p>
+<p align="center"><a href="https://github.com/fuse-x/studio/releases"><img src="https://img.shields.io/github/v/release/fuse-x/studio?include_prereleases&amp;logo=github&amp;label=latest&amp;sort=semver&amp;style=flat-square" alt="Latest version"></a>
+<a href="https://github.com/fuse-x/studio/releases"><img src="https://img.shields.io/github/downloads/fuse-x/studio/total?logo=github&amp;color=blue&amp;style=flat-square" alt="Downloads"></a>
+<a href="LICENSE.txt"><img src="https://img.shields.io/github/license/fuse-open/uno.svg?logo=github&amp;style=flat-square" alt="License: MIT"></a>
+<a href="https://fusecommunity.slack.com/"><img src="https://img.shields.io/badge/chat-on%20slack-blue.svg?logo=slack&amp;style=flat-square" alt="Slack"></a>
+<a href="[LICENSE.txt](https://opencollective.com/fuse-open)"><img src="https://opencollective.com/fuse-open/all/badge.svg?label=financial+contributors&amp;style=flat-square" alt="Financial Contributors on Open Collective"></a></p>
 
-> **fuse X** is a visual desktop tool suite for working with the [**Fuse Open**](https://fuseopen.com/) framework, on **macOS** and **Windows**.
+<p align="center"><img src="https://github.com/fuse-x/studio/blob/master/img/screenshot.png?raw=true" width="744" alt="Fuse X" /></p>
+
+> **Fuse X** is a visual desktop tool suite for working with the [**Fuse Open**](https://fuseopen.com/) framework, on **macOS** and **Windows**.
 
 ## Releases
 
-Official fuse X releases are published [here](https://github.com/fuse-x/studio).
+Official Fuse X releases are published [here](https://github.com/fuse-x/studio).
 
 ## Build instructions
 
@@ -35,7 +41,7 @@ The prerequisites for building on Windows is
 
 Build by either running `npm run build` or from within Visual Studio using the `fuse-win.sln` solution.
 
-After building fuse X can be started by running `npm run fuse` from the command line.
+After building Fuse X can be started by running `npm run fuse` from the command line.
 
 > To run with debugging in Visual Studio set `fuse-studio` as the startup project and press <kbd>F5</kbd>.
 
@@ -50,7 +56,7 @@ The prerequisites for building on macOS is
 
 Build by either running `npm run build` or from within [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) using the `fuse-mac.sln` solution.
 
-After building fuse X can be started by running `npm run fuse` from the command line.
+After building Fuse X can be started by running `npm run fuse` from the command line.
 
 > To run with debugging in Visual Studio for Mac set `fuse X` as the startup project and press <kbd>⌘</kbd>+<kbd>⏎</kbd>.
 
@@ -88,7 +94,7 @@ npm run app:ios-sim
 npm run app:native
 ```
 
-> Unfortunately the preview app cannot be opened in fuse X.
+> Unfortunately the preview app cannot be opened in Fuse X.
 
 Run one of the following commands to build a distributable Android APK or AAB.
 
