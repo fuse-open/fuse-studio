@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="2">
+    
+    <title>fuse X</title>
+    <organization>com.fuse-x</organization>
+    <license file="license.html" />
+
+    <domains enable_localSystem="true"/>
+    <options customize="never" require-scripts="true" rootVolumeOnly="true" />
+
+    <!--<app id="com.fuse-x.studio"/>-->
+    <!--<app id="com.fuse-x.menu-bar"/>-->
+
+    <allowed-os-versions>
+        <os-version min="10.10" />
+    </allowed-os-versions>
+
+    <pkg-ref id="com.fuse-x.studio"/>
+    
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.fuse-x.studio"/>
+        </line>
+    </choices-outline>
+    
+    <choice id="default"/>
+    
+    <choice id="com.fuse-x.studio" visible="false">
+        <pkg-ref id="com.fuse-x.studio"/>
+    </choice>
+
+    <pkg-ref id="com.fuse-x.studio" onConclusion="none">fuse-studio.pkg</pkg-ref>
+
+</installer-gui-script>

@@ -1,3 +1,0 @@
-<Extensions Backend="CIL">
-    <Require Assembly="@(Config.SimulatorDll:Path)" />
-</Extensions>

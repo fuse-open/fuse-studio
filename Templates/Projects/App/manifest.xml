@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TemplateManifest Name="Fuse project">
-	<Description>Create a project with a single empty view</Description>
-	<Alias>app</Alias>
-</TemplateManifest>

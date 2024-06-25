@@ -1,0 +1,78 @@
+<Page ux:Class="CodePage">
+	<JavaScript>
+		var Observable = require("FuseJS/Observable");
+		var proxyState = require('ProxyState');
+		
+		var code = Observable("");
+		var errorMessage = new Observable("");
+
+		var proxy = null;
+		function connectToHost(code) {
+			proxy = proxyState.getProxy();
+			proxy.connectToHost(code.toUpperCase())
+				.then(function(simulator) {
+					clearState();
+					router.goto("appViewPage", { simulatorId: simulator.id });
+				})
+				.catch(function(error) {
+					errorMessage.value = error;//"Connection to the host failed because: '" + error + "'.\nThe code was incorrect or make sure fuse X (studio) is running on your computer";
+				});
+		}
+
+		code.map(function(c) { return c.length == 5; })
+			.onValueChanged(module, function(item) {
+				errorMessage.value = "";
+				if(item)
+				{
+					connectToHost(code.value);
+				}
+			});
+
+		function clearState() {
+			code.value = "";
+			errorMessage.value = "";
+			if(proxy != null)
+				proxy.disconnect();
+		}
+
+		module.exports = {
+			code: code,
+			sync: function() {
+				connectToHost(code.value);
+			},
+			errorMessage: errorMessage,
+			isError : errorMessage.map(function(e) { return e != "" && e != null; }),
+			clearState: clearState
+		};
+	</JavaScript>
+	<Router ux:Dependency="router" />
+	<Deactivated> 
+		<Callback Handler="{clearState}" />
+	</Deactivated>
+	
+	<PageContent Title="Code" SubTitle="Enter the unique project code displayed in fuse X (studio).">
+		<DockPanel>
+			<StackPanel Alignment="VerticalCenter" >
+				<SegmentedInput Label="Enter Code" Code="{code}" />
+				<WhileFalse ux:Name="hideIndicator">
+					<WhileTrue Value="{isError}">
+						<ErrorView Message="{errorMessage}" Margin="0,8,0,0" />
+					</WhileTrue>
+				</WhileFalse>
+			</StackPanel>
+
+			<WhileKeyboardVisible>
+				<Change showSyncButton.Value="false" />
+				<!--<Change hideIndicator.Value="true" />-->
+			</WhileKeyboardVisible>
+			<WhileTrue ux:Name="showSyncButton" Value="true">
+				<StackPanel Dock="Bottom" >
+					<BasicButton Margin="0,24" Text="Sync" Clicked="{sync}" >
+						<SyncIcon Width="18" />
+					</BasicButton>
+				</StackPanel>
+			</WhileTrue>
+
+		</DockPanel>
+	</PageContent>
+</Page>

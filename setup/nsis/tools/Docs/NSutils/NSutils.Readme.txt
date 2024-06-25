@@ -1,0 +1,491 @@
+_______________________________________________________________________________
+
+Functions exported by NSutils
+https://github.com/negrutiu/nsis-nsutils
+marius.negrutiu@protonmail.com
+_______________________________________________________________________________
+
+[GetVersionInfoString]
+Extract specific strings from an executable's version information block.
+Be mindful of the file system redirection on 64-bit platforms!
+
+Syntax:
+	NSutils::GetVersionInfoString ExeName VersionInfoString
+
+Return value:
+	The requested string will be returned on the stack
+
+Example:
+	${DisableX64FSRedirection}	; Optional. On 64-bit platforms, read from System32 rather than SysWOW64
+	NSutils::GetVersionInfoString "$SYSDIR\Notepad.exe" "LegalCopyright"
+	Pop $0
+	${If} "$0" != ""
+		; Valid string
+		MessageBox MB_ICONINFORMATION 'LegalCopyright = "$0"'
+	${Else}
+		; Some error. Probably the string is missing
+	${EndIf}
+	${EnableX64FSRedirection}
+_______________________________________________________________________________
+
+[GetFileVersion]
+Extract the numeric file version from an executable's version information block.
+Be mindful of the file system redirection on 64-bit platforms!
+
+Syntax:
+	NSutils::GetFileVersion ExeName
+
+Return values:
+	If the operation is successful, the function will return a pre-formatted
+	"v1.v2.v3.v4" version string on the stack. In addition, $1, $2, $3 and $4
+	will store each individual version component.
+	If the operation is unsuccessful, an empty string will be returned on the
+	stack, and $1..$4 will not be set.
+
+Example:
+	${DisableX64FSRedirection}	; Optional. On 64-bit platforms, read from System32 rather than SysWOW64
+	NSutils::GetFileVersion "$SYSDIR\Notepad.exe"
+	Pop $0
+	${If} "$0" != ""
+		; $1, $2, $3, $4 are valid
+		MessageBox MB_ICONINFORMATION "FileVersion: $0 ($1, $2, $3, $4)"
+	${Else}
+		; Error
+	${EndIf}
+	${EnableX64FSRedirection}
+_______________________________________________________________________________
+
+[GetProductVersion]
+Extract the numeric product version from an executable's version information block.
+Be mindful of the file system redirection on 64-bit platforms!
+
+Syntax:
+	NSutils::GetProductVersion ExeName
+
+Return values:
+	If the operation is successful, the function will return a pre-formatted
+	"v1.v2.v3.v4" version string on the stack. In addition, $1, $2, $3 and $4
+	will store each individual version component.
+	If the operation is unsuccessful, an empty string will be returned on the
+	stack, and $1..$4 will not be set.
+
+Example:
+	${DisableX64FSRedirection}	; Optional. On 64-bit platforms, read from System32 rather than SysWOW64
+	NSutils::GetFileVersion "$SYSDIR\Notepad.exe"
+	Pop $0
+	${If} "$0" != ""
+		; $1, $2, $3, $4 are valid
+		MessageBox MB_ICONINFORMATION "ProductVersion: $0 ($1, $2, $3, $4)"
+	${Else}
+		; Error
+	${EndIf}
+	${EnableX64FSRedirection}
+_______________________________________________________________________________
+
+[ReadResourceString]
+Read a string from an executable's string table.
+Be mindful of the file system redirection on 64-bit platforms!
+
+Syntax:
+	NSutils::ReadResourceString ExeName StringID StringLANG
+
+Return values:
+	The resource string on the stack.
+	An empty string is returned in case of any error.
+
+Example:
+	${DisableX64FSRedirection}	; Optional. On 64-bit platforms, read from System32 rather than SysWOW64
+	NSutils::ReadResourceString "$SYSDIR\Notepad.exe" 14 1033
+	Pop $0
+	${If} "$0" != ""
+		MessageBox MB_ICONINFORMATION 'String #13: "$0"'
+	${Else}
+		; Error
+	${EndIf}
+	${EnableX64FSRedirection}
+_______________________________________________________________________________
+
+[WriteResourceString]
+Write a string to an executable's string table.
+If an empty string is specified, it will be removed from the string table.
+
+Be mindful of the file system redirection on 64-bit platforms!
+Be mindful of the .LN and .mui files (introduced in Vista)!
+Executables with sattelite .mui files cannot have their string tables updated!
+Read more: "http://msdn.microsoft.com/en-us/library/windows/desktop/ms648049(v=vs.85).aspx"
+
+Syntax:
+	NSutils::WriteResourceString ExeName StringID StringLANG "The string"
+
+Return values:
+	0/1 on the stack
+
+Example:
+	${DisableX64FSRedirection}	; Optional. On 64-bit platforms
+	NSutils::WriteResourceString "$EXEDIR\MyExecutable.exe" 100 1033 "My new string"
+	Pop $0
+	${If} $0 = ${TRUE}
+		MessageBox MB_ICONINFORMATION 'String #100 successfully modified'
+	${Else}
+		; Error
+	${EndIf}
+	${EnableX64FSRedirection}
+_______________________________________________________________________________
+
+[ExecutePendingFileRenameOperations]
+The routine examines the "PendingFileRenameOperations" registry value
+and executes all pending operations that match a specified substring.
+Operations will be removed from the registry value, and won't
+be executed again at the next reboot...
+Operations will be logged to LogFile.
+
+Syntax:
+	NSutils::ExecutePendingFileRenameOperations "FileSubstring" "LogFile"
+
+Return values:
+	Two error codes are returned on the stack.
+	1. Win32 error code
+	2. Win32 error code of the first failed operation
+
+Example:
+	NSutils::ExecutePendingFileRenameOperations "AppData\Local\Temp" "C:\MyPath\MyLog.txt"
+	Pop $0
+	Pop $1
+	${If} $0 = ${ERROR_SUCCESS}
+		${If} $1 = ${ERROR_SUCCESS}
+			; Success. All file operations were successful, as well
+		${Else}
+			; Success, but some file operations failed...
+		${EndIf}
+	${Else}
+	${EndIf}
+_______________________________________________________________________________
+
+[FindPendingFileRenameOperations]
+The routine searches the "PendingFileRenameOperations" registry value for
+pending operations that match a specified substring.
+
+Syntax:
+	NSutils::FindPendingFileRenameOperations "FileSubstring"
+
+Return values:
+	[Stack] The first path containing the substring, or, an empty string if nothing is found
+
+Example:
+	NSutils::FindPendingFileRenameOperations "AppData\Local\Temp"
+	Pop $0 ; First path containing the substring
+	${If} $0 != ""
+		; Path found
+	${Else}
+		; Nothing found
+	${EndIf}
+_______________________________________________________________________________
+
+[DisableProgressStepBack]
+[RestoreProgressStepBack]
+Don't allow the progress bar control to step back.
+This is a common problem if your script has loops.
+It only works when called from a Section (while the InstFiles page is active)
+
+Syntax:
+	NSutils::DisableProgressStepBack ProgressBarHandle
+	NSutils::RestoreProgressStepBack ProgressBarHandle
+
+Return value:
+	None
+
+Example:
+	NSutils::DisableProgressStepBack $mui.InstFilesPage.ProgressBar
+	${For} $R0 1 10
+		Sleep 1000
+	${Next}
+	NSutils::RestoreProgressStepBack $mui.InstFilesPage.ProgressBar
+_______________________________________________________________________________
+
+[RedirectProgressBar]
+Redirect the relevant window messages of a progress bar to another progress bar.
+To stop the redirection set ProgressBar2Handle to NULL.
+
+Syntax:
+	NSutils::RedirectProgressBar ProgressBarHandle ProgressBar2Handle|NULL
+
+Return value:
+	None
+
+Example:
+	NSutils::RedirectProgressBar $mui.InstFilesPage.ProgressBar $mui.MyProgressBar
+	${For} $R0 1 10
+		Sleep 1000
+	${Next}
+	NSutils::RedirectProgressBar $mui.InstFilesPage.ProgressBar 0
+_______________________________________________________________________________
+
+[StartTimer]
+[StopTimer]
+Start a timer. A callback is fired each time the clock ticks.
+The callback is a regular NSIS function, no input, no output.
+
+Warning:
+	The timer can hit while another piece of the script is running
+	Your Timer callback function should save the status and restore it before exiting
+
+Syntax:
+	NSutils::StartTimer NsisCallbackFunction TimerPeriodMS
+	NSutils::StopTimer NsisCallbackFunction
+
+Return values:
+	None
+
+Example:
+	Function OnMyTimer
+		System::Call 'user32::MessageBeep( i 0xffffffff )'
+	FunctionEnd
+	...
+	GetFunctionAddress $0 OnMyTimer
+	NSutils::StartTimer $0 1000
+	...
+	...
+	GetFunctionAddress $0 OnMyTimer
+	NSutils::StopTimer $0
+_______________________________________________________________________________
+
+[StartReceivingClicks]
+[StopReceivingClicks]
+
+Subclass a (parent) window in order to intercept BN_CLICKED commands.
+A NSIS callback function is fired whenever a child button is clicked.
+The callback function is a regular NSIS function. It receives button's HWND and ID on the stack. No return value.
+
+Syntax:
+	NSutils::StartReceivingClicks ParentHwnd NsisCallbackFunction
+	NSutils::StopReceivingClicks ParentHwnd
+
+Return values:
+	None
+
+Example:
+	Function OnButtonClicked
+		Pop $1	; Button HWND
+		Pop $2	; Button control ID
+		MessageBox MB_OK "Clicked button $2"
+	FunctionEnd
+	...
+	GetFunctionAddress $0 OnButtonClicked
+	NSutils::StartReceivingClicks $HWNDPARENT $0
+	...
+	NSutils::StopReceivingClicks $HWNDPARENT
+_______________________________________________________________________________
+
+[LoadImageFile]
+Load an image in memory (HBITMAP) using oleaut32!OleLoadPicturePath.
+The source can be either a local file or a remote URL
+Supported formats: BMP, JPEG, GIF
+
+You have to specify the HBITMAP dimensions. The original image will be fitted
+within these boundaries according to alignment flags.
+AlignH can be "left", "right" or "center"
+AlignV can be "top", "bottom" or "center"
+
+[!] When no longer needed you must destroy de HBITMAP by calling user32!DeleteObject
+
+Syntax:
+	NSutils::LoadImageFile ImageFile|URL Width Height AlignH AlighV
+
+Return values:
+	An HBITMAP on the stack
+
+Example:
+	NSutils::LoadImageFile "http://www.codeproject.com/App_Themes/CodeProject/Img/logo250x135.gif" 640 480 center center
+	Pop $0	; HBITMAP
+	...
+	System::Call 'user32::DeleteObject( p $0 )'
+
+_______________________________________________________________________________
+
+[RejectCloseMessages]
+Reject closing window messages such as WM_CLOSE, WM_DESTROY, WM_COMMAND(IDCANCEL), WM_SYSCOMMAND(SC_CLOSE), etc
+Such messages will be rejected when sent to your Installer
+
+Syntax:
+	NSutils::RejectCloseMessages true|false
+
+Return values:
+	None
+
+Example:
+	NSutils::RejectCloseMessages true
+	...
+	NSutils::RejectCloseMessages false
+_______________________________________________________________________________
+
+[CloseFileHandles]
+Close all opened handles to the specified file or folder.
+Be mindful of the file system redirection on 64-bit platforms!
+
+Syntax:
+	NSutils::CloseFileHandles "File"
+
+Return values:
+	The number of closed handles
+
+Example:
+	${DisableX64FSRedirection}	; Optional. On 64-bit platforms, read from System32 rather than SysWOW64
+	NSutils::CloseFileHandles "$SYSDIR\drivers\etc\hosts"
+	${EnableX64FSRedirection}
+	Pop $0
+	MessageBox MB_OK "$0 handles were closed"
+_______________________________________________________________________________
+
+[RegMultiSzInsertBefore]
+[RegMultiSzInsertAfter]
+[RegMultiSzInsertAtIndex]
+Insert a substring to a REG_MULTI_SZ registry value
+
+Syntax:
+	NSutils::RegMultiSzInsertBefore  "RegKeyName" "RegValueName" KeyFlags "InsertStr" "InsertBeforeStr"
+	NSutils::RegMultiSzInsertAfter   "RegKeyName" "RegValueName" KeyFlags "InsertStr" "InsertAfterStr"
+	NSutils::RegMultiSzInsertAtIndex "RegKeyName" "RegValueName" KeyFlags "InsertStr" Index
+
+Return value:
+	[Stack] Win32 error
+
+Examples:
+	NSutils::RegMultiSzInsertBefore  "HKCU\Software\MyCompany" "MyValue" ${KEY_WOW64_64KEY} "Line 4" "Line 5"
+	Pop $0	; Win32 error
+	NSutils::RegMultiSzInsertAfter   "HKCU\Software\MyCompany" "MyValue" ${KEY_WOW64_64KEY} "Line 4" "Line 3"
+	Pop $0	; Win32 error
+	NSutils::RegMultiSzInsertAtIndex "HKCU\Software\MyCompany" "MyValue" ${KEY_WOW64_64KEY} "Line 4" 3
+	Pop $0	; Win32 error
+_______________________________________________________________________________
+
+[RegMultiSzDelete]
+Delete a substring from a REG_MULTI_SZ registry value
+
+Syntax:
+	NSutils::RegMultiSzDelete "RegKeyName" "RegValueName" KeyFlags "DeleteStr" RemoveValueIfEmpty
+
+Return value:
+	[Stack] Win32 error
+
+Example:
+	NSutils::RegMultiSzDelete "HKCU\Software\MyCompany" "MyValue" ${KEY_WOW64_64KEY} "Line 4" ${TRUE}
+	Pop $0	; Win32 error
+_______________________________________________________________________________
+
+[RegMultiSzRead]
+Read a substring from a REG_MULTI_SZ registry value
+
+Syntax:
+	NSutils::RegMultiSzRead "RegKeyName" "RegValueName" KeyFlags Index
+
+Return value:
+	[Stack] Win32 error
+	[Stack] The substring, or an empty string in case of errors
+
+Example:
+	NSutils::RegMultiSzRead "HKCU\Software\MyCompany" "MyValue" ${KEY_WOW64_64KEY} 2
+	Pop $0	; Win32 error
+	Pop $1	; Substring at index 2
+_______________________________________________________________________________
+
+[RegBinaryInsertString]
+Write a wide-character string to a REG_BINARY registry value, at a specific position
+The NULL terminator is not written
+
+Syntax:
+	NSutils::RegBinaryInsertString "RegKeyName" "RegValueName" KeyFlags Offset String
+
+Return value:
+	[Stack] Win32 error
+
+Example:
+	; Write "MyString" to a REG_BINARY value, at (byte) offset 100
+	NSutils::RegBinaryInsertString "HKCU\Software\MyCompany" "MyValue" ${KEY_WOW64_64KEY} 100 "My string"
+	Pop $0	; Win32 error
+_______________________________________________________________________________
+
+[CPUID]
+Retrieve CPU capabilities
+
+Syntax:
+	NSutils::CPUID FuncId
+
+Return values:
+	[Stack] EAX
+	[Stack] EBX
+	[Stack] ECX
+	[Stack] EDX
+
+Example:
+	; Check SSE2 availability (Function 1, EDX, bit 26)
+	NSutils::CPUID 1
+	Pop $1	; EAX
+	Pop $2	; EBX
+	Pop $3	; ECX
+	Pop $4	; EDX
+	IntOp $0 $4 & 0x4000000
+	${If} $0 <> 0
+		DetailPrint "CPU supports SSE2"
+	${EndIf}
+_______________________________________________________________________________
+
+[CompareFiles]
+Test whether two files are identical (content comparison)
+
+Syntax:
+	NSutils::CompareFiles File1 File2
+
+Return value:
+	[Stack] 0/1
+
+Example:
+	NSutils::CompareFiles "C:\MyFile1.txt" "C:\MyFile2.txt"
+	Pop $0
+	${If} $0 = ${TRUE}
+		DetailPrint "Files are identical"
+	${EndIf}
+_______________________________________________________________________________
+
+[RemoveSoftwareRestrictionPolicies]
+This routine enumerates software restriction policies and removes the ones that
+match a substring.
+
+Syntax:
+	NSutils::RemoveSoftwareRestrictionPolicies "FileSubstring" "LogFile"
+
+Input:
+	[Param] FileSubstring. All policies having this substring in their path will be removed
+	[Param] LogFile. Optional
+
+Output:
+	[Stack] Win32/HRESULT
+	[Stack] Removed policy count
+
+Example:
+	NSutils::RemoveSoftwareRestrictionPolicies "MyApp" "$EXEDIR\MyLog.txt"
+	Pop $0  ; Error
+	Pop $1  ; Removed count
+	${If} $0 = 0
+		; Success
+	${EndIf}
+_______________________________________________________________________________
+
+[DriveIsSSD]
+Check if the specified drive is SSD by examining its TRIM capability
+
+Syntax:
+	NSutils::DriveIsSSD "FileOrDirectory"
+
+Input:
+	[Stack] File|Dir
+
+Output:
+	[Stack] TRUE/FALSE
+
+Example:
+	NSutils::DriveIsSSD "$INSTDIR"
+	Pop $0
+	${If} $0 <> ${FALSE}
+		; Drive is SSD
+	${EndIf}
+_______________________________________________________________________________

@@ -1,0 +1,44 @@
+<Page ux:Class="ErrorPage">
+	<Router ux:Dependency="router" />
+
+	<JavaScript>
+		var simulatorAPI = require('SimulatorAPI');
+
+		var errorMessage = this.Parameter.map(function(param) {
+			return param.errorMessage;
+		});
+
+		var simulatorId = this.Parameter.map(function(param) {
+			return param.simulatorId;
+		});
+
+		var currentSimId = -1;
+		simulatorId.onValueChanged(module, function(simId) {
+			currentSimId = simId;
+		});
+
+		function restart() {
+			simulatorAPI.restartProjectRuntime(currentSimId)
+				.then(function(newSimId) {
+					router.goto("appViewPage", { simulatorId: newSimId });
+				})
+				.catch(function(error) {
+					router.goto("setupPage");
+				});
+		};
+
+		return module.exports = {
+			errorMessage: errorMessage,
+			restart: restart
+		};
+	</JavaScript>
+
+	<Android.StatusBarConfig Color="BG" IsVisible="True" />
+	<iOS.StatusBarConfig Style="Light" Animation="Slide" IsVisible="True" />
+	<ClientPanel>
+		<PageContent Title="Error">
+			<ErrorView Alignment="Top" Message="{errorMessage}" />
+			<BasicButton Text="Restart" Dock="Bottom" Clicked="{restart}" Margin="0,16" />
+		</PageContent>
+	</ClientPanel>
+</Page>

@@ -1,0 +1,45 @@
+<Panel ux:Class="Outracks.Simulator.Client.Dialogs.ModalDialog">
+	
+	<string ux:Property="Header" />
+	<string ux:Property="Body" />
+	<string ux:Property="Details" />
+
+	<ClientPanel>
+
+		<Grid Rows="1*,auto">
+
+			<Grid Rows="1*,1*,2*" Margin="40">
+
+				<Image File="../fight.png" Width="300" />
+
+				<Text Value="{Property Header}" FontSize="25" TextAlignment="Center" Alignment="VerticalCenter" TextWrapping="Wrap"
+				      Color="#808080" />
+
+				<Panel>
+					<ScrollView Margin="0,10,0,10">
+						<StackPanel>
+							<Text Value="{Property Body}" TextWrapping="Wrap" TextAlignment="Left" Alignment="HorizontalCenter" FontSize="15" Margin="0,0,0,20"
+							      Color="#e6e6e6" />
+							<Panel>
+								<WhileString Test="IsNotEmpty" Value="{Property Details}">
+									<ScrollView Margin="0,0,0,20" AllowedScrollDirections="Horizontal" MaxHeight="200">
+										<StackPanel>
+											<Text Value="{Property Details}" FontSize="10"
+											      Color="#e6e6e6" />
+										</StackPanel>
+									</ScrollView>
+								</WhileString>
+							</Panel>
+						</StackPanel>
+					</ScrollView>
+				</Panel>
+
+			</Grid>
+
+			<Grid DefaultRow="auto" Margin="15" ux:Name="ButtonGrid" />
+
+		</Grid>
+
+	</ClientPanel>
+
+</Panel>

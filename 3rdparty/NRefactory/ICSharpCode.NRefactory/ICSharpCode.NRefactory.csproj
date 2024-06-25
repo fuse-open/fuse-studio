@@ -17,7 +17,6 @@
     <CodeAnalysisRules>-Microsoft.Design#CA1000;-Microsoft.Design#CA1004;-Microsoft.Design#CA1005;-Microsoft.Design#CA1006;-Microsoft.Design#CA1026;-Microsoft.Design#CA1033;-Microsoft.Design#CA1051;-Microsoft.Design#CA1063;-Microsoft.Naming#CA1702;-Microsoft.Naming#CA1704;-Microsoft.Naming#CA1710;-Microsoft.Naming#CA1716;-Microsoft.Naming#CA1720;-Microsoft.Performance#CA1800;-Microsoft.Security#CA2104</CodeAnalysisRules>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\ICSharpCode.NRefactory.snk</AssemblyOriginatorKeyFile>
-    <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
     <WarningLevel>4</WarningLevel>
     <NoWarn>1591</NoWarn>
@@ -59,23 +58,23 @@
     <DefineConstants>DEBUG;TRACE;NET_4_5</DefineConstants>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <StartAction>Project</StartAction>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net_4_5_Debug|AnyCPU' ">
     <DebugType>full</DebugType>
     <DebugSymbols>True</DebugSymbols>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <OutputPath>..\bin\net_4_5_Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'net_4_5_Release' ">
     <Optimize>True</Optimize>
     <DefineConstants>TRACE;NET_4_5</DefineConstants>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'net_4_5_Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <OutputPath>..\bin\net_4_5_Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>

@@ -1,0 +1,19 @@
+{
+  "Packages": [
+    "Uno.Collections",
+    "Uno.Geometry"
+  ],
+  "Includes": [
+    "App.uno:SourceFile",
+    "Attributes.uno:SourceFile",
+    "Button.uno:SourceFile",
+    "Clicked.uno:SourceFile",
+    "Element.uno:SourceFile",
+    "Node.uno:SourceFile",
+    "Orientation.uno:SourceFile",
+    "Panel.uno:SourceFile",
+    "StackPanel.uno:SourceFile",
+    "Text.uno:SourceFile",
+    "StaticClass.uno:SourceFile"
+  ]
+}

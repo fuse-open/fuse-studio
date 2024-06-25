@@ -1,0 +1,420 @@
+
+NSxfer - NSIS WinINet Plugin
+https://github.com/negrutiu/nsis-nsxfer
+marius.negrutiu@protonmail.com
+_________________________________________________________________________________________________
+
+Features:
+- Multi-threaded: download multiple files in parallel
+- Asynchronous: start a download now, check its status later
+- Aggressive: multiple attempts to connect, multiple attempts to reconnect, resume interrupted transfers, etc
+- NSIS aware: download files at any installation stage (from .onInit, from Sections, from custom pages, silent installers, etc)
+- Informative: plenty of useful information is available for each download (size, speed, HTTP status, HTTP headers, etc)
+- Supports all relevant HTTP methods (GET, POST, HEAD, etc)
+- Supports custom HTTP headers and data
+- Supports proxy servers (both authenticated and open)
+- Supports files larger than 4GB
+- Can download remote content to RAM instead of a file
+- Many more...
+
+Examples:
+	# Quick transfer, single file
+	NSxfer::Transfer /URL "http://MyServer/MyFile" /LOCAL "$TEMP\MyFile" /MODE Page /ABORT "Abort Title" "Are you sure?" /END
+	Pop $0 ; Status text ("OK" for success)
+	DetailPrint "Status: $0"
+
+	# Parallel transfer, multiple files
+	; Start the downloads
+	NSxfer::Request /URL "http://MyServer1/MyFile1" /LOCAL "$TEMP\MyFile1" /END
+	Pop $1 ; Request ID1
+	NSxfer::Request /URL "http://MyServer2/MyFile2" /LOCAL "$TEMP\MyFile2" /END
+	Pop $2 ; Request ID2
+	NSxfer::Request /URL "http://MyServer3/MyFile3" /LOCAL "$TEMP\MyFile3" /END
+	Pop $3 ; Request ID3
+	
+	; ...do other useful stuff...
+	
+	; Wait for all downloads to complete
+	NSxfer::Wait /MODE Page /ABORT "Abort" "Are you sure?" /END
+
+	; Query status (1)
+	NSxfer::Query /ID $1 /ERRORCODE /END
+	Pop $0 ; Error code (HTTP status 200-299 for success)
+	DetailPrint "Status1: $0"
+	; Query status (2)
+	NSxfer::Query /ID $2 /ERRORCODE /END
+	Pop $0 ; Error code (HTTP status 200-299 for success)
+	DetailPrint "Status2: $0"
+	; Query status (3)
+	NSxfer::Query /ID $3 /ERRORCODE /END
+	Pop $0 ; Error code (HTTP status 200-299 for success)
+	DetailPrint "Status3: $0"
+
+	; ...you got the idea...
+_________________________________________________________________________________________________
+
+NSxfer::Transfer	[/PRIORITY prio] [/DEPEND id]
+					[/METHOD GET|POST]
+					/URL url
+					[/LOCAL file|MEMORY|NONE]
+					[/HEADERS hdr]
+					[/DATA data | /DATAFILE file]
+					[/TIMEOUTCONNECT msec] [/TIMEOUTRECONNECT msec]
+					[/OPTCONNECTRETRIES count] [/OPTCONNECTTIMEOUT msec] [/OPTRECEIVETIMEOUT msec] [/OPTSENDTIMEOUT msec]
+					[/PROXY server] [/PROXYUSER user] [/PROXYPASS pass]
+					[/REFERER url]
+					[/INTERNETFLAGS flags] [/SECURITYFLAGS flags]
+					[/MODE SILENT|POPUP|PAGE]
+					[/TITLEHWND Wnd] [/STATUSHWND Wnd] [/PROGRESSHWND Wnd]
+					[/TITLETEXT Text MultiText] [/STATUSTEXT Text Multitext]
+					[/ABORT Title Message]
+					/END
+
+Remarks:
+	Make a (single) HTTP request, wait for it to complete and return the status code.
+	This routine is recommended if you only need to transfer one file at a time.
+
+	To transfer multiple files in parallel, you must use lower level functions (Request(1) + Request(2) + ... + Request(n) + [...] + Wait(*) + Query(*))
+	
+Parameters:
+	[...]						| Check out "Request" parameters!
+	[...]						| Check out "Wait" parameters!
+	/END						| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	[Stack] "OK" for successful transfers, or an error string (HTTP or Win32) otherwise
+_________________________________________________________________________________________________
+
+NSxfer::Request		[/PRIORITY prio] [/DEPEND id]
+					[/METHOD GET|POST]
+					/URL url
+					[/LOCAL file|MEMORY|NONE]
+					[/HEADERS hdr]
+					[/DATA data | /DATAFILE file]
+					[/TIMEOUTCONNECT msec] [/TIMEOUTRECONNECT msec]
+					[/OPTCONNECTRETRIES count] [/OPTCONNECTTIMEOUT msec] [/OPTRECEIVETIMEOUT msec] [/OPTSENDTIMEOUT msec]
+					[/PROXY server] [/PROXYUSER user] [/PROXYPASS pass]
+					[/REFERER url]
+					[/INTERNETFLAGS flags] [/SECURITYFLAGS flags]
+					/END
+
+Remarks:
+	Add a transfer request to the queue.
+	The transfer will start as soon as a worker thread becomes available.
+	This command will not display any GUI.
+	
+Parameters:
+	/PRIORITY					| Priority in queue. Lower value mean higher priority (default: 1000)
+	/DEPEND id					| Another request that this one depends on. The new request will wait in queue until the other is completed (default: 0, no dependency)
+	/METHOD GET|POST|HEAD|...	| HTTP Method (default: GET)
+	/URL url					| HTTP or HTTPS...
+	/LOCAL file|MEMORY|NONE		| Local destination. Can be either a local file, a memory buffer, or none (none: make the HTTP request, but don't transfer the content) (default: NONE)
+	/HEADERS hdr				| Additional HTTP headers, delimited by CRLF (\r\n)
+	/DATA data					| Additional data to be sent as part of the HTTP request
+	/DATAFILE file				| Additional data to be sent as part of the HTTP request (read from the specified file)
+	/TIMEOUTCONNECT msec		| Keep trying to connect for "msec" milliseconds (default: 0, no retries)
+	/TIMEOUTRECONNECT msec		| Keep trying to reconnect for "msec" milliseconds, if the connection drops while downloading (default: 0, no reconnecting)
+	/OPTCONNECTRETRIES count	| InternetSetOption( Session, INTERNET_OPTION_CONNECT_RETRIES ). Relevant only for remote hosts with multiple IPs!
+	/OPTCONNECTTIMEOUT msec		| InternetSetOption( Session, INTERNET_OPTION_CONNECT_TIMEOUT )
+	/OPTRECEIVETIMEOUT msec		| InternetSetOption( Request, INTERNET_OPTION_RECEIVE_TIMEOUT )
+	/OPTSENDTIMEOUT msec		| InternetSetOption( Request, INTERNET_OPTION_SEND_TIMEOUT )
+	/PROXY server				| CERN type proxies (ex: "http=http://my_proxy:my_port"). SOCKS proxies are supported if Internet Explorer is installed
+	/PROXYUSER user				| Optional username for authenticated proxies
+	/PROXYPASS pass				| Optional password for authenticated proxies
+	/REFERER url				| Optional referer URL, passed to InternetOpenRequest
+	/INTERNETFLAGS flags		| Combination of INTERNET_FLAG_XXX passed to InternetOpenRequest (default: 0x84082200, INTERNET_FLAG_NO_CACHE_WRITE|INTERNET_FLAG_IGNORE_CERT_DATE_INVALID|INTERNET_FLAG_NO_COOKIES|INTERNET_FLAG_NO_UI|INTERNET_FLAG_RELOAD)
+	/SECURITYFLAGS flags		| Combination of SECURITY_FLAG_XXX passed to InternetSetOption(INTERNET_OPTION_SECURITY_FLAGS) (default: 0x2080, SECURITY_FLAG_IGNORE_REVOCATION|SECURITY_FLAG_IGNORE_CERT_DATE_INVALID)
+	/END						| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	[Stack] An unique request ID. You'll need it later, to query the status
+
+Examples:
+
+	; Download to local file
+	NSxfer::Request /URL "http://live.sysinternals.com/Files/SysinternalsSuite.zip" /LOCAL "$EXEDIR\SysinternalsSuite.zip" /TIMEOUTCONNECT 60000 /TIMEOUTRECONNECT 300000 /END
+	Pop $0	; Request ID
+
+	; Download to memory, highest priority
+	NSxfer::Request /PRIORITY 1 /URL "http://live.sysinternals.com/Files/SysinternalsSuite.zip" /LOCAL MEMORY /END
+	Pop $0	; Request ID
+
+	; Send the HTTP request but don't download the content
+	NSxfer::Request /URL "http://mydomain.com:800?param1=va1&param2=val2" /LOCAL NONE /END
+	Pop $0	; Request ID
+
+	; POST a form
+	NSxfer::Request /METHOD POST /URL "http://httpbin.org/post" /LOCAL "Post.txt" /HEADERS "Content-Type: application/x-www-form-urlencoded" /DATA "user=MY+NAME&pass=MY+PASSWORD" /END
+	Pop R0	; Request ID
+_________________________________________________________________________________________________
+
+NSxfer::Wait		[/ID id] [/PRIORITY prio]	; Selection parameters
+					[/MODE SILENT|POPUP|PAGE]
+					[/TITLEHWND Wnd] [/STATUSHWND Wnd] [/PROGRESSHWND Wnd]
+					[/TITLETEXT Text MultiText] [/STATUSTEXT Text Multitext]
+					[/ABORT Title Message]
+					/END
+
+Remarks:
+	Wait (by ID or PRIORITY) for one or multiple transfers to complete
+
+	Waiting modes:
+	- SILENT					| No GUI is displayed, the call returns when transfer(s) complete(s)
+	- POPUP						| Progress is displayed on a popup window
+	- PAGE						| Progress is displayed on an installer page (InstFiles or custom). This mode is available only when the installer is visible.
+
+	SILENT and POPUP modes are available at all times, including silent installers.
+	PAGE mode requires that the installer is visible, and a page is currently active. In silent installers, PAGE mode is automatically converted to SILENT mode.
+
+	All displayed texts can be customized.
+	The plugin will choose between "Text" and "MultiText", based on whether waiting for one or multiple transfers
+	All texts may contain keywords that are automatically replaced at runtime.
+
+	Transfer-specific keywords:
+	{ID}						| The request ID returned by NSxfer::Request
+	{STATUS}					| "Waiting", "Downloading" or "Completed" (English only)
+	{WININETSTATUS}				| The last status reported by the InternetCallback (http://msdn.microsoft.com/EN-US/library/windows/desktop/aa385121(v=vs.85).aspx)
+	{METHOD}					| The HTTP method in use (GET, POST, HEAD, etc.)
+	{URL}						| Full URI
+	{IP}						| Server's IP address, or an empty string
+	{PROXY}						| The proxy server, or an empty string
+	{LOCAL}						| The local destination (file path|Memory|None)
+	{LOCALFILEDIR}				| The file directory (no name), extracted from the local path
+	{LOCALFILENAME}				| The file name (no path), extracted from the local path
+	{FILESIZE}					| The remote content length, nicely formatted (ex: "1,3 GB")
+	{FILESIZEBYTES}				| The remote content length (can exceed 4GB (32-bit boundary))
+	{RECVSIZE}					| The amount of bytes received, nicely formatted (ex: "1,3 GB")
+	{RECVSIZEBYTES}				| The amount of bytes received
+	{PERCENT}					| Percent (0-100)
+	{SPEED}						| Transfer speed (nicely formatted, ex: "1,4 MB/s")
+	{SPEEDBYTES}				| Transfer speed (bytes/second)
+	{TIMESTART}					| The timestamp when the transfer has started (ex: 2014/10/18 08:24)
+	{TIMEELAPSED}				| Amount of time since the transfer has started (ex: 3 min, 2 sec)
+	{TIMEREMAINING}				| Estimated amount of time until the transfer will complete (ex: 10 min, 35 sec)
+
+	Global keywords:
+	{TOTALCOUNT}				| The overall number of requests (waiting + downloading + completed)
+	{TOTALWAITING}				| The number of waiting requests
+	{TOTALACTIVE}				| The number of downloading + completed requests
+	{TOTALDOWNLOADING}			| The number of requests in progress
+	{TOTALCOMPLETED}			| The number of completed requests
+	{TOTALRECVSIZE}				| The amount of bytes received, nicely formatted (ex: "1,3 GB")
+	{TOTALRECVSIZEBYTES}		| The amount of bytes received
+	{TOTALSPEED}				| The combined speed of transfers in progress (nicely formatted, ex: "1,4 MB/s")
+	{TOTALSPEEDBYTES}			| The combined speed of transfers in progress (bytes/second)
+	{TOTALTHREADS}				| Worker thread count
+	{ORIGINALTITLE}				| The original title text 
+	{ORIGINALSTATUS}			| The original status text
+	{PLUGINNAME}				| Plugin name ("NSxfer")
+	{PLUGINVERSION}				| Plugin version
+	{ANIMLINE}					| The classic \|/- animation
+	{ANIMDOTS}					| The classic ./../... animation
+
+Parameters:
+	/ID id						| Wait for a specific transfer. If not specified, we're waiting for all transfers
+	/PRIORITY prio				| Wait for transfers with specific priority. If not specified we're waiting for all transfers
+	/MODE						| Wait mode
+	/TITLEHWND					| Custom control to display the Title text
+	/STATUSHWND					| Custom control to display the Status text
+	/PROGRESSHWND				| Custom progress control
+	/TITLETEXT Text MultiText	| The Title text. "Text" is displayed when waiting for a single transfer, whereas "MultiText" is displayed when waiting for multiple transfers. Both texts may contain keywords
+	/STATUSTEXT Text MultiText	| The Status text. "Text" is displayed when waiting for a single transfer, whereas "MultiText" is displayed when waiting for multiple transfers. Both texts may contain keywords
+	/ABORT Title Message		| The transfer can be aborted. If Message is not empty, a confirmation box (Yes/No) will be diaplayed. If Message is empty, the transfer will abort quietly. By default abortion is disabled
+	/END						| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	[Stack] Result code. Ignore it!
+
+Examples:
+	; Wait for requests with priority 2000 (Popup mode)
+	NSxfer::Wait \
+		/PRIORITY 2000 /MODE POPUP \
+		/STATUSTEXT \
+			"Received {RECVSIZE}/{FILESIZE} @ {SPEED}, ETA: {TIMEREMAINING}$\n{URL}" \
+			"Downloading {TOTALACTIVE}/{TOTALCOUNT} files. Received {TOTALRECVSIZE} @ {TOTALSPEED}" \
+		/TITLETEXT \
+			"{PERCENT}% - Downloading..." \
+			"Downloading {TOTALCOUNT} files..." \
+		/ABORT "Abort" "Are your sure?"
+	Pop $0
+_________________________________________________________________________________________________
+
+NSxfer::Enumerate	[/STATUS waiting|downloading|completed]
+					[/PRIORITY prio]
+					/END
+
+Remarks:
+	Enumerate transfer requests from the queue (by STATUS and/or PRIORITY).
+	Be aware that completed requests remain in queue. They can be filtered out using /STATUS
+
+Parameters:
+	/STATUS						| Enumerate requests with specific status (Waiting, Downloading, Completed). If not specified, all requests will be enumerated
+	/PRIORITY prio				| Enumerate requests with specific priority. If not specified, all requests will be enumerated
+	/END						| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	[Stack] Request count (N)
+	[Stack] ID1
+	[Stack] ID2
+	[Stack] ...
+	[Stack] IDn
+
+Example:
+	; Enumerate all completed requests
+	NSxfer::Enumerate /STATUS "Completed" /END
+	Pop $1 ; Count
+	${For} $0 1 $1
+		Pop $2
+		DetailPrint "[$0] Request ID = $2"
+	${Next}
+_________________________________________________________________________________________________
+
+NSxfer::Query	/ID id
+				[/PRIORITY] [/DEPEND]
+				[/STATUS] [/WININETSTATUS]
+				[/METHOD] [/URL] [/IP] [/PROXY] [/LOCAL]
+				[/SENTHEADERS] [/RECVHEADERS]
+				[/FILESIZE] [/RECVSIZE] [/PERCENT] [/SPEEDBYTES] [/SPEED]
+				[/CONTENT] [/DATA]
+				[/TIMEWAITING] [/TIMEDOWNLOADING]
+				[/CONNECTIONDROPS]
+				[/ERRORCODE] [/ERRORTEXT]
+				/END
+
+Remarks:
+	Query information about a specific transfer request.
+
+Parameters:
+	/ID id					| The request ID returned by NSxfer::Request
+	-----------             | ------------------
+	/PRIORITY				| Request priority
+	/DEPEND					| Dependency ID
+	/STATUS					| Request status (downloading|waiting|completed)
+	/WININETSTATUS			| The last status reported by the InternetCallback (http://msdn.microsoft.com/EN-US/library/windows/desktop/aa385121(v=vs.85).aspx)
+	/METHOD					| The HTTP method in use (GET, POST, HEAD, etc.)
+	/URL					| Full URL
+	/IP						| Server's IP address, or an empty string
+	/PROXY					| The proxy server, or an empty string
+	/LOCAL					| The local destination (file|MEMORY|NONE)
+	/SENTHEADERS			| The raw HTTP headers sent to the server
+	/RECVHEADERS			| The raw HTTP headers received from the server
+	/FILESIZE				| The remote content length (can exceed 4GB (32-bit boundary))
+	/RECVSIZE				| The amount of bytes received so far
+	/PERCENT				| Percent (0-100)
+	/SPEED					| Transfer speed (nicely formatted, ex: "1,4 MB/s")
+	/SPEEDBYTES				| Transfer speed (bytes/second)
+	/CONTENT				| Retrieves the remote content (max NSIS_MAX_STRLEN) downloaded to memory. Non-printable characters will be replaced with '.'
+	/DATA					| Retrieves the data sent to the server (max NSIS_MAX_STRLEN). Non-printable characters will be replaced with '.'
+	/TIMEWAITING			| Amount of time (milliseconds) spent waiting in queue
+	/TIMEDOWNLOADING		| Amount of time (milliseconds) spent transferring
+	/CONNECTIONDROPS		| Number of times the connection dropped out during the transfer
+	/ERRORCODE				| Win32 error code, or HTTP status code
+	/ERRORTEXT				| The error explained
+	/END					| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	A value for each parameter, in the same order
+	[Stack] Value1
+	[Stack] Value2
+	[Stack] ...
+	[Stack] ValueN
+
+Example:
+	NSxfer::Query /ID $varID /STATUS /URL /PERCENT /SPEED /END
+	Pop $0	;Status
+	Pop $1	;URL
+	Pop $2	;Percent
+	Pop $3	;Speed
+	DetailPrint "Status:$0, URL:$1, Percent:$2, Speed:$3"
+_________________________________________________________________________________________________
+
+NSxfer::Set			[/ID id] [/PRIORITY prio]	; Selection parameters
+					[/SETPRIORITY prio]
+					[/SETDEPEND id]
+					[/ABORT]
+					[/REMOVE]
+					/END
+
+Remarks:
+	Modify one or multiple transfer requests (by ID or PRIORITY)
+	When aborting a file transfer the received content is not removed (from disk). It's possible to resume the transfer later.
+	The caller is responsible for cleaning up unfinished/aborted downloads.
+
+Parameters:
+	/ID id					| Modify specific request. If not specified, all requests will be modified
+	/PRIORITY prio			| Modify requests with specific priority. If not specified, all requests will be modified
+	/SETPRIORITY prio		| New priority
+	/SETDEPEND id			| New dependency
+	/ABORT					| Abort specified transfers
+	/REMOVE					| Remove specified transfers from queue
+	/END					| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	[Stack] Result code. Ignore it!
+
+Examples:
+	; Abort all transfers
+	NSxfer::Set /ABORT /END
+
+	; Abort all transfer with priority 3000
+	NSxfer::Set /PRIORITY 3000 /ABORT /END
+
+	; Abort a specific transfer
+	NSxfer::Set /ID 666 /ABORT /END
+
+	; Modify priority 3000 to 5000
+	NSxfer::Set /PRIORITY 3000 /SETPRIORITY 5000 /END
+
+	; Modify one request's dependency
+	NSxfer::Set /ID 666 /SETDEPEND 1 /END
+
+	; Remove one request's dependency (by setting it to 0)
+	NSxfer::Set /ID 666 /SETDEPEND 0 /END
+
+	; Abort all and clear the queue
+	NSxfer::Set /REMOVE /END
+_________________________________________________________________________________________________
+
+NSxfer::QueryGlobal [/TOTALCOUNT] [/TOTALWAITING] [/TOTALDOWNLOADING] [/TOTALCOMPLETED]
+					[/TOTALSPEED] [/TOTALSPEEDBYTES]
+					[/TOTALTHREADS]
+					[/PLUGINNAME] [/PLUGINVERSION]
+					[/USERAGENT]
+					/END
+
+Remarks:
+	Query global information.
+
+Parameters:
+	/TOTALCOUNT				| The overall number of requests (waiting + downloading + completed)
+	/TOTALWAITING			| The number of waiting requests
+	/TOTALDOWNLOADING		| The number of requests in progress
+	/TOTALCOMPLETED			| The number of completed requests
+	/TOTALRECVSIZE			| The amount of bytes received, nicely formatted (ex: "1,3 GB")
+	/TOTALRECVSIZEBYTES		| The amount of bytes received
+	/TOTALSPEED				| The combined speed of requests in progress (nicely formatted, ex: "1,4 MB/s")
+	/TOTALSPEEDBYTES		| The combined speed of requests in progress (bytes/second)
+	/TOTALTHREADS			| Worker thread count
+	/PLUGINNAME				| "NSxfer"
+	/PLUGINVERSION			| Version string such as "1.2014.11.16"
+	/USERAGENT				| User agent (ex: "Mozilla/5.0 (Windows; WOW64) xfer/1.0")
+	/END					| Must conclude the parameter list, otherwise the NSIS stack will be emptied...
+
+Return:
+	A value for each parameter, in the same order
+	[Stack] Value1
+	[Stack] Value2
+	[Stack] ...
+	[Stack] ValueN
+
+Example:
+	NSxfer::QueryGlobal /TOTALCOUNT /TOTALCOMPLETED /TOTALDOWNLOADING /TOTALSPEED /TOTALTHREADS /END
+	Pop $R0 ; Total
+	Pop $R1 ; Completed
+	Pop $R2 ; Downloading
+	Pop $R3 ; Speed
+	Pop $R4 ; Worker threads
+
+	DetailPrint "Transferring $R1+$R2/$R0 files at $R3 using $R4 worker threads"
+_________________________________________________________________________________________________
+

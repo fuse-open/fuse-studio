@@ -1,0 +1,12 @@
+<ButtonBase ux:Class="Outracks.Simulator.Client.Dialogs.ModalButton" HitTestMode="LocalBoundsAndChildren">
+    <Text ux:Name="Button_Text"
+        Value="{Property this.Text}" FontSize="16" TextColor="#707aff" Alignment="Center" TextAlignment="Center">
+    </Text>
+
+    <WhilePressed>
+        <Change Target="Button_Text.TextColor" Value="#4953d7" />
+    </WhilePressed>
+    <WhileDisabled>
+        <Change Target="Button_Text.Opacity" Value="0.5" />
+    </WhileDisabled>
+</ButtonBase>

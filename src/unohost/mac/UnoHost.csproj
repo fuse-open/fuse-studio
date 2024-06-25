@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{486BE0C3-2ED8-4AB4-9488-C004C247C719}</ProjectGuid>
+    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Outracks.UnoHost.Mac</RootNamespace>
+    <AssemblyName>UnoHost</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>true</UseSGen>
+    <UseRefCounting>true</UseRefCounting>
+    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <XamMacArch></XamMacArch>
+    <AOTMode>None</AOTMode>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <UseSGen>true</UseSGen>
+    <UseRefCounting>true</UseRefCounting>
+    <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
+    <LinkMode>None</LinkMode>
+    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <XamMacArch></XamMacArch>
+    <AOTMode>None</AOTMode>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Options">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Mono.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\..\..\node_modules\%40fuse-open\xamarin-mac\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="Outracks.Simulator">
+      <HintPath>..\..\simulator\common\bin\Outracks.Simulator.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=4.4.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.4.4.1\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Reactive.Windows.Threading.4.4.1\lib\net46\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.0.34.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="UnoCore">
+      <HintPath>..\..\simulator\common\bin\UnoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xamarin.Mac" />
+    <Reference Include="Uno.Common">
+      <HintPath>..\..\..\node_modules\%40fuse-open\uno\bin\Uno.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="AppDelegate.designer.cs">
+      <DependentUpon>AppDelegate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonoMacEnums.cs" />
+    <Compile Include="UnoHostControlImplementation.cs" />
+    <Compile Include="UnoView\MonoMacGL.cs" />
+    <Compile Include="UnoView\MonoMacGL.Dispose.cs" />
+    <Compile Include="UnoView\MonoMacEnums.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\CocoaEventMessage.cs" />
+    <Compile Include="UnoView\RenderTargets\IOSurfaceTexture.cs" />
+    <Compile Include="DisplayLinkView.cs" />
+    <Compile Include="UnoView\EventProcesser.cs" />
+    <Compile Include="UnoView\RenderTargets\IOSurfaceObject.cs" />
+    <Compile Include="UnoView\RenderTargets\IOSurfaceFramebuffer.cs" />
+    <Compile Include="UnoView\RenderTargets\IOSurfaceRenderTargetBuffer.cs" />
+    <Compile Include="Protocol\NewSurfaceMessage.cs" />
+    <Compile Include="Protocol\ResizeMessage.cs" />
+    <Compile Include="UnoView\RenderTargets\IRenderTarget.cs" />
+    <Compile Include="UnoView\RenderTargets\IOSurfaceRenderTarget.cs" />
+    <Compile Include="UnoView\UnoView.cs" />
+    <Compile Include="FusionSupport\EventIntercepter.cs" />
+    <Compile Include="FusionSupport\Quad.cs" />
+    <Compile Include="FusionSupport\ServerView.cs" />
+    <Compile Include="FusionSupport\ShaderHelper.cs" />
+    <Compile Include="FusionSupport\SurfaceCache.cs" />
+    <Compile Include="FusionSupport\SurfaceCacheItem.cs" />
+    <Compile Include="FusionSupport\TextureInfo.cs" />
+    <Compile Include="FusionSupport\UnoHostViewFactory.cs" />
+    <Compile Include="UnoView\RenderTargets\BackbufferRenderTarget.cs" />
+    <Compile Include="Dispatcher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\math\Outracks.Math.csproj">
+      <Project>{3C1C1047-8830-498E-882A-503C0956CBE3}</Project>
+      <Name>Outracks.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\core\Outracks.Core.csproj">
+      <Project>{196b010d-ad36-4947-95aa-14fc4a27bd18}</Project>
+      <Name>Outracks.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\fusion\core\Outracks.Fusion.Core.csproj">
+      <Project>{8DFB02E0-ACBF-4432-8DD9-56712E206968}</Project>
+      <Name>Outracks.Fusion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\fusion\mac\Outracks.Fusion.Mac.csproj">
+      <Project>{4b9ec6e2-aa97-48de-9891-2c1d24a4d383}</Project>
+      <Name>Outracks.Fusion.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\preview\service\fuse-preview.csproj">
+      <Project>{59e1073a-9b45-41f3-ab94-958a9d18fb72}</Project>
+      <Name>fuse-preview</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\simulator\common\Outracks.Simulator.csproj">
+      <Project>{3335bb78-0b8a-4d2f-919f-2e6f08883d51}</Project>
+      <Name>Outracks.Simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\common\Outracks.UnoHost.csproj">
+      <Project>{F2AEB321-51E5-40B8-9CF0-53C930E631F0}</Project>
+      <Name>Outracks.UnoHost</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <None Include="packages.config" />
+    <None Include="Resources\Icon.icns" />
+  </ItemGroup>
+  <Import Project="..\..\mac\msbuild\Xamarin.Mac.CSharp.targets" />
+  <Import Project="..\..\GlobalAssemblyInfo.targets" />
+</Project>

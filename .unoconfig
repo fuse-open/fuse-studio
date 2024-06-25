@@ -1,26 +1,34 @@
-//----------------------------------------------------------------------------
-// The include path specified below must be updated whenever the Uno version
-// specified in the .unoversion file changes.
+Fuse.Bin: bin/$(Configuration)
+Fuse.Components: components
+Fuse.Templates: templates
 
-include packages/FuseOpen.Uno.Tool.1.10.0-rc1/tools/.unoconfig
+Fuse.Simulator: src/simulator/main/obj/Fuse.Simulator.dll
 
-// ..right now we have a unit test that verifies this is consistent, but we
-// might want to get a script to automate this for us in the future.
-//----------------------------------------------------------------------------
+if MAC {
+    Fuse.Exe: bin/$(Configuration)/fuse
+    Fuse.CodeAssistance: bin/$(Configuration)/fuse-lang
+    Fuse.LogServer: bin/$(Configuration)/fuse-logserver
+    Fuse.Studio: "bin/$(Configuration)/fuse X.app"
+    Fuse.Tray: "bin/$(Configuration)/fuse X (menu bar).app"
+    Fuse.UnoHost: bin/$(Configuration)/UnoHost.app
+} else if WIN32 {
+    Fuse.Exe: bin/$(Configuration)/fuse.exe
+    Fuse.CodeAssistance: bin/$(Configuration)/fuse-lang.exe
+    Fuse.Studio: bin/$(Configuration)/fuse-studio.exe
+    Fuse.Tray: bin/$(Configuration)/fuse-tray.exe
+    Fuse.UnoHost: bin/$(Configuration)/unohost.exe
+}
 
-include Stuff/.unoconfig
+Packages.SourcePaths += [
+    src/simulator
+    src/preview
+]
 
-// Fuse config
-TemplatesDirectory: Templates
-SimulatorDll: Source/Simulator/Main/obj/Fuse.Simulator.dll
-ModulesDirectory: Modules
-Mono: Stuff/Mono/bin/mono
-
-// SDK config
 if WIN32 {
-    SdkConfig: %localappdata%/Fusetools/Fuse/Android/.sdkconfig
-    include %localappdata%/Fusetools/Fuse/Android/.sdkconfig
-} else {
-    SdkConfig: "%HOME%/Library/Application Support/Fusetools/Fuse/Android/.sdkconfig"
-    include "%HOME%/Library/Application Support/Fusetools/Fuse/Android/.sdkconfig"
+    // Global Android Build Tools config (#92).
+    require `%PROGRAMDATA%\fuse X\.unoconfig`
+    // We've seen %PROGRAMDATA% being empty on some systems.
+    require `%SYSTEMDRIVE%\ProgramData\fuse X\.unoconfig`
+    // Local config should take precedence.
+    require ~/.unoconfig
 }

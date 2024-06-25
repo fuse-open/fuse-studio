@@ -1,0 +1,19 @@
+﻿<windows:WindowWithOverlays x:Class="Outracks.Fusion.Windows.FancyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:windows="clr-namespace:Outracks.Fusion.Windows"
+		Title="fuse X"
+		WindowStartupLocation="CenterOwner"
+		BorderThickness="0">
+	
+	<windows:WindowWithOverlays.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="StyleResources.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>		
+	</windows:WindowWithOverlays.Resources>	
+	<!--WindowTitleBrush="{StaticResource TitleBrush}"
+		GlowBrush="{StaticResource TitleBrush}"-->
+
+</windows:WindowWithOverlays>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Browse" xml:space="preserve">
+    <value>Naviguer</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Dashboard_Button_Browse" xml:space="preserve">
+    <value>Naviguer</value>
+  </data>
+  <data name="Dashboard_Button_Create" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="Dashboard_Button_Open" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="Dashboard_Community" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="Dashboard_Community_Text" xml:space="preserve">
+    <value>Vous avez fait quelque chose de cool? Joignez-vous à un
+communauté enthousiaste de Fuse</value>
+  </data>
+  <data name="Dashboard_Docs" xml:space="preserve">
+    <value>Docs</value>
+  </data>
+  <data name="Dashboard_Docs_Text" xml:space="preserve">
+    <value>Besoin d'information technique?
+Rechercher les documents de référence.</value>
+  </data>
+  <data name="Dashboard_Learn" xml:space="preserve">
+    <value>Apprendre</value>
+  </data>
+  <data name="Dashboard_Learn_Text" xml:space="preserve">
+    <value>Nouveau sur Fuse ? Découvrez notre manuel,
+Tutoriels et Exemples.</value>
+  </data>
+  <data name="Dashboard_Project_Remove" xml:space="preserve">
+    <value>Retirer de la liste</value>
+  </data>
+  <data name="Dashboard_Recent_Projects" xml:space="preserve">
+    <value>Projets Récent</value>
+  </data>
+  <data name="Dashboard_LastOpened" xml:space="preserve">
+    <value>Dernière ouverture</value>
+  </data>
+  <data name="Dashboard_Location" xml:space="preserve">
+    <value>Emplacement</value>
+  </data>
+  <data name="Dashboard_Description" xml:space="preserve">
+    <value>La description</value>
+  </data>
+  <data name="Dashboard_New_Prefix" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Dashboard_Open_Prefix" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="MainMenu_Edit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="MainMenu_Element" xml:space="preserve">
+    <value>Element</value>
+  </data>
+  <data name="MainMenu_Export" xml:space="preserve">
+    <value>Exporter</value>
+  </data>
+  <data name="MainMenu_File" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="MainMenu_Help" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="MainMenu_Preview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="MainMenu_Project" xml:space="preserve">
+    <value>Projet</value>
+  </data>
+  <data name="MainMenu_Tools" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="MainMenu_Viewport" xml:space="preserve">
+    <value>Fenêtre</value>
+  </data>
+  <data name="MainMenu_Window" xml:space="preserve">
+    <value>Fenêtre</value>
+  </data>
+  <data name="SubMenu_Edit_Copy" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="SubMenu_Edit_Cut" xml:space="preserve">
+    <value>Couper</value>
+  </data>
+  <data name="SubMenu_Edit_Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="SubMenu_Edit_Paste" xml:space="preserve">
+    <value>Coller</value>
+  </data>
+  <data name="SubMenu_Edit_SelectAll" xml:space="preserve">
+    <value>Tout Selectionner</value>
+  </data>
+  <data name="SubMenu_Element_Deselect" xml:space="preserve">
+    <value>Déselectionner</value>
+  </data>
+  <data name="SubMenu_Element_LocateInEditor" xml:space="preserve">
+    <value>Localiser dans l'éditeur</value>
+  </data>
+  <data name="SubMenu_Element_Remove" xml:space="preserve">
+    <value>Supprimer l'élement</value>
+  </data>
+  <data name="SubMenu_Export_ExportForAndroid" xml:space="preserve">
+    <value>Exporter pour Android</value>
+  </data>
+  <data name="SubMenu_Export_ExportForAndroidEmulator" xml:space="preserve">
+    <value>Exporter pour l'Emulateur Android</value>
+  </data>
+  <data name="SubMenu_Export_ExportForiOS" xml:space="preserve">
+    <value>Exporter pour iOS</value>
+  </data>
+  <data name="SubMenu_Export_ExportForiOSSimulator" xml:space="preserve">
+    <value>Exporter pour le Simulateur iOS</value>
+  </data>
+  <data name="SubMenu_Export_ExportForDotNet" xml:space="preserve">
+    <value>Exporter pour le bureau (.NET)</value>
+  </data>
+  <data name="SubMenu_Export_ExportForNative" xml:space="preserve">
+    <value>Exporter pour le Bureau (natif)</value>
+  </data>
+  <data name="SubMenu_Export_Clean" xml:space="preserve">
+    <value>Clean build files</value>
+  </data>
+  <data name="SubMenu_File_New" xml:space="preserve">
+    <value>Nouveau...</value>
+  </data>
+  <data name="SubMenu_File_Open" xml:space="preserve">
+    <value>Ouvrir...</value>
+  </data>
+  <data name="SubMenu_File_Quit" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="SubMenu_File_Exit" xml:space="preserve">
+    <value>Sortir</value>
+  </data>
+  <data name="SubMenu_Help_Community" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="SubMenu_Help_Documentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="SubMenu_Help_Examples" xml:space="preserve">
+    <value>Exemples</value>
+  </data>
+  <data name="SubMenu_Help_Tutorial" xml:space="preserve">
+    <value>Tutoriel</value>
+  </data>
+  <data name="SubMenu_Help_Forums" xml:space="preserve">
+    <value>Forums</value>
+  </data>
+  <data name="SubMenu_Help_ReportIssue" xml:space="preserve">
+    <value>Rapporter une erreur</value>
+  </data>
+  <data name="SubMenu_Updates_CheckForUpdates" xml:space="preserve">
+    <value>Vérifier les mises à jours</value>
+  </data>
+  <data name="SubMenu_Updates_CheckAutomatically" xml:space="preserve">
+    <value>Vérifier automatiquement</value>
+  </data>
+  <data name="SubMenu_Updates_UpdateAvailable" xml:space="preserve">
+    <value>Une mise à jour est disponible</value>
+  </data>
+  <data name="SubMenu_Updates_DownloadLatestQuestion" xml:space="preserve">
+    <value>Voulez-vous télécharger la dernière version maintenant?</value>
+  </data>
+  <data name="SubMenu_Preview_Android" xml:space="preserve">
+    <value>Aperçu sur Android</value>
+  </data>
+  <data name="SubMenu_Preview_AndroidEmulator" xml:space="preserve">
+    <value>Aperçu sur l'emulateur Android</value>
+  </data>
+  <data name="SubMenu_Preview_BuildFlags" xml:space="preserve">
+    <value>Build flags</value>
+  </data>
+  <data name="SubMenu_Preview_iOS" xml:space="preserve">
+    <value>Aperçu on iOS</value>
+  </data>
+  <data name="SubMenu_Preview_iOSSimulator" xml:space="preserve">
+    <value>Aperçu sur le Simulateur iOS</value>
+  </data>
+  <data name="SubMenu_Preview_Native" xml:space="preserve">
+    <value>Aperçu sur le PC (native)</value>
+  </data>
+  <data name="SubMenu_Preview_Rebuild" xml:space="preserve">
+    <value>Reconstruire</value>
+  </data>
+  <data name="SubMenu_Preview_Reconnect" xml:space="preserve">
+    <value>Reconnecter USB (Android)</value>
+  </data>
+  <data name="SubMenu_Preview_Refresh" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
+  <data name="SubMenu_Project_OpenFolder" xml:space="preserve">
+    <value>Ouvrir le Dossier du Projet</value>
+  </data>
+  <data name="SubMenu_Project_OpenSublime" xml:space="preserve">
+    <value>Ouvrir dans Sublime Text 3</value>
+  </data>
+  <data name="SubMenu_Project_OpenVSCode" xml:space="preserve">
+    <value>Ouvrir dans Visual Studio Code</value>
+  </data>
+  <data name="SubMenu_Project_OpenTerminal" xml:space="preserve">
+    <value>Ouvrir dans le Terminal</value>
+  </data>
+  <data name="SubMenu_Tools_InstallSDK" xml:space="preserve">
+    <value>Installer le SDK AndroidK</value>
+  </data>
+  <data name="SubMenu_Tools_InstallAtomPlugin" xml:space="preserve">
+    <value>Installer le plugin Atom</value>
+  </data>
+  <data name="SubMenu_Tools_InstallSublimePlugin" xml:space="preserve">
+    <value>Installer le plugin Sublime Text 3</value>
+  </data>
+  <data name="SubMenu_Tools_InstallVSCodeExtension" xml:space="preserve">
+    <value>Installer l'extention Visual Studio Code</value>
+  </data>
+  <data name="SubMenu_Tools_Setup" xml:space="preserve">
+    <value>Guide d'installation</value>
+  </data>
+  <data name="SubMenu_Tools_Config" xml:space="preserve">
+    <value>Afficher Uno config</value>
+  </data>
+  <data name="SubMenu_Viewport_Close" xml:space="preserve">
+    <value>Fermer la fenêtre</value>
+  </data>
+  <data name="SubMenu_Viewport_Device" xml:space="preserve">
+    <value>Selectionner le terminal</value>
+  </data>
+  <data name="SubMenu_Viewport_FlipAspect" xml:space="preserve">
+    <value>Inverser l'aspect</value>
+  </data>
+  <data name="SubMenu_Viewport_Goback" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="SubMenu_Viewport_New" xml:space="preserve">
+    <value>Nouvelle fenêtre</value>
+  </data>
+  <data name="SubMenu_Viewport_Restart" xml:space="preserve">
+    <value>Redémarrer</value>
+  </data>
+  <data name="SubMenu_Viewport_Selection" xml:space="preserve">
+    <value>Selectionner</value>
+  </data>
+  <data name="SubMenu_Window_CompactMode" xml:space="preserve">
+    <value>Mode compact</value>
+  </data>
+  <data name="SubMenu_Window_KeepWindowOnTop" xml:space="preserve">
+    <value>Garder la fenêtre au dessus</value>
+  </data>
+  <data name="SubMenu_Window_Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="SubMenu_Window_LightTheme" xml:space="preserve">
+    <value>Thème lumière</value>
+  </data>
+  <data name="SubMenu_Window_DarkTheme" xml:space="preserve">
+    <value>Thème sombre</value>
+  </data>
+  <data name="Button_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Dialog_SetupGuide_Caption" xml:space="preserve">
+    <value>Guide d'installation</value>
+  </data>
+  <data name="Dialog_SetupGuide_Comment1" xml:space="preserve">
+    <value>Un éditeur de texte est nécessaire pour utiliser fuse X.</value>
+  </data>
+  <data name="Dialog_SetupGuide_Comment2_1" xml:space="preserve">
+    <value>Nous recommandons </value>
+  </data>
+  <data name="Dialog_SetupGuide_Comment2_2" xml:space="preserve">
+    <value> ou </value>
+  </data>
+  <data name="Dialog_SetupGuide_Comment2_3" xml:space="preserve">
+    <value>, et nos plugins d'accompagnement.</value>
+  </data>
+  <data name="Dialog_SetupGuide_Comment3" xml:space="preserve">
+    <value>Cet assistant recherchera le logiciel sur votre système et vous aidera à installer ou à mettre à jour nos plugins.</value>
+  </data>
+  <data name="Dialog_SetupGuide_SeeAlso1" xml:space="preserve">
+    <value>Nous avons également un plugin pour </value>
+  </data>
+  <data name="Dialog_SetupGuide_SeeAlso2" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="SubMenu_Project_SketchImport" xml:space="preserve">
+    <value>Importater Sketch</value>
+  </data>
+  <data name="Button_Done" xml:space="preserve">
+    <value>Fait</value>
+  </data>
+  <data name="LogView_Tab_Clear" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="LogView_Tab_Log" xml:space="preserve">
+    <value>Journal</value>
+  </data>
+  <data name="LogView_Tab_Problems" xml:space="preserve">
+    <value>Problèmes</value>
+  </data>
+  <data name="Label_MacOnly" xml:space="preserve">
+    <value>Mac uniquement</value>
+  </data>
+  <data name="LanguageUpdated_Text" xml:space="preserve">
+    <value>Votre préférence linguistique a été mise à jour.
+
+La nouvelle langue entrera pleinement en vigueur la prochaine fois que vous démarrerez fuse X.</value>
+  </data>
+  <data name="NagScreen_Caption" xml:space="preserve">
+    <value>Ceci est une copie non enregistrée</value>
+  </data>
+  <data name="NagScreen_Text" xml:space="preserve">
+    <value>Bonjour! Merci d'avoir essayé le fuse X.
+
+L'activation est nécessaire pour utiliser ce logiciel.
+
+Essai gratuit disponible :
+• Essayez tout ce que fuse X a à offrir pendant un mois.
+• Pas de carte de crédit nécessaire.</value>
+  </data>
+  <data name="NagScreen_Button_SignIn" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="NagScreen_Button_EnterCode" xml:space="preserve">
+    <value>Entrer le code</value>
+  </data>
+  <data name="NagScreen_Question" xml:space="preserve">
+    <value>Souhaitez-vous activer maintenant?</value>
+  </data>
+  <data name="Toolbar_Selection_Tooltip" xml:space="preserve">
+    <value>Activer pour sélectionner des éléments dans l'application.</value>
+  </data>
+  <data name="Toolbar_Selection_Tooltip2" xml:space="preserve">
+    <value>Activer pour sélectionner des éléments dans l'application. Désactiver pour interagir avec l'application.</value>
+  </data>
+  <data name="Toolbar_Selection_Button" xml:space="preserve">
+    <value>Selection</value>
+  </data>
+  <data name="Toolbar_Touch_Tooltip" xml:space="preserve">
+    <value>Activer pour interagir avec l'application.</value>
+  </data>
+  <data name="Toolbar_Touch_Button" xml:space="preserve">
+    <value>Toucher</value>
+  </data>
+  <data name="Toolbar_Viewport_Tooltip" xml:space="preserve">
+    <value>Cliquez pour ajouter une nouvelle fenêtre.</value>
+  </data>
+  <data name="Toolbar_Viewport_Button" xml:space="preserve">
+    <value>Ajouter une fenêtre</value>
+  </data>
+  <data name="Toolbar_Compact_Tooltip" xml:space="preserve">
+    <value>Basculer entre le mode normal et le mode compact. Cliquez pour changer de mode.</value>
+  </data>
+  <data name="Toolbar_Compact_Button" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="Auth_Text_LicensedTo1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Auth_Text_LicensedTo2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Auth_Text_TrialDayLeft" xml:space="preserve">
+    <value>jour d'essai restant</value>
+  </data>
+  <data name="Auth_Text_TrialDaysLeft" xml:space="preserve">
+    <value>jour d'essai restant</value>
+  </data>
+  <data name="Auth_Text_LicenseExpired1" xml:space="preserve">
+    <value>Votre licence a expirer?. S'il vous plait </value>
+  </data>
+  <data name="Auth_Text_LicenseExpired2" xml:space="preserve">
+    <value>se connecter</value>
+  </data>
+  <data name="Auth_Text_LicenseExpired3" xml:space="preserve">
+    <value> pour réactiver.</value>
+  </data>
+  <data name="Auth_Text_SignIn1" xml:space="preserve">
+    <value>S'il vous plait </value>
+  </data>
+  <data name="Auth_Text_SignIn2" xml:space="preserve">
+    <value>se connecter</value>
+  </data>
+  <data name="Auth_Text_SignIn3" xml:space="preserve">
+    <value> pour activer fuse X</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>A propos de fuse X</value>
+  </data>
+  <data name="About_Menu" xml:space="preserve">
+    <value>A Propos</value>
+  </data>
+  <data name="About_RegisteredTo" xml:space="preserve">
+    <value>Enregistré à</value>
+  </data>
+  <data name="About_NotRegistered" xml:space="preserve">
+    <value>Pas enregistrer</value>
+  </data>
+  <data name="About_Company" xml:space="preserve">
+    <value>Compagnie: </value>
+  </data>
+  <data name="About_License" xml:space="preserve">
+    <value>License: </value>
+  </data>
+  <data name="About_Issued" xml:space="preserve">
+    <value>Delivré: </value>
+  </data>
+  <data name="About_Expires" xml:space="preserve">
+    <value>Expires: </value>
+  </data>
+  <data name="About_Authority" xml:space="preserve">
+    <value>Autorité: </value>
+  </data>
+  <data name="About_MoreInfo1" xml:space="preserve">
+    <value>Pour plus d'information visiter notre </value>
+  </data>
+  <data name="About_MoreInfo2" xml:space="preserve">
+    <value>site web</value>
+  </data>
+  <data name="Activate_Title" xml:space="preserve">
+    <value>Entrer le code d'activation</value>
+  </data>
+  <data name="Activate_Button" xml:space="preserve">
+    <value>Activer fuse X</value>
+  </data>
+  <data name="Activate_FeedbackEmpty" xml:space="preserve">
+    <value>Merci de saisir le code d'activation.</value>
+  </data>
+  <data name="Activate_FeedbackInvalid" xml:space="preserve">
+    <value>Ce code d'activation est invalide.</value>
+  </data>
+  <data name="License_Error_Text" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la vérification de votre licence.
+
+Il peut s'agir d'une perte de service temporaire causée par des problèmes sur le réseau.
+
+Veuillez réessayer plus tard.</value>
+  </data>
+  <data name="Inspector_SelectSomething" xml:space="preserve">
+    <value>Sélectionnez quelque chose pour commencer</value>
+  </data>
+  <data name="Toolbox_MakeClassFromSelection" xml:space="preserve">
+    <value>Créer une classe à partir de la sélection</value>
+  </data>
+  <data name="Toolbox_YourClasses" xml:space="preserve">
+    <value>Vos classes</value>
+  </data>
+  <data name="Toolbox_SearchYourClasses" xml:space="preserve">
+    <value>Rechercher vos cours</value>
+  </data>
+  <data name="Toolbox_DragClassesInto_Text" xml:space="preserve">
+    <value>Faites glisser les classes dans la hiérarchie
+pour en insérer des instances</value>
+  </data>
+  <data name="Toolbox_CreateAClass_Text" xml:space="preserve">
+    <value>Créer une classe à partir d'éléments dans le
+hiérarchie et il apparaîtra ici</value>
+  </data>
+  <data name="CodeView_Devices" xml:space="preserve">
+    <value>Dispositifs</value>
+  </data>
+  <data name="CodeView_ToolTip" xml:space="preserve">
+    <value>Connectez ce projet à un appareil sur lequel l'application fuse X Preview est installée.</value>
+  </data>
+  <data name="LogView_AllOutput" xml:space="preserve">
+    <value>Toutes les sorties</value>
+  </data>
+</root>

@@ -1,0 +1,40 @@
+<Page ux:Class="ProjectsPage">
+	<Router ux:Dependency="router" />
+	<JavaScript>
+		var projects = require('Projects');
+		var simulatorAPI = require('SimulatorAPI');
+
+		function requestPortrait() {
+			simulatorAPI.requestScreenOrientation("Portrait");
+		}
+
+		function openProject() {
+			router.push("openProject");
+		}
+
+		function openRecentProject(item) {
+			simulatorAPI.openProject(item.data.id)
+				.then(function(simulator) {
+					router.push("appViewPage", { simulatorId: simulator.id });
+				})
+				.catch(function(error) {
+				});
+		}
+
+		module.exports = {
+			projects: projects.getProjects(),
+			openProject: openProject,
+			openRecentProject: openRecentProject,
+			requestPortrait: requestPortrait
+		};
+	</JavaScript>
+	<Activated Handler="{requestPortrait}" />
+	<Android.StatusBarConfig Color="BG" IsVisible="True" />
+	<iOS.StatusBarConfig Style="Light" Animation="Slide" IsVisible="True" />
+	<ClientPanel>
+		<PageContent Title="Live Preview" SubTitle="To connect to a project tap the &quot;Devices&quot; button in fuse X (studio). You’ll need this info to sync to your project.">
+			<ScreenShot Dock="Top"  Margin="0,40,0,0"/>
+			<BasicButton Clicked="{openProject}" Dock="Bottom" Text="Get started" Margin="0,16,0,24" /> <!-- Change Dock to Dock="Top" when recent projects are enabled-->
+		</PageContent>
+	</ClientPanel>
+</Page>

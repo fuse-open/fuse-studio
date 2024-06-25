@@ -21,7 +21,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using System.Xml.Linq;
 using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Utils;
 

@@ -1,0 +1,828 @@
+[
+	{
+		"Name" : "iPhone 11 Pro Max/Xs Max",
+		"Width" : 1242,
+		"Height" : 2688,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch" : 458
+	},
+	{
+		"Name" : "iPhone 11/XR",
+		"Width" : 828,
+		"Height" : 1792,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch" : 326
+	},
+	{
+		"Name" : "iPhone 11 Pro/X/Xs",
+		"Width" : 1125,
+		"Height" : 2436,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch" : 458,
+		"IsDefault" : true
+	},
+	{
+		"Name" : "iPhone 6+/6S+/7+/8+",
+		"Width" : 1242,
+		"Height" : 2208,
+		"PixelsPerPoint" : 3,
+		"PhysicalPixelsPerInch" : 401,
+		"PhysicalPixelsPerPixel" : 0.8695652173913
+	},
+	{
+		"Name" : "iPhone 6/6S/7/8",
+		"Width" : 750,
+		"Height" : 1334,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch" : 326
+	},
+	{
+		"Name" : "iPhone 5/5S/5C/SE",
+		"Width" : 640,
+		"Height" : 1136,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 326
+	},
+	{
+		"Name" : "iPhone 4/4S",
+		"Width" : 640,
+		"Height" : 960,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 326
+	},
+	{
+		"Name" : "iPhone 2G/3G/3GS",
+		"Width" : 320,
+		"Height" : 480,
+		"PixelsPerPoint" : 1,
+		"PhysicalPixelsPerInch" : 163
+	},
+	{
+		"Name" : "12.9 inch iPad Pro 1/2/3/4",
+		"Width" : 2732,
+		"Height" : 2048,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 264,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "11 inch iPad Pro 1/2",
+		"Width" : 2388,
+		"Height" : 1668,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 264,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "10.5 inch iPad Pro 1|iPad Air 3",
+		"Width" : 2224,
+		"Height" : 1668,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 264,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "10.2 inch iPad 7",
+		"Width" : 2160,
+		"Height" : 1620,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 264,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "9.7 inch iPad Pro 1|iPad Air 1/2|iPad 3/4/5/6",
+		"Width" : 2048,
+		"Height" : 1536,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 264,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "iPad Mini 2/3/4/5",
+		"Width" : 2048,
+		"Height" : 1536,
+		"PixelsPerPoint" : 2,
+		"PhysicalPixelsPerInch" : 326
+	},
+	{
+		"Name" : "iPad Mini 1",
+		"Width" : 1024,
+		"Height" : 1536,
+		"PixelsPerPoint" : 1,
+		"PhysicalPixelsPerInch" : 163
+	},
+	{
+		"Name" : "iPad 1/2",
+		"Width" : 1024,
+		"Height" : 768,
+		"PixelsPerPoint" : 1,
+		"PhysicalPixelsPerInch" : 132,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Android One",
+		"Width" : 480,
+		"Height" : 854,
+		"PixelsPerPoint": 1.5,
+		"PhysicalPixelsPerInch": 218,
+	},
+	{
+		"Name" : "Dell Venue 8",
+		"Width" : 1600,
+		"Height" : 2560,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 359,
+	},
+	{
+		"Name" : "Google Pixel 4 XL",
+		"Width" : 1440,
+		"Height" : 3040,
+		"PixelsPerPoint": 4.4,
+		"PhysicalPixelsPerInch": 534,
+	},
+	{
+		"Name" : "Google Pixel 4",
+		"Width" : 1080,
+		"Height" : 2280,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 443,
+	},
+	{
+		"Name" : "Google Pixel 4a",
+		"Width" : 1080,
+		"Height" : 2340,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 444,
+	},
+	{
+		"Name" : "Google Pixel 3a",
+		"Width" : 1080,
+		"Height" : 2220,
+		"PixelsPerPoint": 2.4,
+		"PhysicalPixelsPerInch": 440,
+	},
+	{
+		"Name" : "Google Pixel XL",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 534,
+	},
+	{
+		"Name" : "Google Pixel",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 441,
+	},
+	{
+		"Name" : "HTC One M8/M9",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 441,
+	},
+	{
+		"Name" : "Huawei P40 Pro/P40 Pro+",
+		"Width" : 1200,
+		"Height" : 2640,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 441,
+	},
+	{
+		"Name" : "Huawei P40/P30",
+		"Width" : 1080,
+		"Height" : 2340,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 422,
+	},
+	{
+		"Name" : "Huawei P40 lite",
+		"Width" : 1080,
+		"Height" : 2310,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 398,
+	},
+	{
+		"Name" : "Huawei Y7p",
+		"Width" : 720,
+		"Height" : 1560,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 269,
+	},
+	{
+		"Name" : "Huawei Mate Xs Folded",
+		"Width" : 1148,
+		"Height" : 2480,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 414,
+	},
+	{
+		"Name" : "Huawei Mate Xs Unfolded",
+		"Width" : 2200,
+		"Height" : 2480,
+		"PixelsPerPoint": 5.5,
+		"PhysicalPixelsPerInch": 414,
+	},
+	{
+		"Name" : "LG G8 ThinQ|G7 ThinQ",
+		"Width" : 1440,
+		"Height" : 3120,
+		"PixelsPerPoint": 4.5,
+		"PhysicalPixelsPerInch": 563,
+	},
+	{
+		"Name" : "LG Q70",
+		"Width" : 1080,
+		"Height" : 2310,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 398,
+	},
+	{
+		"Name" : "LG Velvet|LG V60 ThinQ",
+		"Width" : 1080,
+		"Height" : 2460,
+		"PixelsPerPoint": 2.6,
+		"PhysicalPixelsPerInch": 395,
+	},
+	{
+		"Name" : "LG G2",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 424,
+	},
+	{
+		"Name" : "LG G3",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 534,
+	},
+	{
+		"Name" : "Moto G8 Power",
+		"Width" : 1080,
+		"Height" : 2300,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 397,
+	},
+	{
+		"Name" : "Moto G",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 326,
+	},
+	{
+		"Name" : "Moto X 2",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 424,
+	},
+	{
+		"Name" : "Moto X",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 312,
+	},
+	{
+		"Name" : "Nexus 10",
+		"Width" : 2560,
+		"Height" : 1600,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 299,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Nexus 9",
+		"Width" : 2048,
+		"Height" : 1536,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 288,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Nexus 7 ('12)",
+		"Width" : 800,
+		"Height" : 1280,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 216
+	},
+	{
+		"Name" : "Nexus 7 ('13)",
+		"Width" : 1200,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 323
+	},
+	{
+		"Name" : "Nexus 6P",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 515
+	},
+	{
+		"Name" : "Nexus 6",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 493
+	},
+	{
+		"Name" : "Nexus 5X",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 424
+	},
+	{
+		"Name" : "Nexus 5",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 445
+	},
+	{
+		"Name" : "Nexus 4",
+		"Width" : 768,
+		"Height" : 1280,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 318
+	},
+	{
+		"Name" : "OnePlus 8",
+		"Width" : 1080,
+		"Height" : 2400,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 402
+	},
+	{
+		"Name" : "OnePlus 8 Pro",
+		"Width" : 1440,
+		"Height" : 3168,
+		"PixelsPerPoint": 4.6,
+		"PhysicalPixelsPerInch": 513
+	},
+	{
+		"Name" : "Oppo A92",
+		"Width" : 1080,
+		"Height" : 2400,
+		"PixelsPerPoint": 2.6,
+		"PhysicalPixelsPerInch": 405
+	},
+	{
+		"Name" : "Oppo A37",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 294
+	},
+	{
+		"Name" : "Oppo A5 ('20)/A9/A31",
+		"Width" : 720,
+		"Height" : 1600,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 270
+	},
+	{
+		"Name" : "Samsung Galaxy S20 Ultra",
+		"Width" : 1440,
+		"Height" : 3200,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 509
+	},
+	{
+		"Name" : "Samsung Galaxy S20+",
+		"Width" : 1440,
+		"Height" : 3200,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 524
+	},
+	{
+		"Name" : "Samsung Galaxy S20",
+		"Width" : 1440,
+		"Height" : 3200,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 566
+	},
+	{
+		"Name" : "Samsung Galaxy Z Flip",
+		"Width" : 1080,
+		"Height" : 2636,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 425
+	},
+	{
+		"Name" : "Samsung Galaxy S10+",
+		"Width" : 1440,
+		"Height" : 3040,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 526
+	},
+	{
+		"Name" : "Samsung Galaxy S10",
+		"Width" : 1440,
+		"Height" : 3040,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 551
+	},
+	{
+		"Name" : "Samsung Galaxy S9+",
+		"Width" : 1440,
+		"Height" : 2960,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 531
+	},
+	{
+		"Name" : "Samsung Galaxy S9",
+		"Width" : 1440,
+		"Height" : 2960,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 568
+	},
+	{
+		"Name" : "Samsung Galaxy S8+",
+		"Width" : 1440,
+		"Height" : 2960,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 531
+	},
+	{
+		"Name" : "Samsung Galaxy S8",
+		"Width" : 1440,
+		"Height" : 2960,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 568
+	},
+	{
+		"Name" : "Samsung Galaxy S7 Edge",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 534
+	},
+	{
+		"Name" : "Samsung Galaxy S6/S7",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 576
+	},
+	{
+		"Name" : "Samsung Galaxy S5",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 432
+	},
+	{
+		"Name" : "Samsung Galaxy Note 10+",
+		"Width" : 1440,
+		"Height" : 3040,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 495
+	},
+	{
+		"Name" : "Samsung Galaxy Note 10",
+		"Width" : 1080,
+		"Height" : 2280,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 401
+	},
+	{
+		"Name" : "Samsung Galaxy Note 9",
+		"Width" : 1440,
+		"Height" : 2960,
+		"PixelsPerPoint": 4.2,
+		"PhysicalPixelsPerInch": 514
+	},
+	{
+		"Name" : "Samsung Galaxy Note 8",
+		"Width" : 1440,
+		"Height" : 2960,
+		"PixelsPerPoint": 4.2,
+		"PhysicalPixelsPerInch": 523
+	},
+	{
+		"Name" : "Samsung Galaxy Note 4",
+		"Width" : 1440,
+		"Height" : 2560,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 515
+	},
+	{
+		"Name" : "Samsung Galaxy J7 Prime",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 401
+	},
+	{
+		"Name" : "Samsung Galaxy J7",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 267
+	},
+	{
+		"Name" : "Samsung Galaxy J5",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 294
+	},
+	{
+		"Name" : "Samsung Galaxy J2",
+		"Width" : 540,
+		"Height" : 960,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 234
+	},
+	{
+		"Name" : "Samsung Galaxy Tab S6",
+		"Width" : 1600,
+		"Height" : 2560,
+		"PixelsPerPoint": 4,
+		"PhysicalPixelsPerInch": 288
+	},
+	{
+		"Name" : "Samsung Galaxy Tab 10",
+		"Width" : 800,
+		"Height" : 1280,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 149
+	},
+	{
+		"Name" : "Sony Xperia 1 I/II",
+		"Width" : 1644,
+		"Height" : 3840,
+		"PixelsPerPoint": 6.3,
+		"PhysicalPixelsPerInch": 643
+	},
+	{
+		"Name" : "Sony Xperia 10 II",
+		"Width" : 1080,
+		"Height" : 2520,
+		"PixelsPerPoint": 2.7,
+		"PhysicalPixelsPerInch": 457
+	},
+	{
+		"Name" : "Sony Xperia L4",
+		"Width" : 720,
+		"Height" : 1680,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 295
+	},
+	{
+		"Name" : "Sony Xperia 5",
+		"Width" : 1080,
+		"Height" : 2520,
+		"PixelsPerPoint": 2.7,
+		"PhysicalPixelsPerInch": 449
+	},
+	{
+		"Name" : "Sony Xperia C4",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 401
+	},
+	{
+		"Name" : "Sony Xperia XZ",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 424
+	},
+	{
+		"Name" : "Sony Xperia Z Ultra",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 344
+	},
+	{
+		"Name" : "Sony Xperia Z1 Compact",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 342
+	},
+	{
+		"Name" : "Sony Xperia Z2/3",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 3,
+		"PhysicalPixelsPerInch": 424
+	},
+	{
+		"Name" : "Sony Xperia Z3 Compact",
+		"Width" : 720,
+		"Height" : 1280,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 319
+	},
+	{
+		"Name" : "Sony Xperia Z3 Tablet",
+		"Width" : 1920,
+		"Height" : 1200,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 283,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Sony Xperia Z4 Tablet",
+		"Width" : 2560,
+		"Height" : 1600,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 299,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Xiaomi Poco F2 Pro|Redmi K30 5G Racing|Redmi Note 9 Pro|Redmi Note 9S",
+		"Width" : 1080,
+		"Height" : 2400,
+		"PixelsPerPoint": 2.6,
+		"PhysicalPixelsPerInch": 395
+	},
+	{
+		"Name" : "Xiaomi Poco X2",
+		"Width" : 1080,
+		"Height" : 2400,
+		"PixelsPerPoint": 2.6,
+		"PhysicalPixelsPerInch": 395
+	},
+	{
+		"Name" : "Xiaomi Pocophone F1",
+		"Width" : 1080,
+		"Height" : 2246,
+		"PixelsPerPoint": 2.4,
+		"PhysicalPixelsPerInch": 403
+	},
+	{
+		"Name" : "Xiaomi Redmi Note 8 Pro",
+		"Width" : 1080,
+		"Height" : 2340,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 395
+	},
+	{
+		"Name" : "Xiaomi Redmi Note 8",
+		"Width" : 1080,
+		"Height" : 2340,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 409
+	},
+	{
+		"Name" : "Xiaomi Redmi Note 4/4X",
+		"Width" : 1080,
+		"Height" : 1920,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 401
+	},
+	{
+		"Name" : "Xiaomi Mi 10/10 Pro",
+		"Width" : 1080,
+		"Height" : 2340,
+		"PixelsPerPoint": 2.5,
+		"PhysicalPixelsPerInch": 386
+	},
+	{
+		"Name" : "Xiaomi Redmi 9",
+		"Width" : 720,
+		"Height" : 1600,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 266
+	},
+	{
+		"Name" : "Chromebook 11",
+		"Width" : 1366,
+		"Height" : 768,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 135,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Chromebook Pixel",
+		"Width" : 2560,
+		"Height" : 1700,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 239,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Chromebook 30",
+		"Width" : 2560,
+		"Height" : 1600,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 101,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "iMac 27",
+		"Width" : 2560,
+		"Height" : 1440,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 109,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "iMac 5K",
+		"Width" : 5120,
+		"Height" : 2880,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 218,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "MacBook 12",
+		"Width" : 2304,
+		"Height" : 1440,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 226,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "MacBook Air 11",
+		"Width" : 1366,
+		"Height" : 768,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 135,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "MacBook Air 13",
+		"Width" : 1440,
+		"Height" : 900,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 128,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "MacBook Pro 13",
+		"Width" : 2560,
+		"Height" : 1600,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 227,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "MacBook Pro 15",
+		"Width" : 2880,
+		"Height" : 1800,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 221,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Surface 1",
+		"Width" : 1366,
+		"Height" : 768,
+		"PixelsPerPoint": 1,
+		"PhysicalPixelsPerInch": 148,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Surface 2/Pro",
+		"Width" : 1920,
+		"Height" : 1080,
+		"PixelsPerPoint": 1.5,
+		"PhysicalPixelsPerInch": 208,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Surface 3",
+		"Width" : 1920,
+		"Height" : 1080,
+		"PixelsPerPoint": 1.5,
+		"PhysicalPixelsPerInch": 204,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Surface Book",
+		"Width" : 3000,
+		"Height" : 2000,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 267,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Surface Pro 3",
+		"Width" : 2160,
+		"Height" : 1440,
+		"PixelsPerPoint": 1.5,
+		"PhysicalPixelsPerInch": 216,
+		"DefaultOrientation": "Landscape"
+	},
+	{
+		"Name" : "Surface Pro 4",
+		"Width" : 2736,
+		"Height" : 1824,
+		"PixelsPerPoint": 2,
+		"PhysicalPixelsPerInch": 265,
+		"DefaultOrientation": "Landscape"
+	}
+]
