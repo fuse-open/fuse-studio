@@ -3,16 +3,16 @@
   <img src="https://github.com/fuse-x/studio/raw/master/img/logo.png" width="216" alt="Fuse X" />
 </picture></p>
 
-<p align="center"><a href="https://ci.appveyor.com/project/fusetools/uno/branch/master"><img src="https://img.shields.io/appveyor/ci/fusetools/uno/master.svg?logo=appveyor&logoColor=silver&style=flat-square" alt="AppVeyor build status"></a>
+<p align="center"><a href="https://ci.appveyor.com/project/fusetools/fuse-studio/branch/master"><img src="https://img.shields.io/appveyor/ci/fusetools/fuse-studio/master.svg?logo=appveyor&logoColor=silver&style=flat-square" alt="AppVeyor build status"></a>
 <img src="https://img.shields.io/badge/target%20os-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-7F5AB6?style=flat-square&amp;logo=android&amp;logoColor=silver" alt="Target platforms">
 <img src="https://img.shields.io/badge/host%20os-macOS%20%7C%20Windows-7F5AB6?logo=apple&amp;style=flat-square" alt="Host platforms">
 </p>
 
 <p align="center"><a href="https://github.com/fuse-x/studio/releases"><img src="https://img.shields.io/github/v/release/fuse-x/studio?include_prereleases&amp;logo=github&amp;label=latest&amp;sort=semver&amp;style=flat-square" alt="Latest version"></a>
 <a href="https://github.com/fuse-x/studio/releases"><img src="https://img.shields.io/github/downloads/fuse-x/studio/total?logo=github&amp;color=blue&amp;style=flat-square" alt="Downloads"></a>
-<a href="LICENSE.txt"><img src="https://img.shields.io/github/license/fuse-open/uno.svg?logo=github&amp;style=flat-square" alt="License: MIT"></a>
+<a href="LICENSE.txt"><img src="https://img.shields.io/github/license/fuse-open/fuse-studio.svg?logo=github&amp;style=flat-square" alt="License: MIT"></a>
 <a href="https://fusecommunity.slack.com/"><img src="https://img.shields.io/badge/chat-on%20slack-blue.svg?logo=slack&amp;style=flat-square" alt="Slack"></a>
-<a href="[LICENSE.txt](https://opencollective.com/fuse-open)"><img src="https://opencollective.com/fuse-open/all/badge.svg?label=financial+contributors&amp;style=flat-square" alt="Financial Contributors on Open Collective"></a></p>
+<a href="https://opencollective.com/fuse-open"><img src="https://opencollective.com/fuse-open/all/badge.svg?label=financial+contributors&amp;style=flat-square" alt="Financial Contributors on Open Collective"></a></p>
 
 <p align="center"><img src="https://github.com/fuse-x/studio/blob/master/img/screenshot.png?raw=true" width="744" alt="Fuse X" /></p>
 
